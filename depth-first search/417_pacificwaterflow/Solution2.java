@@ -59,11 +59,11 @@ import java.util.regex.*;
 //    scanner.nextLine();
 // }
 
-public class Solution1 {
+public class Solution2 {
 
   int[][] direction = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
   
-  private void dfs(int[][] matrix, boolean[][] visited, int x, int y) {
+  private void dfs(int x, int y, int[][] matrix, boolean[][] visited) {
 
       visited[x][y] = true;
 
@@ -73,7 +73,7 @@ public class Solution1 {
 
           if(nx >= 0 && ny >= 0 && nx < matrix.length && ny < matrix[nx].length ) {
               if(visited[nx][ny] == false && matrix[x][y] <= matrix[nx][ny]) {
-                  dfs(matrix, visited, nx, ny);
+                  dfs(nx, ny, matrix, visited);
               }
           }
       }
@@ -94,27 +94,32 @@ public class Solution1 {
       boolean[][] AC = new boolean[n][m];
       // check PC and AC from top to down direction.
       for(int i = 0; i < n; i++) {
-          /// PC first(left most) column.
-          dfs(matrix, PC, i, 0);
-          /// AC last(right most) clolumn.
-          // printString("[" + i + "][" + 0 + "]");      
-          // scannerIn();
-          dfs(matrix, AC, i, m - 1);
+        if( i == 0) {
+          /// PC first row is all true
+          Arrays.fill(PC[i], true);
+        }
+        if(i == n - 1) {
+          /// AC last row is all true
+          Arrays.fill(AC[i], true);
+        }
+
+        PC[i][0] = true;
+        AC[i][m - 1] = true;
       }
 
+      for(int i = 0; i < n; i++) {
+        /// PC first column
+        dfs(i, 0, matrix, PC);
+        /// AC last colmn.
+        dfs(n - 1 - i, m - 1, matrix, AC);
+      }
 
-
-      // check PC and AC from left to right direction.
       for(int i = 0; i < m; i++) {
-          /// PC first(top most) row.
-          dfs(matrix, PC,0, i);
-          /// AC first(bottom most) row.
-          dfs(matrix, AC, n - 1, i);
-      }        
-
-      printMatrix(PC);
-      printline();
-      printMatrix(AC);      
+        /// PC first row
+        dfs(0, i, matrix, PC);
+        /// AC last row
+        dfs(n - 1, m - 1 - i, matrix, AC);
+      }          
       
       for(int i = 0; i < n; i++) {
           for(int j = 0; j < m; j++) {
@@ -158,7 +163,7 @@ public class Solution1 {
         {5, 1, 1, 2, 4}
     };
 
-    Solution1 obj = new Solution1();
+    Solution2 obj = new Solution2();
     obj.pacificAtlantic(matrix);
   }
 

@@ -10,7 +10,7 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// private TreeNode createTree() {
+// private void createTree() {
 //  //       5
 //  //    2      7
 //  //  1   3      10
@@ -74,54 +74,37 @@ import java.util.regex.*;
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg + ","); 
 // } 
-// private void printArray(int[] list) {
-//     for(int n: list) {
-//         System.out.println(n);
-//     }
-// } 
-// private void printTree(TreeNode root) {
-//     if(root == null) { return ; }
-//     Queue<TreeNode> queue = new LinkedList<TreeNode>();
-//     queue.offer(root);
-//     while(!queue.isEmpty()) {
-//         int size = queue.size();
-//         for(int i = 0; i < size; i++) {
-//             TreeNode node = queue.poll();                
-//             if(node.left != null) {
-//                 queue.offer(node.left);
-//             }
-//             if(node.right != null) {
-//                 queue.offer(node.right);
-//             }                
-//             printStringWithoutNewLine("" + node.val);
-//         }
-//         printLine();
-//     }
-// } 
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public List<String> findItinerary(String[][] tickets) {
+        HashMap<String, PriorityQueue<String>> map = new HashMap<String, PriorityQueue<String>>();
+
+        for (String[] list: tickets) {
+            if(!map.containsKey(list[0])) {
+                map.put(list[0], new PriorityQueue<String>());
+            }          
+            map.get(list[0]).offer(list[1]);
         }
-        return w;
+
+        List<String> list = new ArrayList<String>();
+        dfs(map, list, "JFK");
+        return list;
     }	
+
+    private void dfs(HashMap<String, PriorityQueue<String>> map, List<String> list, String origin) {
+        PriorityQueue<String> destinationQueue = map.get(origin);
+        while(destinationQueue != null && destinationQueue.isEmpty() != true) {
+            String destination = destinationQueue.poll();
+
+            dfs(map, list, destination);
+        }
+        list.add(0, destination);
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
 	}
-
-    private void printString(String arg) {
-        System.out.println(arg); 
-    }    
 
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
@@ -131,8 +114,9 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+        /// [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]]
+        String[][] tickets = new String[][]{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
+		System.out.println(obj.findItinerary(tickets));
 	}
 
 }

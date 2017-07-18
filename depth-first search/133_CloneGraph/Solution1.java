@@ -99,21 +99,56 @@ import java.util.regex.*;
 //     }
 // } 
 
+class UndirectedGraphNode {
+    int label;
+    List<UndirectedGraphNode> neighbors;
+    UndirectedGraphNode(int x) { label = x; neighbors = new ArrayList<UndirectedGraphNode>(); }
+};
+
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    private Map<Integer, UndirectedGraphNode> map = new HashMap<Integer, UndirectedGraphNode>();
+
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {        
+        if (node == null) {
+            printString("line 114: node is null");
+            return null;
         }
-        return w;
-    }	
+        printString("line 117: node " + node.label);
+        if(map.containsKey(node.label) == true) {
+            printString("line 119: printMap");
+            printMap(map);
+            return map.get(node.label);
+        }
+        
+        UndirectedGraphNode cloneNode = new UndirectedGraphNode(node.label);
+        
+        map.put(node.label, cloneNode);
+        printString("line 127: printMap");
+        printMap(map);        
+        for (UndirectedGraphNode neighbor: node.neighbors) {
+            printString("line 130: node " + node.label + "'s neighbor node " + neighbor.label);
+            cloneNode.neighbors.add(cloneGraph(neighbor));
+        }
+        
+        return cloneNode;
+    }
+
+    public UndirectedGraphNode createGraph() {
+        UndirectedGraphNode node0 = new UndirectedGraphNode(0);
+        UndirectedGraphNode node1 = new UndirectedGraphNode(1);
+        UndirectedGraphNode node2 = new UndirectedGraphNode(2);
+        node0.neighbors = new ArrayList<UndirectedGraphNode>();
+        node1.neighbors = new ArrayList<UndirectedGraphNode>();
+        node2.neighbors = new ArrayList<UndirectedGraphNode>();
+
+        node0.neighbors.add(node1);
+        node0.neighbors.add(node2);
+
+        node1.neighbors.add(node2);
+        node2.neighbors.add(node2);
+        return node0;
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -127,12 +162,19 @@ public class Solution1 {
 		for(int i = 0; i < length; i ++ ){
 			System.out.println(list[i]);
 		}
-	}    
+	}  
+
+    private void printMap(Map<Integer, UndirectedGraphNode> map) {
+        for(Integer key:map.keySet()) {
+            UndirectedGraphNode node = map.get(key);
+            printString("key:" + key + ",value:" + node.label);
+        }
+    }      
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+        UndirectedGraphNode node = obj.createGraph();
+		System.out.println(obj.cloneGraph(node));
 	}
 
 }

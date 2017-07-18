@@ -10,7 +10,7 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// private TreeNode createTree() {
+// private void createTree() {
 //  //       5
 //  //    2      7
 //  //  1   3      10
@@ -64,64 +64,45 @@ import java.util.regex.*;
 // private void printLine() {
 //     System.out.println("---------------------"); 
 // }  
-// 
-// private void printMap(HashMap<TreeNode, Integer> map) {
-//     for(TreeNode node:map.keySet()) {
-//         Integer value = map.get(node);
-//         printString("key:" + node.val + ",value:" + value);
-//     }
-// }
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg + ","); 
-// } 
-// private void printArray(int[] list) {
-//     for(int n: list) {
-//         System.out.println(n);
-//     }
-// } 
-// private void printTree(TreeNode root) {
-//     if(root == null) { return ; }
-//     Queue<TreeNode> queue = new LinkedList<TreeNode>();
-//     queue.offer(root);
-//     while(!queue.isEmpty()) {
-//         int size = queue.size();
-//         for(int i = 0; i < size; i++) {
-//             TreeNode node = queue.poll();                
-//             if(node.left != null) {
-//                 queue.offer(node.left);
-//             }
-//             if(node.right != null) {
-//                 queue.offer(node.right);
-//             }                
-//             printStringWithoutNewLine("" + node.val);
-//         }
-//         printLine();
-//     }
-// } 
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public String decodeString(String s) {
+        List<String> list = new ArrayList<String>();
+        char [] array = s.toCharArray();
+        int start = 0;
+        int j = 0;
+        for(int i = 0; i < array.length; i++) {
+            if(array[i] == '[') {
+                j = i;
+                while (j < array.length) {
+                    if (array[j] == ']') {
+                        break;
+                    }
+                    j++;
+                }
+                String number = s.substring(start, i);
+                String subStr = s.substring(i+1, j);
+                list.add(number);
+                list.add(subStr); 
+                start = j + 1;                
             }
+           
         }
-        return w;
+
+        printList(list);
+        return "";
     }	
+
+    private void printList(List<String> list) {
+        for(String s: list) {
+            System.out.println(s);
+        }
+    }    
 
     private void printLine() {
     	System.out.println("---------------------"); 
 	}
-
-    private void printString(String arg) {
-        System.out.println(arg); 
-    }    
 
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
@@ -131,8 +112,7 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		System.out.println(obj.decodeString("3[a]2[bc]"));
 	}
 
 }

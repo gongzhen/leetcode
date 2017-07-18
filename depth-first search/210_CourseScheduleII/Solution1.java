@@ -101,19 +101,80 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = new ArrayList<List<Integer>>();
+        for(int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<Integer>());
+        }
+
+        for (int[] list : prerequisites) {
+            graph.get(list[1]).add(list[0]);
+        }
+        
+        printListOfList(graph);
+
+        int[] visited = new int[numCourses];
+        List<Integer> result = new ArrayList<Integer>();
+
+        for (int i = 0; i < numCourses; i++) {
+            if (dfs(graph, result, visited, i) == false) {
+                return new int[0];
             }
         }
-        return w;
+
+        int[] resultArray = new int[result.size()];
+
+        int i = 0;
+        for(int n : result) {
+            resultArray[i++] = n;
+        }
+
+        return resultArray;
     }	
+
+    private boolean dfs(List<List<Integer>> graph, List<Integer> result, int[] visited, int index) {
+        printString("line 136: index:" + index);
+        printString("line 137: visited[" + index + "]:" + visited[index]);
+        if (visited[index] == 1) { // 1 means visited.
+            return false;
+        }
+
+        if(visited[index] == -1) { /// -1 means added the number to result.
+            return true;
+        }
+
+        visited[index] = 1; // added the number to result list.
+
+        List<Integer> list = graph.get(index);
+        printList(list);
+        printLine();
+        for(int course: list) {
+            printString("line 152: course:" + course);
+            if(dfs(graph, result, visited, course) == false) {
+                return false;
+            }
+        }
+
+        visited[index] = -1; // visited
+
+        result.add(0, index);
+        printString("line 161:");
+        printList(result);
+        printLine();
+        return true;
+    }
+
+    private void printListOfList(List<List<Integer>> listOflist) {
+        int i = 0;
+        for(List<Integer> list: listOflist){
+            System.out.print(i + ":");
+            for(int n : list) {
+                System.out.print(n + ", ");
+            }
+            System.out.println();
+            i++;
+        }
+    }    
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -121,18 +182,26 @@ public class Solution1 {
 
     private void printString(String arg) {
         System.out.println(arg); 
-    }    
+    } 
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    private void printList(List<Integer> list) {
+        for(int s: list) {
+            System.out.print(s + " ,");
+        }
+        System.out.println();
+    }       
+
+    private void printArray(int[] list) {
+        for(int n: list) {
+            System.out.println(n);
+        }
+    }    
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[][] matrix = new int[][]{{1,0},{2,0},{3,1},{3,2}};
+		int[] result = obj.findOrder(4, matrix);
+        obj.printArray(result);
 	}
 
 }

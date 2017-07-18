@@ -99,21 +99,37 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+public class Solution2 {
+
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result = new ArrayList<Integer>();
+        dfs(result, 0, root);
+        return result;
+    }
+
+    private void dfs(List<Integer> result, int level, TreeNode node) {
+        printString("line 118: level:" + level);
+        if(node == null) {
+            return;
         }
-        return w;
-    }	
+        printString("line 122: node:" + node.val);
+        printString("line 123: result.size():" + result.size());
+        if(result.size() == level) {
+            result.add(node.val);
+            printString("line126");
+            printList(result);            
+        }
+
+        dfs(result, level + 1, node.right);
+        dfs(result, level + 1, node.left);
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -123,16 +139,38 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    private void printList(List<Integer> list) {
+        for(Integer s: list) {
+            System.out.print(s + ", ");
+        }
+        System.out.println();
+    }
+
+    private TreeNode createTree() {
+        //       5
+        //    2      7
+        //  1   3      10
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node10 = new TreeNode(10);
+
+        node5.left = node2;
+        node5.right = node7;
+        node2.left = node1;
+        node2.right = node3;
+        node5.right = node7;
+        // node7.right = node10; 
+        return node5;
+    }       
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		Solution2 obj = new Solution2();
+        TreeNode root = obj.createTree();
+		List<Integer> result = obj.rightSideView(root);
+        obj.printList(result);
 	}
 
 }

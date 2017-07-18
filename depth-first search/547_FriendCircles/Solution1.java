@@ -10,7 +10,7 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// private TreeNode createTree() {
+// private void createTree() {
 //  //       5
 //  //    2      7
 //  //  1   3      10
@@ -78,50 +78,59 @@ import java.util.regex.*;
 //     for(int n: list) {
 //         System.out.println(n);
 //     }
-// } 
-// private void printTree(TreeNode root) {
-//     if(root == null) { return ; }
-//     Queue<TreeNode> queue = new LinkedList<TreeNode>();
-//     queue.offer(root);
-//     while(!queue.isEmpty()) {
-//         int size = queue.size();
-//         for(int i = 0; i < size; i++) {
-//             TreeNode node = queue.poll();                
-//             if(node.left != null) {
-//                 queue.offer(node.left);
-//             }
-//             if(node.right != null) {
-//                 queue.offer(node.right);
-//             }                
-//             printStringWithoutNewLine("" + node.val);
-//         }
-//         printLine();
-//     }
-// } 
+// }   
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int findCircleNum(int[][] M) {
+        boolean[] visited = new boolean[M.length];
+        int count = 0;
+        printMatrix(M);
+        for(int i = 0; i < M.length; i++) {
+            if(visited[i] == false) {
+                count++;
+                printString("line:91 visited[" + i + "], count = " + count);                
+                dfs(M, visited, i);
             }
         }
-        return w;
+        return count;
     }	
 
-    private void printLine() {
-    	System.out.println("---------------------"); 
-	}
+    private void dfs(int[][] M, boolean[] visited, int i) {
+        printString("line99:i[" + i + "]");          
+        for(int j = 0; j < M.length; j++) {
+            printString("line101:j[" + j + "]");          
+            if(M[i][j] == 1 && visited[j] == false) {
+                visited[j] = true;
+                printString("line105:visited[" + j + "] is true");          
+                dfs(M, visited, j);
+            }            
+        }
+        printLine();
+    }
 
     private void printString(String arg) {
         System.out.println(arg); 
     }    
+
+    private void printArray(int[] list) {
+        for(int n: list) {
+            System.out.println(n);
+        }
+    }
+
+    private void printMatrix(int[][] matrix) {
+        for(int[] s: matrix) {
+            for(int n: s) {
+                System.out.print(n + ",");
+            }
+            System.out.println();            
+        }
+    }          
+
+    private void printLine() {
+    	System.out.println("---------------------"); 
+	}
 
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
@@ -131,8 +140,8 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[][] matrix = new int[][]{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
+		System.out.println(obj.findCircleNum(matrix));
 	}
 
 }

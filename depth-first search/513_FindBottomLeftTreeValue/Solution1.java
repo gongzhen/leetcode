@@ -99,25 +99,75 @@ import java.util.regex.*;
 //     }
 // } 
 
+class TreeNode {
+	int val;
+	TreeNode left;
+	TreeNode right;
+	TreeNode(int x) { val = x; }
+}
+
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+
+    public int findBottomLeftValue(TreeNode root) {
+        if(root == null) {
+            return 0;
         }
-        return w;
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.offer(root);
+        int result = 0;
+        while(!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            result = node.val;
+            printString("line 122 node's value:" + node.val);
+            if(node.right != null) {
+            	printString("line 124 node's right value:" + node.right.val);
+                queue.offer(node.right);
+            }            
+            if(node.left != null) {
+            	printString("line 128 node's left value:" + node.left.val);
+                queue.offer(node.left);
+            }
+            printString("line:131");
+            printQueue(queue);
+            printLine();
+        }
+        return result;        
     }	
 
     private void printLine() {
     	System.out.println("---------------------"); 
 	}
+
+	private void printQueue(Queue<TreeNode> list) {
+		for(TreeNode s: list) {
+			System.out.print(s.val + ", ");
+		}
+		System.out.println();
+	} 	
+
+	private TreeNode createTree() {
+		//       5
+		//    2      7
+		//  1   3      10
+		TreeNode node5 = new TreeNode(5);
+		TreeNode node4 = new TreeNode(4);
+		TreeNode node3 = new TreeNode(3);
+		TreeNode node2 = new TreeNode(2);
+		TreeNode node1 = new TreeNode(1);
+		TreeNode node6 = new TreeNode(6);
+		TreeNode node7 = new TreeNode(7);
+		TreeNode node10 = new TreeNode(10);
+
+		node1.left = node2;
+		node1.right = node3;
+		node2.left = node4;
+		node3.right = node6;
+		node3.left = node5;
+		node5.left = node7; 
+		node5.right = node10; 
+		return node1;
+	}	
 
     private void printString(String arg) {
         System.out.println(arg); 
@@ -131,8 +181,8 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		TreeNode root = obj.createTree();
+		System.out.println(obj.findBottomLeftValue(root));
 	}
 
 }
