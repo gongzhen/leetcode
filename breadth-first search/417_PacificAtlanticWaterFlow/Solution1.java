@@ -105,11 +105,62 @@ public class Solution1 {
         List<int[]> result = new ArrayList<int[]>();
         int m = matrix.length;
         int n = matrix[0].length;
+        Queue<int[]> pQueue = new LinkedList<int[]>();
+        Queue<int[]> aQueue = new LinkedList<int[]>();
         boolean[][] PC = new boolean[m][n];
         boolean[][] AT = new boolean[m][n];
+        // first and last colm from 0 to n
         for(int i = 0; i < m; i++) {
-            if(i == 0) {
-                PC[]
+            PC[i][0] = true; // PC first column
+            AT[i][n - 1] = true;
+            pQueue.offer(new int[]{i, 0});
+            aQueue.offer(new int[]{i, n - 1});            
+        }    
+
+        // first row and last row from 0 to m
+        for(int i = 0; i < n; i++) {
+            PC[0][i] = true;            
+            AT[m - 1][i] = true;
+            pQueue.offer(new int[]{0, i});
+            aQueue.offer(new int[]{m - 1, i});
+        }
+
+        bfs(matrix, pQueue, PC);
+        bfs(matrix, aQueue, AT);
+
+        printMatrix(PC);
+        printLine();        
+        printMatrix(AT);
+
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j ++) {
+                if(PC[i][j] == true && AT[i][j] == true) {
+                    result.add(new int[]{i, j});
+                }
+            }
+        }
+
+        printList(result);
+
+        return result;
+    }
+
+    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+
+    private void bfs(int[][] matrix, Queue<int[]> queue, boolean[][] visited) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        while(!queue.isEmpty()) {
+            int[] xAndY = queue.poll();
+            int x = xAndY[0];
+            int y = xAndY[1];
+            for(int[] dir : direction) {
+                int nX = x + dir[0];
+                int nY = y + dir[0];
+                if(nX >= 0 && nX < m && nY >= 0 && nY < n && visited[nX][nY] == false && matrix[x][y] < matrix[nX][nY]) {
+                    queue.offer(new int[] {nX, nY});
+                    visited[nX][nY] = true;
+                }
             }
         }
     }
@@ -122,11 +173,20 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    private void printList(List<int[]> list) {
+        for(int[] array: list) {
+            printString("[" + array[0] + "][" + array[1] + "]");
+        }
+    }  
+
+    private void printMatrix(boolean[][] matrix) {
+        for(boolean[] s: matrix) {
+            for(boolean n: s) {
+                System.out.print(n + ",");
+            }
+            System.out.println();            
+        }
+    }       
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
