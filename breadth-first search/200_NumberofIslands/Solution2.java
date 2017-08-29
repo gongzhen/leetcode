@@ -99,7 +99,7 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class Solution2 {
 
     // http://www.cnblogs.com/yrbbest/p/4491674.html
     public int numIslands(char[][] grid) {
@@ -108,13 +108,11 @@ public class Solution1 {
         }
         int m = grid.length;
         int n = grid[0].length;
-        boolean[][] visited = new boolean[m][n];
         int count = 0;
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
-                if(grid[i][j] == '1' && visited[i][j] == false) {
-                    
-                    bfs(grid, i, j, visited);
+                if(grid[i][j] == '1') {                    
+                    bfs(grid, i, j);
                     count++;                                        
                 }
             }
@@ -124,38 +122,32 @@ public class Solution1 {
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
-    private void bfs(char[][] matrix, int i, int j, boolean[][] visited) {
+    private void bfs(char[][] matrix, int i, int j) {
         int m = matrix.length;
         int n = matrix[0].length;
         Queue<int[]> queue = new LinkedList<int[]>();
         queue.offer(new int[]{i, j});
-        while(!queue.isEmpty()) {
-            printString("print queue:");
-            printQueue(queue);         
-            printString("print queue end.");            
+        while(!queue.isEmpty()) {      
             int[] xAndY = queue.poll();
             int x = xAndY[0];
             int y = xAndY[1];
-            printString("[x:" + x + "][y:" + y + "]:" + matrix[x][y]);
-            if(visited[x][y] == true) {
-                printString("visited:[x:" + x + "][y:" + y + "]:" + visited[x][y]);
+            if(matrix[x][y] == '0') {
                 continue;
             }
-            visited[x][y] = true;            
-            if(x - 1 > 0 && matrix[x - 1][y] == '1' && visited[x - 1][y] == false) {
+            matrix[x][y] = '0';
+            if(x - 1 > 0 && matrix[x - 1][y] == '1') {
                 queue.offer(new int[]{x - 1, y});
             }
-            if(x + 1 < m && matrix[x + 1][y] == '1' && visited[x + 1][y] == false) {
+            if(x + 1 < m && matrix[x + 1][y] == '1') {
                 queue.offer(new int[]{x + 1, y});         
             }
-            if(y - 1 > 0 && matrix[x][y - 1] == '1' && visited[x][ y - 1] == false) {
+            if(y - 1 > 0 && matrix[x][y - 1] == '1') {
                 queue.offer(new int[]{x, y - 1});         
             }
-            if(y + 1 < n && matrix[x][y + 1] == '1' && visited[x][y + 1] == false) {
+            if(y + 1 < n && matrix[x][y + 1] == '1') {
                 queue.offer(new int[]{x, y + 1});        
             } 
-        }
-        printLine();        
+        }   
     }
 
     private void printLine() {
@@ -188,7 +180,7 @@ public class Solution1 {
     }       
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		Solution2 obj = new Solution2();
 		char[][] matrix = new char[][]{{'1','1','1','1','0'},{'1','1','0','0','0'},{'0','0','1','0','0'},{'0','0','0','1','1'}};
 		obj.printMatrix(matrix);
         System.out.println(obj.numIslands(matrix));
