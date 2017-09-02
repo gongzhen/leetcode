@@ -93,8 +93,8 @@ class Node {
     int count;
 
     Node(double sum, int count) {
-        sum = sum;
-        count = count;
+        this.sum = sum;
+        this.count = count;
     }
 }
 
@@ -107,7 +107,7 @@ public class Solution1 {
         List<Double> result = new ArrayList<>();
         for(Node _node : list) {
             printString(_node.sum + ", " + _node.count);
-            result.add((_node.sum / (double)_node.count));
+            result.add((_node.sum / _node.count));
         }
         return result;
     }
@@ -139,7 +139,7 @@ public class Solution1 {
 
 
         if(level == list.size()) {
-            printString("line 141:" + node.val);            
+            printString("line 141:" + (double)node.val);            
             Node _node = new Node((double)node.val, 1);
             printString(_node.sum + "=>" + _node.count);
             list.add(_node);
