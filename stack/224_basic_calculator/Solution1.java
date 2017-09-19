@@ -79,12 +79,6 @@ import java.util.regex.*;
 //         System.out.println(n);
 //     }
 // } 
-// private void printStack(Stack<Integer> stack) {
-//     Interator<Integer> iter = stack.iterator();
-//     while(iter.hasNext()) {
-//         printString("" + iter.next());
-//     }
-// }
 // private void printTree(TreeNode root) {
 //     if(root == null) { return ; }
 //     Queue<TreeNode> queue = new LinkedList<TreeNode>();
