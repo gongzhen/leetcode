@@ -57,9 +57,11 @@ import java.util.regex.*;
 
 class TreeNode {
     int val;
+    String str;
     TreeNode left;
     TreeNode right;
     TreeNode(int x) { val = x; }
+    TreeNode(String str) { str = str; }
 }
 
 public class Solution1 {
@@ -67,15 +69,19 @@ public class Solution1 {
     public int pathSum(TreeNode root, int sum) {
         if(root == null)
             return 0;
-        return findPath(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
+        return findPath(root, sum) ;
     }
     
     public int findPath(TreeNode root, int sum){
         int res = 0;
-        if(root == null)
+        if(root == null) {
             return res;
-        if(sum == root.val)
+        }
+        if(sum == root.val) {
+            printString("sum:" + sum + " == " + root.val);
             res++;
+        }
+
         res += findPath(root.left, sum - root.val);
         res += findPath(root.right, sum - root.val);
         return res;
@@ -100,7 +106,7 @@ public class Solution1 {
         node10.right = nodeN3;
         node5.left = node3;
         node5.right = node2;
-        node3.left = node31;
+        node3.left = node51;
         node3.right = nodeN2;
         nodeN3.right = node11; 
         return node10;
@@ -116,10 +122,10 @@ public class Solution1 {
                 TreeNode node = queue.poll();                
                 if(node.left != null) {
                     queue.offer(node.left);
-                }
+                } 
                 if(node.right != null) {
                     queue.offer(node.right);
-                }                
+                }             
                 printStringWithoutNewLine("" + node.val);
             }
             printLine();
