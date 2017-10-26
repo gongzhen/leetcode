@@ -38,11 +38,6 @@ import java.util.regex.*;
 //      System.out.println(s);
 //  }
 // } 
-// private void enterKey() {
-//     System.out.println("Press \"ENTER\" to continue...");
-//     Scanner scanner = new Scanner(System.in);
-//     scanner.nextLine();      
-// }
 // private void printListOfList(List<List<Integer>> listOflist) {
 //  for(List<Integer> list: listOflist){
 //      for(int n : list) {
@@ -84,12 +79,6 @@ import java.util.regex.*;
 //         System.out.println(n);
 //     }
 // } 
-// private void printStack(Stack<Integer> stack) {
-//     Interator<Integer> iter = stack.iterator();
-//     while(iter.hasNext()) {
-//         printString("" + iter.next());
-//     }
-// }
 // private void printTree(TreeNode root) {
 //     if(root == null) { return ; }
 //     Queue<TreeNode> queue = new LinkedList<TreeNode>();
@@ -112,21 +101,56 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int calculate(String s) {
+        int len;
+        if(s==null || (len = s.length())==0) return 0;
+        Stack<Integer> stack = new Stack<Integer>();
+        int num = 0;
+        char sign = '+';
+        for(int i=0;i<len;i++){
+            printString("i:" + i);
+            if(Character.isDigit(s.charAt(i))){
+                num = num*10+s.charAt(i)-'0';
             }
+            if((!Character.isDigit(s.charAt(i)) &&' '!=s.charAt(i)) || i==len-1){
+                if(sign=='-'){
+                    printString("-num:" + (-num));
+                    stack.push(-num);
+                }
+                if(sign=='+'){                     
+                    stack.push(num);
+                }
+                if(sign=='*'){
+                    printString("stack.top:" + stack.peek() + " * " + num);
+                    stack.push(stack.pop()*num);
+                }
+                if(sign=='/'){
+                    stack.push(stack.pop()/num);
+                }
+                sign = s.charAt(i);
+                num = 0;
+            }
+            printStack(stack);
+            printString("num:" + num);
+            printString("sign:" + sign);
+            printLine();             
         }
-        return w;
-    }	
 
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        int re = 0;
+        for(int i:stack){
+            re += i;
+        }
+        return re;
+    }
+
+    private void printStack(Stack<Integer> stack) {
+        printString("stack[:");
+        Iterator<Integer> iter = stack.iterator();
+        while(iter.hasNext()) {
+            printString("" + iter.next());
+        }
+        printString("]stack");
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -136,16 +160,9 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
-
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		System.out.println(obj.calculate("4-3*2"));
 	}
 
 }

@@ -38,11 +38,6 @@ import java.util.regex.*;
 //      System.out.println(s);
 //  }
 // } 
-// private void enterKey() {
-//     System.out.println("Press \"ENTER\" to continue...");
-//     Scanner scanner = new Scanner(System.in);
-//     scanner.nextLine();      
-// }
 // private void printListOfList(List<List<Integer>> listOflist) {
 //  for(List<Integer> list: listOflist){
 //      for(int n : list) {
@@ -84,12 +79,6 @@ import java.util.regex.*;
 //         System.out.println(n);
 //     }
 // } 
-// private void printStack(Stack<Integer> stack) {
-//     Interator<Integer> iter = stack.iterator();
-//     while(iter.hasNext()) {
-//         printString("" + iter.next());
-//     }
-// }
 // private void printTree(TreeNode root) {
 //     if(root == null) { return ; }
 //     Queue<TreeNode> queue = new LinkedList<TreeNode>();

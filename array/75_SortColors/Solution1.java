@@ -38,11 +38,6 @@ import java.util.regex.*;
 //      System.out.println(s);
 //  }
 // } 
-// private void enterKey() {
-//     System.out.println("Press \"ENTER\" to continue...");
-//     Scanner scanner = new Scanner(System.in);
-//     scanner.nextLine();      
-// }
 // private void printListOfList(List<List<Integer>> listOflist) {
 //  for(List<Integer> list: listOflist){
 //      for(int n : list) {
@@ -112,18 +107,29 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public void sortColors(int[] A) {
+        if(A == null || A.length == 0)
+            return;
+        int index = 0, left = 0 , right = A.length - 1;
+        
+        while(index <= right){
+            if(A[index] == 0){
+                swap(A, index++, left ++);
+            } 
+            else if (A[index] == 1) {
+                index ++;
             }
-        }
-        return w;
+            else {
+                swap(A, index, right--);
+            }             
+        }        
+    }
+    
+    private void swap(int[] A, int m , int n){
+        printString("m:" + m + ", n:" + n);
+        int temp = A[m];
+        A[m] = A[n];
+        A[n] = temp;
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -144,8 +150,9 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{2, 0, 2, 1, 2, 1, 0};
+		obj.sortColors(list);
+        obj.printList(list, list.length);
 	}
 
 }

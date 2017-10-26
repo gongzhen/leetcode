@@ -38,11 +38,6 @@ import java.util.regex.*;
 //      System.out.println(s);
 //  }
 // } 
-// private void enterKey() {
-//     System.out.println("Press \"ENTER\" to continue...");
-//     Scanner scanner = new Scanner(System.in);
-//     scanner.nextLine();      
-// }
 // private void printListOfList(List<List<Integer>> listOflist) {
 //  for(List<Integer> list: listOflist){
 //      for(int n : list) {
@@ -112,19 +107,38 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> res = new ArrayList<Integer>();
+        
+        if(s.length() == 0 || p.length() == 0 || s.length() < p.length()) {
+            return res;
+        }
+        
+        int[] map = new int[256];
+        for(char c: p.toCharArray()) {
+            map[c - 'A']++;
+        }
+        
+        int right = 0, left = 0;
+        int ctn = p.length();
+        while(right < s.length()) {
+            printString("line:125=>" + s.charAt(right) + ":=>" + map[s.charAt(right) - 'A']);
+            if(map[s.charAt(right++) - 'A']-- >= 1) {
+                printString("line:127=>" + s.charAt(right) + ":=>" + map[s.charAt(right) - 'A']);
+                --ctn;
+                printString("line:129 R=>" + right + ", ctn=>:" + ctn);
+            }
+            printString("line:131 R=>" + right + ", ctn=>:" + ctn);
+            if(ctn == 0) {
+                res.add(left);
+            }
+            if(right - left == p.length() && map[s.charAt(left++) - 'A']++ >= 0) {
+                ++ctn;
+                printString("line:137 R=>" + right + " left =>" + left +", ctn=>:" + ctn);
             }
         }
-        return w;
-    }	
+        return res;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -144,8 +158,7 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		System.out.println(obj.findAnagrams("cbeababacd", "abc"));
 	}
 
 }
