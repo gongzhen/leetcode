@@ -84,12 +84,6 @@ import java.util.regex.*;
 //         System.out.println(n);
 //     }
 // } 
-// private void printStack(Stack<Integer> stack) {
-//     Interator<Integer> iter = stack.iterator();
-//     while(iter.hasNext()) {
-//         printString("" + iter.next());
-//     }
-// }
 // private void printTree(TreeNode root) {
 //     if(root == null) { return ; }
 //     Queue<TreeNode> queue = new LinkedList<TreeNode>();
@@ -112,21 +106,24 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int majorityElement(int[] nums) {
+        
+        int voting = 1;
+        int majority = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (majority == nums[i]) {
+                voting ++;
+            } else {
+                voting --;
+                if (voting == 0) {
+                    majority = nums[i]; 
+                    voting++;
+                }
             }
         }
-        return w;
-    }	
-
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        return majority;
+        
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -144,8 +141,8 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{1, 1, 1, 2, 3, 1};
+		System.out.println(obj.majorityElement(list));
 	}
 
 }
