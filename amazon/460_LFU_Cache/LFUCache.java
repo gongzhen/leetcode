@@ -117,11 +117,11 @@ public class LFUCache {
         int key;
         int value;
         int freq;
-        ListIterator<Integer> itr;
+        Iterator<Integer> itr;
 
-        public Node(int key, int value, int freq, ListIterator<Integer> itr) {
+        public Node(int key, int value, int freq, Iterator<Integer> itr) {
             this.key = key;
-            this.value = val;
+            this.value = value;
             this.freq = freq;
             this.itr = itr;
         }
@@ -136,7 +136,7 @@ public class LFUCache {
         this.capacity = capacity;
         this.minFreq = 0;
         this.map = new HashMap<Integer, Node>();
-        this.listMap = new HashMap<Integer, Integer>();
+        this.listMap = new HashMap<Integer, List<Integer>>();
     }
     
     public int get(int key) {
@@ -150,7 +150,37 @@ public class LFUCache {
     }
     
     public void put(int key, int value) {
-        
+        if(this.capacity == 0) {
+            return;
+        }
+
+        if(this.map.containsKey(key) == true) {
+            Node node = this.map.get(key);
+            node.value = value;
+            touch(node);
+            return;
+        }
+
+        if(this.capacity == this.map.size()) {
+            List<Integer> list = this.listMap.get(minFreq);
+            int keyRemoved = list.get(list.size() - 1);
+            printString("keyRemoved:" + keyRemoved);
+            list.remove(list.size() - 1);
+            this.map.remove(keyRemoved);
+        }
+
+        final int freq = 1;
+        this.minFreq = freq;
+        if(this.listMap.containsKey(freq) == true) {
+            this.listMap.get(freq).add(0, key);
+        } else {
+            List<Integer> newList = new ArrayList<Integer>();
+            newList.add(key);
+            this.listMap.put(freq, newList);
+        }
+
+        // printString("node.key:" + key + ", itr:" + this.listMap.get(freq).iterator());
+        this.map.put(key, new Node(key, value, freq, this.listMap.get(freq).iterator()));        
     }
 
     private void touch(Node node) {
@@ -160,11 +190,34 @@ public class LFUCache {
 
         final int prevFreq = node.freq;
         final int freq = ++(node.freq);
+        printString("193: node key:" + node.key + ", node.value:" + node.value);
 
         List<Integer> list = this.listMap.get(prevFreq);
-        
+        Iterator<Integer> it = list.iterator();
+        while(it.hasNext()) {  
+            int key = it.next();
+            printString("198 key:" + key);
+            if(key == node.key) {
+                it.remove();
+            }
+        }
+        // printLine();
+        // printListMap(this.listMap);
+        if(list.isEmpty() == true && prevFreq == minFreq) {
+            this.listMap.remove(prevFreq);
+            this.minFreq++;
+        }
 
+        if(this.listMap.containsKey(freq)) {
+            this.listMap.get(freq).add(0, node.key);
+        } else {
+            List<Integer> newList = new ArrayList<Integer>();
+            newList.add(node.key);
+            this.listMap.put(freq, newList);
+        }
+        node.itr = this.listMap.get(freq).iterator();        
     }
+
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -174,15 +227,55 @@ public class LFUCache {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    public void printMap() {
+        printMap(this.map);
+    }
+
+    private void printMap(Map<Integer, Node> map) {
+        for(int key : map.keySet()) {
+            Node node = map.get(key);
+            printString("237 key:" + node.key + ",value:" + node.value + ", freq:" + node.freq);
+            printString("238 itr: " + node.itr);
+        }
+    }  
+
+    public void printListMap() {
+        printListMap(this.listMap);
+    }
+
+    private void printListMap(Map<Integer, List<Integer>> map) {
+        for(int freq : map.keySet()) {
+            List<Integer> list = map.get(freq);
+            printString("249 freq: " + freq);
+            printList(list);
+        }
+    }
+    private void printList(List<Integer> list) {
+        for(int s: list) {
+            printString("key:" + s);
+        }
+        printLine();
+    }   
 
 	public static void main(String[] args) {
-
-
+        LFUCache obj = new LFUCache(2);
+        obj.put(1, 2);
+        // map:(1: 2)
+        // listMap(1: [1]);        
+        obj.put(3, 4);
+        // map:(1: 2, 3: 4)
+        // listMap(1: [3, 1]);                
+        obj.put(5, 6);
+        // map:(3: 4, 5: 6)
+        // listMap(1: [5, 3]);                
+        obj.printLine();
+        obj.printMap();
+        obj.printLine();
+        obj.printListMap();
+        obj.printLine();
+        obj.get(3);
+        obj.printLine();
+        obj.printListMap();
 	}
 
 }

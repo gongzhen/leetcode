@@ -10,14 +10,6 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// class ListNode {
-//     int val;
-//     ListNode next;
-//     ListNode(int x) {
-//         val = x;
-//         next = null;
-//     }
-// }
 // private TreeNode createTree() {
 //  //       5
 //  //    2      7
@@ -87,11 +79,7 @@ import java.util.regex.*;
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg + ","); 
 // } 
-// private void printArray(int[] list) {
-//     for(int n: list) {
-//         System.out.println(n);
-//     }
-// } 
+
 // private void printStack(Stack<Integer> stack) {
 //     Interator<Integer> iter = stack.iterator();
 //     while(iter.hasNext()) {
@@ -120,21 +108,29 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length == 0) {
+            return new int[0];
+        }
+
+        int[] res = new int[nums.length - k + 1];
+        LinkedList<Integer> deque = new LinkedList<Integer>();
+        for(int i = 0; i < nums.length; i++) {
+            if(!deque.isEmpty() && deque.peekFirst() == i - k) {
+                deque.poll();
+            }
+
+            while(!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
+                deque.removeLast();
+            }
+
+            deque.offerLast(i);
+            if(i - k + 1 >= 0) {
+                res[i - k + 1] = nums[deque.peek()];
             }
         }
-        return w;
-    }	
-
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        return res;
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -150,10 +146,17 @@ public class Solution1 {
 		}
 	}    
 
+    private void printArray(int[] list) {
+        for(int n: list) {
+            System.out.println(n);
+        }
+    }     
+
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{1,3,-1,-3,5,3,6,7};
+		int[] res = obj.maxSlidingWindow(list, 3);
+        obj.printArray(res);
 	}
 
 }

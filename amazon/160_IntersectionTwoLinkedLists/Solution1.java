@@ -10,14 +10,6 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// class ListNode {
-//     int val;
-//     ListNode next;
-//     ListNode(int x) {
-//         val = x;
-//         next = null;
-//     }
-// }
 // private TreeNode createTree() {
 //  //       5
 //  //    2      7
@@ -118,23 +110,66 @@ import java.util.regex.*;
 //     }
 // } 
 
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
-        }
-        return w;
-    }	
+    public ListNode node2;
+    public ListNode node3;
+    public Solution1() {
+        this.node2 = new ListNode(2);
+        this.node3 = new ListNode(3);
+        node2.next = node3;        
+    }
 
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if(headA == null || headB == null) {
+            return null;
+        }
+        ListNode ptr1 = headA;
+        int lenA = getLength(ptr1);
+        ListNode ptr2 = headB;
+        int lenB = getLength(ptr2);  
+        printString("lenA:" + lenA);
+        printString("lenB:" + lenB);
+        if(lenA < lenB) {
+            return getIntersectionNode(headB, headA);
+        }
+        
+        for(int i = 0; i < (lenA - lenB); i++) {
+            headA = headA.next;
+        }
+        printString("headA:" + headA);
+        while(headA != null && headB != null) {
+            if(headA == headB) {
+                return headA;
+            }
+            
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
+    }
+    
+    private int getLength(ListNode node) {
+        if(node == null) {
+            return 0;
+        }
+        
+        int len = 0;
+        while(node != null) {
+            len++;
+            node = node.next;
+        }
+        return len;
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -152,8 +187,10 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+        ListNode headA = obj.node3;
+        ListNode headB = obj.node2;
+        ListNode res = obj.getIntersectionNode(headA, headB);
+        obj.printString("res:" + res.val);
 	}
 
 }
