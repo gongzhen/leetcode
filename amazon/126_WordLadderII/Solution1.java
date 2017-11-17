@@ -131,6 +131,10 @@ public List<List<String>> findLadders(String beginWord, String endWord, List<Str
         for(String word : wordList) {
             wordSet.add(word);
         }
+       if(wordSet.contains(endWord) == false) {
+            return new ArrayList<List<String>>();
+        }
+        
         if(wordSet.contains(beginWord) == true) {
             wordSet.remove(beginWord);
         }
@@ -160,28 +164,29 @@ public List<List<String>> findLadders(String beginWord, String endWord, List<Str
                     for(char c = 'a'; c <= 'z'; c++) {
                         if(oldc != c) {
                             chars[j] = c;
-                            String newWord = new String(chars);
-                            // printString("line 162 newWord=" + newWord);
+                            String newWord = new String(chars);                            
                             if(newWord.equals(endWord)) {
-                                if(graph.containsKey(newWord) == true) {
-                                    graph.get(newWord).add(word);
+                                printString("line 165 newWord:" + newWord);
+                                if(graph.containsKey(word) == true) {
+                                    
+                                    graph.get(word).add(newWord);
                                 } else {
                                     List<String> list = new ArrayList<String>();
-                                    list.add(word);
-                                    graph.put(newWord, list);
+                                    list.add(newWord);
+                                    graph.put(word, list);
                                 }
                                 found = true;
                             } else {
                                 // handle 
                                 if(steps.containsKey(newWord) == true && step < steps.get(newWord)) {
                                     printString("line 177 newWord:" + newWord);
-                                    if(graph.containsKey(newWord) == true) {
-                                        graph.get(newWord).add(word);
+                                    if(graph.containsKey(word) == true) {
+                                        graph.get(word).add(newWord);
                                     } 
                                     else {
                                         List<String> list = new ArrayList<String>();
-                                        list.add(word);
-                                        graph.put(newWord, list);
+                                        list.add(newWord);
+                                        graph.put(word, list);
                                     }
                                 }
                             }
@@ -197,32 +202,31 @@ public List<List<String>> findLadders(String beginWord, String endWord, List<Str
                                 printStringWithoutNewLine("}\n");
                                 steps.put(newWord, steps.get(word) + 1); 
                                 
-                                if(graph.containsKey(newWord) == true) {
-                                    graph.get(newWord).add(word);
+                                if(graph.containsKey(word) == true) {
+                                    graph.get(word).add(newWord);
                                 } else {
                                     List<String> list = new ArrayList<String>();
-                                    list.add(word);
-                                    graph.put(newWord, list);
+                                    list.add(newWord);
+                                    graph.put(word, list);
                                 }                                
                             } 
                         }
                     }
                     chars[j] = oldc;
-                }                
+                }                               
                 printStringWithoutNewLine("graph 211:\n");
                 printMap(graph);
                 printStringWithoutNewLine("213:\n");
                 printLine(); 
                 printStringWithoutNewLine("steps 219:\n");   
                 printSteps(steps);
-                printStringWithoutNewLine("221:\n");
+                printStringWithoutNewLine("221.\n");
             }
         }
-        
 
         if(found == true) {
             List<String> current = new ArrayList<String>();
-            current.add(endWord);
+            current.add(beginWord);
             getPath(res, graph, beginWord, endWord, current);
         } 
         
@@ -230,14 +234,16 @@ public List<List<String>> findLadders(String beginWord, String endWord, List<Str
     }
 
     private void getPath(List<List<String>> res, Map<String, List<String>>graph, String beginWord, String endWord, List<String> current) {
-        if(endWord.equals(beginWord) == true) {
+        if(beginWord.equals(endWord) == true) {
             res.add(new ArrayList<String>(current));
             return;
         }
-        
-        for(String word: graph.get(endWord)) {
+        if(graph.containsKey(beginWord) == false) {
+            return;
+        }  
+        for(String word: graph.get(beginWord)) {    
             current.add(word);
-            getPath(res, graph, beginWord, word, current);
+            getPath(res, graph, word, endWord, current);
             current.remove(current.size() - 1);
         }
     }    
@@ -306,11 +312,26 @@ public List<List<String>> findLadders(String beginWord, String endWord, List<Str
   //       obj.printListOfList(res);
 
 
-        String[] wordArray2 = new String[]{"ted", "tex", "red", "tax", "tad", "den", "rex", "pee"};
-        List<String> wordList2 = Arrays.asList(wordArray2);
-        List<List<String>> res2 = obj.findLadders("red", "tax", wordList2);
-        obj.printListOfList(res2);
+        // String[] wordArray2 = new String[]{"ted", "tex", "red", "tax", "tad", "den", "rex", "pee"};
+        // List<String> wordList2 = Arrays.asList(wordArray2);
+        // List<List<String>> res2 = obj.findLadders("red", "tax", wordList2);
+        // obj.printListOfList(res2);
 
+        // String[] wordArray3 = new String[]{"a", "b", "c"};
+        // List<String> wordList3 = Arrays.asList(wordArray3);
+        // List<List<String>> res3 = obj.findLadders("a", "c", wordList3);
+        // obj.printListOfList(res3);
+
+
+        // String[] wordArray4 = new String[]{"hot","cog","dog","tot","hog","hop","pot","dot"};
+        // List<String> wordList4 = Arrays.asList(wordArray4);
+        // List<List<String>> res4 = obj.findLadders("hot", "dog", wordList4);
+        // obj.printListOfList(res4);        
+
+        String[] wordArray5 = new String[]{"hot","dot","dog","lot","log"};
+        List<String> wordList5 = Arrays.asList(wordArray5);
+        List<List<String>> res5 = obj.findLadders("hit", "cog", wordList5);
+        obj.printListOfList(res5);          
 	}
 
 }
