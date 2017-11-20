@@ -124,21 +124,83 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class Solution4 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public int findKthLargest(int[] nums, int k) {
+        return partition(nums, k - 1, 0, nums.length - 1);
+    }
+
+
+    private int partition(int[] arr, int k, int left, int right){
+        int pivot = arr[(left + right) / 2];
+        printStringWithoutNewLine("line 150 pivot:" + pivot + "\n");        
+        int orgL = left, orgR = right;
+        printStringWithoutNewLine("line 152\n");
+        printArray(arr, orgL, orgR);                              
+        while(left <= right){
+            // 从右向左找到第一个小于枢纽值的数
+            while(arr[left] > pivot){
+                left ++;
             }
+            // 从左向右找到第一个大于枢纽值的数
+            while(arr[right] < pivot){
+                right --;
+            }
+            // 将两个数互换
+            if(left <= right){                    
+                exch(arr, left, right);
+                printStringWithoutNewLine("line 166 exchange:\n");
+                printArray(arr, left, right);                 
+                left ++;
+                right --;                
+            }
+            printStringWithoutNewLine("line 171:\n");
+            printArray(arr, orgL, orgR);                 
         }
-        return w;
-    }	
+        printStringWithoutNewLine("line 174 exchange:\n");
+        printArray(arr, orgL, orgR);                                            
+
+        // 最后退出的情况应该是右指针在左指针左边一格
+        // 这时如果右指针还大于等于k，说明kth在左半边
+        printStringWithoutNewLine("line 179 orgL:" + orgL + ", left:" + left + ", right:" + right + ", orgR:" + orgR + ", k:" + k + "\n");
+        if(orgL < right && k <= right) {
+            printStringWithoutNewLine("line 180\n");
+            printLine();
+            return partition(arr, k, orgL, right);
+        }
+        // 这时如果左指针还小于等于k，说明kth在右半边
+        if(left < orgR && k >= left) {
+            printStringWithoutNewLine("line 187\n");
+            printLine();
+            return partition(arr, k, left, orgR);
+        }
+        return arr[k];
+    
+    }
+
+    private void exch(int[] a, int i, int j) {
+        final int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+
+    private boolean less(int v, int w) {
+        return v < w;
+    }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -150,6 +212,26 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
+    private void printArray(int[] list) {
+        printStringWithoutNewLine("[");
+        for(int n : list) {
+            printStringWithoutNewLine(n + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    }   
+
+    private void printArray(int[] list, int s, int e) {
+        printStringWithoutNewLine("[");
+        for(int i = s; i <= e; i++) {
+            printStringWithoutNewLine("[" + i + "]" + list[i] + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    }     
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }         
+
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
 			System.out.println(list[i]);
@@ -157,9 +239,11 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		Solution4 obj = new Solution4();
+		int[] list = new int[]{7, 1, 6, 4, 5, 2, 3};
+        obj.printString("k:" + obj.findKthLargest(list, 7));
+		// obj.quicksort(list, 0, list.length - 1);
+        // obj.printArray(list);
 	}
 
 }

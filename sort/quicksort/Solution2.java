@@ -124,21 +124,35 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class Solution2 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public void quicksort(char[] arr, int s, int e) {
+        if(s < e) {
+            int pivot = partition(arr, s, e);
+            quicksort(arr, s, pivot - 1);
+            quicksort(arr, pivot + 1, e);
+        }
+    }
+    
+    private int partition(char[] arr, int s, int e) {
+        
+        int j = s;
+        char pivot = arr[e];
+        for(int i = s; i < e; i++) {
+            if(arr[i] <= pivot) {
+                if(i != j) {
+                    char temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;                    
+                }
+                j++;
             }
         }
-        return w;
-    }	
+        char temp = arr[e];
+        arr[e] = arr[j];
+        arr[j] = temp;
+        return j;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -150,6 +164,19 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
+    private void printArray(char[] list) {
+        printStringWithoutNewLine("[");
+        for(char n : list) {
+            printStringWithoutNewLine(n + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    }   
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }         
+
+
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
 			System.out.println(list[i]);
@@ -157,9 +184,10 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		Solution2 obj = new Solution2();
+		char[] list = new char[]{'f', 'e', 'd', 'c', 'b', 'a'};
+		obj.quicksort(list, 0, list.length - 1);
+        obj.printArray(list);
 	}
 
 }

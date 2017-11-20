@@ -126,19 +126,69 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int findKthLargest(int[] nums, int k) {
+
+        k = nums.length - k;
+        int lo = 0;
+        int hi = nums.length - 1;
+        // final int j = partition(nums, lo, hi);
+        while (lo < hi) {
+            final int j = partition(nums, lo, hi);
+            printString("j:" + j + " --- k:" + k); 
+            if(j < k) {
+                lo = j + 1;
+            } else if (j > k) {
+                hi = j - 1;
+            } else {
+                break;
             }
+        }        
+        return nums[k];
+    }
+    
+    private int partition(int[] a, int lo, int hi) {
+        printStringWithoutNewLine("lo:" + lo + ", hi:" + hi + "\n");
+        printArray(a, lo, hi);        
+        int i = lo;
+        int j = hi + 1;
+
+        while(true) {
+            while(i < hi && less(a[++i], a[lo])) {
+                printString("i:" + i);    
+            };
+            
+            while(j > lo && less(a[lo], a[--j])) {
+                printString("j:" + j);      
+            }
+            printString("line 149 i:" + i);               
+            printString("line 150 j:" + j);
+            if(i >= j) {                
+                printArray(a, lo, hi);        
+                printString("break");
+                break;
+            }
+            exch(a, i, j);
+            printString("line 171");            
+            printArray(a, lo, hi);        
+            printLine();
         }
-        return w;
-    }	
+        printString("exchage");
+        exch(a, lo, j);
+        printArray(a, lo, hi);
+        printString("pivot ========>j:" + j + ", a[" + j + "]:" + a[j]);   
+        printLine();
+        return j;
+    }
+
+    private void exch(int[] a, int i, int j) {
+        final int tmp = a[i];
+        a[i] = a[j];
+        a[j] = tmp;
+    }
+
+    private boolean less(int v, int w) {
+        return v < w;
+    }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -150,6 +200,28 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
+    private void printArray(int[] list) {
+        printStringWithoutNewLine("[");
+        int i = 0;
+        for(int n : list) {
+            printStringWithoutNewLine("[" + i + "]" + n + ", ");
+            i++;
+        }
+        printStringWithoutNewLine("]\n");
+    }  
+
+    private void printArray(int[] list, int s, int e) {
+        printStringWithoutNewLine("[");
+        for(int i = s; i <= e; i++) {
+            printStringWithoutNewLine("[" + i + "]" + list[i] + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    } 
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }         
+
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
 			System.out.println(list[i]);
@@ -158,8 +230,10 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{5, 4, 3, 2, 1, 6};
+        obj.printString("k:" + obj.findKthLargest(list, 6));
+		// obj.quicksort(list, 0, list.length - 1);
+        // obj.printArray(list);
 	}
 
 }

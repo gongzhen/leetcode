@@ -88,15 +88,9 @@ import java.util.regex.*;
 //     System.out.print(arg + ","); 
 // } 
 // private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
 //     for(int n: list) {
-//         printStringWithoutNewLine(n + ", ");
+//         System.out.println(n);
 //     }
-//     printStringWithoutNewLine("]\n");
-// } 
-
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg); 
 // } 
 // private void printStack(Stack<Integer> stack) {
 //     Interator<Integer> iter = stack.iterator();
@@ -126,19 +120,48 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    int partition(int arr[], int low, int high) {
+        printArray(arr);
+        int pivot = arr[high];        
+        int i = low; // index of smaller element
+        for (int j=low; j<high; j++) {
+            // If current element is smaller than or
+            // equal to pivot
+            if (arr[j] <= pivot) {
+                // swap arr[i] and arr[j]                
+                if(i != j) {
+                    printString("arr[" + j + "]:" + arr[j] + ", arr[" + i + "]:" + arr[i]);                    
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;                        
+                }
+                i++;
             }
         }
-        return w;
-    }	
+
+        // swap arr[i+1] and arr[high] (or pivot)
+        int temp = arr[i];
+        arr[i] = arr[high];
+        arr[high] = temp;
+        printArray(arr, low, i - 1);
+        printString("pivot:" + pivot);
+        printArray(arr, i + 1, high);
+        printLine();
+        return i;
+    }
+
+    void sort(int arr[], int low, int high) {
+        if (low < high) {
+            /* pi is partitioning index, arr[pi] is 
+              now at right place */
+            int pi = partition(arr, low, high);
+ 
+            // Recursively sort elements before
+            // partition and after partition
+            sort(arr, low, pi-1);
+            sort(arr, pi+1, high);
+        }
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -146,9 +169,29 @@ public class Solution1 {
     	System.out.println("---------------------"); 
 	}
 
+    private void printArray(int[] list) {
+        printStringWithoutNewLine("[");
+        for(int n : list) {
+            printStringWithoutNewLine(n + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    } 
+
+    private void printArray(int[] list, int s, int e) {
+        printStringWithoutNewLine("[");
+        for(int i = s; i <= e; i++) {
+            printStringWithoutNewLine(list[i] + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    } 
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }         
+
     private void printString(String arg) {
         System.out.println(arg); 
-    }    
+    }   
 
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
@@ -158,8 +201,10 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{5, 4, 3, 2, 1, 6};
+        // obj.partition(list, 0, list.length - 1);
+		obj.sort(list, 0, list.length - 1);
+        obj.printArray(list);
 	}
 
 }
