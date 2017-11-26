@@ -94,25 +94,6 @@ import java.util.regex.*;
 //     }
 //     printStringWithoutNewLine("]\n");
 // } 
-// private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
-//     int i = 0;
-//     for(int n : list) {
-//         printStringWithoutNewLine("[" + i + "]" + n + ", ");
-//         i++;
-//     }
-//     printStringWithoutNewLine("]\n");
-// }  
-// private void printArray(int[] list, int s, int e) {
-//     printStringWithoutNewLine("[");
-//     for(int i = s; i <= e; i++) {
-//         printStringWithoutNewLine("[" + i + "]" + list[i] + ", ");
-//     }
-//     printStringWithoutNewLine("]\n");
-// } 
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg); 
-// }  
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg); 
 // } 
@@ -144,19 +125,95 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(nums.length == 0) {
+            return res;
+        }
+        
+        QuickSort(nums, 0, nums.length - 1);
+        printArray(nums, 0, nums.length - 1);
+        
+        for(int i = 0; i < nums.length; i++) {
+            if(i > 0 && nums[i - 1] == nums[i]) {
                 continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+            }
+            int target = -nums[i];
+            twoSum(nums, i + 1, nums.length - 1, target, res);
+        }
+        return res;
+    }
+    
+    private void twoSum(int[] nums, int start, int end, int target, List<List<Integer>> res) {
+        int i = start;
+        int j = end;
+        printString("target:" + target);
+        while(i < j) {
+            printString("nums[" + i + "]:" + nums[i] + " + nums[" + j + "]:" + nums[j] + " == " + target);
+            if(nums[i] + nums[j] == target ) {
+                List<Integer> list = new ArrayList<Integer>();
+                list.add(nums[start - 1]);
+                list.add(nums[i]);
+                list.add(nums[j]);
+                res.add(list);
+                i++;
+                j--;
+                while(i < j && nums[i] == nums[i - 1]) {
+                    i++;    
+                }                
+                while(j > i && nums[j] == nums[j + 1]) {
+                    j--;    
+                }                
+            } else if (nums[i] + nums[j] < target) {
+                i++;
+            } else if (nums[i] + nums[j] > target) {
+                j--;
             }
         }
-        return w;
-    }	
+    }
+    
+    private void QuickSort(int[] nums, int left, int right) {
+        int i = left; int j = right;
+        int pivot = nums[i + (j - i) / 2];
+        // int pivot = nums[i];
+        while(i <= j) {
+            while(nums[i] < pivot) {
+                i++;
+            }
+            while(nums[j] > pivot) {
+                j--;
+            }      
+            if(i <= j) {
+                swap(nums, i, j);
+                i++;
+                j--;
+            }
+        }
+        
+        if(left < j) {
+            QuickSort(nums, left, j);
+        }
+        if(i < right) {
+            QuickSort(nums, i, right);
+        }        
+    }
+
+    private void printArray(int[] list, int s, int e) {
+        printStringWithoutNewLine("[");
+        for(int i = s; i <= e; i++) {
+            printStringWithoutNewLine("[" + i + "]" + list[i] + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    } 
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }      
+    
+    private void swap(int[] nums, int left, int right) {
+        int temp = nums[left];
+        nums[left]= nums[right];
+        nums[right] = temp;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -176,8 +233,8 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{-2, 0, 1, 1, 2};
+		System.out.println(obj.threeSum(list));
 	}
 
 }

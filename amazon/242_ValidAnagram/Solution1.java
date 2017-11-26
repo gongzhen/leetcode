@@ -94,25 +94,7 @@ import java.util.regex.*;
 //     }
 //     printStringWithoutNewLine("]\n");
 // } 
-// private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
-//     int i = 0;
-//     for(int n : list) {
-//         printStringWithoutNewLine("[" + i + "]" + n + ", ");
-//         i++;
-//     }
-//     printStringWithoutNewLine("]\n");
-// }  
-// private void printArray(int[] list, int s, int e) {
-//     printStringWithoutNewLine("[");
-//     for(int i = s; i <= e; i++) {
-//         printStringWithoutNewLine("[" + i + "]" + list[i] + ", ");
-//     }
-//     printStringWithoutNewLine("]\n");
-// } 
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg); 
-// }  
+
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg); 
 // } 
@@ -144,19 +126,24 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public boolean isAnagram(String s, String t) {
+        if(s.length() != t.length()) {
+            return false;
+        }
+        int[] map = new int[64];
+        for(int i = 0; i < s.length(); i++) {
+            map[s.charAt(i) - 'a']++; 
+        }
+        
+        for(int j = 0; j < t.length(); j++) {
+            map[t.charAt(j) - 'a']--;
+            printString("map[" + j + "]:" + map[t.charAt(j) - 'a']);
+            if(map[t.charAt(j) - 'a'] < 0) {
+                return false;
             }
         }
-        return w;
-    }	
+        return true;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -176,8 +163,7 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		System.out.println(obj.isAnagram("a", "b"));
 	}
 
 }
