@@ -144,41 +144,49 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int myAtoi(String str) {
-       if(str.length() == 0) {
-            return 0;
+    static class Pair {
+        char key;
+        int value;
+        public Pair(char key, int value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
+
+    public String frequencySort(String s) {
+        if(s.length() == 0) {
+            return "";
+        }
+        Map<Character, Integer> map = new HashMap<Character, Integer>();
+        
+        char[] cs = s.toCharArray();
+        for(int i = 0; i < cs.length; i++) {
+            if(map.containsKey(cs[i])) {
+                int count = map.get(cs[i]);
+                map.put(cs[i], count+1);
+            } else {
+                map.put(cs[i], 1);
+            }
         }
         
-        char[] numbers = str.toCharArray();
-        int num = 0;
-        int BASE = 10;
-        int res = 0;        
-        char sign = '+';
-        int startIndex = 0;
-        while(numbers[startIndex] == ' ') {
-            printString("startIndex:" + startIndex);
-            startIndex++;
+        PriorityQueue<Pair> pq = new PriorityQueue<Pair>(map.size(), new Comparator<Pair>(){
+            public int compare(Pair p1, Pair p2) {
+                return p2.value - p1.value;
+            }
+        });
+                
+        for(Map.Entry<Character, Integer> entry: map.entrySet()) {
+            pq.offer(new Pair(entry.getKey(), entry.getValue()));
         }
         
-        if(numbers[startIndex] == '+' || numbers[startIndex] == '-') {
-            sign = numbers[startIndex];
-            startIndex++;
+        StringBuilder sb = new StringBuilder();
+        while(!pq.isEmpty()) {
+            Pair p = pq.poll();
+            for(int i = 0; i < p.value; i++) {
+                sb.append(p.key);
+            }
         }
-        for(int i = startIndex; i < numbers.length; i++) {            
-            char charDigit = numbers[i];
-            if(Character.isDigit(charDigit) == false) {
-                res = sign == '+' ? res : -res;
-                return res;
-            }            
-            int digit = Character.getNumericValue(charDigit);            
-            if(Integer.MAX_VALUE / 10 < res || (Integer.MAX_VALUE / 10 == res && Integer.MAX_VALUE % 10 < digit)) {   
-                printString("res:" + res + ",Integer.MAX_VALUE:" + Integer.MAX_VALUE / 10);             
-                return sign == '+' ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }                        
-            res = res * BASE + digit;
-        }
-        res = sign == '+' ? res : -res;
-        return res;
+        return sb.toString();
     }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -199,11 +207,8 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		// String number1 = "     +004500";
-        // String number1 = "  -0012a42";
-        // String number1 = "2147483648";
-        String number1 = "-2147483648";
-		System.out.println(obj.myAtoi(number1));
+        String s = "abee";
+		System.out.println(obj.frequencySort(s));
 	}
 
 }

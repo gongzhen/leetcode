@@ -144,41 +144,29 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int myAtoi(String str) {
-       if(str.length() == 0) {
-            return 0;
+    public boolean repeatedSubstringPattern(String s) {
+        if(s.length() < 1) {
+            return false;
         }
-        
-        char[] numbers = str.toCharArray();
-        int num = 0;
-        int BASE = 10;
-        int res = 0;        
-        char sign = '+';
-        int startIndex = 0;
-        while(numbers[startIndex] == ' ') {
-            printString("startIndex:" + startIndex);
-            startIndex++;
+
+        String str = s;
+        int len = s.length();
+        for (int i = 1; i <= len / 2; i++) {
+            if(len % i == 0) {
+                str = leftShift(s, i);
+                if(str.equals(s)) {
+                    return true;
+                }
+            }
         }
-        
-        if(numbers[startIndex] == '+' || numbers[startIndex] == '-') {
-            sign = numbers[startIndex];
-            startIndex++;
-        }
-        for(int i = startIndex; i < numbers.length; i++) {            
-            char charDigit = numbers[i];
-            if(Character.isDigit(charDigit) == false) {
-                res = sign == '+' ? res : -res;
-                return res;
-            }            
-            int digit = Character.getNumericValue(charDigit);            
-            if(Integer.MAX_VALUE / 10 < res || (Integer.MAX_VALUE / 10 == res && Integer.MAX_VALUE % 10 < digit)) {   
-                printString("res:" + res + ",Integer.MAX_VALUE:" + Integer.MAX_VALUE / 10);             
-                return sign == '+' ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }                        
-            res = res * BASE + digit;
-        }
-        res = sign == '+' ? res : -res;
-        return res;
+        return false;
+    }
+
+    private String leftShift(String str, int i) {
+        String subStr = str.substring(i);
+        subStr += str.substring(0, i);
+        printString("line 168 " + subStr);
+        return subStr;
     }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -199,11 +187,7 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		// String number1 = "     +004500";
-        // String number1 = "  -0012a42";
-        // String number1 = "2147483648";
-        String number1 = "-2147483648";
-		System.out.println(obj.myAtoi(number1));
+		System.out.println(obj.repeatedSubstringPattern("abcabcabc"));
 	}
 
 }

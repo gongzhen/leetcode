@@ -142,43 +142,38 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class Solution2 {
 
-    public int myAtoi(String str) {
-       if(str.length() == 0) {
-            return 0;
+    public boolean repeatedSubstringPattern(String s) {
+        
+        if(s.length() < 1) {
+            return false;
         }
         
-        char[] numbers = str.toCharArray();
-        int num = 0;
-        int BASE = 10;
-        int res = 0;        
-        char sign = '+';
-        int startIndex = 0;
-        while(numbers[startIndex] == ' ') {
-            printString("startIndex:" + startIndex);
-            startIndex++;
+        for(int i = 1; i <= s.length() / 2; i++) {
+            int offSet = i - 0;
+            if(s.length() % offSet != 0) {
+                continue;
+            }
+            String subStr = s.substring(0, i);
+            printString("subStr:" + subStr);
+            if (check(subStr, s, offSet) == true) {
+                return true;
+            }
+            printLine();
+        }        
+        return false;
+    }
+    
+    private boolean check(String sub, String s, int off) {
+        for(int i = off; i < s.length(); i = i + off) {
+            String str = s.substring(i, i + off);
+            printString("str:" + str);
+            if(sub.equals(str) == false) {
+                return false;
+            }
         }
-        
-        if(numbers[startIndex] == '+' || numbers[startIndex] == '-') {
-            sign = numbers[startIndex];
-            startIndex++;
-        }
-        for(int i = startIndex; i < numbers.length; i++) {            
-            char charDigit = numbers[i];
-            if(Character.isDigit(charDigit) == false) {
-                res = sign == '+' ? res : -res;
-                return res;
-            }            
-            int digit = Character.getNumericValue(charDigit);            
-            if(Integer.MAX_VALUE / 10 < res || (Integer.MAX_VALUE / 10 == res && Integer.MAX_VALUE % 10 < digit)) {   
-                printString("res:" + res + ",Integer.MAX_VALUE:" + Integer.MAX_VALUE / 10);             
-                return sign == '+' ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }                        
-            res = res * BASE + digit;
-        }
-        res = sign == '+' ? res : -res;
-        return res;
+        return true;
     }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -198,12 +193,8 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		// String number1 = "     +004500";
-        // String number1 = "  -0012a42";
-        // String number1 = "2147483648";
-        String number1 = "-2147483648";
-		System.out.println(obj.myAtoi(number1));
+		Solution2 obj = new Solution2();
+		System.out.println(obj.repeatedSubstringPattern("abcabcabc"));
 	}
 
 }

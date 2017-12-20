@@ -4,48 +4,13 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-// class TreeNode {
-//  int val;
-//  TreeNode left;
-//  TreeNode right;
-//  TreeNode(int x) { val = x; }
-// }
-// class ListNode {
-//     int val;
-//     ListNode next;
-//     ListNode(int x) {
-//         val = x;
-//         next = null;
-//     }
-// }
-// private TreeNode createTree() {
-//  //       5
-//  //    2      7
-//  //  1   3      10
-//  TreeNode node5 = new TreeNode(5);
-//  TreeNode node2 = new TreeNode(2);
-//  TreeNode node1 = new TreeNode(1);
-//  TreeNode node7 = new TreeNode(7);
-//  TreeNode node10 = new TreeNode(10);
 
-//  node5.left = node2;
-//  node5.right = node7;
-//  node2.left = node1;
-//  node2.right = node3;
-//  node5.right = node7;
-//  node7.right = node10; 
-//  return node5;
-// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
 //  }
 // }
-// private void printQueue(Queue<String> list) {
-//  for(String s: list) {
-//      System.out.println(s);
-//  }
-// } 
+
 // private void enterKey() {
 //     System.out.println("Press \"ENTER\" to continue...");
 //     Scanner scanner = new Scanner(System.in);
@@ -78,12 +43,6 @@ import java.util.regex.*;
 //     System.out.println("---------------------"); 
 // }  
 // 
-// private void printMap(HashMap<TreeNode, Integer> map) {
-//     for(TreeNode node:map.keySet()) {
-//         Integer value = map.get(node);
-//         printString("key:" + node.val + ",value:" + value);
-//     }
-// }
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg + ","); 
 // } 
@@ -142,46 +101,108 @@ import java.util.regex.*;
 //     }
 // } 
 
+
 public class Solution1 {
 
-    public int myAtoi(String str) {
-       if(str.length() == 0) {
-            return 0;
+    static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x) { val = x; }
         }
-        
-        char[] numbers = str.toCharArray();
-        int num = 0;
-        int BASE = 10;
-        int res = 0;        
-        char sign = '+';
-        int startIndex = 0;
-        while(numbers[startIndex] == ' ') {
-            printString("startIndex:" + startIndex);
-            startIndex++;
+        class ListNode {
+        int val;
+        ListNode next;
+        ListNode(int x) {
+            val = x;
+            next = null;
         }
-        
-        if(numbers[startIndex] == '+' || numbers[startIndex] == '-') {
-            sign = numbers[startIndex];
-            startIndex++;
-        }
-        for(int i = startIndex; i < numbers.length; i++) {            
-            char charDigit = numbers[i];
-            if(Character.isDigit(charDigit) == false) {
-                res = sign == '+' ? res : -res;
-                return res;
-            }            
-            int digit = Character.getNumericValue(charDigit);            
-            if(Integer.MAX_VALUE / 10 < res || (Integer.MAX_VALUE / 10 == res && Integer.MAX_VALUE % 10 < digit)) {   
-                printString("res:" + res + ",Integer.MAX_VALUE:" + Integer.MAX_VALUE / 10);             
-                return sign == '+' ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }                        
-            res = res * BASE + digit;
-        }
-        res = sign == '+' ? res : -res;
-        return res;
     }
 
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    public int findClosestLeaf(TreeNode root, int k) {
+        Map<TreeNode, List<TreeNode>> graph = new HashMap<TreeNode, List<TreeNode>>();
+        dfs(graph, root, null);   
+        printMap(graph);
+
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        Set<TreeNode> seen = new HashSet<TreeNode>();
+
+        for (TreeNode node: graph.keySet()) {
+            if (node != null && node.val == k) {
+                queue.add(node);
+                seen.add(node);
+            }
+        }
+        printLine();
+        printString("print queue:");        
+        printQueue(queue) ;
+        while (!queue.isEmpty()) {
+            TreeNode node = queue.poll();
+            if (node != null) {
+                if (graph.get(node).size() <= 1)
+                    return node.val;
+                for (TreeNode nei: graph.get(node)) {
+                    if (!seen.contains(nei)) {
+                        seen.add(nei);
+                        queue.add(nei);
+                    }
+                }
+            }
+        }
+        return -1;  
+    }
+
+    private TreeNode createTree() {
+        //       5
+        //    2      7
+        //  1   3      10
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node6 = new TreeNode(6);
+
+        node1.left = node2;
+        node1.right = node3;
+        node2.left = node4;
+        node4.left = node5;
+        node5.left = node6;
+        return node1;
+    }
+
+    public void dfs(Map<TreeNode, List<TreeNode>> graph, TreeNode node, TreeNode parent) {
+        if (node != null) {
+            if (!graph.containsKey(node)) {
+                graph.put(node, new LinkedList<TreeNode>());
+            }
+            if (parent != null && !graph.containsKey(parent)) {
+                graph.put(parent, new LinkedList<TreeNode>());
+            }
+            if( parent != null) {
+                graph.get(node).add(parent);
+                graph.get(parent).add(node);
+            }
+            dfs(graph, node.left, node);
+            dfs(graph, node.right, node);
+        }
+    }        
+
+    private void printMap(Map<TreeNode, List<TreeNode>> map) {
+        for(TreeNode node:map.keySet()) {
+            printStringWithoutNewLine(node.val + "[");  
+            for(TreeNode value: map.get(node)) {
+                printStringWithoutNewLine(value.val + ",");
+            }
+            printStringWithoutNewLine("]\n");  
+        }
+    }
+
+    private void printQueue(Queue<TreeNode> list) {
+        for(TreeNode s: list) {
+            System.out.println(s.val + ",");
+        }
+    }     
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -189,7 +210,11 @@ public class Solution1 {
 
     private void printString(String arg) {
         System.out.println(arg); 
-    }    
+    }  
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg + ","); 
+    }       
 
 	private void printList(int[] list, int length) {
 		for(int i = 0; i < length; i ++ ){
@@ -199,11 +224,8 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		// String number1 = "     +004500";
-        // String number1 = "  -0012a42";
-        // String number1 = "2147483648";
-        String number1 = "-2147483648";
-		System.out.println(obj.myAtoi(number1));
+        TreeNode root = obj.createTree();
+		System.out.println(obj.findClosestLeaf(root, 2));
 	}
 
 }

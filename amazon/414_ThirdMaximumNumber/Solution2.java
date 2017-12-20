@@ -142,44 +142,27 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class Solution2 {
 
-    public int myAtoi(String str) {
-       if(str.length() == 0) {
-            return 0;
+    public int thirdMax(int[] nums) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        Set<Integer> set = new HashSet<>();
+        for (int i : nums) {
+            if (!set.contains(i)) {
+                pq.offer(i);
+                set.add(i);
+                if (pq.size() > 3) {
+                    set.remove(pq.poll());
+                }
+            }
         }
-        
-        char[] numbers = str.toCharArray();
-        int num = 0;
-        int BASE = 10;
-        int res = 0;        
-        char sign = '+';
-        int startIndex = 0;
-        while(numbers[startIndex] == ' ') {
-            printString("startIndex:" + startIndex);
-            startIndex++;
+        if (pq.size() < 3) {
+            while (pq.size() > 1) {
+                pq.poll();
+            }
         }
-        
-        if(numbers[startIndex] == '+' || numbers[startIndex] == '-') {
-            sign = numbers[startIndex];
-            startIndex++;
-        }
-        for(int i = startIndex; i < numbers.length; i++) {            
-            char charDigit = numbers[i];
-            if(Character.isDigit(charDigit) == false) {
-                res = sign == '+' ? res : -res;
-                return res;
-            }            
-            int digit = Character.getNumericValue(charDigit);            
-            if(Integer.MAX_VALUE / 10 < res || (Integer.MAX_VALUE / 10 == res && Integer.MAX_VALUE % 10 < digit)) {   
-                printString("res:" + res + ",Integer.MAX_VALUE:" + Integer.MAX_VALUE / 10);             
-                return sign == '+' ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }                        
-            res = res * BASE + digit;
-        }
-        res = sign == '+' ? res : -res;
-        return res;
-    }
+        return pq.peek();
+    }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -189,21 +172,13 @@ public class Solution1 {
 
     private void printString(String arg) {
         System.out.println(arg); 
-    }    
-
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    }       
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		// String number1 = "     +004500";
-        // String number1 = "  -0012a42";
-        // String number1 = "2147483648";
-        String number1 = "-2147483648";
-		System.out.println(obj.myAtoi(number1));
+		Solution2 obj = new Solution2();
+		int[] list = new int[]{-2147483648,1,1};
+        // int[] list = new int[]{1,2,-2147483648};
+		System.out.println(obj.thirdMax(list));
 	}
 
 }
