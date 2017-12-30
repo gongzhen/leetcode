@@ -224,7 +224,7 @@ public class Solution2 {
 
 	public static void main(String[] args) {
 		Solution2 obj = new Solution2();
-		int[] list = new int[]{7, 6, 1, 4, 3, 2, 5};
+		int[] list = new int[]{4, 3, 6, 2, 1, 7, 5};
         obj.printString("k:" + obj.findKthLargest(list, 4));
 		// obj.quicksort(list, 0, list.length - 1);
         // obj.printArray(list);

@@ -124,58 +124,101 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution4 {
+public class Solution5 {
 
     public int findKthLargest(int[] nums, int k) {
-        return partition(nums, k - 1, 0, nums.length - 1);
+        final int LEN = nums.length;
+        Arrays.sort(nums);
+        return nums[LEN - k];
     }
 
+    public int findKthLargestPQ(int[] nums, int k) {
+        final PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        for(int val : nums) {
+            pq.offer(val);
+            if(pq.size() > k) {
+                pq.poll();
+            }
+        }
+        return pq.peek();
+    }
 
-    private int partition(int[] arr, int k, int left, int right){
-        int pivot = arr[(left + right) / 2];
-        printStringWithoutNewLine("line 150 pivot:" + pivot + "\n");        
-        int orgL = left, orgR = right;
-        printStringWithoutNewLine("line 152\n");
-        printArray(arr, orgL, orgR);                              
-        while(left <= right){
-            // 从右向左找到第一个小于枢纽值的数
-            while(arr[left] > pivot){
-                left ++;
-            }
-            // 从左向右找到第一个大于枢纽值的数
-            while(arr[right] < pivot){
-                right --;
-            }
-            // 将两个数互换
-            if(left <= right){                    
-                exch(arr, left, right);
-                printStringWithoutNewLine("line 166 exchange:\n");
-                printArray(arr, left, right);                 
-                left ++;
-                right --;                
-            }
-            printStringWithoutNewLine("line 171:\n");
-            printArray(arr, orgL, orgR);                 
+    public int findKthLargestSelection(int[] nums, int k) {
+        k = nums.length - k;
+        int low = 0;
+        int high = nums.length - 1;    
+        while(low < high) {
+            final int j = partition(nums, low, high);
+            if( j < k ) {
+                low = j + 1;
+            } else if (j > k) {
+                high = j - 1;
+            } else {
+                break;
+            }            
         }
-        printStringWithoutNewLine("line 174 exchange:\n");
-        printArray(arr, orgL, orgR);                                            
+        return nums[k];
+    }    
 
-        // 最后退出的情况应该是右指针在左指针左边一格
-        // 这时如果右指针还大于等于k，说明kth在左半边
-        printStringWithoutNewLine("line 179 orgL:" + orgL + ", left:" + left + ", right:" + right + ", orgR:" + orgR + ", k:" + k + "\n");
-        if(orgL < right && k <= right) {
-            printStringWithoutNewLine("line 180\n");
-            printLine();
-            return partition(arr, k, orgL, right);
+    public int findKthLargestShuffle(int[] nums, int k) {
+        printString("line 164");   
+        printArray(nums, 0, nums.length - 1);
+        shuffle(nums);
+        printString("line 167");
+        printArray(nums, 0, nums.length - 1);
+        k = nums.length - k;
+        int low = 0;
+        int high = nums.length - 1;    
+        while(low < high) {
+            final int j = partition(nums, low, high);
+            if( j < k ) {
+                low = j + 1;
+            } else if (j > k) {
+                high = j - 1;
+            } else {
+                break;
+            }            
         }
-        // 这时如果左指针还小于等于k，说明kth在右半边
-        if(left < orgR && k >= left) {
-            printStringWithoutNewLine("line 187\n");
-            printLine();
-            return partition(arr, k, left, orgR);
+        return nums[k];
+    }  
+
+    private int partition(int[] nums, int low, int high) {
+        int i = low;
+        int j = high;
+        printArray(nums, low, high);       
+        printLine();         
+        printLine();                 
+        while(i < j) {
+            while(i < high && less(nums[i], nums[low])) {
+                i++;
+            }
+            while(j > low && less(nums[low], nums[j])) {
+                j--;
+            }
+
+            if(i < j) {
+                exch(nums, i, j);
+            }
+            printString("line 149 i:" + i);               
+            printString("line 150 j:" + j);            
+            printArray(nums, low, high);       
+            printString("j:" + j + ", a[" + j + "]:" + nums[j]);   
+            printLine();            
         }
-        return arr[k];
-    
+
+        exch(nums, low, j);
+        printArray(nums, low, high);       
+        printString("189 j:" + j + ", a[" + j + "]:" + nums[j]);   
+        printLine();
+        return j;        
+    }
+
+    private void shuffle(int[] nums) {
+        final Random random = new Random();
+        for(int i = 0; i < nums.length; i++) {
+            final int r = random.nextInt(i + 1);
+            exch(nums, i, r);
+        }
     }
 
     private void exch(int[] a, int i, int j) {
@@ -185,13 +228,13 @@ public class Solution4 {
     }
 
     private boolean less(int v, int w) {
-        return v < w;
+        return v <= w;
     }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private void printLine() {
-    	System.out.println("---------------------"); 
+    	System.out.println("----------------------------"); 
 	}
 
     private void printString(String arg) {
@@ -225,11 +268,15 @@ public class Solution4 {
 	}    
 
 	public static void main(String[] args) {
-		Solution4 obj = new Solution4();
-		int[] list = new int[]{7, 1, 6, 4, 5, 2, 3};
-        obj.printString("k:" + obj.findKthLargest(list, 7));
-		// obj.quicksort(list, 0, list.length - 1);
-        // obj.printArray(list);
+		Solution5 obj = new Solution5();
+		int[] list = new int[]{1,3,2,4};
+        obj.printString("k:" + obj.findKthLargestSelection(list, 2));
+		// obj.printString("k:" + obj.findKthLargestSelection(list, 7));
+  //       obj.printString("k:" + obj.findKthLargestSelection(list, 3));
+  //       obj.printString("k:" + obj.findKthLargestSelection(list, 4));
+  //       obj.printString("k:" + obj.findKthLargestSelection(list, 5));
+  //       obj.printString("k:" + obj.findKthLargestSelection(list, 6));
+  //       obj.printString("k:" + obj.findKthLargestSelection(list, 7));
 	}
 
 }
