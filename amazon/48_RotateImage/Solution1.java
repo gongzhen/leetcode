@@ -52,10 +52,7 @@ import java.util.regex.*;
 //  }
 // }
 
-//  private void scannerIn() {
-//    Scanner scanner = new Scanner(System.in);
-//    scanner.nextLine();
-// }
+
 // private void printString(String arg) {
 //     System.out.println(arg); 
 // }
@@ -110,18 +107,22 @@ public class Solution1 {
             return;
         }
         printMatrix(matrix);
-        int len = matrix.length;        
-        for(int i = 0; i < (len + 0) / 2; i++) {
-            for(int j = 0; j < len / 2; j++) {
+        enterKey();        
+        printLine();
+        printLine();           
+        int m = matrix.length;        
+        for(int i = 0; i < (m) / 2; i++) {
+            for(int j = 0; j < m / 2; j++ ) {
                 int temp = matrix[i][j];
-                matrix[i][j] = matrix[len - j - 1][i];
-                matrix[len - j - 1][i] = matrix[len - i - 1][len - j - 1];
-                matrix[len - i - 1][len - j - 1] = matrix[j][len - i - 1];
-                matrix[j][len - i - 1] = temp;
+                matrix[i][j] = matrix[m - j - 1][i];
+                matrix[m - j - 1][i] = matrix[m - i - 1][m - j - 1];
+                matrix[m - i - 1][m - j - 1] = matrix[j][m - i - 1];
+                matrix[j][m - i - 1] = temp;
+                printMatrix(matrix);                
+                enterKey();
+                printLine();                
             }
         }
-
-        printMatrix(matrix);
     }
 
     private void printMatrix(int[][] matrix) {
@@ -132,6 +133,12 @@ public class Solution1 {
             System.out.println();            
         }
     }  
+
+    private void enterKey() {
+        System.out.println("Press \"ENTER\" to continue...");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();      
+    }   
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
