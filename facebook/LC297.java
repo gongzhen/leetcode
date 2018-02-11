@@ -25,23 +25,22 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -158,21 +157,58 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+public class LC297 {
+
+   // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
+        dfs(root, sb);
+        return sb.toString();
+    }
+    
+    private void dfs(TreeNode node, StringBuilder sb) {
+        if(node == null) {
+            sb.append("#,");
+            return;
         }
-        return w;
-    }	
+        sb.append(node.val + ",");
+        dfs(node.left, sb);
+        dfs(node.right, sb);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        String[] dataArray = data.split(",");
+        Queue<String> pq = new LinkedList<String>();
+        for(String word : dataArray) {
+            pq.offer(word);
+        }
+        return postOrder(pq);
+    }
+    
+    public TreeNode postOrder(Queue<String> pq) {
+        if(pq.isEmpty() == true) {
+            return null;
+        }
+        
+        if(pq.peek().equals("#") == true) {
+            pq.poll();
+            return null;
+        }
+        
+        
+        TreeNode node = new TreeNode(Integer.parseInt(pq.poll()));
+        node.left = postOrder(pq);
+        node.right = postOrder(pq);
+        return node;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +227,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC297 obj = new LC297();
 	}
 
 }

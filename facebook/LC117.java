@@ -158,20 +158,49 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+ class TreeLinkNode {
+    int val;
+    TreeLinkNode left, right, next;
+    TreeLinkNode(int x) { val = x; }
+}
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+public class LC117 {
+
+    public void connect(TreeLinkNode root) {
+        if(root == null) {
+            return;
         }
-        return w;
+        
+        TreeLinkNode current = root;
+        TreeLinkNode head = null;
+        TreeLinkNode prev = null;
+        
+        while(current != null) {
+            while(current != null) {
+                if(current.left != null) {
+                    if(prev != null) {
+                        prev.next = current.left;
+                    } else {
+                        head = current.left;
+                    }
+                    prev = current.left;
+                }
+                
+                if(current.right != null) {
+                    if(prev != null) {
+                        prev.next = current.right;
+                    } else {
+                        head = current.right;
+                    }
+                    prev = current.right;
+                }
+                current = current.next;/// current = current.next will move from left to right (2) -> (3)
+            }
+            
+            current = head;
+            prev = null;
+            head = null;
+        }
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -191,7 +220,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC117 obj = new LC117();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
 		System.out.println(obj.removeDuplicates(list));
 	}

@@ -187,6 +187,7 @@ public class Solution1 {
     }
 
     private boolean less(int v, int w) {
+        printString("v: " + v + ", w: " + w);  
         return v < w;
     }    
 

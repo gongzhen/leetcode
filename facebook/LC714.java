@@ -158,20 +158,38 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC714 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public Set<Integer> set;
+    /** Initialize your data structure here. */
+    public LC714() {
+        set = new HashSet<Integer>();
+    }
+    
+    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
+    public boolean insert(int val) {
+        return set.add(val);
+    }
+    
+    /** Removes a value from the set. Returns true if the set contained the specified element. */
+    public boolean remove(int val) {
+        return set.remove(val);
+    }
+    
+    /** Get a random element from the set. */
+    public int getRandom() {
+        Random rand = new Random();
+        int index = rand.nextInt(set.size());
+        int i = 0;
+        int randElement = 0;
+        for(Integer n : set) {
+            if(i == index) {
+                randElement = n;
+                break;
             }
-        }
-        return w;
+            i++;
+        }        
+        return randElement;
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -191,9 +209,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC714 obj = new LC714();
 	}
 
 }

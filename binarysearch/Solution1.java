@@ -160,19 +160,38 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+   public int smallestDistancePair(int[] nums, int k) {
+        if(nums.length == 0) {
+            return 0;
+        }
+        
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(k, new Comparator<Integer>(){
+            public int compare(Integer a, Integer b) {
+                return b - a;            
+            }
+        });
+        
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = i + 1; j < nums.length; j++) {
+                int d = Math.abs(nums[i] - nums[j]);
+                pq.offer(d);
+                if(pq.size() > k) {
+                    pq.poll();
+                }
             }
         }
-        return w;
-    }	
+        
+        int num = -1;
+        while(!pq.isEmpty()) {
+            if(k == pq.size()) {
+                num = pq.poll();    
+                break;
+            }
+            num = pq.poll();
+            k--;
+        }
+        return num;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -192,8 +211,15 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		int[] list = new int[]{1, 1, 3, 5, 8};
+        System.out.println(obj.smallestDistancePair(list, 1));
+        System.out.println(obj.smallestDistancePair(list, 2));
+        System.out.println(obj.smallestDistancePair(list, 3));
+        System.out.println(obj.smallestDistancePair(list, 4));
+        System.out.println(obj.smallestDistancePair(list, 5));
+        System.out.println(obj.smallestDistancePair(list, 6));
+        System.out.println(obj.smallestDistancePair(list, 8));
+        System.out.println(obj.smallestDistancePair(list, 9));
 	}
 
 }

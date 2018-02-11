@@ -158,20 +158,57 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC535 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    private static long count = 0;
+    private static Map<String, String> s2l = new HashMap<String, String>();
+    private static Map<String, String> l2s = new HashMap<String, String>();
+    private static final String prefix = "http://tiny.url/";
+    
+    // Encodes a URL to a shortened URL.
+    public String encode(String longUrl) {
+        if(l2s.containsKey(longUrl)) {
+            return l2s.get(longUrl);
+        }
+        
+        String shortUrl = prefix + hashLong(longUrl);
+        s2l.put(shortUrl, longUrl);
+        l2s.put(longUrl, shortUrl);
+        return shortUrl;
+    }
+
+    // Decodes a shortened URL to its original URL.
+    public String decode(String shortUrl) {
+        if(s2l.containsKey(shortUrl)) {
+            return s2l.get(shortUrl);
+        }
+        return "";
+    }
+    
+    private String hashLong(String url) {
+        long div, res;
+        String ret = "";
+        div = count++;
+        int digits = 0;
+        while(true) {
+            res = div % 62;
+            div = div / 62;
+            
+            char c = '0';
+            if(res >= 0 && res <= 9) {
+                c = (char)(res + '0');
+            } else if (res >= 10 && res <= 35) {
+                c = (char)(res - 10 + 'a');
+            } else {
+                c = (char)(res - 36 + 'A');
+            }
+            ret = String.valueOf(c) + ret;
+            digits++;
+            if(div > 0 || digits < 6) {
+                break;
             }
         }
-        return w;
+        return ret;
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -191,7 +228,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC535 obj = new LC535();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
 		System.out.println(obj.removeDuplicates(list));
 	}

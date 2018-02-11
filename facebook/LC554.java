@@ -25,23 +25,22 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -158,20 +157,39 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC554 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int leastBricks(List<List<Integer>> wall) {
+        if(wall.size() == 0) {
+            return 0;
+        }
+
+        int sum = 0, min = Integer.MAX_VALUE;
+        for(List<Integer> list : wall) {
+            for(int j = 1; j < list.size(); j++) {
+                list.set(j, list.get(j - 1) + list.get(j));
+            }
+            sum = list.get(list.size() - 1);
+            printList(list);  
+            printString("sum: " + sum);
+        }
+
+        for(double i = 0.5; i < sum; i+= 0.5) {
+            int temp = 0;
+            for(int j = 0; j < wall.size(); j++) {
+                int k = wall.get(j).size() - 1;
+                while(k >= 0 && wall.get(j).get(k--) > i) {
+                    
+                }
+                if(wall.get(j).get(k + 1) != i) {
+                    temp++;
+                }
+            }
+            if(temp < min) {
+                min = temp;
             }
         }
-        return w;
+        return min;
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -182,18 +200,38 @@ public class Solution1 {
 
     private void printString(String arg) {
         System.out.println(arg); 
-    }    
+    }      
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    private void printList(List<Integer> list) {
+        printStringWithoutNewLine("[");
+        int i = 0;
+        for(int n : list) {
+            printStringWithoutNewLine("[" + i + "]" + n + ", ");
+        i++;
+        }
+        printStringWithoutNewLine("]\n");
+    }  
+   
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }          
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC554 obj = new LC554();
+        List<Integer> list1 = Arrays.asList(1, 2, 2, 1);
+        List<Integer> list2 = Arrays.asList(3, 1, 2);
+        List<Integer> list3 = Arrays.asList(1, 3, 2);
+        List<Integer> list4 = Arrays.asList(2, 4);
+        List<Integer> list5 = Arrays.asList(3, 1, 2);
+        List<Integer> list6 = Arrays.asList(1, 3, 1, 1);
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        res.add(list1);
+        res.add(list2);
+        res.add(list3);
+        res.add(list4);
+        res.add(list5);
+        res.add(list6);
+		System.out.println(obj.leastBricks(res));
 	}
 
 }

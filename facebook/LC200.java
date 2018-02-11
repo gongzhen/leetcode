@@ -25,23 +25,22 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -158,23 +157,40 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC200 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int numIslands(char[][] grid) {
+        if(grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
+        
+        int res = 0;
+        for(int i = 0; i < grid.length; i++) {
+            for(int j = 0; j < grid[0].length; j++) {
+                if(grid[i][j] == '1') {
+                    dfs(grid, i, j, grid.length, grid[0].length);
+                    res++;
+                }
             }
         }
-        return w;
-    }	
-
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        return res;
+    }
+    
+    public int[][] dir = new int[][]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+    
+    public void dfs(char[][] grid, int x, int y, int m, int n) {
+        if(x < 0 || y < 0 || x >= m || y >= n || grid[x][y] == '0') {
+            return;
+        }
+        
+        grid[x][y] = '0';
+        
+        for (int[] list: dir) {
+            int nx = x + list[0];
+            int ny = y + list[1];
+            dfs(grid, nx, ny, m, n);
+        }
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -191,9 +207,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC200 obj = new LC200();
 	}
 
 }

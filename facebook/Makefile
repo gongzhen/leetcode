@@ -4,14 +4,16 @@ JC = javac
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES = *.java 
+CLASSES = LC301.java 
 
 default: classes
 
 classes: $(CLASSES:.java=.class)
 
-Solution1:Solution1.cpp
-	g++ -Wall -pedantic -std=c++14 -o Solution1 Solution1.cpp
+# Solution1:Solution1.cpp
+# 	g++ -Wall -pedantic -std=c++14 -o Solution1 Solution1.cpp
 
 clean:
 	$(RM) *.class
+
+# clang -framework Foundation LC146.m -o LC146

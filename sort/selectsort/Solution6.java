@@ -124,113 +124,51 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution5 {
+public class Solution6 {
 
     public int findKthLargest(int[] nums, int k) {
-        final int LEN = nums.length;
-        Arrays.sort(nums);
-        return nums[LEN - k];
+        return quickSelect(nums, 0, nums.length - 1, k);
     }
 
-    public int findKthLargestPQ(int[] nums, int k) {
-        final PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
-        for(int val : nums) {
-            pq.offer(val);
-            if(pq.size() > k) {
-                pq.poll();
-            }
-        }
-        return pq.peek();
-    }
-
-    public int findKthLargestSelection(int[] nums, int k) {
-        k = nums.length - k;
-        int low = 0;
-        int high = nums.length - 1;    
-        while(low < high) {
-            final int pivot = partition(nums, low, high);
-            if( pivot < k ) {
-                low = pivot + 1;
-            } else if (pivot > k) {
-                high = pivot - 1;
-            } else {
-                break;
+    private int quickSelect(int[] nums, int lo, int hi, int k) {
+        printStringWithoutNewLine("lo:" + lo + ", hi:" + hi + ", target == " + k + "\n");
+        printArray(nums, lo, hi);
+        int left = lo, right = hi;        
+        int pivot = nums[left + (right - left) / 2];
+        while(left <= right) {            
+            printString("pivot:" + pivot);    
+            while(left <= right && nums[left] > pivot) {
+                printString("left:" + left);    
+                left++;
             }            
-        }
-        return nums[k];
-    }    
-
-    public int findKthLargestShuffle(int[] nums, int k) {
-        printString("line 164");   
-        printArray(nums, 0, nums.length - 1);
-        shuffle(nums);
-        printString("line 167");
-        printArray(nums, 0, nums.length - 1);
-        k = nums.length - k;
-        int low = 0;
-        int high = nums.length - 1;    
-        while(low < high) {
-            final int j = partition(nums, low, high);
-            if( j < k ) {
-                low = j + 1;
-            } else if (j > k) {
-                high = j - 1;
-            } else {
-                break;
+            while(left <= right && nums[right] < pivot) {
+                printString("right:" + right);  
+                right--;
             }            
+            if(left <= right) {
+                printString("==========>149 left:" + left + " right: " + right + " are swaped.");    
+
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+                printString("==========>156 left:" + left + ", right:" + right);
+            }
+            printArray(nums, lo, hi);            
+            printLine();
         }
-        return nums[k];
-    }  
-
-    private int partition(int[] nums, int low, int high) {
-        int i = low;
-        int j = high;
-        printArray(nums, low, high);       
-        printLine();         
-        printLine();                 
-        while(i < j) {
-            printString("line 192 pivot:" + nums[low]);
-            while(i < high && less(nums[i], nums[low])) {
-                i++;
-            }
-            while(j > low && less(nums[low], nums[j])) {
-                j--;
-            }
-
-            if(i < j) {
-                exch(nums, i, j);
-            }
-            printString("line 149 i:" + i);               
-            printString("line 150 j:" + j);            
-            printArray(nums, low, high);       
-            printString("j:" + j + ", a[" + j + "]:" + nums[j]);   
-            printLine();            
+        if(lo + k - 1 <= right) {
+            printString("==========>162 lo + k - 1 :" + (lo + k - 1 ) + ", right:" + right);
+            return quickSelect(nums, lo, right, k);
+        }        
+        if(lo + k - 1 >= left) {
+            printString("==========>166 lo + k - 1:" + (lo + k - 1) + ", left:" + left);
+            return quickSelect(nums, left, hi, k - (left - lo));
         }
 
-        exch(nums, low, j);
-        printArray(nums, low, high);       
-        printString("189 j:" + j + ", a[" + j + "]:" + nums[j]);   
-        printLine();
-        return j;        
+        return nums[right + 1];
     }
-
-    private void shuffle(int[] nums) {
-        final Random random = new Random();
-        for(int i = 0; i < nums.length; i++) {
-            final int r = random.nextInt(i + 1);
-            exch(nums, i, r);
-        }
-    }
-
-    private void exch(int[] a, int i, int j) {
-        final int tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
-    }
-
-    private boolean less(int v, int w) {
-        return v <= w; /// v == w handle the duplicates.
-    }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -269,9 +207,9 @@ public class Solution5 {
 	}    
 
 	public static void main(String[] args) {
-		Solution5 obj = new Solution5();
-		int[] list = new int[]{1, 1, 1, 2,3,2,4}; /// worse case n ^ 2 ; {1, 1, 1, 1, 1, 1}
-        obj.printString("k:" + obj.findKthLargestSelection(list, 1));
+		Solution6 obj = new Solution6();
+        int[] list = new int[]{4, 3, 6, 2, 1, 7, 5};
+        obj.printString("k:" + obj.findKthLargest(list, 1));
 		// obj.printString("k:" + obj.findKthLargestSelection(list, 7));
   //       obj.printString("k:" + obj.findKthLargestSelection(list, 3));
   //       obj.printString("k:" + obj.findKthLargestSelection(list, 4));

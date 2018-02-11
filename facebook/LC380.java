@@ -158,7 +158,7 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC380 {
 
     public int removeDuplicates(int[] nums) {
         int w = 0;
@@ -191,7 +191,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC380 obj = new LC380();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
 		System.out.println(obj.removeDuplicates(list));
 	}

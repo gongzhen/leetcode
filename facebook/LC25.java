@@ -10,14 +10,7 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// class ListNode {
-//     int val;
-//     ListNode next;
-//     ListNode(int x) {
-//         val = x;
-//         next = null;
-//     }
-// }
+
 // class Interval {
 //     int start;
 //     int end;
@@ -100,9 +93,6 @@ import java.util.regex.*;
 //         printString("key:" + node.val + ",value:" + value);
 //     }
 // }
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg + ","); 
-// } 
 // private void printArray(int[] list) {
 //     printStringWithoutNewLine("[");
 //     for(int n: list) {
@@ -158,21 +148,90 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+class ListNode {
+    int val;
+        ListNode next;
+        ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+public class LC25 {
+
+    public ListNode createList() {
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        // ListNode node3 = new ListNode(3);
+        // ListNode node4 = new ListNode(4);
+        // ListNode node5 = new ListNode(5);
+        // ListNode node6 = new ListNode(6);
+        // ListNode node7 = new ListNode(7);
+        node1.next = node2;
+        // node2.next = node3;
+        // node3.next = node4;
+        // node4.next = node5;
+        // node5.next = node6;
+        // node6.next = node7;
+        return node1;
+    }
+
+    public ListNode reverseKGroup(ListNode head, int k) {
+        
+        if(head == null) {
+            return null;
         }
-        return w;
-    }	
+        
+        int len = 0;
+        ListNode ptr = head;
+        while(ptr != null) {
+            ptr = ptr.next;
+            len++;
+        }
+
+        ListNode current = head;
+        ListNode prev = null; 
+        ListNode last = null;   
+        ptr = null;
+        /// 1->2->3->4->5 
+        /// <-1<-2(prev)  3(current)->4->5
+        /// <-1(ptr)<-2(prev)  3(current)->4->5        
+        /// 2(prev)->1(ptr)->  3(current)->4->5  
+        /// 2(prev)->1(ptr)->  <-3<-4(prev) 5(current)  
+        // printString("len: " + len);
+        for(int j = len; j >= k; j = j - k) {
+            if(j < k) {
+                break;
+            }
+            for(int i = 0; i < k; i++) { /// reverse each k group
+                ListNode next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            ptr = prev;
+            if(j == len) {
+                head = prev;
+                printString("line 213 head.val:" + head.val);                
+            } 
+            int n = 0;               
+            printList(prev);
+            if(last != null) {
+                last.next = prev;
+            }
+            while(n < k && prev != null && prev.next != null) {             
+                prev = prev.next; 
+                last = prev;               
+                n++;
+            }
+            prev.next = current; 
+            prev = null;
+            printList(head);
+        }
+        printString("head.val:" + head.val);
+        printList(head);
+        return head;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -184,16 +243,28 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
+	private void printList(ListNode node) {
+        ListNode ptr = node;
+        printStringWithoutNewLine("[ ");
+        while(ptr != null) {
+            printStringWithoutNewLine(ptr.val + ", ");
+            ptr = ptr.next;
+        }
+        printStringWithoutNewLine("]\n");
 	}    
 
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg + ","); 
+    } 
+
+
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC25 obj = new LC25();
+        ListNode root = obj.createList();
+        // obj.reverseKGroup(root, 2);
+        // obj.reverseKGroup(root, 3);
+        // obj.reverseKGroup(root, 8);
+        obj.reverseKGroup(root, 1);
 	}
 
 }

@@ -18,44 +18,28 @@ import java.util.regex.*;
 //         next = null;
 //     }
 // }
-// class Interval {
-//     int start;
-//     int end;
-//     Interval() { start = 0; end = 0; }
-//     Interval(int s, int e) { start = s; end = e; }
-// }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
 //  }
-// }
-// private void printListMap(Map<Integer, List<Integer>> map) {
-//     for(Integer key:map.keySet()) {
-//         List<Integer> list = map.get(key);
-//         printStringWithoutNewLine("key:" + key + "[");   
-//         for(int n : list) {
-//             printStringWithoutNewLine(n + ", ");    
-//         }
-//         printString("]");               
-//     }
 // }
 // private void printQueue(Queue<String> list) {
 //  for(String s: list) {
@@ -100,9 +84,7 @@ import java.util.regex.*;
 //         printString("key:" + node.val + ",value:" + value);
 //     }
 // }
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg + ","); 
-// } 
+
 // private void printArray(int[] list) {
 //     printStringWithoutNewLine("[");
 //     for(int n: list) {
@@ -158,42 +140,47 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC621 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public int leastInterval(char[] tasks, int n) {
+        int[] array = new int[26];
+        for(char t: tasks) {
+            array[t - 'A']++;
         }
-        return w;
-    }	
+        Arrays.sort(array);
+        printList(array);
+        int i = 25;
+        while(i >= 0 && array[i] == array[25]) {
+            i--;
+        }
+        return Math.max(tasks.length, (array[25] - 1) * (n + 1) + 25 - i);
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private void printLine() {
-    	System.out.println("---------------------"); 
+        System.out.println("---------------------"); 
 	}
 
     private void printString(String arg) {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
+	private void printList(int[] list) {
+		for(int i = 0; i < list.length; i ++ ){
+			printStringWithoutNewLine(list[i] + ", ");
 		}
+        printString("");
 	}    
+    
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    }     
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC621 obj = new LC621();
+		char[] list = new char[]{'A', 'A', 'A', 'B', 'B', 'B'};
+		System.out.println(obj.leastInterval(list, 2));
 	}
 
 }

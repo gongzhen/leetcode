@@ -158,21 +158,52 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC234 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public boolean isPalindrome(ListNode head) {
+        if(head == null){
+            return true;
         }
-        return w;
-    }	
+        
+        ListNode fast;
+        ListNode slow;
+        slow = head;
+        fast = head;
+        while(fast.next != null && fast.next.next != null) { /// fast go first.
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        /// 1->2->3-> slow(2) fast(3)
+        /// reverse list
+        slow.next = reverse(slow.next); /// 1->2(slow)-> 3(slow->next)
+        
+        /// compare the first half and second half (reversed)
+        slow = slow.next; /// slow.next is the second half
+        while(head != null && slow != null) {
+            if(head.val != slow.val) {
+                return false;
+            }
+            head = head.next;
+            slow = slow.next;
+        }
+        return true;
+    }
+
+    private ListNode reverse(ListNode node) {
+        if(node == null) {
+            return null;
+        }
+        ListNode current = node;
+        ListNode prev = null;
+        
+        while(current != null) {
+            ListNode nextNode = current.next;
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        return prev;
+    }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,7 +222,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC234 obj = new LC234();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
 		System.out.println(obj.removeDuplicates(list));
 	}

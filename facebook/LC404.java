@@ -158,21 +158,63 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC404 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int sumOfLeftLeaves(TreeNode root) {
+        return dfs(root, null);
+    }
+    
+    private int dfs(TreeNode node, TreeNode prev) {
+        if(node == null) {
+            return 0;
+        }
+        
+        if(node.left == null && node.right == null) {
+            if(prev != null && prev.left == node) {
+                return node.val;
             }
         }
-        return w;
-    }	
+        return dfs(node.left, node) + dfs(node.right, node);
+    }
+
+    public int sumOfLeftLeaves_1(TreeNode root) {
+        return dfs_1(root, false);
+    }
+    
+    private int dfs_1(TreeNode node, boolean isLeft) {
+        if(node == null) {
+            return 0;
+        }
+        
+        if(node.left == null && node.right == null) {
+            return isLeft == true ? node.val : 0;
+        }
+        
+        return dfs(node.left, true) + dfs(node.right, false);
+    }  
+
+    public int sumOfLeftLeaves_2(TreeNode root) {
+        return dfs_2(root);
+    }
+    
+    private int dfs_2(TreeNode node) {
+        if(node == null) {
+            return 0;
+        }
+        
+        int left = 0;
+        if(node.left != null) {
+            if(node.left.left == null && node.left.right == null) {
+                left += node.left.val;
+            } else {
+                left += dfs(node.left);
+            }
+        } 
+        
+        left += dfs(node.right);
+        
+        return left;
+    }      
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +233,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC404 obj = new LC404();
 	}
 
 }

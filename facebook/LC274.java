@@ -158,20 +158,20 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
-
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+public class LC274 {
+    public int hIndex(int[] citations) {
+        /// 0 1 3 5 6 => 3
+        Arrays.sort(citations);
+        
+        
+        int hIndex = 0;
+        for(int i = 0; i < citations.length; i++) {
+            int min = Math.min(citations[i], citations.length - i);            
+            if(min > hIndex ) {
+                hIndex = min;
             }
         }
-        return w;
+        return hIndex;
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -191,9 +191,9 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC274 obj = new LC274();
+		// int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
+		// System.out.println(obj.removeDuplicates(list));
 	}
 
 }

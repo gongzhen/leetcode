@@ -4,12 +4,6 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-// class TreeNode {
-//  int val;
-//  TreeNode left;
-//  TreeNode right;
-//  TreeNode(int x) { val = x; }
-// }
 // class ListNode {
 //     int val;
 //     ListNode next;
@@ -156,23 +150,81 @@ import java.util.regex.*;
 //         }
 //         printLine();
 //     }
-// } 
+// }
 
-public class Solution1 {
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+} 
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+public class LC637 {
+
+    private static class Node {
+        double sum;
+        int count;
+        public Node(double sum, int count) {
+            this.sum = sum;
+            this.count = count;
         }
-        return w;
+    }
+    
+    public List<Double> averageOfLevels(TreeNode root) {
+        List<Node> nodes = new ArrayList<Node>();
+        dfs(root, nodes, 0);
+        
+        
+        List<Double> res = new ArrayList<Double>();
+        for(Node node : nodes) {
+            res.add(node.sum / node.count);
+        }
+        return res;
+    }
+    
+    private void dfs(TreeNode node, List<Node> nodes, int level) {
+        if(node == null) {
+            return;
+        }
+        
+        if(nodes.size() == level) {
+            nodes.add(new Node(0.0, 0));
+        }
+        
+        nodes.get(level).sum = nodes.get(level).sum + node.val;
+        nodes.get(level).count = nodes.get(level).count + 1;
+        
+        dfs(node.left, nodes, level + 1);
+        dfs(node.right, nodes, level + 1);
     }	
+
+    public List<Double> averageOfLevelsBFS(TreeNode root) {
+        
+        List<Double> res = new ArrayList<Double>();
+        if(root == null) {
+            return res;
+        }
+        
+        Queue<Double> queue = new LinkedList<Double>();
+        List<Double> res = new ArrayList<Double>();
+        queue.offer(root);
+        while(!queue.isEmpty()) {
+            int size = queue.size();            
+            double sum = 0.0;
+            for(int i = 0; i < size; i++) {
+                TreeNode node = queue.poll();
+                sum += node.val;
+                if(node.left  != null) {
+                    queue.offer(node.left);
+                }
+                if(node.right  != null) {
+                    queue.offer(node.right);
+                }                
+            }
+            res.add(sum / size);
+        }
+        return res;
+    }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +243,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC637 obj = new LC637();
 	}
 
 }

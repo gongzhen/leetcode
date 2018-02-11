@@ -158,21 +158,30 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+class TreeLinkNode {
+    int val;
+    TreeLinkNode left, right, next;
+    TreeLinkNode(int x) { val = x; }
+}
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+public class LC116 {
+
+    public void connect(TreeLinkNode root) {
+        if(root == null) {
+            return;
+        }
+        
+        if(root.left!=null) { /// dfs to left branch.
+            root.left.next = root.right;  
+            /// connect left and right.
+            if(root.next != null) {
+                root.right.next = root.next.left;
             }
         }
-        return w;
-    }	
+    
+        connect(root.left);
+        connect(root.right);
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +200,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC116 obj = new LC116();
 	}
 
 }

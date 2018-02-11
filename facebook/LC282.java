@@ -25,23 +25,22 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -100,9 +99,7 @@ import java.util.regex.*;
 //         printString("key:" + node.val + ",value:" + value);
 //     }
 // }
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg + ","); 
-// } 
+
 // private void printArray(int[] list) {
 //     printStringWithoutNewLine("[");
 //     for(int n: list) {
@@ -158,21 +155,53 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC282 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public List<String> addOperators(String num, int target) {
+        List<String> res = new ArrayList<String>();
+        
+        dfs(res, num, "", 0, target, 0, 0);
+        printList(res);
+        return res;
+    }
+    
+    private void dfs(List<String> res, String num, String str, int pos, int target, long sum, long prev) {
+        if(pos == num.length() && sum == target) {
+            res.add(str);
+            return;
         }
-        return w;
-    }	
+        
+        for(int i = pos; i < num.length(); i++) {
+            if( num.charAt(i) == '0') {
+                printString("i:" + i + "= 0" );
+            }
+            if( i != pos && num.charAt(pos) == '0') { /// error:charAt(i) should be pos. 1 * 05 is not right.
+                continue;
+            }
+            String subStr = num.substring(pos, i+1);
+            printString("subStr:" + subStr);
+            long n = Long.parseLong(subStr);
+            if(pos == 0) {
+                dfs(res, num, subStr, i + 1, target, sum + n, n);   
+            } else {
+                dfs(res, num, str + "+" + subStr, i + 1, target, sum + n, n);
+                dfs(res, num, str + "-" + subStr, i + 1, target, sum - n, -n);
+                dfs(res, num, str + "*" + subStr, i + 1, target, sum - prev + prev * n, prev * n);
+            }                        
+        }
+    }
+
+    private void printList(List<String> list) {
+        printStringWithoutNewLine("[");
+        for(String s: list) {
+            printStringWithoutNewLine(s + ", ");
+        }
+        printStringWithoutNewLine("]");        
+    }   
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg + ","); 
+    }     
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -182,18 +211,11 @@ public class Solution1 {
 
     private void printString(String arg) {
         System.out.println(arg); 
-    }    
-
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    } 
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC282 obj = new LC282();
+		obj.addOperators("105", 5);
 	}
 
 }

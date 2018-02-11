@@ -160,19 +160,30 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public int strStr(String haystack, String needle) {
+        if(needle.length() == 0) { /// 1: needle length == 0. return 0;
+            return 0;
         }
-        return w;
-    }	
+        int i = 0; int j = 0;
+        
+        while(i < haystack.length()) { 
+            if(haystack.charAt(i) == needle.charAt(0)) {
+                while(i + j < haystack.length() && j < needle.length()) {
+                    if(haystack.charAt(i + j) != needle.charAt(j)) {
+                        break;
+                    } else {
+                        j++;
+                    }
+                }
+                if(j == needle.length()) {
+                    return i;
+                }
+                j = 0;
+            }         
+            i++;
+        }
+        return -1;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -192,8 +203,6 @@ public class Solution1 {
 
 	public static void main(String[] args) {
 		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
 	}
 
 }

@@ -158,21 +158,35 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC90 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(nums.length == 0) {
+            return res;
         }
-        return w;
-    }	
+        Arrays.sort(nums);
+        
+        boolean[] visited = new boolean[nums.length]; //// don't forget the visited array.
+        List<Integer> list = new ArrayList<Integer>();
+        dfs(res, list, nums, 0, visited);
+        return res;
+    }
+    
+    private void dfs(List<List<Integer>> res, List<Integer> list, int[] nums, int pos, boolean[] visited) {
+        res.add(new ArrayList<Integer>(list));
+        
+        for(int i = pos; i < nums.length; i++) {
+            if(i > 0 && nums[i] == nums[i - 1] && visited[i - 1] == false) { /// check visited[i - 1] is false, not visited[i].
+                continue;
+            }
+            visited[i] = true;
+            list.add(nums[i]);
+            dfs(res, list, nums, i + 1, visited);
+            list.remove(list.size() - 1);
+            visited[i] = false;
+        }
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +205,9 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC90 obj = new LC90();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+        obj.subsetsWithDup(list);
 	}
 
 }

@@ -10,14 +10,7 @@ import java.util.regex.*;
 //  TreeNode right;
 //  TreeNode(int x) { val = x; }
 // }
-// class ListNode {
-//     int val;
-//     ListNode next;
-//     ListNode(int x) {
-//         val = x;
-//         next = null;
-//     }
-// }
+
 // class Interval {
 //     int start;
 //     int end;
@@ -25,23 +18,22 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -93,13 +85,6 @@ import java.util.regex.*;
 // private void printLine() {
 //     System.out.println("---------------------"); 
 // }  
-// 
-// private void printMap(HashMap<TreeNode, Integer> map) {
-//     for(TreeNode node:map.keySet()) {
-//         Integer value = map.get(node);
-//         printString("key:" + node.val + ",value:" + value);
-//     }
-// }
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg + ","); 
 // } 
@@ -158,21 +143,62 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC525 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public int findMaxLength(int[] nums) {
+        if(nums.length == 0) {
+            return 0;
         }
-        return w;
-    }	
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        map.put(0, -1); /// put 0 as -1. [1, 0] the first equal is index 1 - (-1) == 2.
+        /// don't forget put (0, -1) as the  
+        int count = 0, max = 0;
+        for(int i = 0; i < nums.length; i++) {
+            count = count + (nums[i] == 1 ? 1 : -1);
+            if(map.containsKey(count)) {
+                max = Math.max(max, i - map.get(count));
+                printString("max: " + max);
+            } else {
+                map.put(count, i);
+            }
+            printString("count:" +count);
+            printMap(map);
+            printLine();
+        }
+        return max;
+    } 
+
+
+    private void printMap(Map<Integer, Integer> map) {
+        for(Integer key:map.keySet()) {
+            Integer value = map.get(key);
+            printString("count:" + key + ",index:" + value);
+        }
+    }    
+
+    public int findMaxLengthTLE(int[] nums) {
+        if(nums.length == 0) {
+            return 0;
+        }
+        
+        int max = 0;
+        for(int i = 0; i < nums.length; i++) {
+            int zero = 0;
+            int one = 0;
+            for(int j = i; j < nums.length; j++) {
+                if(nums[j] == 0) {
+                    zero++;
+                }
+                if(nums[j] == 1) {
+                    one++;
+                }                
+                if(one == zero) {
+                    max = Math.max(max, j - i + 1);
+                }
+            }                        
+        }        
+        return max;
+    }    
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +217,9 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC525 obj = new LC525();
+        int[] list = new int[]{0,1,1,0,1};
+		System.out.println(obj.findMaxLength(list));
 	}
 
 }

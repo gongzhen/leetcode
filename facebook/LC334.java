@@ -158,21 +158,75 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+class TreeLinkNode {
+    int val;
+    TreeLinkNode left, right, next;
+    TreeLinkNode(int x) { val = x; }
+}
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+public class LC334 {
+
+
+    public boolean increasingTriplet(int[] nums) {
+       if (nums.length < 2) {
+            return false;
+        }
+        int n = nums.length;
+        boolean []has_first_small = new boolean[n];
+        int smallest = nums[0];
+        has_first_small[0] = false;
+        for (int i = 1; i < n; i ++) {
+            if (smallest < nums[i]) {
+                has_first_small[i] = true;
+                printString("has_first_small[" + i + "]:" + has_first_small[i]);                
+            }
+            smallest = Math.min(smallest, nums[i]);
+            printString("smallest: " + smallest);
+        }
+        
+        int biggest = nums[n-1];
+        for (int i = n-2; i >=0; i--) {
+            if(has_first_small[i] == true) {
+                if (nums[i] < biggest) {
+                    return true;
+                }
+                biggest = Math.max(biggest, nums[i]);
             }
         }
-        return w;
-    }	
+        return false;      
+    }
+
+    public boolean increasingTriplet_1(int[] nums) {
+        int m1 = Integer.MAX_VALUE, m2 = Integer.MAX_VALUE;
+        for (int a : nums) {
+            if (m1 >= a) {
+                m1 = a;
+            } else if (m2 >= a) {
+                m2 = a;
+            }
+            else {
+                return true;
+            }
+        }
+        return false;        
+    }
+
+
+    public boolean increasingTriplet_2(int[] nums) {
+        
+        for(int i = 0; i < nums.length; i++) {
+            for(int j = i + 1; j < nums.length; j++) {
+                if(nums[i] < nums[j]) {
+                    for(int k = j + 1; k < nums.length; k++) {
+                        if(nums[j] < nums[k]) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +245,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC334 obj = new LC334();
 	}
 
 }

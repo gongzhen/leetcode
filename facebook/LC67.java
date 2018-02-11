@@ -4,12 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-// class TreeNode {
-//  int val;
-//  TreeNode left;
-//  TreeNode right;
-//  TreeNode(int x) { val = x; }
-// }
+
 // class ListNode {
 //     int val;
 //     ListNode next;
@@ -18,44 +13,11 @@ import java.util.regex.*;
 //         next = null;
 //     }
 // }
-// class Interval {
-//     int start;
-//     int end;
-//     Interval() { start = 0; end = 0; }
-//     Interval(int s, int e) { start = s; end = e; }
-// }
-// private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
 //  }
-// }
-// private void printListMap(Map<Integer, List<Integer>> map) {
-//     for(Integer key:map.keySet()) {
-//         List<Integer> list = map.get(key);
-//         printStringWithoutNewLine("key:" + key + "[");   
-//         for(int n : list) {
-//             printStringWithoutNewLine(n + ", ");    
-//         }
-//         printString("]");               
-//     }
 // }
 // private void printQueue(Queue<String> list) {
 //  for(String s: list) {
@@ -158,21 +120,48 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
-
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+// 245. Subtree 
+public class LC67 {
+  
+    public String addBinary(String a, String b) {
+        int len1 = a.length();
+        int len2 = b.length();
+        
+        int i = len1 - 1, j = len2 - 1;
+        StringBuilder sb = new StringBuilder();
+        int carry = 0;
+        while(i >= 0 && j >= 0) {
+            int n1 = a.charAt(i--) - '0';
+            int n2 = b.charAt(j--) - '0';
+            int r = (n1 + n2 + carry) % 2;
+            carry = (n1 + n2 + carry) / 2;
+            sb.append(r);
         }
-        return w;
-    }	
+        
+        if(i == j) {
+            
+        } else if( i >= j) {
+            for(; i>= 0; i--) {
+                int n1 = a.charAt(i) - '0';
+                int r = (n1 + carry) % 2;
+                carry = (n1 + carry) / 2;
+                sb.append(r);
+            }
+        } else if (j >= i) {
+            for(; j>= 0; j--) {
+                int n1 = b.charAt(j) - '0';
+                int r = (n1 + carry) % 2;
+                carry = (n1 + carry) / 2;
+                sb.append(r);
+            }       
+        }
+        
+        if(carry == 1) {
+            sb.append(1);
+        }        
+        
+        return sb.reverse().toString();
+    }  
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -184,16 +173,24 @@ public class Solution1 {
         System.out.println(arg); 
     }    
 
-	private void printList(int[] list, int length) {
-		for(int i = 0; i < length; i ++ ){
-			System.out.println(list[i]);
-		}
-	}    
+    private void printArray(int[] list) {
+        printStringWithoutNewLine("[");
+        int i = 0;
+        for(int n : list) {
+            printStringWithoutNewLine("[" + i + "]" + n + ", ");
+            i++;
+        }
+        printStringWithoutNewLine("]\n");
+    } 
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg + ","); 
+    } 
+
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC67 obj = new LC67();
+        System.out.println(obj.addBinary("1", "1"));
 	}
 
 }

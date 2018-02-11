@@ -158,20 +158,80 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC207 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public boolean canFinishBFS(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = new ArrayList<List<Integer>>();
+        
+        for(int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<Integer>());
+        }
+        int[] indegree = new int[numCourses];
+        for(int[] list : prerequisites) {
+            graph.get(list[1]).add(list[0]);
+            indegree[list[0]]++; /// make sure list[0]++, not list[1].
+        }        
+              
+        Queue<Integer> queue = new LinkedList<Integer>();
+        for(int i = 0; i < numCourses; i++) {
+            if(indegree[i] == 0) {
+                queue.offer(i);
             }
         }
-        return w;
+        
+        int count = 0;
+        while(!queue.isEmpty()) {
+            int start = queue.poll();
+            for(int n : graph.get(start)) {
+                indegree[n]--;
+                count++;
+                if(indegree[n] == 0) {
+                    queue.offer(n);
+                }
+            }
+        }
+        return count == prerequisites.length;        
+    }    
+
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = makeGraph(numCourses, prerequisites);
+        
+        boolean[] visited = new boolean[numCourses];
+        
+        for(int i = 0; i < numCourses; i++) {
+            if(dfs(graph, visited, i) == false) {
+                return false;
+            }
+        }
+        return true;        
+    }
+    
+    private boolean dfs(List<List<Integer>> graph, boolean[] visited, int pos) {
+        if(visited[pos] == true) { /// visited is true, then find circle. 
+            return false;
+        }
+        
+        visited[pos] = true; /// set visited pos to true.
+        
+        for(int n : graph.get(pos)) {
+            if (dfs(graph, visited, n) == false) {
+                return false;
+            }
+        }
+        
+        visited[pos] = false;
+        return true;
+    }
+    
+    private List<List<Integer>> makeGraph(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = new ArrayList<List<Integer>>();
+        for(int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<Integer>());
+        }
+        for(int[] list : prerequisites) {
+            graph.get(list[1]).add(list[0]);
+        }
+        return graph;
     }	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
@@ -191,9 +251,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC207 obj = new LC207();
 	}
 
 }

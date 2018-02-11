@@ -158,21 +158,50 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC210 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    /// BFS
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        List<List<Integer>> graph = new ArrayList<List<Integer>>();
+        int[] indegree = new int[numCourses];
+        makeGraph(graph, numCourses, prerequisites, indegree);           
+        
+        Queue<Integer> queue = new LinkedList<Integer>();
+        for(int i = 0; i < numCourses; i++) {
+            if(indegree[i] == 0) {
+                queue.offer(i);
             }
         }
-        return w;
-    }	
+        
+        int[] res = new int[numCourses];
+        int index = 0;
+        
+        while(!queue.isEmpty()) {
+            int s = queue.poll();
+            res[index++] = s;
+            
+            for(int n : graph.get(s)) {
+                indegree[n]--;
+                if(indegree[n] == 0) {
+                    queue.offer(n);
+                }
+            }
+        }
+        
+        return index == numCourses ? res : new int[0];
+        
+    }
+    
+    private void makeGraph(List<List<Integer>> graph, int numCourses, int[][] prerequisites, int[] indegree) {
+        for(int i = 0; i < numCourses; i++) {
+            graph.add(new ArrayList<Integer>());
+        }
+
+        for(int[] list : prerequisites) {
+            graph.get(list[1]).add(list[0]);
+            indegree[list[0]]++;
+        }
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,7 +220,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC210 obj = new LC210();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
 		System.out.println(obj.removeDuplicates(list));
 	}

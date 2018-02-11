@@ -158,21 +158,48 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC127 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Queue<String> queue = new LinkedList<String>(); /// queue to store word
+        Set<String> wordSet = new HashSet<String>(); /// set stored all words from wordList
+        Set<String> visitedSet = new HashSet<String>(); /// visitedSet stored visited words.
+        
+        for(String word: wordList) {
+            wordSet.add(word);
+        }
+        
+        queue.offer(beginWord); /// queue startes from beginWord.
+        int length = 1;
+        
+        while(!queue.isEmpty()) {
+            length++;
+            int size = queue.size(); 
+            for(int i = 0; i < size; i++) { /// queue popout each word.
+                String word = queue.poll();
+                for(int j = 0; j < word.length(); j++) {
+                    char[] wordChar = word.toCharArray(); /// copy of string word to for loop each char.
+                    for(char c = 'a'; c <= 'z'; c++) {
+                        if(wordChar[j] != c) {
+                            wordChar[j] = c;
+                            String newWord = new String(wordChar);
+                            if(wordSet.contains(newWord) == true) {
+                                if(visitedSet.contains(newWord) == false) {
+                                    if(newWord.equals(endWord)) {
+                                        return length;
+                                    } else {
+                                        queue.offer(newWord);
+                                        visitedSet.add(newWord);
+                                    }
+                                }
+                            }
+                        }
+                    }                    
+                }
             }
         }
-        return w;
-    }	
+        return 0;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +218,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC127 obj = new LC127();
 	}
 
 }

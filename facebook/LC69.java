@@ -158,21 +158,26 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC69 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    public int mySqrt(int x) {
+        
+        long i = 1, j = x;
+        /// 100 and 16.
+        while(i + 1 < j) {
+            long mid = i + (j - i) / 2; /// m = 50
+            if(mid * mid < x) { /// 50 > 16 / 50
+                i = mid;
+            } else {
+                j = mid;
             }
         }
-        return w;
-    }	
+        
+        if(j * j <= x) {
+            return (int)j;
+        }
+        return (int)i;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +196,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC69 obj = new LC69();
 	}
 
 }

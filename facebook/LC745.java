@@ -94,31 +94,6 @@ import java.util.regex.*;
 //     System.out.println("---------------------"); 
 // }  
 // 
-// private void printMap(HashMap<TreeNode, Integer> map) {
-//     for(TreeNode node:map.keySet()) {
-//         Integer value = map.get(node);
-//         printString("key:" + node.val + ",value:" + value);
-//     }
-// }
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg + ","); 
-// } 
-// private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
-//     for(int n: list) {
-//         printStringWithoutNewLine(n + ", ");
-//     }
-//     printStringWithoutNewLine("]\n");
-// } 
-// private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
-//     int i = 0;
-//     for(int n : list) {
-//         printStringWithoutNewLine("[" + i + "]" + n + ", ");
-//         i++;
-//     }
-//     printStringWithoutNewLine("]\n");
-// }  
 // private void printArray(int[] list, int s, int e) {
 //     printStringWithoutNewLine("[");
 //     for(int i = s; i <= e; i++) {
@@ -158,21 +133,77 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC745 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+    private Map<String, Integer> map;
+    public LC745(String[] words) {
+        map = new HashMap<String, Integer>();        
+        int index = 0;
+        for(String word: words) {
+            int len = word.length();
+            String[] prefixes = new String[len + 1];
+            String[] suffixes = new String[len + 1];
+            for(int i = 0; i < len + 1; i++) { /// don't forget to initialize string array with ""
+                prefixes[i] = "";
+                suffixes[i] = "";
+            }            
+            for(int i = 0; i < len; i++) {
+                prefixes[i+1] = prefixes[i] + word.charAt(i);
+                suffixes[i+1] = word.charAt(len - 1 - i) + suffixes[i];
             }
+            
+            for(String prefix: prefixes) {
+                for(String suffix: suffixes) {
+                    map.put(prefix + "_" + suffix, index);
+                }
+            }
+            printStringWithoutNewLine("prefix:");
+            printArray(prefixes);
+            printStringWithoutNewLine("suffix:");
+            printArray(suffixes);            
+            ++index;
         }
-        return w;
-    }	
+
+        printMap(map);
+    }
+    
+    public int f(String prefix, String suffix) {
+        String key = prefix + "_" + suffix;
+        if(map.containsKey(key)) {
+            return map.get(key);
+        }
+        return -1;
+    }
+
+    private void printArray(String[] list) {
+        printStringWithoutNewLine("[");
+        for(String n: list) {
+            printStringWithoutNewLine("[" + n + "]" + ", ");
+        }
+        printStringWithoutNewLine("]\n");
+    } 
+    private void printArray(int[] list) {
+        printStringWithoutNewLine("[");
+        int i = 0;
+        for(int n : list) {
+            printStringWithoutNewLine("[" + i + "]" + n + ", ");
+            i++;
+        }
+        printStringWithoutNewLine("]\n");
+    }  
+
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg + ","); 
+    }  
+
+    private void printMap(Map<String, Integer> map) {
+        for(String key:map.keySet()) {
+            Integer value = map.get(key);
+            printString("key:" + key + ",value:" + value);
+        }
+    }
+
+
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,9 +222,9 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+        String[] list = new String[]{"apple"};
+		LC745 obj = new LC745(list);
+        obj.f("a", "e");		
 	}
 
 }

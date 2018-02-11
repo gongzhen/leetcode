@@ -25,23 +25,22 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//     //       5
-//     //    2      7
-//     //  1   3      10
-//     TreeNode node5 = new TreeNode(5);
-//     TreeNode node2 = new TreeNode(2);
-//     TreeNode node1 = new TreeNode(1);
-//     TreeNode node7 = new TreeNode(7);
-//     TreeNode node3 = new TreeNode(3);
-//     TreeNode node10 = new TreeNode(10);
-//     node5.left = node2;
-//     node5.right = node7;
-//     node2.left = node1;
-//     node2.right = node3;
-//     node5.right = node7;
-//     node7.right = node10; 
-//     return node5;
-// }  
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -158,23 +157,56 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC79 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
+   public boolean exist(char[][] board, String word) {
+        if(board.length == 0 | board[0].length == 0) {
+            return false;
+        }
+        
+        int m = board.length;
+        int n = board[0].length;
+        boolean[][] visited = new boolean[m][n];
+        for(int i = 0; i < m; i++) {
+            for(int j = 0; j < n; j++) {
+                if(word.charAt(0) == board[i][j]) {
+                    if(dfs(board, visited, word, m, n, i, j, 0) == true) {
+                        return true;    
+                    }                    
+                }
             }
         }
-        return w;
-    }	
-
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        return false;
+    }
+    
+    private int[][] direction = new int[][]{{-1, 0},{1, 0},{0, 1},{0, -1}};
+    private boolean dfs(char[][] board, boolean[][] visited, String word, int m, int n, int i, int j, int pos) {
+        printString("i: " + i + ",j:" + j);
+        if(i < 0 || j < 0 || i >= m || j >= n || pos >= word.length() ||word.charAt(pos) != board[i][j] || visited[i][j] == true) {
+            return false;
+        }        
+        if(pos + 1 == word.length()) {
+            return true;
+        }
+        visited[i][j] = true;
+        
+        boolean exist = dfs(board, visited, word, m, n, i - 1, j, pos + 1) 
+            || dfs(board, visited, word, m, n, i + 1, j, pos + 1) 
+            || dfs(board, visited, word, m, n, i, j - 1, pos + 1) 
+            || dfs(board, visited, word, m, n, i, j + 1, pos + 1);        
+        
+        // boolean exist = false;
+        // for(int[] list: direction) {
+        //     int x = i + list[0];
+        //     int y = i + list[1];
+        //     exist = exist || dfs(board, visited, word, m, n, x, y, pos + 1);
+        // }
+        if(exist == true) {
+            return true;
+        }
+        visited[i][j] = false;
+        return false;        
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -191,9 +223,24 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.removeDuplicates(list));
+		LC79 obj = new LC79();
+		String s1 = "ABCE";
+        String s2 = "SFCS";
+        String s3 = "ADEE";
+        char[][] matrix = new char[3][4];
+        for(int i = 0; i < matrix.length; i++) {
+            for(int j = 0; j < matrix[0].length; j++) {
+                if(i == 0) {
+                    matrix[i][j] = s1.charAt(j);
+                } else if(i == 1) {
+                    matrix[i][j] = s2.charAt(j);
+                } else if(i == 2) {
+                    matrix[i][j] = s3.charAt(j);
+                }                 
+            }
+        }
+
+		System.out.println(obj.exist(matrix, "ABCCED"));
 	}
 
 }

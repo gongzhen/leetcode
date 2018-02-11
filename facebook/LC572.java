@@ -158,21 +158,38 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class Solution1 {
+public class LC572 {
 
-    public int removeDuplicates(int[] nums) {
-        int w = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                nums[w++] = nums[i];
-            } else if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            } else if (i > 0 && nums[i] != nums[i - 1]) {
-                nums[w++] = nums[i];
-            }
+    public boolean isSubtree(TreeNode s, TreeNode t) {
+        return dfs(s, t);
+    }
+    
+    private boolean dfs(TreeNode s, TreeNode t) {
+        if(s == null || t == null) {
+            return false;
         }
-        return w;
-    }	
+        
+        if(same(s, t) == true) { //// just put same(s, t) here, don't compare s.val and t.val
+            return true;
+        }
+        
+        return dfs(s.left, t) || dfs(s.right, t);
+    }
+    
+    private boolean same(TreeNode s, TreeNode t) {
+        if(s == null && t == null) {
+            return true;
+        }
+        
+        if(s == null || t == null) {
+            return false;
+        }
+        
+        if(s.val != t.val) {
+            return false;
+        }
+        return same(s.left, t.left) && same(s.right, t.right);
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -191,7 +208,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		LC572 obj = new LC572();
 		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
 		System.out.println(obj.removeDuplicates(list));
 	}
