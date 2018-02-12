@@ -14,6 +14,7 @@
 #import "LC67.h"
 #import "LC273.h"
 #import "LC253.h"
+#import "LC325.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -30,9 +31,11 @@ int main(int argc, const char * argv[]) {
 //        [lc67 test];
 //        LC273 *lc273 = [[LC273 alloc] init];
 //        [lc273 test];
-        LC253 *lc253 = [[LC253 alloc] init];
-        [lc253 test];
-        [lc253 testPQ];
+//        LC253 *lc253 = [[LC253 alloc] init];
+//        [lc253 test];
+//        [lc253 testPQ];
+        LC325 *lc325 = [[LC325 alloc] init];
+        [lc325 test];
     }
     return 0;
 }
