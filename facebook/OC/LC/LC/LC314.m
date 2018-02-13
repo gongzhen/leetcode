@@ -8,27 +8,7 @@
 
 #import "LC314.h"
 #import "NSMutableArray+Queue.h"
-
-@interface TreeNode:NSObject
-
-@property(assign)NSInteger val;
-@property(nonatomic, strong) TreeNode* left;
-@property(nonatomic, strong) TreeNode* right;
-
-@end
-
-@implementation TreeNode
-
-- (instancetype)initWith:(NSInteger)x {
-    if(self = [super init]) {
-        self.val = x;
-        self.left = NULL;
-        self.right = NULL;
-    }
-    return self;
-}
-
-@end
+#import "TreeNode.h"
 
 @interface LC314()
 
