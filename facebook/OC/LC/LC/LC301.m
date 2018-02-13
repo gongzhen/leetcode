@@ -7,36 +7,7 @@
 //
 
 #import "LC301.h"
-
-@interface NSMutableArray (Queue)
-
-- (void)offer:(NSString *)string;
-- (NSString *)poll;
-
-@end
-
-@implementation NSMutableArray (Queue)
-
-- (void)offer:(NSString *)string {
-    if(string == NULL) {
-        return;
-    }
-    
-    [self addObject:string];
-}
-
-- (NSString *)poll {
-    if(self.count == 0) {
-        return nil;
-    }
-    
-    NSString *ret = [self objectAtIndex:0];
-    if(ret != nil) {
-        [self removeObjectAtIndex:0];
-    }
-    return ret;
-}
-@end
+#import "NSMutableArray+Queue.h"
 
 @interface LC301()
 
