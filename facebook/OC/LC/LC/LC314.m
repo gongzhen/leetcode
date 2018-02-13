@@ -7,37 +7,7 @@
 //
 
 #import "LC314.h"
-
-@interface NSMutableArray (Queue)
-
-- (void)offer:(id)obj;
-- (id)poll;
-
-@end
-
-@implementation NSMutableArray (Queue)
-
-- (void)offer:(id)obj {
-    if(obj == NULL) {
-        return;
-    }
-    
-    [self addObject:obj];
-}
-
-- (id)poll {
-    if(self.count == 0) {
-        return nil;
-    }
-    
-    id ret = [self objectAtIndex:0];
-    if(ret != nil) {
-        [self removeObjectAtIndex:0];
-    }
-    return ret;
-}
-
-@end
+#import "NSMutableArray+Queue.h"
 
 @interface TreeNode:NSObject
 
