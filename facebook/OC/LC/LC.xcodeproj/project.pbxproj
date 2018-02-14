@@ -16,6 +16,7 @@
 		3D14EB992032B5F300149E3F /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EB932032917800149E3F /* NSMutableArray+Queue.m */; };
 		3D14EB9C2032B80500149E3F /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EB9B2032B80500149E3F /* TreeNode.m */; };
 		3D14EBA52032BC7600149E3F /* LC311.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBA42032BC7600149E3F /* LC311.m */; };
+		3D14EBA82033331F00149E3F /* LC158.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBA72033331F00149E3F /* LC158.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -56,6 +57,8 @@
 		3D14EB9B2032B80500149E3F /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 		3D14EBA32032BC7600149E3F /* LC311.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC311.h; sourceTree = "<group>"; };
 		3D14EBA42032BC7600149E3F /* LC311.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC311.m; sourceTree = "<group>"; };
+		3D14EBA62033331F00149E3F /* LC158.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC158.h; sourceTree = "<group>"; };
+		3D14EBA72033331F00149E3F /* LC158.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC158.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 				3D14EB9B2032B80500149E3F /* TreeNode.m */,
 				3D14EB922032917800149E3F /* NSMutableArray+Queue.h */,
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
+				3D14EBA62033331F00149E3F /* LC158.h */,
+				3D14EBA72033331F00149E3F /* LC158.m */,
 				3D14EBA32032BC7600149E3F /* LC311.h */,
 				3D14EBA42032BC7600149E3F /* LC311.m */,
 				3D14EB8F20327F4500149E3F /* LC297.h */,
@@ -197,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D14EB992032B5F300149E3F /* NSMutableArray+Queue.m in Sources */,
+				3D14EBA82033331F00149E3F /* LC158.m in Sources */,
 				3D14EB882031A1A600149E3F /* LC17.m in Sources */,
 				3D14EB852031976000149E3F /* LC325.m in Sources */,
 				3D14EB8E2032248100149E3F /* LC15.m in Sources */,
