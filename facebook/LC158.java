@@ -192,6 +192,32 @@ public class LC158 {
         return localPtr;
     }
 
+    private int bufIdx = 0;
+    private int bufCount = 0;
+    private char[] buf4 = new char[4];
+    
+    public int read_2(char[] buf, int n) {
+        int i = 0;
+        while(i < n) {
+            if(bufCount == 0) {
+                bufCount = read4(buf4);
+            } 
+            
+            if(bufCount == 0) {
+                break;
+            }            
+            
+            if (bufIdx < bufCount){
+                buf[i++] = buf4[bufIdx++];
+            }
+            if(bufIdx == bufCount) {
+                bufIdx = 0;
+                bufCount = 0;
+            }
+        }
+        return i;
+    }    
+
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private void printLine() {
