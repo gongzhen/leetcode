@@ -29,6 +29,7 @@
 #import "LC157.h"
 #import "LC125.h"
 #import "LC211.h"
+#import "LC121.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -77,9 +78,10 @@ int main(int argc, const char * argv[]) {
 //        [lc157 test];
 //        LC125 *lc125 = [[LC125 alloc] init];
 //        [lc125 test];
-        LC211 *lc211 = [[LC211 alloc] init];
-        [lc211 test];
-
+//        LC211 *lc211 = [[LC211 alloc] init];
+//        [lc211 test];
+        LC121 *lc121 = [[LC121 alloc] init];
+        [lc121 test];
     }
     return 0;
 }
