@@ -7,34 +7,8 @@
 //
 
 #import "LC253.h"
+#import "Interval.h"
 #define TESTPQ NO
-
-@interface Interval:NSObject
-
-@property (assign, nonatomic) int start;
-@property (assign, nonatomic) int end;
-
-@end
-
-@implementation Interval
-
-- (instancetype)init {
-    if(self = [super init]) {
-        _start = 0;
-        _end = 0;
-    }
-    return self;
-}
-
--(instancetype)initWith:(int)s e:(int)e {
-    if(self = [super init]) {
-        _start = s;
-        _end = e;
-    }
-    return self;
-}
-
-@end
 
 @interface PriorityQueue:NSObject
 
@@ -102,14 +76,14 @@
 - (void)siftUpComparable:(NSInteger)idx x:(Interval *)x {
     Interval *key = x;
 #if TESTPQ == YES
-    DLog(@"key start:%d end:%d idx:%ld", key.start, key.end, idx);
+    DLog(@"key start:%ld end:%ld idx:%ld", key.start, key.end, idx);
 #endif
     
     while(idx > 0) {
         NSInteger parent = (idx - 1) / 2;
         Interval *e = [_queue objectAtIndex:parent];
 #if TESTPQ == YES
-    DLog(@"e start:%d end:%d", e.start, e.end);
+    DLog(@"e start:%ld end:%ld", e.start, e.end);
 #endif
         if(key.end > e.end) { /// new value larger than parent value, then break and insert to the last.
             break;
@@ -121,12 +95,12 @@
             [_queue replaceObjectAtIndex:idx withObject:e];
         }
 #if TESTPQ == YES
-    DLog(@"e start:%d end:%d at idx:%ld", e.start, e.end, idx);
+    DLog(@"e start:%ld end:%ld at idx:%ld", e.start, e.end, idx);
 #endif
         idx = parent;
     }
 #if TESTPQ == YES
-    DLog(@"key start:%d end:%d at idx:%ld", key.start, key.end, idx);
+    DLog(@"key start:%ld end:%ld at idx:%ld", key.start, key.end, idx);
 #endif
     
     if(_queue.count == idx) {
@@ -136,7 +110,7 @@
     }
 #if TESTPQ == YES
     [_queue enumerateObjectsUsingBlock:^(Interval * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        DLog(@"obj start:%d end:%d", obj.start, obj.end);
+        DLog(@"obj start:%ld end:%ld", obj.start, obj.end);
     }];
     DLog(@"---------------------------------------------")
 #endif
@@ -274,7 +248,7 @@
     [pq offer:in5];
     
     while(pq.size != 0) {
-        DLog(@"pq = > %d", [pq poll].end);
+        DLog(@"pq = > %ld", [pq poll].end);
     }
 }
 
@@ -290,7 +264,7 @@
     [pq offer:in3];
     
     [pq.queue enumerateObjectsUsingBlock:^(Interval * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        DLog(@"obj start:%d end:%d", obj.start, obj.end);
+        DLog(@"obj start:%ld end:%ld", obj.start, obj.end);
     }];
     DLog(@"res: %d", [self minMeetingRooms:intervals]);
     DLog(@"res: %d", [self minMeetingRoomsPQ:intervals]);
