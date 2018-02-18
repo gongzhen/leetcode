@@ -1,0 +1,132 @@
+//
+//  Tree.m
+//  LC
+//
+//  Created by ULS on 2/18/18.
+//  Copyright © 2018 ULS. All rights reserved.
+//
+
+#import "Tree.h"
+#import "TreeNode.h"
+#import "NSMutableArray+Stack.h"
+
+@interface Tree()
+
+@end
+
+@implementation Tree
+
+- (void)inorder:(TreeNode *)node {
+    if(node == NULL) {
+        return;
+    }
+    
+    [self inorder:node.left];
+    DLog(@"node:%ld, ", node.val);
+    [self inorder:node.right];
+}
+
+- (void)inorderBFS:(TreeNode *)node {
+    if(node == NULL) {
+        return;
+    }
+    
+    NSMutableArray *stack = [NSMutableArray array];
+    TreeNode *current = node;
+    while(current != nil || ![stack empty]) {
+        while(current != NULL) {
+            [stack push:current];
+            current = current.left;
+        }
+        current = [stack pop];
+        DLog(@"node:%ld, ", current.val);
+        current = current.right;
+    }
+}
+
+
+- (void)preorder:(TreeNode *)node {
+    if(node == NULL) {
+        return;
+    }
+    
+    DLog(@"node:%ld, ", node.val);
+    [self preorder:node.left];
+    [self preorder:node.right];
+}
+
+- (void)preorderBFS:(TreeNode *)node {
+    if(node == nil) {
+        return;
+    }
+    
+    NSMutableArray *stack = [NSMutableArray array];
+    [stack push:node];
+    while(![stack empty]) {
+        TreeNode *_node = [stack pop];
+        DLog(@"node:%ld, ", _node.val);
+        if(_node.right != nil) {
+            [stack push:_node.right];
+        }
+        if(_node.left != nil) {
+            [stack push:_node.left];
+        }
+    }
+}
+
+- (void)postorder:(TreeNode *)node {
+    if(node == NULL) {
+        return;
+    }
+    
+    [self postorder:node.left];
+    [self postorder:node.right];
+    DLog(@"node:%ld, ", node.val);
+}
+
+- (void)postorderBFS:(TreeNode *)node {
+    if(node == NULL) {
+        return;
+    }
+    
+    TreeNode *prev = nil;
+    TreeNode *current = node;
+    NSMutableArray *stack = [NSMutableArray array];
+    
+    while(current != nil || ![stack empty]) {
+        while(current != nil) {
+            [stack push:current];
+            current = current.left;
+        }
+        current = [stack pop];
+        if(current.right != nil && prev != current.right) {
+            [stack push:current];
+            current = current.right;
+        } else {
+            DLog(@"node:%ld, ", current.val);
+            prev = current;
+            current = nil;
+        }
+    }
+}
+
+- (void)test {
+    TreeNode *node1 = [[TreeNode alloc] initWith:1];
+    TreeNode *node2 = [[TreeNode alloc] initWith:2];
+    TreeNode *node3 = [[TreeNode alloc] initWith:3];
+    TreeNode *node4 = [[TreeNode alloc] initWith:4];
+    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    node1.left = node2;
+    node1.right = node3;
+    node2.left = node4;
+    node2.right = node5;
+    /// root is node1
+    [self inorder:node1];
+    [self inorderBFS:node1];
+    [self preorder:node1];
+    [self preorderBFS:node1];
+    [self postorder:node1];
+    [self postorderBFS:node1];
+}
+
+@end
