@@ -41,6 +41,8 @@
 #import "LC43.h"
 #import "Tree.h"
 #import "LC285.h"
+#import "LC215.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -112,8 +114,10 @@ int main(int argc, const char * argv[]) {
 //        [lc43 test];
 //        Tree *tree = [[Tree alloc] init];
 //        [tree test];
-        LC285 *lc285 = [[LC285 alloc] init];
-        [lc285 test];
+//        LC285 *lc285 = [[LC285 alloc] init];
+//        [lc285 test];
+        LC215 *lc215 = [[LC215 alloc] init];
+        [lc215 test];
     }
     return 0;
 }

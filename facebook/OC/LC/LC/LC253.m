@@ -10,7 +10,7 @@
 #import "Interval.h"
 #define TESTPQ NO
 
-@interface PriorityQueue:NSObject
+@interface LC253PriorityQueue:NSObject
 
 @property(nonatomic, copy) NSMutableArray<Interval *>* queue;
 @property (assign) NSInteger size;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation PriorityQueue
+@implementation LC253PriorityQueue
 
 - (instancetype)initWithCapacity:(NSInteger)capacity {
     if(self = [super init]) {
@@ -179,7 +179,7 @@
         return (obj1.start - obj2.start);
     }];
     
-    PriorityQueue *pq = [[PriorityQueue alloc] initWithCapacity:intervals.count];
+    LC253PriorityQueue *pq = [[LC253PriorityQueue alloc] initWithCapacity:intervals.count];
     [pq offer:[intervals objectAtIndex:0]];
     
     for(NSInteger i = 1; i < [intervals count]; i++) {
@@ -240,7 +240,7 @@
     Interval* in3 = [[Interval alloc] initWith:15 e:20];
     Interval* in4 = [[Interval alloc] initWith:10 e:15];
     Interval* in5 = [[Interval alloc] initWith:15 e:25];
-    PriorityQueue *pq = [[PriorityQueue alloc] initWithCapacity:5];
+    LC253PriorityQueue *pq = [[LC253PriorityQueue alloc] initWithCapacity:5];
     [pq offer:in1];
     [pq offer:in2];
     [pq offer:in3];
@@ -258,7 +258,7 @@
     Interval* in3 = [[Interval alloc] initWith:15 e:20];
     
     NSArray* intervals = @[in1, in2, in3];
-    PriorityQueue *pq = [[PriorityQueue alloc] initWithCapacity:intervals.count];
+    LC253PriorityQueue *pq = [[LC253PriorityQueue alloc] initWithCapacity:intervals.count];
     [pq offer:in1];
     [pq offer:in2];
     [pq offer:in3];
