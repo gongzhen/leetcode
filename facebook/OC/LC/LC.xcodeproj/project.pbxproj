@@ -47,6 +47,7 @@
 		3D14EC06203A188200149E3F /* LC215.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC05203A188200149E3F /* LC215.m */; };
 		3D14EC09203B9B3F00149E3F /* LC139.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC08203B9B3F00149E3F /* LC139.m */; };
 		3D14EC0C203BAEE400149E3F /* LC57.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC0B203BAEE400149E3F /* LC57.m */; };
+		3D14EC0F203BC51C00149E3F /* LC238.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC0E203BC51C00149E3F /* LC238.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -149,6 +150,8 @@
 		3D14EC08203B9B3F00149E3F /* LC139.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC139.m; sourceTree = "<group>"; };
 		3D14EC0A203BAEE400149E3F /* LC57.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC57.h; sourceTree = "<group>"; };
 		3D14EC0B203BAEE400149E3F /* LC57.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC57.m; sourceTree = "<group>"; };
+		3D14EC0D203BC51C00149E3F /* LC238.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC238.h; sourceTree = "<group>"; };
+		3D14EC0E203BC51C00149E3F /* LC238.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC238.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
+				3D14EC0D203BC51C00149E3F /* LC238.h */,
+				3D14EC0E203BC51C00149E3F /* LC238.m */,
 				3D14EC0A203BAEE400149E3F /* LC57.h */,
 				3D14EC0B203BAEE400149E3F /* LC57.m */,
 				3D14EC07203B9B3F00149E3F /* LC139.h */,
@@ -381,6 +386,7 @@
 				3D14EBF12039486700149E3F /* LC133.m in Sources */,
 				3D14EC06203A188200149E3F /* LC215.m in Sources */,
 				3D14EB8220313C9F00149E3F /* LC253.m in Sources */,
+				3D14EC0F203BC51C00149E3F /* LC238.m in Sources */,
 				3D14EBFA2039EB6200149E3F /* Tree.m in Sources */,
 				3DC98C48202F901800DB15CD /* LC146.m in Sources */,
 				3DC98C40202F8E7D00DB15CD /* main.m in Sources */,
