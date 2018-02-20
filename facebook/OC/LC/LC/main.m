@@ -48,7 +48,7 @@
 #import "LC75.h"
 #import "LC33.h"
 #import "LC88.h"
-
+#import "LC670.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -135,8 +135,10 @@ int main(int argc, const char * argv[]) {
 //        [lc75 test];
 //        LC33 *lc33 = [[LC33 alloc] init];
 //        [lc33 test];
-        LC88 *lc88 = [[LC88 alloc] init];
-        [lc88 test];
+//        LC88 *lc88 = [[LC88 alloc] init];
+//        [lc88 test];
+        LC670 *lc670 = [[LC670 alloc] init];
+        [lc670 test];
     }
     return 0;
 }
