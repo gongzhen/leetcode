@@ -45,6 +45,7 @@
 		3D14EBFD2039EF2600149E3F /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */; };
 		3D14EC00203A0ABF00149E3F /* LC285.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBFF203A0ABF00149E3F /* LC285.m */; };
 		3D14EC06203A188200149E3F /* LC215.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC05203A188200149E3F /* LC215.m */; };
+		3D14EC09203B9B3F00149E3F /* LC139.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC08203B9B3F00149E3F /* LC139.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -143,6 +144,8 @@
 		3D14EBFF203A0ABF00149E3F /* LC285.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC285.m; sourceTree = "<group>"; };
 		3D14EC04203A188200149E3F /* LC215.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC215.h; sourceTree = "<group>"; };
 		3D14EC05203A188200149E3F /* LC215.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC215.m; sourceTree = "<group>"; };
+		3D14EC07203B9B3F00149E3F /* LC139.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC139.h; sourceTree = "<group>"; };
+		3D14EC08203B9B3F00149E3F /* LC139.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC139.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -207,10 +210,12 @@
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
-				3D14EC04203A188200149E3F /* LC215.h */,
-				3D14EC05203A188200149E3F /* LC215.m */,
+				3D14EC07203B9B3F00149E3F /* LC139.h */,
+				3D14EC08203B9B3F00149E3F /* LC139.m */,
 				3D14EBF82039EB6200149E3F /* Tree.h */,
 				3D14EBF92039EB6200149E3F /* Tree.m */,
+				3D14EC04203A188200149E3F /* LC215.h */,
+				3D14EC05203A188200149E3F /* LC215.m */,
 				3D14EBFE203A0ABF00149E3F /* LC285.h */,
 				3D14EBFF203A0ABF00149E3F /* LC285.m */,
 				3D14EBF5203960D900149E3F /* LC43.h */,
@@ -373,6 +378,7 @@
 				3D14EBFA2039EB6200149E3F /* Tree.m in Sources */,
 				3DC98C48202F901800DB15CD /* LC146.m in Sources */,
 				3DC98C40202F8E7D00DB15CD /* main.m in Sources */,
+				3D14EC09203B9B3F00149E3F /* LC139.m in Sources */,
 				3D14EBB12034F30800149E3F /* LC200.m in Sources */,
 				3D14EBE52038ACED00149E3F /* LC252.m in Sources */,
 				3D14EBBD203551E300149E3F /* ListNode.m in Sources */,
