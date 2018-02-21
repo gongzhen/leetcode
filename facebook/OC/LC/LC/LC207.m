@@ -33,6 +33,14 @@
         [[edges objectAtIndex:next] addObject:@(prev)];
     }
     
+//    [edges enumerateObjectsUsingBlock:^(NSMutableArray*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        DLog(@"course:%ld {", idx);
+//        [obj enumerateObjectsUsingBlock:^(NSNumber*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            NSLog(@"%d, ", [obj intValue]);
+//        }];
+//        NSLog(@"}");
+//    }];
+    
     NSMutableArray *queue = [NSMutableArray array];
     for(int i = 0; i < numCourses; i++) {
         if(degree[i] == 0) {
