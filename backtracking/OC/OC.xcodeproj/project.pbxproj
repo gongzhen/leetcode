@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3D14EC45203CE10F00149E3F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC44203CE10F00149E3F /* main.m */; };
 		3D14EC4D203CE12E00149E3F /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC4C203CE12E00149E3F /* LC.m */; };
+		3D14EC51203CEF8700149E3F /* LC60.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC50203CEF8700149E3F /* LC60.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,9 @@
 		3D14EC44203CE10F00149E3F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D14EC4B203CE12E00149E3F /* LC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC.h; sourceTree = "<group>"; };
 		3D14EC4C203CE12E00149E3F /* LC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC.m; sourceTree = "<group>"; };
+		3D14EC4E203CEF5000149E3F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3D14EC4F203CEF8700149E3F /* LC60.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC60.h; sourceTree = "<group>"; };
+		3D14EC50203CEF8700149E3F /* LC60.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC60.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,9 @@
 				3D14EC44203CE10F00149E3F /* main.m */,
 				3D14EC4B203CE12E00149E3F /* LC.h */,
 				3D14EC4C203CE12E00149E3F /* LC.m */,
+				3D14EC4F203CEF8700149E3F /* LC60.h */,
+				3D14EC50203CEF8700149E3F /* LC60.m */,
+				3D14EC4E203CEF5000149E3F /* PrefixHeader.pch */,
 			);
 			path = OC;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D14EC51203CEF8700149E3F /* LC60.m in Sources */,
 				3D14EC4D203CE12E00149E3F /* LC.m in Sources */,
 				3D14EC45203CE10F00149E3F /* main.m in Sources */,
 			);
@@ -170,6 +178,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -223,6 +233,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
