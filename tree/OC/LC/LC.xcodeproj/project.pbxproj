@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D14EB992032B5F300149E3F /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EB932032917800149E3F /* NSMutableArray+Queue.m */; };
+		3D14EB9C2032B80500149E3F /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EB9B2032B80500149E3F /* TreeNode.m */; };
+		3D14EBBD203551E300149E3F /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBBC203551E300149E3F /* ListNode.m */; };
+		3D14EBC92036187500149E3F /* TrieNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBC82036187500149E3F /* TrieNode.m */; };
+		3D14EBD320374D2700149E3F /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBD220374D2700149E3F /* LC.m */; };
+		3D14EBD620374ECA00149E3F /* Interval.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBD520374ECA00149E3F /* Interval.m */; };
+		3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBF3203948B200149E3F /* UndirectedGraphNode.m */; };
+		3D14EBFD2039EF2600149E3F /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */; };
+		3D14EC54203D681F00149E3F /* LC105.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC53203D681F00149E3F /* LC105.m */; };
+		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3DC98C3A202F8E7D00DB15CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3D14EB922032917800149E3F /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Queue.h"; sourceTree = "<group>"; };
+		3D14EB932032917800149E3F /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Queue.m"; sourceTree = "<group>"; };
+		3D14EB9A2032B80500149E3F /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		3D14EB9B2032B80500149E3F /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
+		3D14EBBB203551E300149E3F /* ListNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListNode.h; sourceTree = "<group>"; };
+		3D14EBBC203551E300149E3F /* ListNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListNode.m; sourceTree = "<group>"; };
+		3D14EBC72036187500149E3F /* TrieNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrieNode.h; sourceTree = "<group>"; };
+		3D14EBC82036187500149E3F /* TrieNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrieNode.m; sourceTree = "<group>"; };
+		3D14EBD120374D2700149E3F /* LC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC.h; sourceTree = "<group>"; };
+		3D14EBD220374D2700149E3F /* LC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC.m; sourceTree = "<group>"; };
+		3D14EBD420374ECA00149E3F /* Interval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Interval.h; sourceTree = "<group>"; };
+		3D14EBD520374ECA00149E3F /* Interval.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Interval.m; sourceTree = "<group>"; };
+		3D14EBF2203948B200149E3F /* UndirectedGraphNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UndirectedGraphNode.h; sourceTree = "<group>"; };
+		3D14EBF3203948B200149E3F /* UndirectedGraphNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UndirectedGraphNode.m; sourceTree = "<group>"; };
+		3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Stack.h"; sourceTree = "<group>"; };
+		3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Stack.m"; sourceTree = "<group>"; };
+		3D14EC52203D681F00149E3F /* LC105.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC105.h; sourceTree = "<group>"; };
+		3D14EC53203D681F00149E3F /* LC105.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC105.m; sourceTree = "<group>"; };
+		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3DC98C39202F8E7D00DB15CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3DC98C33202F8E7D00DB15CD = {
+			isa = PBXGroup;
+			children = (
+				3DC98C3E202F8E7D00DB15CD /* LC */,
+				3DC98C3D202F8E7D00DB15CD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3DC98C3D202F8E7D00DB15CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3DC98C3C202F8E7D00DB15CD /* LC */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3DC98C3E202F8E7D00DB15CD /* LC */ = {
+			isa = PBXGroup;
+			children = (
+				3DC98C3F202F8E7D00DB15CD /* main.m */,
+				3D14EBD120374D2700149E3F /* LC.h */,
+				3D14EBD220374D2700149E3F /* LC.m */,
+				3D14EBF2203948B200149E3F /* UndirectedGraphNode.h */,
+				3D14EBF3203948B200149E3F /* UndirectedGraphNode.m */,
+				3D14EBD420374ECA00149E3F /* Interval.h */,
+				3D14EBD520374ECA00149E3F /* Interval.m */,
+				3D14EBC72036187500149E3F /* TrieNode.h */,
+				3D14EBC82036187500149E3F /* TrieNode.m */,
+				3D14EBBB203551E300149E3F /* ListNode.h */,
+				3D14EBBC203551E300149E3F /* ListNode.m */,
+				3D14EB9A2032B80500149E3F /* TreeNode.h */,
+				3D14EB9B2032B80500149E3F /* TreeNode.m */,
+				3D14EB922032917800149E3F /* NSMutableArray+Queue.h */,
+				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
+				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
+				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
+				3D14EC52203D681F00149E3F /* LC105.h */,
+				3D14EC53203D681F00149E3F /* LC105.m */,
+				3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */,
+			);
+			path = LC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3DC98C3B202F8E7D00DB15CD /* LC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DC98C43202F8E7D00DB15CD /* Build configuration list for PBXNativeTarget "LC" */;
+			buildPhases = (
+				3DC98C38202F8E7D00DB15CD /* Sources */,
+				3DC98C39202F8E7D00DB15CD /* Frameworks */,
+				3DC98C3A202F8E7D00DB15CD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LC;
+			productName = LC;
+			productReference = 3DC98C3C202F8E7D00DB15CD /* LC */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3DC98C34202F8E7D00DB15CD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = ULS;
+				TargetAttributes = {
+					3DC98C3B202F8E7D00DB15CD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3DC98C37202F8E7D00DB15CD /* Build configuration list for PBXProject "LC" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3DC98C33202F8E7D00DB15CD;
+			productRefGroup = 3DC98C3D202F8E7D00DB15CD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3DC98C3B202F8E7D00DB15CD /* LC */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3DC98C38202F8E7D00DB15CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D14EB992032B5F300149E3F /* NSMutableArray+Queue.m in Sources */,
+				3D14EC54203D681F00149E3F /* LC105.m in Sources */,
+				3D14EBC92036187500149E3F /* TrieNode.m in Sources */,
+				3D14EBD620374ECA00149E3F /* Interval.m in Sources */,
+				3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */,
+				3D14EB9C2032B80500149E3F /* TreeNode.m in Sources */,
+				3DC98C40202F8E7D00DB15CD /* main.m in Sources */,
+				3D14EBBD203551E300149E3F /* ListNode.m in Sources */,
+				3D14EBFD2039EF2600149E3F /* NSMutableArray+Stack.m in Sources */,
+				3D14EBD320374D2700149E3F /* LC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3DC98C41202F8E7D00DB15CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3DC98C42202F8E7D00DB15CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3DC98C44202F8E7D00DB15CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J9PKQ8Y5Y3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3DC98C45202F8E7D00DB15CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J9PKQ8Y5Y3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3DC98C37202F8E7D00DB15CD /* Build configuration list for PBXProject "LC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DC98C41202F8E7D00DB15CD /* Debug */,
+				3DC98C42202F8E7D00DB15CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3DC98C43202F8E7D00DB15CD /* Build configuration list for PBXNativeTarget "LC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DC98C44202F8E7D00DB15CD /* Debug */,
+				3DC98C45202F8E7D00DB15CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3DC98C34202F8E7D00DB15CD /* Project object */;
+}
