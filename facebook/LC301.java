@@ -360,7 +360,17 @@ public class LC301 {
 		LC301 obj = new LC301();
 		// System.out.println(obj.removeInvalidParentheses("())"));
         // System.out.println(obj.removeInvalidParentheses("(a)())()"));
-        System.out.println(obj.removeInvalidParentheses_3("())"));
+        // System.out.println(obj.removeInvalidParentheses_3("())"));
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        pq.offer(30);
+        pq.offer(10);
+        pq.offer(20);
+
+        while(!pq.isEmpty()){
+            System.out.println(pq.poll());
+        }
+
+
 	}
 
 }
