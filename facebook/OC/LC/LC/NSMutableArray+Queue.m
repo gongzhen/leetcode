@@ -10,6 +10,11 @@
 
 @implementation NSMutableArray (Queue)
 
++ (instancetype)queue {
+    NSMutableArray *queue = [[self alloc] init];    
+    return queue;
+}
+
 - (void)offer:(id)obj {
     if(obj == NULL) {
         return;

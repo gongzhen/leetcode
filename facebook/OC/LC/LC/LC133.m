@@ -12,6 +12,7 @@
 
 @interface LC133()
 
+- (UndirectedGraphNode *)cloneGraphBFSJZ:(UndirectedGraphNode *)node;
 - (UndirectedGraphNode *)cloneGraphBFS:(UndirectedGraphNode *)node;
 - (UndirectedGraphNode *)cloneGraph:(UndirectedGraphNode *)node;
 
@@ -19,13 +20,58 @@
 
 @implementation LC133
 
+- (UndirectedGraphNode *)cloneGraphBFSJZ:(UndirectedGraphNode *)node {
+    if(node == nil) {
+        return nil;
+    }
+    
+    NSMutableArray *queue = [NSMutableArray queue];
+    NSMutableSet *set = [NSMutableSet set];
+    
+    [queue offer:node];
+    [set addObject:node];
+    
+    while(queue.count != 0) {
+        UndirectedGraphNode *head = (UndirectedGraphNode *)[queue poll];
+        [head.neighbors enumerateObjectsUsingBlock:^(UndirectedGraphNode*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if(![set containsObject:obj]) {
+                [set addObject:obj];
+                [queue offer:obj];
+            }
+        }];
+    }
+    
+    NSArray<UndirectedGraphNode *> *nodeList = [set allObjects];
+    
+    NSMutableDictionary<NSNumber *, UndirectedGraphNode *> *map = [[NSMutableDictionary alloc] init];;
+    for(UndirectedGraphNode *key in nodeList){
+        UndirectedGraphNode *newNode = [[UndirectedGraphNode alloc] initWith:key.label];
+//        DLog(@"key:%@, newNode:%@", key, newNode);
+        [map setObject:newNode forKey:@(key.label)];
+//        DLog(@"key:%@, newNode:%@", key, [map objectForKey:@(key.label)]);
+    }
+    
+    for(UndirectedGraphNode *key in nodeList) {
+        UndirectedGraphNode *newNode = (UndirectedGraphNode *)[map objectForKey:@(key.label)];
+//        DLog(@"key:%ld, newNode:%ld", key.label, newNode.label);
+//        DLog(@"key:%@, newNode:%@", key, newNode);
+//        DLog(@"newNode:%ld", ((UndirectedGraphNode *)[map objectForKey:@(key.label)]).label);
+        for(UndirectedGraphNode *neighbor in key.neighbors) {
+            UndirectedGraphNode *newNeighbor = [map objectForKey:@(neighbor.label)];
+            [newNode.neighbors addObject:newNeighbor];
+        }
+    }
+    /// [self printGraph:(UndirectedGraphNode *)[map objectForKey:@(node.label)]];
+    return (UndirectedGraphNode *)[map objectForKey:@(node.label)];
+}
+
 - (UndirectedGraphNode *)cloneGraphBFS:(UndirectedGraphNode *)node {
     if(node == NULL) {
         return NULL;
     }
     
     NSMutableDictionary<NSNumber*, UndirectedGraphNode*> *map = [NSMutableDictionary dictionary];
-    NSMutableArray *queue = [NSMutableArray array];
+    NSMutableArray *queue = [NSMutableArray queue];
     [queue offer:node]; /// save old node
     [map setObject:[[UndirectedGraphNode alloc] initWith:node.label] forKey:@(node.label)]; /// new node.
     
@@ -70,17 +116,39 @@
     return cloneNode;
 }
 
+- (void)printGraph:(UndirectedGraphNode *)node {
+    if(node == nil) {
+        return;
+    }
+    NSMutableArray *queue = [NSMutableArray queue];
+    NSMutableSet *set = [NSMutableSet set];
+    [queue offer:node];
+    [set addObject:node];
+    
+    while(queue.count != 0) {
+        UndirectedGraphNode *head = (UndirectedGraphNode *)[queue poll];
+        DLog(@"head:%ld {", head.label);
+        for(UndirectedGraphNode *neighbor in head.neighbors) {
+            DLog(@"neighbor:%ld ", neighbor.label);
+            if(![set containsObject:neighbor]) {
+                [set addObject:neighbor];
+                [queue offer:neighbor];
+            }
+        }
+        DLog(@"}==================");
+    }
+}
+
 - (void)test {
     UndirectedGraphNode *node0 = [[UndirectedGraphNode alloc] initWith:0];
     UndirectedGraphNode *node1 = [[UndirectedGraphNode alloc] initWith:1];
     UndirectedGraphNode *node2 = [[UndirectedGraphNode alloc] initWith:2];
-    [node0.neighbors addObject:node1];
-    [node0.neighbors addObject:node2];
+    [node0.neighbors addObjectsFromArray:@[node1, node2]];
     [node1.neighbors addObject:node2];
     [node2.neighbors addObject:node2];
-    UndirectedGraphNode *result = [self cloneGraphBFS:node1];
-    DLog(@"result:%ld", result.label);
-
+    UndirectedGraphNode *result = [self cloneGraphBFSJZ:node0];
+    DLog(@"result.label:%ld", result.label);
+    [self printGraph:result];
 }
 
 @end

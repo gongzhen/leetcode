@@ -10,6 +10,7 @@
 
 @interface NSMutableArray (Queue)
 
++ (instancetype)queue;
 - (void)offer:(id)obj;
 - (id)poll;
 - (id)peek;
