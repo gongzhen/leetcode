@@ -54,6 +54,7 @@
 #import "LC494.h"
 #import "LC207.h"
 #import "LC210.h"
+#import "LC261.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -81,8 +82,8 @@ int main(int argc, const char * argv[]) {
 //        [lc314 test];
 //        LC15 *lc15 = [[LC15 alloc] init];
 //        [lc15 test];
-        LC297 *lc297 = [[LC297 alloc] init];
-        [lc297 test];
+//        LC297 *lc297 = [[LC297 alloc] init];
+//        [lc297 test];
 //        LC311 *lc311 = [[LC311 alloc] init];
 //        [lc311 test];
 //        LC158 *lc158 = [[LC158 alloc] init];
@@ -153,6 +154,8 @@ int main(int argc, const char * argv[]) {
 //        [lc207 test];
 //        LC210 *lc210 = [[LC210 alloc] init];
 //        [lc210 test];
+        LC261 *lc261 = [[LC261 alloc] init];
+        [lc261 test];
     }
     return 0;
 }
