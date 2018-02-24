@@ -41,6 +41,7 @@
     NSInteger count = 0;
     NSMutableString *res = [NSMutableString string];
     for(NSUInteger i = 0; i < [_radix count]; i++) {
+        /// Cannot handle 1 --- 99
         count = num / [[_radix objectAtIndex:i] integerValue];
         if(count == 0) {
             continue;
@@ -53,19 +54,21 @@
         num %= [[_radix objectAtIndex:i] integerValue];
     }
     /// all the number will be less than 99
-    if(num < 20) {
+    if(num < 20) { /// 1, 2, 3, 4, .... 19
         [res appendString:[_LESSTHAN20 objectAtIndex:num]];
     } else {
+        /// 20 ... 99
         [res appendString:[_TENS objectAtIndex:(num / 10 - 2)]];
         [res appendString:@" "];
         [res appendString:[_LESSTHAN20 objectAtIndex:num % 10]];
     }
+    DLog(@"res:%@", res);
     [res stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     return [res copy];
 }
 
 - (void)test {
-    NSInteger num = 1000000000;
+    NSInteger num = 19000000000;
     DLog(@"%@", [self numberToWords:num]);
     num = 1001000000;
     DLog(@"%@", [self numberToWords:num]);

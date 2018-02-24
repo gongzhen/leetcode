@@ -59,6 +59,8 @@
 		3D14EC6F203DF58D00149E3F /* LC210.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC6E203DF58D00149E3F /* LC210.m */; };
 		3D14EC72203F869E00149E3F /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC71203F869E00149E3F /* Queue.m */; };
 		3D14EC75203F966800149E3F /* LC261.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC74203F966800149E3F /* LC261.m */; };
+		3D14EC782040DD1C00149E3F /* LC54.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC772040DD1C00149E3F /* LC54.m */; };
+		3D14EC7B2041236700149E3F /* LC53.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC7A2041236700149E3F /* LC53.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -185,6 +187,10 @@
 		3D14EC71203F869E00149E3F /* Queue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		3D14EC73203F966800149E3F /* LC261.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC261.h; sourceTree = "<group>"; };
 		3D14EC74203F966800149E3F /* LC261.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC261.m; sourceTree = "<group>"; };
+		3D14EC762040DD1C00149E3F /* LC54.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC54.h; sourceTree = "<group>"; };
+		3D14EC772040DD1C00149E3F /* LC54.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC54.m; sourceTree = "<group>"; };
+		3D14EC792041236700149E3F /* LC53.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC53.h; sourceTree = "<group>"; };
+		3D14EC7A2041236700149E3F /* LC53.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC53.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -251,6 +257,10 @@
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
+				3D14EC792041236700149E3F /* LC53.h */,
+				3D14EC7A2041236700149E3F /* LC53.m */,
+				3D14EC762040DD1C00149E3F /* LC54.h */,
+				3D14EC772040DD1C00149E3F /* LC54.m */,
 				3D14EC73203F966800149E3F /* LC261.h */,
 				3D14EC74203F966800149E3F /* LC261.m */,
 				3D14EC6D203DF58D00149E3F /* LC210.h */,
@@ -436,6 +446,7 @@
 				3D14EC00203A0ABF00149E3F /* LC285.m in Sources */,
 				3D14EC18203C3D6A00149E3F /* LC88.m in Sources */,
 				3D14EBBA203551B700149E3F /* LC23.m in Sources */,
+				3D14EC782040DD1C00149E3F /* LC54.m in Sources */,
 				3D14EBC02035DF6400149E3F /* LC157.m in Sources */,
 				3D14EB9120327F4500149E3F /* LC297.m in Sources */,
 				3D14EC75203F966800149E3F /* LC261.m in Sources */,
@@ -454,6 +465,7 @@
 				3D14EC0F203BC51C00149E3F /* LC238.m in Sources */,
 				3D14EBFA2039EB6200149E3F /* Tree.m in Sources */,
 				3DC98C48202F901800DB15CD /* LC146.m in Sources */,
+				3D14EC7B2041236700149E3F /* LC53.m in Sources */,
 				3DC98C40202F8E7D00DB15CD /* main.m in Sources */,
 				3D14EC09203B9B3F00149E3F /* LC139.m in Sources */,
 				3D14EBB12034F30800149E3F /* LC200.m in Sources */,

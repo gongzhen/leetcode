@@ -119,6 +119,7 @@
             [queue offer:node];
         }
         
+        /// no mather # or 1, 2, 3 value, we have to udapte index and isLeft
         if(!isLeft) {
             index++;
         }
