@@ -12,6 +12,7 @@
 
 - (int)maxSubArray1:(int *)nums size:(int)size;
 - (int)maxSubArray2:(int *)nums size:(int)size;
+- (int)maxSubArrayDC:(int *)nums size:(int)size;
 
 @end
 
@@ -62,11 +63,55 @@
     return max;
 }
 
+- (int)maxSubArrayDC:(int *)nums size:(int)size {
+    if(size == 0) { return 0; }
+    return [self divide:nums left:0 right:size - 1];
+}
+
+- (int)divide:(int *)nums left:(int)left right:(int)right {
+    if(right == left) {
+        DLog(@"============ left:%d right:%d nums[left]:%d", left, right, nums[left]);
+        return nums[left];
+    }
+    int middle = left + (right - left) / 2;
+    int leftAns = [self divide:nums left:left right:middle];
+    DLog(@"leftAns:%d left:%d middle:%d right:%d ",leftAns, left, middle, right);
+    int rightAns = [self divide:nums left:middle + 1 right:right];
+    DLog(@"rightAns:%d left:%d middle + 1:%d right:%d",rightAns, left, middle + 1, right);
+    int leftMax = nums[middle];
+    int rightMax = nums[middle + 1];
+    DLog(@"leftMax:%d = nums[middle:%d] rightMax:%d = nums[middle + 1:%d]",leftMax, middle, rightMax, middle + 1);
+    int temp = 0;
+    for(int i = middle; i >= left; i--) {
+        temp += nums[i];
+        if(temp > leftMax) {
+            leftMax = temp;
+        }
+        DLog(@"leftMax:%d temp:%d",leftMax, temp);
+    }
+    
+    temp = 0;
+    for(int i = middle + 1; i <= right; i++) {
+        temp += nums[i];
+        if(temp > rightMax) {
+            rightMax = temp;
+        }
+        DLog(@"rightMax:%d temp:%d",rightMax, temp);
+    }
+    DLog(@"MAX(MAX(leftAns:%d, rightAns:%d):%d leftMax + rightMax:%d))============ %d",leftAns, rightAns, MAX(leftAns, rightAns), leftMax + rightMax, MAX(MAX(leftAns, rightAns), leftMax + rightMax));
+    return MAX(MAX(leftAns, rightAns), leftMax + rightMax);
+}
+
 - (void)test {
     int nums[9] = {-2,1,-3,4,-1,2,1,-5,4};
     
     // [self maxSubArray1:nums size:9];
-    [self maxSubArray2:nums size:9];
+    // [self maxSubArray2:nums size:9];
+    for(int i = 0; i < 9; i++) {
+        printf("\t\t%d,", nums[i]);
+    }
+    printf("\n");
+    DLog(@"res:%d", [self maxSubArrayDC:nums size:9]);
 }
 
 @end
