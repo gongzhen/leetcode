@@ -11,10 +11,40 @@
 @interface LC567()
 
 - (BOOL)checkInclusion:(char *)s1 s2:(char *)s2;
+- (BOOL)checkInclusion1:(char *)s1 s2:(char *)s2;
 
 @end
 
 @implementation LC567
+
+/// slide window
+- (BOOL)checkInclusion1:(char *)s1 s2:(char *)s2 {
+    long len1 = strlen(s1);
+    long len2 = strlen(s2);
+    if(len1 > len2) {
+        return NO;
+    }
+    int *s1map = (int *)calloc(32, sizeof(int));
+    int *s2map = (int *)calloc(32, sizeof(int));
+    for(int i = 0; i < len1; i++) {
+        s1map[s1[i] - 'a']++;
+        s2map[s2[i] - 'a']++;
+    }
+    
+    for(int i = 0; i < len2 - len1; i++) {
+//        if(i == len2 - len1 - 1) {
+//            DLog(@"stop");
+//        }
+        if ([self compare:s1map size1:32 s2:s2map size2:32] == YES) {
+            return YES;
+        }
+        // printf("s2[i + len1:%ld]:===[%c]\n", i + len1, s2[i + len1]);
+        s2map[s2[i + len1] - 'a']++;
+        s2map[s2[i] - 'a']--;
+    }
+    /// make sure the last digit is compared.
+    return [self compare:s1map size1:len1 s2:s2map size2:len1];
+}
 
 - (BOOL)checkInclusion:(char *)s1 s2:(char *)s2 {
     long len1 = strlen(s1);
@@ -75,9 +105,14 @@
 //    char* s1 = "hello";
 //    char* s2 = "ooolleooolleh";
 //    DLog(@"res:%d", [self checkInclusion:s1 s2:s2]);
-    char* s1 = "ab";
-    char* s2 = "eidboaoo";
-    DLog(@"res:%d", [self checkInclusion:s1 s2:s2]);
+    char* s1 = "hello";
+    char* s2 = "ooolleoooleh";
+    //    DLog(@"res:%d", [self checkInclusion:s1 s2:s2]);
+    DLog(@"res:%d", [self checkInclusion1:s1 s2:s2]);
+//    char* s1 = "adc";
+//    char* s2 = "dcdda";
+//    //    DLog(@"res:%d", [self checkInclusion:s1 s2:s2]);
+//    DLog(@"res:%d", [self checkInclusion1:s1 s2:s2]);
 }
 
 @end
