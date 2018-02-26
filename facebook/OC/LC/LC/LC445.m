@@ -35,10 +35,11 @@
     /// _________
     /// 16->8->0->6
     ListNode *head = [[ListNode alloc] initWith:0];
+    int sum = 0;
     while(stack1.count != 0 || stack2.count != 0) {
         int n1 = stack1.count == 0 ? 0 : [[stack1 pop] intValue];
         int n2 = stack2.count == 0 ? 0 : [[stack2 pop] intValue];
-        int sum = n1 + n2 + (int)head.val;
+        sum = n1 + n2 + (int)head.val;
         head.val = sum % 10;
         DLog(@"n1:%d n2:%d head.va :%ld", n1, n2, head.val);
         ListNode *node = [[ListNode alloc] initWith:sum / 10];
@@ -55,18 +56,18 @@
     ListNode *node4 = [[ListNode alloc] initWith:4];
     ListNode *node3 = [[ListNode alloc] initWith:3];
     
-    ListNode *node9 = [[ListNode alloc] initWith:9];
+//    ListNode *node9 = [[ListNode alloc] initWith:9];
     ListNode *node5 = [[ListNode alloc] initWith:5];
     ListNode *node6 = [[ListNode alloc] initWith:6];
-    ListNode *node3_1 = [[ListNode alloc] initWith:3];
+    ListNode *node4_1 = [[ListNode alloc] initWith:4];
     node7.next = node2;
     node2.next = node4;
     node4.next = node3;
     /////////////////////
-    node9.next = node5;
+//    node9.next = node5;
     node5.next = node6;
-    node6.next = node3_1;
-    ListNode *ptr = [self addTwoNumbers:node7 l2:node9];
+    node6.next = node4_1;
+    ListNode *ptr = [self addTwoNumbers:node7 l2:node5];
     NSMutableString *res = [NSMutableString string];
     while(ptr != nil) {
         [res appendString:[NSString stringWithFormat:@"%ld", ptr.val]];
