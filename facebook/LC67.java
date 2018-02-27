@@ -163,7 +163,72 @@ public class LC67 {
         return sb.reverse().toString();
     }  
 
-    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+    public String addBinary_1(String a, String b) {
+        if(a == null || a.length() == 0) {
+            return b;
+        }
+        if(b == null || b.length() == 0) {
+            return a;
+        }        
+        
+        char[] a1 = reverse(a);
+        char[] b1 = reverse(b);
+        
+        int i = 0;
+        int j = 0;
+        StringBuilder sb = new StringBuilder();
+        int carry = 0;
+        int sum = 0;
+        while(i < a1.length && j < b1.length) {
+            sum = (a1[i] - '0') + (b1[i] - '0') + carry;
+            sb.append(sum % 2);
+            carry = sum / 2;
+            i++;
+            j++;            
+        }
+        
+        if(i == a1.length && j == b1.length && carry != 0) {
+            sb.append(carry);
+        } else if (i < a1.length) {
+            while(i < a1.length) {
+                sum = a1[i] - '0' + carry;
+                sb.append(sum % 2);
+                carry = sum / 2;
+                i++;
+            }
+            if(i == a1.length && carry != 0) {
+                sb.append(carry);
+            }
+        } else if (j < b1.length) {
+            while(j < b1.length) {
+                sum = b1[j] - '0' + carry;
+                sb.append(sum % 2);
+                carry = sum / 2;
+                j++;
+            }
+            if(j == b1.length && carry != 0) {
+                sb.append(carry);
+            }            
+        }
+        return sb.reverse().toString();
+    }
+    
+    public char[] reverse(String s) {
+        if(s.length() == 0) {
+            return new char[0];
+        }
+        char[] array = s.toCharArray();
+        int i = 0;
+        int j = array.length - 1;
+        while(i < j) {
+            char temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+            i++;
+            j--;
+        }
+        return array;
+    }
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -190,7 +255,7 @@ public class LC67 {
 
 	public static void main(String[] args) {
 		LC67 obj = new LC67();
-        System.out.println(obj.addBinary("1", "1"));
+        System.out.println(obj.addBinary_1("1", "11"));
 	}
 
 }
