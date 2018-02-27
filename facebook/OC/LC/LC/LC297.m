@@ -107,13 +107,16 @@
     [queue offer:root];
     int index = 0;
     BOOL isLeft = YES;
-    ///
+    /// index is the current index of node.
     for(int i = 1; i < dataArray.count; i++) {
         if(![[dataArray objectAtIndex:i] isEqualToString:@"#"]) {
             TreeNode *node = [[TreeNode alloc] initWith:[[dataArray objectAtIndex:i] intValue]];
+            DLog(@"node:%ld", node.val);
             if(isLeft == YES) {
+                DLog(@"((TreeNode *)[queue objectAtIndex:index]):%ld", ((TreeNode *)[queue objectAtIndex:index]).val);
                 ((TreeNode *)[queue objectAtIndex:index]).left = node;
             } else {
+                DLog(@"((TreeNode *)[queue objectAtIndex:index]):%ld", ((TreeNode *)[queue objectAtIndex:index]).val);
                 ((TreeNode *)[queue objectAtIndex:index]).right = node;
             }
             [queue offer:node];
