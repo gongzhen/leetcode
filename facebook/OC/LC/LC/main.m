@@ -81,12 +81,12 @@ int main(int argc, const char * argv[]) {
 //        LC253 *lc253 = [[LC253 alloc] init];
 //        [lc253 test];
 //        [lc253 testPQ];
-        LC325 *lc325 = [[LC325 alloc] init];
-        [lc325 test];
+//        LC325 *lc325 = [[LC325 alloc] init];
+//        [lc325 test];
 //        LC17 *lc17 = [[LC17 alloc] init];
 //        [lc17 test];
-//        LC314 *lc314 = [[LC314 alloc] init];
-//        [lc314 test];
+        LC314 *lc314 = [[LC314 alloc] init];
+        [lc314 test];
 //        LC15 *lc15 = [[LC15 alloc] init];
 //        [lc15 test];
 //        LC297 *lc297 = [[LC297 alloc] init];

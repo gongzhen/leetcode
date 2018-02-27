@@ -33,9 +33,11 @@
     NSInteger min = 0;
     NSInteger max = 0;
     while(queue.count != 0) {
+        /// everytime, queue poll a node and colQueue poll a colNum.
         TreeNode *node = [queue poll];
         NSNumber* colNum = [colQueue poll];
         
+        ///
         if([map objectForKey:colNum] == NULL) {
             [map setObject:[NSMutableArray array] forKey:colNum];
         }
@@ -52,6 +54,14 @@
             max = MAX(max, [colNum intValue] + 1);
         }
     }
+    
+    [map enumerateKeysAndObjectsUsingBlock:^(NSNumber *  _Nonnull key, NSMutableArray *  _Nonnull obj, BOOL * _Nonnull stop) {
+        DLog(@"key colNum:%ld {", [key integerValue]);
+        [obj enumerateObjectsUsingBlock:^(TreeNode *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            DLog(@"node:%ld", [obj val]);
+        }];
+        DLog(@"++++++++++++++++++++++++++++++++++++++++}");
+    }];
     
     for(NSInteger i = min; i <= max; i++) {
         [res addObject:[map objectForKey:@(i)]];
