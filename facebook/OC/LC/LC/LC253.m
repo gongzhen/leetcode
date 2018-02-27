@@ -220,8 +220,11 @@
     
     int count = 0;
     int endPtr = 0;
-    /// 0,  5,  15 start
-    ///       10, 20, 30 end
+    /// [0,                     30]
+    ///    [5, 10], [15, 20]
+    /// i   i       i
+    /// 0,  5,      15                           start
+    ///       10 (end), 20(end),     30            end
     for(NSInteger i = 0; i < [intervals count]; i++) {
         NSInteger startTime = [[start objectAtIndex:i] integerValue];
         NSInteger endTime = [[end objectAtIndex:endPtr] integerValue];

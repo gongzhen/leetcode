@@ -106,7 +106,7 @@
         num %= [[_radix objectAtIndex:i] integerValue];
 //        DLog(@"num:%ld", num);/// deduct 1000 each time.
     }
-    /// part 2: handle all the number that are less than 20 t
+    /// part 2: handle all the number that are less than 20
     if(num < 20) { /// 1, 2, 3, 4, .... 19
         [res appendString:[_LESSTHAN20 objectAtIndex:num]];
     } else {
