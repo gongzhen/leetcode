@@ -93,6 +93,7 @@
 
 
 - (NSArray *)removeInvalidParentheses:(NSString *)s {
+    DLog(@" s:%@", s);
     NSMutableArray* res = [NSMutableArray array];
     NSMutableSet* set = [NSMutableSet set];
     
@@ -113,6 +114,10 @@
         }
         
         if(isFound == true) {
+            /// We start from the longest string and remove one char one by one.
+            /// if we found one, we will not iterate the rest of strings
+            /// we will keep pop the queue until it is empty.
+            /// The first found will be the longest valid string.
             continue;
         }
         
@@ -149,8 +154,8 @@
 
 - (void)test {
     NSString *str =@"(a)())()";
-//    [self removeInvalidParentheses:str];
-    [self removeInvalidParenthesesDFS:str];
+    [self removeInvalidParentheses:str];
+//    [self removeInvalidParenthesesDFS:str];
 }
 
 @end

@@ -10,6 +10,9 @@
 
 @implementation TreeLinkNode
 
+@dynamic left;
+@dynamic right;
+
 - (instancetype)initWith:(NSInteger)x {
     if(self = [super init]) {
         self.val = x;

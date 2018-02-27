@@ -14,4 +14,10 @@
     DLog(@"LC");
 }
 
+- (NSTimeInterval)executionTime:(NSDate *)methodStart {
+    if(methodStart == nil) {
+        return 0.0;
+    }
+    return [methodStart timeIntervalSinceDate:methodStart];
+}
 @end

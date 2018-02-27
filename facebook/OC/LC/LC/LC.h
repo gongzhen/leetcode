@@ -11,5 +11,6 @@
 @interface LC : NSObject
 
 - (void)test;
+- (NSTimeInterval)executionTime:(NSDate *)methodStart;
 
 @end
