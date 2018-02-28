@@ -75,6 +75,7 @@
 		3DF0B1B7202FF1C000C2BCBE /* LC67.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0B1B6202FF1C000C2BCBE /* LC67.m */; };
 		3DF0B1BA20300C3400C2BCBE /* LC273.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0B1B920300C3400C2BCBE /* LC273.m */; };
 		843A1C2F20471B1A0044E6FC /* LC236.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C2E20471B1A0044E6FC /* LC236.m */; };
+		843A1C32204723B50044E6FC /* LC523.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C31204723B50044E6FC /* LC523.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -227,6 +228,8 @@
 		3DF0B1B920300C3400C2BCBE /* LC273.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC273.m; sourceTree = "<group>"; };
 		843A1C2D20471B1A0044E6FC /* LC236.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC236.h; sourceTree = "<group>"; };
 		843A1C2E20471B1A0044E6FC /* LC236.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC236.m; sourceTree = "<group>"; };
+		843A1C30204723B50044E6FC /* LC523.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC523.h; sourceTree = "<group>"; };
+		843A1C31204723B50044E6FC /* LC523.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC523.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,10 +283,12 @@
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
-				843A1C2D20471B1A0044E6FC /* LC236.h */,
-				843A1C2E20471B1A0044E6FC /* LC236.m */,
 				3D14EBF82039EB6200149E3F /* Tree.h */,
 				3D14EBF92039EB6200149E3F /* Tree.m */,
+				843A1C30204723B50044E6FC /* LC523.h */,
+				843A1C31204723B50044E6FC /* LC523.m */,
+				843A1C2D20471B1A0044E6FC /* LC236.h */,
+				843A1C2E20471B1A0044E6FC /* LC236.m */,
 				3D18EE302045B09E00F67268 /* LC91.h */,
 				3D18EE312045B09E00F67268 /* LC91.m */,
 				3D14ECA520445DA800149E3F /* LC2.h */,
@@ -486,6 +491,7 @@
 				3D14EC782040DD1C00149E3F /* LC54.m in Sources */,
 				3D14EBC02035DF6400149E3F /* LC157.m in Sources */,
 				3D14EB9120327F4500149E3F /* LC297.m in Sources */,
+				843A1C32204723B50044E6FC /* LC523.m in Sources */,
 				3D14EC75203F966800149E3F /* LC261.m in Sources */,
 				3D14EB9C2032B80500149E3F /* TreeNode.m in Sources */,
 				3D14EC6F203DF58D00149E3F /* LC210.m in Sources */,
