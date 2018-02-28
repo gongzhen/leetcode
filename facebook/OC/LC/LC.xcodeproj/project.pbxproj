@@ -74,6 +74,7 @@
 		3DC98C52202FEA7F00DB15CD /* LC621.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C51202FEA7F00DB15CD /* LC621.m */; };
 		3DF0B1B7202FF1C000C2BCBE /* LC67.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0B1B6202FF1C000C2BCBE /* LC67.m */; };
 		3DF0B1BA20300C3400C2BCBE /* LC273.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0B1B920300C3400C2BCBE /* LC273.m */; };
+		843A1C2F20471B1A0044E6FC /* LC236.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C2E20471B1A0044E6FC /* LC236.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -224,6 +225,8 @@
 		3DF0B1B6202FF1C000C2BCBE /* LC67.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC67.m; sourceTree = "<group>"; };
 		3DF0B1B820300C3400C2BCBE /* LC273.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC273.h; sourceTree = "<group>"; };
 		3DF0B1B920300C3400C2BCBE /* LC273.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC273.m; sourceTree = "<group>"; };
+		843A1C2D20471B1A0044E6FC /* LC236.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC236.h; sourceTree = "<group>"; };
+		843A1C2E20471B1A0044E6FC /* LC236.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC236.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +280,8 @@
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
+				843A1C2D20471B1A0044E6FC /* LC236.h */,
+				843A1C2E20471B1A0044E6FC /* LC236.m */,
 				3D14EBF82039EB6200149E3F /* Tree.h */,
 				3D14EBF92039EB6200149E3F /* Tree.m */,
 				3D18EE302045B09E00F67268 /* LC91.h */,
@@ -491,6 +496,7 @@
 				3DC98C52202FEA7F00DB15CD /* LC621.m in Sources */,
 				3D14EC24203CBF3900149E3F /* LC494.m in Sources */,
 				3DC98C4E202FC17A00DB15CD /* LC301.m in Sources */,
+				843A1C2F20471B1A0044E6FC /* LC236.m in Sources */,
 				3D14EC8120422DF200149E3F /* TreeLinkNode.m in Sources */,
 				3D14EBF12039486700149E3F /* LC133.m in Sources */,
 				3D14EC06203A188200149E3F /* LC215.m in Sources */,

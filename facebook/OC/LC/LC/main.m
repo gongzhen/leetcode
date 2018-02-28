@@ -62,6 +62,7 @@
 #import "LC445.h"
 #import "LC2.h"
 #import "LC91.h"
+#import "LC236.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -89,8 +90,8 @@ int main(int argc, const char * argv[]) {
 //        [lc314 test];
 //        LC15 *lc15 = [[LC15 alloc] init];
 //        [lc15 test];
-        LC297 *lc297 = [[LC297 alloc] init];
-        [lc297 test];
+//        LC297 *lc297 = [[LC297 alloc] init];
+//        [lc297 test];
 //        LC311 *lc311 = [[LC311 alloc] init];
 //        [lc311 test];
 //        LC158 *lc158 = [[LC158 alloc] init];
@@ -177,6 +178,8 @@ int main(int argc, const char * argv[]) {
 //        [lc2 test];
 //        LC91 *lc91 = [[LC91 alloc] init];
 //        [lc91 test];
+        LC236 *lc236 = [[LC236 alloc] init];
+        [lc236 test];
     }
     return 0;
 }
