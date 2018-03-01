@@ -76,6 +76,7 @@
 		3DF0B1BA20300C3400C2BCBE /* LC273.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0B1B920300C3400C2BCBE /* LC273.m */; };
 		843A1C2F20471B1A0044E6FC /* LC236.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C2E20471B1A0044E6FC /* LC236.m */; };
 		843A1C32204723B50044E6FC /* LC523.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C31204723B50044E6FC /* LC523.m */; };
+		843A1C35204777700044E6FC /* LC286.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C34204777700044E6FC /* LC286.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -230,6 +231,8 @@
 		843A1C2E20471B1A0044E6FC /* LC236.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC236.m; sourceTree = "<group>"; };
 		843A1C30204723B50044E6FC /* LC523.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC523.h; sourceTree = "<group>"; };
 		843A1C31204723B50044E6FC /* LC523.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC523.m; sourceTree = "<group>"; };
+		843A1C33204777700044E6FC /* LC286.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC286.h; sourceTree = "<group>"; };
+		843A1C34204777700044E6FC /* LC286.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC286.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +288,8 @@
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
 				3D14EBF82039EB6200149E3F /* Tree.h */,
 				3D14EBF92039EB6200149E3F /* Tree.m */,
+				843A1C33204777700044E6FC /* LC286.h */,
+				843A1C34204777700044E6FC /* LC286.m */,
 				843A1C30204723B50044E6FC /* LC523.h */,
 				843A1C31204723B50044E6FC /* LC523.m */,
 				843A1C2D20471B1A0044E6FC /* LC236.h */,
@@ -478,6 +483,7 @@
 				3D14EBC320360CE400149E3F /* LC125.m in Sources */,
 				3D14EBC62036180800149E3F /* LC211.m in Sources */,
 				3D14EBD620374ECA00149E3F /* Interval.m in Sources */,
+				843A1C35204777700044E6FC /* LC286.m in Sources */,
 				3D14EC1B203C932D00149E3F /* LC670.m in Sources */,
 				3D14EC1E203CA68900149E3F /* LC206.m in Sources */,
 				3D14EB852031976000149E3F /* LC325.m in Sources */,
