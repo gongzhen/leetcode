@@ -8,25 +8,7 @@
 
 #import "LC286.h"
 #import "NSMutableArray+Queue.h"
-
-@interface Pair:NSObject
-
-@property(assign) int x;
-@property(assign) int y;
-
-@end
-
-@implementation Pair
-
-- (instancetype)initWith:(int)x y:(int)y {
-    if(self = [super init]) {
-        _x = x;
-        _y = y;
-    }
-    return self;
-}
-
-@end
+#import "Pair.h"
 
 @interface LC286() {
     int dir[4][2];
@@ -70,38 +52,6 @@
         printf("\n");
     }
     printf("\n");
-    
-//    /// first row
-//    for(int j = 0; j < col; j++) {
-//        if(rooms[0][j] == 0) {
-//            Pair *p = [[Pair alloc] initWith:0 y:j];
-//            [queue offer:p];
-//        }
-//    }
-//
-//    /// last row
-//    for(int j = 0; j < col; j++) {
-//        if(rooms[row - 1][j] == 0) {
-//            Pair *p = [[Pair alloc] initWith:row - 1 y:j];
-//            [queue offer:p];
-//        }
-//    }
-//
-//    /// first col
-//    for(int i = 0; i < row; i++) {
-//        if(rooms[i][0] == 0) {
-//            Pair *p = [[Pair alloc] initWith:i y:0];
-//            [queue offer:p];
-//        }
-//    }
-//
-//    /// last col
-//    for(int i = 0; i < row; i++) {
-//        if(rooms[i][col - 1] == 0) {
-//            Pair *p = [[Pair alloc] initWith:i y:col - 1];
-//            [queue offer:p];
-//        }
-//    }
     
     int x = 0;
     int y = 0;

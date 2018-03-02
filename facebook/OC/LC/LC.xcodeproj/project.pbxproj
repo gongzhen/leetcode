@@ -77,6 +77,8 @@
 		843A1C2F20471B1A0044E6FC /* LC236.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C2E20471B1A0044E6FC /* LC236.m */; };
 		843A1C32204723B50044E6FC /* LC523.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C31204723B50044E6FC /* LC523.m */; };
 		843A1C35204777700044E6FC /* LC286.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C34204777700044E6FC /* LC286.m */; };
+		843A1C3820489C5B0044E6FC /* LC130.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C3720489C5B0044E6FC /* LC130.m */; };
+		843A1C3B2048DB1A0044E6FC /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C3A2048DB1A0044E6FC /* Pair.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -233,6 +235,10 @@
 		843A1C31204723B50044E6FC /* LC523.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC523.m; sourceTree = "<group>"; };
 		843A1C33204777700044E6FC /* LC286.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC286.h; sourceTree = "<group>"; };
 		843A1C34204777700044E6FC /* LC286.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC286.m; sourceTree = "<group>"; };
+		843A1C3620489C5B0044E6FC /* LC130.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC130.h; sourceTree = "<group>"; };
+		843A1C3720489C5B0044E6FC /* LC130.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC130.m; sourceTree = "<group>"; };
+		843A1C392048DB1A0044E6FC /* Pair.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pair.h; sourceTree = "<group>"; };
+		843A1C3A2048DB1A0044E6FC /* Pair.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pair.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +274,10 @@
 				3DC98C3F202F8E7D00DB15CD /* main.m */,
 				3D14EBD120374D2700149E3F /* LC.h */,
 				3D14EBD220374D2700149E3F /* LC.m */,
+				843A1C392048DB1A0044E6FC /* Pair.h */,
+				843A1C3A2048DB1A0044E6FC /* Pair.m */,
+				3D14EBF82039EB6200149E3F /* Tree.h */,
+				3D14EBF92039EB6200149E3F /* Tree.m */,
 				3D14EBF2203948B200149E3F /* UndirectedGraphNode.h */,
 				3D14EBF3203948B200149E3F /* UndirectedGraphNode.m */,
 				3D14EBD420374ECA00149E3F /* Interval.h */,
@@ -286,8 +296,8 @@
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
-				3D14EBF82039EB6200149E3F /* Tree.h */,
-				3D14EBF92039EB6200149E3F /* Tree.m */,
+				843A1C3620489C5B0044E6FC /* LC130.h */,
+				843A1C3720489C5B0044E6FC /* LC130.m */,
 				843A1C33204777700044E6FC /* LC286.h */,
 				843A1C34204777700044E6FC /* LC286.m */,
 				843A1C30204723B50044E6FC /* LC523.h */,
@@ -502,6 +512,8 @@
 				3D14EB9C2032B80500149E3F /* TreeNode.m in Sources */,
 				3D14EC6F203DF58D00149E3F /* LC210.m in Sources */,
 				3D14ECA720445DA800149E3F /* LC2.m in Sources */,
+				843A1C3820489C5B0044E6FC /* LC130.m in Sources */,
+				843A1C3B2048DB1A0044E6FC /* Pair.m in Sources */,
 				3D14EBA52032BC7600149E3F /* LC311.m in Sources */,
 				3DC98C4B202FB99000DB15CD /* LC283.m in Sources */,
 				3D14EBEB2038C85100149E3F /* LC98.m in Sources */,

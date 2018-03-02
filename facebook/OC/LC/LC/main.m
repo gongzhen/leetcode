@@ -65,6 +65,7 @@
 #import "LC236.h"
 #import "LC523.h"
 #import "LC286.h"
+#import "LC130.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -184,8 +185,10 @@ int main(int argc, const char * argv[]) {
 //        [lc236 test];
 //        LC523 *lc523 = [[LC523 alloc] init];
 //        [lc523 test];
-        LC286 *lc286 = [[LC286 alloc] init];
-        [lc286 test];
+//        LC286 *lc286 = [[LC286 alloc] init];
+//        [lc286 test];
+        LC130 *lc130 = [[LC130 alloc] init];
+        [lc130 test];
     }
     return 0;
 }
