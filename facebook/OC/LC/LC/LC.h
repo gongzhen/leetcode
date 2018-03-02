@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LC : NSObject
+@interface LC : NSObject {
+    int dir[4][2];
+}
 
 - (void)test;
 - (NSTimeInterval)executionTime:(NSDate *)methodStart;

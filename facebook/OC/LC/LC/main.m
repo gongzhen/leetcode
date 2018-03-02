@@ -64,7 +64,12 @@
 #import "LC91.h"
 #import "LC236.h"
 #import "LC523.h"
+<<<<<<< HEAD
 #import "LC347.h"
+=======
+#import "LC286.h"
+#import "LC130.h"
+>>>>>>> 6d337f57385a8560e8b0f0435b211f40d6ae34ed
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -184,8 +189,15 @@ int main(int argc, const char * argv[]) {
 //        [lc236 test];
 //        LC523 *lc523 = [[LC523 alloc] init];
 //        [lc523 test];
+<<<<<<< HEAD
         LC347 *lc347 = [[LC347 alloc] init];
         [lc347 test];
+=======
+//        LC286 *lc286 = [[LC286 alloc] init];
+//        [lc286 test];
+        LC130 *lc130 = [[LC130 alloc] init];
+        [lc130 test];
+>>>>>>> 6d337f57385a8560e8b0f0435b211f40d6ae34ed
     }
     return 0;
 }
