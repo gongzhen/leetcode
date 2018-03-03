@@ -16,6 +16,47 @@
 
 @implementation QuickSort
 
++(void)quickSortInt:(int *)array size:(int)size {
+    if(size == 0) {
+        return;
+    }
+    
+    int left = 0;
+    int right = size - 1;
+    
+    [self quickSortInt:array left:left right:right];
+}
+
++ (void)quickSortInt:(int *)array left:(int)left right:(int)right {
+    if(left >=  right) {
+        return;
+    }
+    
+    int i = left;
+    int j = right;
+    int pivot = array[left];
+    while(i <= j) {
+        while (i <= j && array[i] < pivot) {
+            i++;
+        }
+        while (i <= j && array[j] > pivot) {
+            j--;
+        }
+        if(i <= j) {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    }
+    
+    if(left < j) {
+        [self quickSortInt:array left:left right:j];
+    }
+    if(i < right) {
+        [self quickSortInt:array left:i right:right];
+    }
+}
+
 +(void)quickSort:(char *)array size:(int)size {
     if(size == 0) {
         return;
