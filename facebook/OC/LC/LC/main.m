@@ -69,6 +69,8 @@
 #import "LC130.h"
 #import "LC49.h"
 #import "LC209.h"
+#import "LC3.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -196,8 +198,11 @@ int main(int argc, const char * argv[]) {
 //        [lc130 test];
 //        LC49 *lc49 = [[LC49 alloc] init];
 //        [lc49 test];
-        LC209 *lc209 = [[LC209 alloc] init];
-        [lc209 test];
+//        LC209 *lc209 = [[LC209 alloc] init];
+//        [lc209 test];
+        LC3 *lc3 = [[LC3 alloc] init];
+        [lc3 test];
+        
     }
     return 0;
 }
