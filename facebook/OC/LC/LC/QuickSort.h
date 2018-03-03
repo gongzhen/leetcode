@@ -10,4 +10,6 @@
 
 @interface QuickSort : LC
 
++(void)quickSort:(char *)array size:(int)size;
+
 @end

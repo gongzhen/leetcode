@@ -159,7 +159,7 @@ import java.util.regex.*;
 
 public class LC209 {
 
-    public int minSubArrayLen(int s, int[] nums) {
+    public int minSubArrayLen_1(int s, int[] nums) {
         int i = 0, j = 0;
         int sum = 0;
         int min = nums.length + 10;
@@ -179,7 +179,32 @@ public class LC209 {
             i++;
         }
         return min == (nums.length + 10) ? 0 : min;
-    }	
+    }
+
+    public int minSubArrayLen(int s, int[] nums) {
+        if(nums.length == 0) {
+            return 0;
+        }
+        
+        int sum = 0;
+        int minLen = nums.length + 1;
+        int left = 0;
+        for(int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if(sum >= s) {
+                while(sum >= s) {
+                    minLen = Math.min(minLen, i - left + 1);
+                    printString("minLen " + minLen + ", i: " + i + ", left: " + left);
+                    sum -= nums[left];
+                    left++;
+                    if(sum >= s) {                        
+                        minLen = Math.min(minLen, i - left + 1);
+                    } 
+                }
+            }
+        }
+        return (minLen == (nums.length + 1)) ? 0 : minLen;
+    }    	
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -198,9 +223,11 @@ public class LC209 {
 	}    
 
 	public static void main(String[] args) {
-		LC209 obj = new LC209();
-		int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-		System.out.println(obj.minSubArrayLen(3, list));
+		// LC209 obj = new LC209();
+		// int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
+        LC209 obj = new LC209();
+        int[] list = new int[]{2,3,1,2,4,3};        
+		System.out.println(obj.minSubArrayLen(7, list));
 	}
 
 }
