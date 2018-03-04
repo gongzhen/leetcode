@@ -1,22 +1,22 @@
 //
-//  Tree.m
+//  LCTree.m
 //  LC
 //
 //  Created by ULS on 2/18/18.
 //  Copyright © 2018 ULS. All rights reserved.
 //
 
-#import "Tree.h"
-#import "TreeNode.h"
+#import "LCTree.h"
+#import "LCTreeNode.h"
 #import "NSMutableArray+Stack.h"
 
-@interface Tree()
+@interface LCTree()
 
 @end
 
-@implementation Tree
+@implementation LCTree
 
-- (void)inorder:(TreeNode *)node {
+- (void)inorder:(LCTreeNode *)node {
     if(node == NULL) {
         return;
     }
@@ -26,13 +26,13 @@
     [self inorder:node.right];
 }
 
-- (void)inorderBFS:(TreeNode *)node {
+- (void)inorderBFS:(LCTreeNode *)node {
     if(node == NULL) {
         return;
     }
     
     NSMutableArray *stack = [NSMutableArray array];
-    TreeNode *current = node;
+    LCTreeNode *current = node;
     while(current != nil || ![stack empty]) {
         while(current != NULL) {
             [stack push:current];
@@ -45,7 +45,7 @@
 }
 
 
-- (void)preorder:(TreeNode *)node {
+- (void)preorder:(LCTreeNode *)node {
     if(node == NULL) {
         return;
     }
@@ -55,7 +55,7 @@
     [self preorder:node.right];
 }
 
-- (void)preorderBFS:(TreeNode *)node {
+- (void)preorderBFS:(LCTreeNode *)node {
     if(node == nil) {
         return;
     }
@@ -63,7 +63,7 @@
     NSMutableArray *stack = [NSMutableArray array];
     [stack push:node];
     while(![stack empty]) {
-        TreeNode *_node = [stack pop];
+        LCTreeNode *_node = [stack pop];
         DLog(@"node:%ld, ", _node.val);
         if(_node.right != nil) {
             [stack push:_node.right];
@@ -74,7 +74,7 @@
     }
 }
 
-- (void)postorder:(TreeNode *)node {
+- (void)postorder:(LCTreeNode *)node {
     if(node == NULL) {
         return;
     }
@@ -84,13 +84,13 @@
     DLog(@"node:%ld, ", node.val);
 }
 
-- (void)postorderBFS:(TreeNode *)node {
+- (void)postorderBFS:(LCTreeNode *)node {
     if(node == NULL) {
         return;
     }
     
-    TreeNode *prev = nil;
-    TreeNode *current = node;
+    LCTreeNode *prev = nil;
+    LCTreeNode *current = node;
     NSMutableArray *stack = [NSMutableArray array];
     
     while(current != nil || ![stack empty]) {
@@ -111,11 +111,11 @@
 }
 
 - (void)test {
-    TreeNode *node1 = [[TreeNode alloc] initWith:1];
-    TreeNode *node2 = [[TreeNode alloc] initWith:2];
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node4 = [[TreeNode alloc] initWith:4];
-    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
     node1.left = node2;
     node1.right = node3;
     node2.left = node4;

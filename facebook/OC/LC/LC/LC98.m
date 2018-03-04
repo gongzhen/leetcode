@@ -7,22 +7,22 @@
 //
 
 #import "LC98.h"
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 
 @interface LC98()
 
-- (BOOL)isValidBST:(TreeNode *)node;
+- (BOOL)isValidBST:(LCTreeNode *)node;
 
 @end
 
 @implementation LC98
 
-- (BOOL)isValidBST:(TreeNode *)node {
-    /// pass TreeNode* min and max.
+- (BOOL)isValidBST:(LCTreeNode *)node {
+    /// pass LCTreeNode* min and max.
     return [self dfs:node min:NULL max:NULL];
 }
 
-- (BOOL)dfs:(TreeNode *)node min:(TreeNode *)min max:(TreeNode *)max {
+- (BOOL)dfs:(LCTreeNode *)node min:(LCTreeNode *)min max:(LCTreeNode *)max {
     if(node == NULL) {
         return YES;
     }
@@ -35,7 +35,7 @@
 }
 
 // wrong way.
-//- (BOOL)isValidBST:(TreeNode *)node {
+//- (BOOL)isValidBST:(LCTreeNode *)node {
 //    if(node == NULL) {
 //        return YES;
 //    }
@@ -50,11 +50,11 @@
 //}
 
 - (void)test {
-    TreeNode *node1 = [[TreeNode alloc] initWith:1];
-    TreeNode *node2 = [[TreeNode alloc] initWith:2];
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node4 = [[TreeNode alloc] initWith:4];
-    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
     node1.left = node2;
     node1.right = node3;
     node2.left = node4;

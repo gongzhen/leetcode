@@ -19,6 +19,8 @@
 - (id)peek;
 - (id)getFirst;
 - (BOOL)add:(id)e;
+- (BOOL)isEmpty;
+- (NSInteger)getSize;
 - (void)test;
 
 @end

@@ -2,7 +2,7 @@
 //  TreeNode.m
 //  LC
 //
-//  Created by ULS on 2/12/18.
+//  Created by Admin  on 3/4/18.
 //  Copyright © 2018 ULS. All rights reserved.
 //
 
@@ -10,11 +10,11 @@
 
 @implementation TreeNode
 
-- (instancetype)initWith:(NSInteger)x {
+- (instancetype)initWith:(id)val {
     if(self = [super init]) {
-        self.val = x;
-        self.left = NULL;
-        self.right = NULL;
+        _val = val;
+        _left = NULL;
+        _right = NULL;
     }
     return self;
 }

@@ -7,17 +7,17 @@
 //
 
 #import "LC236.h"
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 
 @interface LC236()
 
-- (TreeNode *)lowestCommonAncestor:(TreeNode *)root p:(TreeNode *)p q:(TreeNode *)q;
+- (LCTreeNode *)lowestCommonAncestor:(LCTreeNode *)root p:(LCTreeNode *)p q:(LCTreeNode *)q;
 
 @end
 
 @implementation LC236
 
-- (TreeNode *)lowestCommonAncestor:(TreeNode *)root p:(TreeNode *)p q:(TreeNode *)q {
+- (LCTreeNode *)lowestCommonAncestor:(LCTreeNode *)root p:(LCTreeNode *)p q:(LCTreeNode *)q {
     if(root == NULL) {
         return NULL;
     }
@@ -26,8 +26,8 @@
         return root;
     }
     
-    TreeNode *left = [self lowestCommonAncestor:root.left p:p q:q];
-    TreeNode *right = [self lowestCommonAncestor:root.right p:p q:q];
+    LCTreeNode *left = [self lowestCommonAncestor:root.left p:p q:q];
+    LCTreeNode *right = [self lowestCommonAncestor:root.right p:p q:q];
     
     if(left != NULL && right != NULL) {
         return root;
@@ -40,11 +40,11 @@
 }
 
 - (void)test {
-    TreeNode *node1 = [[TreeNode alloc] initWith:1];
-    TreeNode *node2 = [[TreeNode alloc] initWith:2];
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node4 = [[TreeNode alloc] initWith:4];
-    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
     node1.left = node2;
     node1.right = node3;
     node2.left = node4;

@@ -1,5 +1,5 @@
 //
-//  Tree.h
+//  LCTree.h
 //  LC
 //
 //  Created by ULS on 2/18/18.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "LC.h"
 
-@interface Tree : LC
+@interface LCTree : LC
 
 @end

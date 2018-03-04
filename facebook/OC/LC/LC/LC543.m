@@ -7,23 +7,23 @@
 //
 
 #import "LC543.h"
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 
 @interface LC543()
 
-- (NSInteger)diameterOfBinaryTree:(TreeNode *)root;
+- (NSInteger)diameterOfBinaryTree:(LCTreeNode *)root;
 
 @end
 
 @implementation LC543
 
-- (NSInteger)diameterOfBinaryTree:(TreeNode *)root {
+- (NSInteger)diameterOfBinaryTree:(LCTreeNode *)root {
     int max = 0;
     [self dfs:root max:&max];
     return max;
 }
 
-- (NSInteger)dfs:(TreeNode *)node max:(int *)max{
+- (NSInteger)dfs:(LCTreeNode *)node max:(int *)max{
     if(node == NULL) {
         return 0;
     }
@@ -36,11 +36,11 @@
 }
 
 - (void)test {
-    TreeNode *node1 = [[TreeNode alloc] initWith:1];
-    TreeNode *node2 = [[TreeNode alloc] initWith:2];
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node4 = [[TreeNode alloc] initWith:4];
-    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
     node1.left = node2;
     node1.right = node3;
     node2.left = node4;

@@ -6,9 +6,9 @@
 //  Copyright © 2018 ULS. All rights reserved.
 //
 
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 
-@interface TreeLinkNode : TreeNode
+@interface TreeLinkNode : LCTreeNode
 
 @property(nonatomic, strong) TreeLinkNode* left;
 @property(nonatomic, strong) TreeLinkNode* right;

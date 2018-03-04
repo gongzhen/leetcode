@@ -8,21 +8,21 @@
 
 #import "LC297.h"
 #import "NSMutableArray+Queue.h"
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 
 @interface LC297()
 
-- (NSString *)serialize:(TreeNode *)node;
-- (TreeNode *)deserialize:(NSString *)data;
+- (NSString *)serialize:(LCTreeNode *)node;
+- (LCTreeNode *)deserialize:(NSString *)data;
 
-- (NSString *)serializeBFS:(TreeNode *)node;
-- (TreeNode *)deserializeBFS:(NSString *)data;
+- (NSString *)serializeBFS:(LCTreeNode *)node;
+- (LCTreeNode *)deserializeBFS:(NSString *)data;
 
 @end
 
 @implementation LC297
 
-- (void)printTree:(TreeNode *)node {
+- (void)printTree:(LCTreeNode *)node {
     if(node == NULL) {
         return;
     }
@@ -31,7 +31,7 @@
     [self printTree:node.right];
 }
 
-- (NSString *)serializeBFS:(TreeNode *)node {
+- (NSString *)serializeBFS:(LCTreeNode *)node {
     if(node == nil) {
         return @"";
     }
@@ -42,7 +42,7 @@
     
     /// Adding all tree node or [NSNull null] to queue.
     for(int i = 0; i < queue.count; i++) {
-        TreeNode *head = [queue objectAtIndex:i];
+        LCTreeNode *head = [queue objectAtIndex:i];
         if([head isEqual:[NSNull null]]) {
             continue;
         }
@@ -68,7 +68,7 @@
     NSMutableString *str = [NSMutableString string];
     [str appendString:@"{"];
     /// str append first node from queue. it is alos the root node.
-//    [str appendString:[NSString stringWithFormat:@"%ld", ((TreeNode *)[queue objectAtIndex:0]).val]];
+//    [str appendString:[NSString stringWithFormat:@"%ld", ((LCTreeNode *)[queue objectAtIndex:0]).val]];
     
     
     for(int i = 0; i < queue.count; i++) {
@@ -78,7 +78,7 @@
         if([obj isEqual:[NSNull null]]) {
             [str appendString:@"#,"];
         } else {
-            TreeNode *head = (TreeNode *)obj;
+            LCTreeNode *head = (LCTreeNode *)obj;
             [str appendString:[NSString stringWithFormat:@"%ld", head.val]];
             [str appendString:@","];
         }
@@ -90,7 +90,7 @@
     return [str copy];
 }
 
-- (TreeNode *)deserializeBFS:(NSString *)data {
+- (LCTreeNode *)deserializeBFS:(NSString *)data {
     if(data == nil || data.length == 0) {
         return nil;
     }
@@ -102,7 +102,7 @@
     NSString* dataString = [data substringWithRange:NSMakeRange(1, data.length - 2)];
     DLog(@"dataString:%@", dataString);
     NSArray *dataArray = [dataString componentsSeparatedByString:@","];
-    TreeNode *root = [[TreeNode alloc] initWith:[[dataArray objectAtIndex:0] intValue]];
+    LCTreeNode *root = [[LCTreeNode alloc] initWith:[[dataArray objectAtIndex:0] intValue]];
     NSMutableArray *queue = [NSMutableArray queue];
     [queue offer:root];
     int index = 0;
@@ -110,14 +110,14 @@
     /// index is the current index of node.
     for(int i = 1; i < dataArray.count; i++) {
         if(![[dataArray objectAtIndex:i] isEqualToString:@"#"]) {
-            TreeNode *node = [[TreeNode alloc] initWith:[[dataArray objectAtIndex:i] intValue]];
+            LCTreeNode *node = [[LCTreeNode alloc] initWith:[[dataArray objectAtIndex:i] intValue]];
             DLog(@"node:%ld", node.val);
             if(isLeft == YES) {
-                DLog(@"((TreeNode *)[queue objectAtIndex:index]):%ld", ((TreeNode *)[queue objectAtIndex:index]).val);
-                ((TreeNode *)[queue objectAtIndex:index]).left = node;
+                DLog(@"((TreeNode *)[queue objectAtIndex:index]):%ld", ((LCTreeNode *)[queue objectAtIndex:index]).val);
+                ((LCTreeNode *)[queue objectAtIndex:index]).left = node;
             } else {
-                DLog(@"((TreeNode *)[queue objectAtIndex:index]):%ld", ((TreeNode *)[queue objectAtIndex:index]).val);
-                ((TreeNode *)[queue objectAtIndex:index]).right = node;
+                DLog(@"((TreeNode *)[queue objectAtIndex:index]):%ld", ((LCTreeNode *)[queue objectAtIndex:index]).val);
+                ((LCTreeNode *)[queue objectAtIndex:index]).right = node;
             }
             [queue offer:node];
         }
@@ -131,13 +131,13 @@
     return root;
 }
 
-- (NSString *)serialize:(TreeNode *)node {
+- (NSString *)serialize:(LCTreeNode *)node {
     NSMutableString *str = [NSMutableString string];
     [self dfs:node str:str];
     return str;
 }
 
-- (void)dfs:(TreeNode *)node str:(NSMutableString *)str {
+- (void)dfs:(LCTreeNode *)node str:(NSMutableString *)str {
     if(node == NULL) {
         [str appendString:@"#,"];
         return;
@@ -148,7 +148,7 @@
     /// 1, 2, #, #, 3, 4, #, #, 5,#, #.
 }
 
-- (TreeNode *)deserialize:(NSString *)data {
+- (LCTreeNode *)deserialize:(NSString *)data {
     NSArray *dataArray = [data componentsSeparatedByString:@","];
     if(dataArray.count == 0) {
         return NULL;
@@ -163,7 +163,7 @@
     return [self bfs:pq];
 }
 
-- (TreeNode *)bfs:(NSMutableArray *)queue {
+- (LCTreeNode *)bfs:(NSMutableArray *)queue {
     if(queue.count == 0) {
         return NULL;
     }
@@ -173,18 +173,18 @@
         return NULL;
     }
     /// queue poll will return interger value.
-    TreeNode *node = [[TreeNode alloc] initWith:[[queue poll] integerValue]];
+    LCTreeNode *node = [[LCTreeNode alloc] initWith:[[queue poll] integerValue]];
     node.left = [self bfs:queue];
     node.right = [self bfs:queue];
     return node;
 }
 
 - (void)test {
-    TreeNode *node1 = [[TreeNode alloc] initWith:1];
-    TreeNode *node2 = [[TreeNode alloc] initWith:2];
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node4 = [[TreeNode alloc] initWith:4];
-    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
     node1.left = node2;
     node1.right = node3;
     node3.left = node4;
@@ -192,9 +192,9 @@
     [self printTree:node1];
 //    NSString *data =  [self serialize:node1];
 //    DLog(@"%@",data);
-//    TreeNode *root = [self deserialize:data];
+//    LCTreeNode *root = [self deserialize:data];
     NSString *data = [self serializeBFS:node1];
-    TreeNode *root = [self deserializeBFS:data];
+    LCTreeNode *root = [self deserializeBFS:data];
     DLog(@"%@", data);
     [self printTree:root];
 }

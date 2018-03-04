@@ -39,7 +39,7 @@
 #import "LC78.h"
 #import "LC133.h"
 #import "LC43.h"
-#import "Tree.h"
+#import "LCTree.h"
 #import "LC285.h"
 #import "LC215.h"
 #import "LC139.h"
@@ -72,6 +72,7 @@
 #import "LC3.h"
 #import "LC30.h"
 #import "Queue.h"
+#import "BinarySearchTree.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -207,6 +208,8 @@ int main(int argc, const char * argv[]) {
 //        [lc30 test];
 //        Queue *queue = [Queue queue];
 //        [queue test];
+        BinarySearchTree *btree = [[BinarySearchTree alloc] init];
+        [btree test];
     }
     return 0;
 }

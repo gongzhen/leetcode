@@ -123,6 +123,14 @@
     return _header.next->_element;
 }
 
+- (BOOL)isEmpty {
+    return _size == 0;
+}
+
+- (NSInteger)getSize {
+    return _size;
+}
+
 - (void)test {
     
 //    [self offer:@(1)];

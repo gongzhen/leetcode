@@ -7,18 +7,18 @@
 //
 
 #import "LC285.h"
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 #import "NSMutableArray+Stack.h"
 
 @interface LC285()
 
-- (TreeNode *)inorderSuccessor:(TreeNode *)node p:(TreeNode *)p;
+- (LCTreeNode *)inorderSuccessor:(LCTreeNode *)node p:(LCTreeNode *)p;
 
 @end
 
 @implementation LC285
 
-- (TreeNode *)inorderSuccessor:(TreeNode *)node p:(TreeNode *)p {
+- (LCTreeNode *)inorderSuccessor:(LCTreeNode *)node p:(LCTreeNode *)p {
     if(node == nil) {
         return nil;
     }
@@ -42,17 +42,17 @@
 }
 
 - (void)test {
-    TreeNode *node1 = [[TreeNode alloc] initWith:1];
-    TreeNode *node2 = [[TreeNode alloc] initWith:2];
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node4 = [[TreeNode alloc] initWith:4];
-    TreeNode *node5 = [[TreeNode alloc] initWith:5];
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
     node1.left = node2;
     node1.right = node3;
     node2.left = node4;
     node2.right = node5;
     /// root is node1
-    TreeNode *res = [self inorderSuccessor:node1 p:node2];
+    LCTreeNode *res = [self inorderSuccessor:node1 p:node2];
     DLog(@"res:%ld", res.val);
 }
 

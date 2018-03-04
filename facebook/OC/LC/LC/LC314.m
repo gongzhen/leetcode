@@ -8,17 +8,17 @@
 
 #import "LC314.h"
 #import "NSMutableArray+Queue.h"
-#import "TreeNode.h"
+#import "LCTreeNode.h"
 
 @interface LC314()
 
-- (NSArray *)verticalOrder:(TreeNode *)root;
+- (NSArray *)verticalOrder:(LCTreeNode *)root;
 
 @end
 
 @implementation LC314
 
-- (NSArray *)verticalOrder:(TreeNode *)root {
+- (NSArray *)verticalOrder:(LCTreeNode *)root {
     NSMutableArray* res = [NSMutableArray array];
     if(root == NULL) {
         return res;
@@ -29,12 +29,12 @@
     NSMutableArray *queue = [NSMutableArray array];    ///
     
     [colQueue offer:@0]; /// root's col is 0
-    [queue offer:root];  /// queue hold TreeNode
+    [queue offer:root];  /// queue hold LCTreeNode
     NSInteger min = 0;
     NSInteger max = 0;
     while(queue.count != 0) {
         /// everytime, queue poll a node and colQueue poll a colNum.
-        TreeNode *node = [queue poll];
+        LCTreeNode *node = [queue poll];
         NSNumber* colNum = [colQueue poll];
         
         ///
@@ -57,7 +57,7 @@
     
     [map enumerateKeysAndObjectsUsingBlock:^(NSNumber *  _Nonnull key, NSMutableArray *  _Nonnull obj, BOOL * _Nonnull stop) {
         DLog(@"key colNum:%ld {", [key integerValue]);
-        [obj enumerateObjectsUsingBlock:^(TreeNode *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj enumerateObjectsUsingBlock:^(LCTreeNode *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             DLog(@"node:%ld", [obj val]);
         }];
         DLog(@"++++++++++++++++++++++++++++++++++++++++}");
@@ -70,11 +70,11 @@
 }
 
 - (void)test {
-    TreeNode *node3 = [[TreeNode alloc] initWith:3];
-    TreeNode *node9 = [[TreeNode alloc] initWith:9];
-    TreeNode *node20 = [[TreeNode alloc] initWith:20];
-    TreeNode *node15 = [[TreeNode alloc] initWith:15];
-    TreeNode *node7 = [[TreeNode alloc] initWith:7];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node9 = [[LCTreeNode alloc] initWith:9];
+    LCTreeNode *node20 = [[LCTreeNode alloc] initWith:20];
+    LCTreeNode *node15 = [[LCTreeNode alloc] initWith:15];
+    LCTreeNode *node7 = [[LCTreeNode alloc] initWith:7];
     node3.left = node9;
     node3.right = node20;
     
@@ -82,7 +82,7 @@
     node20.right = node7;
     NSArray *res = [self verticalOrder:node3];
     for(NSArray *list in res) {
-        for(TreeNode* node in list) {
+        for(LCTreeNode* node in list) {
             DLog(@"%ld", node.val);
         }
         DLog(@"---------------------------");
