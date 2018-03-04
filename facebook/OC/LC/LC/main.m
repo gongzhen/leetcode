@@ -70,6 +70,7 @@
 #import "LC49.h"
 #import "LC209.h"
 #import "LC3.h"
+#import "LC30.h"
 
 
 int main(int argc, const char * argv[]) {
@@ -200,9 +201,10 @@ int main(int argc, const char * argv[]) {
 //        [lc49 test];
 //        LC209 *lc209 = [[LC209 alloc] init];
 //        [lc209 test];
-        LC3 *lc3 = [[LC3 alloc] init];
-        [lc3 test];
-        
+//        LC3 *lc3 = [[LC3 alloc] init];
+//        [lc3 test];
+        LC30 *lc30 = [[LC30 alloc] init];
+        [lc30 test];
     }
     return 0;
 }
