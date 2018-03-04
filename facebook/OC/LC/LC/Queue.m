@@ -113,6 +113,13 @@
     if(_size == 0) {
         return NULL;
     }
+    return [self getFirst];
+}
+
+- (id)getFirst {
+    if(_size == 0) {
+        return NULL;
+    }
     return _header.next->_element;
 }
 
