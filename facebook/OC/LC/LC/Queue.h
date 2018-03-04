@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Entry;
 
 @interface Queue : NSObject
 
-//+ (instancetype)queue;
-//- (void)offer:(id)obj;
-//- (id)poll;
-//- (id)peek;
++ (instancetype)queue;
+- (BOOL)offer:(id)e;
+- (id)poll;
+- (id)removeFirst;
+- (id)remove:(Entry *)e;
+- (id)peek;
+- (id)getFirst;
+- (BOOL)add:(id)e;
+- (void)test;
 
 @end

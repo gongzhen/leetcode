@@ -4,12 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-// class TreeNode {
-//  int val;
-//  TreeNode left;
-//  TreeNode right;
-//  TreeNode(int x) { val = x; }
-// }
+
 // class ListNode {
 //     int val;
 //     ListNode next;
@@ -25,22 +20,23 @@ import java.util.regex.*;
 //     Interval(int s, int e) { start = s; end = e; }
 // }
 // private TreeNode createTree() {
-//  //       5
-//  //    2      7
-//  //  1   3      10
-//  TreeNode node5 = new TreeNode(5);
-//  TreeNode node2 = new TreeNode(2);
-//  TreeNode node1 = new TreeNode(1);
-//  TreeNode node7 = new TreeNode(7);
-//  TreeNode node10 = new TreeNode(10);
-//  node5.left = node2;
-//  node5.right = node7;
-//  node2.left = node1;
-//  node2.right = node3;
-//  node5.right = node7;
-//  node7.right = node10; 
-//  return node5;
-// }
+//     //       5
+//     //    2      7
+//     //  1   3      10
+//     TreeNode node5 = new TreeNode(5);
+//     TreeNode node2 = new TreeNode(2);
+//     TreeNode node1 = new TreeNode(1);
+//     TreeNode node7 = new TreeNode(7);
+//     TreeNode node3 = new TreeNode(3);
+//     TreeNode node10 = new TreeNode(10);
+//     node5.left = node2;
+//     node5.right = node7;
+//     node2.left = node1;
+//     node2.right = node3;
+//     node5.right = node7;
+//     node7.right = node10; 
+//     return node5;
+// }  
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
@@ -157,54 +153,46 @@ import java.util.regex.*;
 //     }
 // } 
 
-public class LC209 {
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+    TreeNode(int x) { val = x; }
+}
 
-    public int minSubArrayLen_1(int s, int[] nums) {
-        int i = 0, j = 0;
-        int sum = 0;
-        int min = nums.length + 10;
-        while(i < nums.length) {
-            sum += nums[i];
-            if(sum < s) {
-                
-            } else if (sum >= s) {
-                while(sum >= s ) {
-                    if(i - j + 1 <= min) {
-                        min = i - j + 1;                    
-                    } 
-                    sum -= nums[j];
-                    j++;
-                }
-            }
-            i++;
+public class Solution1 {
+
+    public int closestValue(TreeNode root, double target) {
+        TreeNode child = root.val > target ? root.left : root.right;
+        if(child == null) {
+            return root.val;
         }
-        return min == (nums.length + 10) ? 0 : min;
+
+        int closest = closestValue(child, target);
+
+        return Math.abs(root.val - target) > Math.abs(closest - target) ? closest : root.val;
     }
 
-    public int minSubArrayLen(int s, int[] nums) {
-        if(nums.length == 0) {
-            return 0;
-        }
-        
-        int sum = 0;
-        int minLen = nums.length + 1;
-        int left = 0;
-        for(int i = 0; i < nums.length; i++) {
-            sum += nums[i];
-            if(sum >= s) {
-                while(sum >= s) {
-                    minLen = Math.min(minLen, i - left + 1);
-                    printString("minLen " + minLen + ", i: " + i + ", left: " + left);
-                    sum -= nums[left];
-                    left++;
-                    if(sum >= s) {                        
-                        minLen = Math.min(minLen, i - left + 1);
-                    } 
-                }
+    public int closestValue_1(TreeNode root, double target) {
+        double diff = Double.MAX_VALUE;
+        int closestNode = Integer.MAX_VALUE;
+        while(root != null) {
+            if(Math.abs(root.val - target) < diff) {
+                diff = Math.abs(root.val - target);
+                closestNode = root.val;
+            }
+
+            if(root.val == target) {
+                closestNode = root.val;   
+                break;
+            } else if (root.val < target) {
+                root = root.left;
+            } else if (root.val > target) {
+                root = root.right;
             }
         }
-        return (minLen == (nums.length + 1)) ? 0 : minLen;
-    }    	
+        return closestNode;
+    }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
@@ -223,11 +211,16 @@ public class LC209 {
 	}    
 
 	public static void main(String[] args) {
-		// LC209 obj = new LC209();
-		// int[] list = new int[]{1, 1, 1, 2, 2, 2, 3, 3, 4};
-        LC209 obj = new LC209();
-        int[] list = new int[]{2,3,1,2,4,3};        
-		System.out.println(obj.minSubArrayLen(7, list));
+		Solution1 obj = new Solution1();
+		int[] list = new int[]{1, 1, 3, 5, 8};
+        System.out.println(obj.smallestDistancePair(list, 1));
+        System.out.println(obj.smallestDistancePair(list, 2));
+        System.out.println(obj.smallestDistancePair(list, 3));
+        System.out.println(obj.smallestDistancePair(list, 4));
+        System.out.println(obj.smallestDistancePair(list, 5));
+        System.out.println(obj.smallestDistancePair(list, 6));
+        System.out.println(obj.smallestDistancePair(list, 8));
+        System.out.println(obj.smallestDistancePair(list, 9));
 	}
 
 }

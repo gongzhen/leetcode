@@ -67,6 +67,12 @@
 		3D14ECA42043CBBD00149E3F /* LC445.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14ECA32043CBBD00149E3F /* LC445.m */; };
 		3D14ECA720445DA800149E3F /* LC2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14ECA620445DA800149E3F /* LC2.m */; };
 		3D18EE322045B09E00F67268 /* LC91.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE312045B09E00F67268 /* LC91.m */; };
+		3D18EE352049D36E00F67268 /* LC347.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE342049D36E00F67268 /* LC347.m */; };
+		3D18EE382049FEB600F67268 /* LC49.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE372049FEB600F67268 /* LC49.m */; };
+		3D18EE3E204A00D100F67268 /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE3D204A00D100F67268 /* QuickSort.m */; };
+		3D729E25204A390000C25D14 /* LC209.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E24204A390000C25D14 /* LC209.m */; };
+		3D729E28204B619D00C25D14 /* LC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E27204B619D00C25D14 /* LC3.m */; };
+		3D729E2B204B6C2700C25D14 /* LC30.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E2A204B6C2700C25D14 /* LC30.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -214,6 +220,18 @@
 		3D14ECA620445DA800149E3F /* LC2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC2.m; sourceTree = "<group>"; };
 		3D18EE302045B09E00F67268 /* LC91.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC91.h; sourceTree = "<group>"; };
 		3D18EE312045B09E00F67268 /* LC91.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC91.m; sourceTree = "<group>"; };
+		3D18EE332049D36E00F67268 /* LC347.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC347.h; sourceTree = "<group>"; };
+		3D18EE342049D36E00F67268 /* LC347.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC347.m; sourceTree = "<group>"; };
+		3D18EE362049FEB600F67268 /* LC49.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC49.h; sourceTree = "<group>"; };
+		3D18EE372049FEB600F67268 /* LC49.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC49.m; sourceTree = "<group>"; };
+		3D18EE3C204A00D100F67268 /* QuickSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
+		3D18EE3D204A00D100F67268 /* QuickSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
+		3D729E23204A390000C25D14 /* LC209.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC209.h; sourceTree = "<group>"; };
+		3D729E24204A390000C25D14 /* LC209.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC209.m; sourceTree = "<group>"; };
+		3D729E26204B619D00C25D14 /* LC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC3.h; sourceTree = "<group>"; };
+		3D729E27204B619D00C25D14 /* LC3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC3.m; sourceTree = "<group>"; };
+		3D729E29204B6C2700C25D14 /* LC30.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC30.h; sourceTree = "<group>"; };
+		3D729E2A204B6C2700C25D14 /* LC30.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC30.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -276,8 +294,6 @@
 				3D14EBD220374D2700149E3F /* LC.m */,
 				843A1C392048DB1A0044E6FC /* Pair.h */,
 				843A1C3A2048DB1A0044E6FC /* Pair.m */,
-				3D14EBF82039EB6200149E3F /* Tree.h */,
-				3D14EBF92039EB6200149E3F /* Tree.m */,
 				3D14EBF2203948B200149E3F /* UndirectedGraphNode.h */,
 				3D14EBF3203948B200149E3F /* UndirectedGraphNode.m */,
 				3D14EBD420374ECA00149E3F /* Interval.h */,
@@ -290,12 +306,26 @@
 				3D14EB9B2032B80500149E3F /* TreeNode.m */,
 				3D14EC7F20422DF200149E3F /* TreeLinkNode.h */,
 				3D14EC8020422DF200149E3F /* TreeLinkNode.m */,
+				3D18EE3C204A00D100F67268 /* QuickSort.h */,
+				3D18EE3D204A00D100F67268 /* QuickSort.m */,
 				3D14EC70203F869E00149E3F /* Queue.h */,
 				3D14EC71203F869E00149E3F /* Queue.m */,
 				3D14EB922032917800149E3F /* NSMutableArray+Queue.h */,
 				3D14EB932032917800149E3F /* NSMutableArray+Queue.m */,
 				3D14EBFB2039EF2600149E3F /* NSMutableArray+Stack.h */,
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
+				3D14EBF82039EB6200149E3F /* Tree.h */,
+				3D14EBF92039EB6200149E3F /* Tree.m */,
+				3D729E29204B6C2700C25D14 /* LC30.h */,
+				3D729E2A204B6C2700C25D14 /* LC30.m */,
+				3D729E26204B619D00C25D14 /* LC3.h */,
+				3D729E27204B619D00C25D14 /* LC3.m */,
+				3D729E23204A390000C25D14 /* LC209.h */,
+				3D729E24204A390000C25D14 /* LC209.m */,
+				3D18EE362049FEB600F67268 /* LC49.h */,
+				3D18EE372049FEB600F67268 /* LC49.m */,
+				3D18EE332049D36E00F67268 /* LC347.h */,
+				3D18EE342049D36E00F67268 /* LC347.m */,
 				843A1C3620489C5B0044E6FC /* LC130.h */,
 				843A1C3720489C5B0044E6FC /* LC130.m */,
 				843A1C33204777700044E6FC /* LC286.h */,
@@ -504,6 +534,7 @@
 				3D14EC18203C3D6A00149E3F /* LC88.m in Sources */,
 				3D14EC9E20436FD100149E3F /* LC44.m in Sources */,
 				3D14EBBA203551B700149E3F /* LC23.m in Sources */,
+				3D729E25204A390000C25D14 /* LC209.m in Sources */,
 				3D14EC782040DD1C00149E3F /* LC54.m in Sources */,
 				3D14EBC02035DF6400149E3F /* LC157.m in Sources */,
 				3D14EB9120327F4500149E3F /* LC297.m in Sources */,
@@ -514,6 +545,7 @@
 				3D14ECA720445DA800149E3F /* LC2.m in Sources */,
 				843A1C3820489C5B0044E6FC /* LC130.m in Sources */,
 				843A1C3B2048DB1A0044E6FC /* Pair.m in Sources */,
+				3D729E2B204B6C2700C25D14 /* LC30.m in Sources */,
 				3D14EBA52032BC7600149E3F /* LC311.m in Sources */,
 				3DC98C4B202FB99000DB15CD /* LC283.m in Sources */,
 				3D14EBEB2038C85100149E3F /* LC98.m in Sources */,
@@ -528,7 +560,9 @@
 				3D14EB8220313C9F00149E3F /* LC253.m in Sources */,
 				3D14EC15203C310500149E3F /* LC33.m in Sources */,
 				3D14EC0F203BC51C00149E3F /* LC238.m in Sources */,
+				3D18EE3E204A00D100F67268 /* QuickSort.m in Sources */,
 				3D14EBFA2039EB6200149E3F /* Tree.m in Sources */,
+				3D729E28204B619D00C25D14 /* LC3.m in Sources */,
 				3DC98C48202F901800DB15CD /* LC146.m in Sources */,
 				3D14EC7B2041236700149E3F /* LC53.m in Sources */,
 				3DC98C40202F8E7D00DB15CD /* main.m in Sources */,
@@ -541,9 +575,11 @@
 				3D14EC7E20422DA300149E3F /* LC117.m in Sources */,
 				3D14EBFD2039EF2600149E3F /* NSMutableArray+Stack.m in Sources */,
 				3D14EBB72035476E00149E3F /* LC543.m in Sources */,
+				3D18EE352049D36E00F67268 /* LC347.m in Sources */,
 				3D14EBEE2039193100149E3F /* LC78.m in Sources */,
 				3D14EBD320374D2700149E3F /* LC.m in Sources */,
 				3DF0B1BA20300C3400C2BCBE /* LC273.m in Sources */,
+				3D18EE382049FEB600F67268 /* LC49.m in Sources */,
 				3DF0B1B7202FF1C000C2BCBE /* LC67.m in Sources */,
 				3D14EBE82038C35F00149E3F /* LC161.m in Sources */,
 				3D14EBAE2034E7ED00149E3F /* LC277.m in Sources */,
@@ -665,7 +701,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X92HRP6SLX;
+				DEVELOPMENT_TEAM = 78R59ZRT89;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -674,7 +710,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X92HRP6SLX;
+				DEVELOPMENT_TEAM = 78R59ZRT89;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

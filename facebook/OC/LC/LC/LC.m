@@ -33,6 +33,13 @@
     DLog(@"LC");
 }
 
+- (void)free_fields:(char **)chars size:(int)size {
+    for(int i = 0; i < size; i++) {
+        free(chars[i]);
+    }
+    free(chars);
+}
+
 - (NSTimeInterval)executionTime:(NSDate *)methodStart {
     if(methodStart == nil) {
         return 0.0;

@@ -13,6 +13,7 @@
 }
 
 - (void)test;
+- (void)free_fields:(char **)chars size:(int)size;
 - (NSTimeInterval)executionTime:(NSDate *)methodStart;
 
 @end
