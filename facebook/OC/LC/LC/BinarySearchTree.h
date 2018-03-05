@@ -11,7 +11,10 @@
 @interface BinarySearchTree : NSObject
 
 - (void)add:(id)e;
-- (void)printTree;
+- (void)printTreeBFS;
+- (void)inorder;
+//- (void)postorder;
+//- (void)preorder;
 - (void)test;
 
 @end

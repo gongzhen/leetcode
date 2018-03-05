@@ -58,7 +58,24 @@
     }
 }
 
-- (void)printTree {
+- (void)inorder {
+    NSMutableArray *list = [NSMutableArray array];
+    [self inorderDFS:_root list:list];
+    [list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"\t\t%d", [obj intValue]);
+    }];
+}
+
+- (void)inorderDFS:(TreeNode *)node list:(NSMutableArray *)list {
+    if(node == NULL) {
+        return;
+    }
+    [self inorderDFS:node.left list:list];
+    [list addObject:node.val];
+    [self inorderDFS:node.right list:list];
+}
+
+- (void)printTreeBFS {
     if(_root == NULL) {
         return;
     }
@@ -107,7 +124,8 @@
     [self add:@1];
     [self add:@5];
     [self add:@4];
-    [self printTree];
+    [self printTreeBFS];
+    [self inorder];
 }
 
 @end
