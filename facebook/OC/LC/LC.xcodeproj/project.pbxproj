@@ -76,6 +76,8 @@
 		3D729E31204D10A600C25D14 /* LC689.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E30204D10A600C25D14 /* LC689.m */; };
 		3D729EB5204F2EF500C25D14 /* LC208.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EB4204F2EF500C25D14 /* LC208.m */; };
 		3D729EB8204F304E00C25D14 /* Trie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EB7204F304E00C25D14 /* Trie.m */; };
+		3D729EBB20500DC500C25D14 /* LC218.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EBA20500DC500C25D14 /* LC218.m */; };
+		3D729EBE20508BEF00C25D14 /* LC721.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EBD20508BEF00C25D14 /* LC721.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -243,6 +245,10 @@
 		3D729EB4204F2EF500C25D14 /* LC208.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC208.m; sourceTree = "<group>"; };
 		3D729EB6204F304E00C25D14 /* Trie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trie.h; sourceTree = "<group>"; };
 		3D729EB7204F304E00C25D14 /* Trie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Trie.m; sourceTree = "<group>"; };
+		3D729EB920500DC500C25D14 /* LC218.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC218.h; sourceTree = "<group>"; };
+		3D729EBA20500DC500C25D14 /* LC218.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC218.m; sourceTree = "<group>"; };
+		3D729EBC20508BEF00C25D14 /* LC721.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC721.h; sourceTree = "<group>"; };
+		3D729EBD20508BEF00C25D14 /* LC721.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC721.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -337,6 +343,10 @@
 				843A1C40204C9DF00044E6FC /* TreeNode.m */,
 				843A1C3C204C97ED0044E6FC /* BinarySearchTree.h */,
 				843A1C3D204C97ED0044E6FC /* BinarySearchTree.m */,
+				3D729EBC20508BEF00C25D14 /* LC721.h */,
+				3D729EBD20508BEF00C25D14 /* LC721.m */,
+				3D729EB920500DC500C25D14 /* LC218.h */,
+				3D729EBA20500DC500C25D14 /* LC218.m */,
 				3D729E2F204D10A600C25D14 /* LC689.h */,
 				3D729E30204D10A600C25D14 /* LC689.m */,
 				3D729EB3204F2EF500C25D14 /* LC208.h */,
@@ -579,7 +589,9 @@
 				3D14EC24203CBF3900149E3F /* LC494.m in Sources */,
 				3DC98C4E202FC17A00DB15CD /* LC301.m in Sources */,
 				843A1C2F20471B1A0044E6FC /* LC236.m in Sources */,
+				3D729EBB20500DC500C25D14 /* LC218.m in Sources */,
 				3D14EC8120422DF200149E3F /* TreeLinkNode.m in Sources */,
+				3D729EBE20508BEF00C25D14 /* LC721.m in Sources */,
 				843A1C3E204C97ED0044E6FC /* BinarySearchTree.m in Sources */,
 				3D14EBF12039486700149E3F /* LC133.m in Sources */,
 				3D14EC06203A188200149E3F /* LC215.m in Sources */,
