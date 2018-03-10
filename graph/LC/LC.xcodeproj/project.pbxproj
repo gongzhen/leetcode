@@ -12,6 +12,8 @@
 		3D729EE1205370E400C25D14 /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EE0205370E400C25D14 /* LC.m */; };
 		3D729EE4205370EA00C25D14 /* Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EE3205370EA00C25D14 /* Queue.m */; };
 		3D729EE72053798600C25D14 /* LC310.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EE62053798600C25D14 /* LC310.m */; };
+		3D729EEA205396A900C25D14 /* LC332.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EE9205396A900C25D14 /* LC332.m */; };
+		3D729EED20544A7F00C25D14 /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EEC20544A7F00C25D14 /* PriorityQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +40,10 @@
 		3D729EE3205370EA00C25D14 /* Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Queue.m; sourceTree = "<group>"; };
 		3D729EE52053798600C25D14 /* LC310.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC310.h; sourceTree = "<group>"; };
 		3D729EE62053798600C25D14 /* LC310.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC310.m; sourceTree = "<group>"; };
+		3D729EE8205396A900C25D14 /* LC332.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC332.h; sourceTree = "<group>"; };
+		3D729EE9205396A900C25D14 /* LC332.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC332.m; sourceTree = "<group>"; };
+		3D729EEB20544A7F00C25D14 /* PriorityQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
+		3D729EEC20544A7F00C25D14 /* PriorityQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +79,16 @@
 				3D729ECB205360CD00C25D14 /* main.m */,
 				3D729EE2205370EA00C25D14 /* Queue.h */,
 				3D729EE3205370EA00C25D14 /* Queue.m */,
+				3D729EEB20544A7F00C25D14 /* PriorityQueue.h */,
+				3D729EEC20544A7F00C25D14 /* PriorityQueue.m */,
 				3D729EDF205370E400C25D14 /* LC.h */,
 				3D729EE0205370E400C25D14 /* LC.m */,
 				3D729ED2205362B800C25D14 /* LC261.h */,
 				3D729ED3205362B800C25D14 /* LC261.m */,
 				3D729EE52053798600C25D14 /* LC310.h */,
 				3D729EE62053798600C25D14 /* LC310.m */,
+				3D729EE8205396A900C25D14 /* LC332.h */,
+				3D729EE9205396A900C25D14 /* LC332.m */,
 				3D729ED82053630300C25D14 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -144,6 +154,8 @@
 				3D729EE1205370E400C25D14 /* LC.m in Sources */,
 				3D729EE72053798600C25D14 /* LC310.m in Sources */,
 				3D729ED4205362B800C25D14 /* LC261.m in Sources */,
+				3D729EED20544A7F00C25D14 /* PriorityQueue.m in Sources */,
+				3D729EEA205396A900C25D14 /* LC332.m in Sources */,
 				3D729ECC205360CD00C25D14 /* main.m in Sources */,
 				3D729EE4205370EA00C25D14 /* Queue.m in Sources */,
 			);

@@ -9,14 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "LC261.h"
 #import "LC310.h"
+#import "PriorityQueue.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
 //        LC261 *lc261 = [[LC261 alloc] init];
 //        [lc261 test];
-        LC310 *lc310 = [[LC310 alloc] init];
-        [lc310 test];
+//        LC310 *lc310 = [[LC310 alloc] init];
+//        [lc310 test];
+        PriorityQueue *pq = [[PriorityQueue alloc] init];
+        [pq testPQ];
     }
     return 0;
 }
