@@ -78,25 +78,6 @@ import java.util.regex.*;
 //         printString("key:" + node.val + ",value:" + value);
 //     }
 // }
-// private void printStringWithoutNewLine(String arg) {
-//     System.out.print(arg + ","); 
-// } 
-// private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
-//     for(int n: list) {
-//         printStringWithoutNewLine(n + ", ");
-//     }
-//     printStringWithoutNewLine("]\n");
-// } 
-// private void printArray(int[] list) {
-//     printStringWithoutNewLine("[");
-//     int i = 0;
-//     for(int n : list) {
-//         printStringWithoutNewLine("[" + i + "]" + n + ", ");
-//         i++;
-//     }
-//     printStringWithoutNewLine("]\n");
-// }  
 // private void printArray(int[] list, int s, int e) {
 //     printStringWithoutNewLine("[");
 //     for(int i = s; i <= e; i++) {
@@ -161,7 +142,8 @@ public class LC721 {
             }
         }
 
-        printMap(graph);
+        printMapOfArray(graph);
+        // printMap(emailToName);
 
         Set<String> seen = new HashSet<String>();
         List<List<String>> ans = new ArrayList<List<String>>();
@@ -186,10 +168,41 @@ public class LC721 {
                 ans.add(component);
             }
         }
+        printArray(ans);
         return ans;
     }  
 
-    private void printMap(Map<String, ArrayList<String>> graph) {
+    private void printStringWithoutNewLine(String arg) {
+        System.out.print(arg); 
+    } 
+
+    private void printMap(Map<String, String> map) {
+        for(String key : map.keySet()) {
+            printString("key:" + key + ", value: " + map.get(key));
+        }
+    }
+
+    private void printArray(List<List<String>> list) {        
+        for(List<String> n: list) {
+            printStringWithoutNewLine("[");
+            for(String s : n) {
+                printStringWithoutNewLine(s + ", ");    
+            }            
+            printStringWithoutNewLine("]\n");
+        }
+        printStringWithoutNewLine("\n");
+    } 
+    private void printArray(int[] list) {
+        printStringWithoutNewLine("[");
+        int i = 0;
+        for(int n : list) {
+            printStringWithoutNewLine("[" + i + "]" + n + ", ");
+            i++;
+        }
+        printStringWithoutNewLine("]\n");
+    }      
+
+    private void printMapOfArray(Map<String, ArrayList<String>> graph) {
         for(String key : graph.keySet()) {
             printString("key:" + key);
             ArrayList<String> list = graph.get(key);

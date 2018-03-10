@@ -7,6 +7,7 @@
 //
 
 #import "LC721.h"
+#import "NSMutableArray+Stack.h"
 
 @interface LC721()
 
@@ -41,17 +42,47 @@
             NSMutableArray *anotherEmailList = [graph objectForKey:list[1]];
             [anotherEmailList addObject:element];
             [graph setObject:anotherEmailList forKey:list[1]];
+            [emailToName setObject:name forKey:element];
         }
     }
     
-    [graph enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSMutableArray * _Nonnull obj, BOOL * _Nonnull stop) {
-        DLog(@"key:%@", key);
-        [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            NSString *email = (NSString *)obj;
-            DLog(@"email:%@", email);
-        }];
+//    [graph enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSMutableArray * _Nonnull obj, BOOL * _Nonnull stop) {
+//        DLog(@"key:%@", key);
+//        [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            NSString *email = (NSString *)obj;
+//            DLog(@"email:%@", email);
+//        }];
+//    }];
+    
+    [emailToName enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        DLog(@"key: %@, value: %@", key, obj);
     }];
-    return [NSArray array];
+    
+    NSMutableSet *visitedSet = [NSMutableSet set];
+    NSMutableArray *ans = [NSMutableArray array];
+    for(NSString *email in graph.allKeys) {
+        if(![visitedSet containsObject:email]) {
+            [visitedSet addObject:email];
+            NSMutableArray *stack = [NSMutableArray array];
+            NSMutableArray *component = [NSMutableArray array];
+            [stack push:email];
+            while(stack.count != 0) {
+                NSString *node = (NSString *)[stack pop];
+                [component addObject:node];
+                for(NSString *nei in [graph objectForKey:node]) {
+                    if(![visitedSet containsObject:nei]) {
+                        [visitedSet addObject:nei];
+                        [stack push:nei];
+                    }
+                }
+            }
+            [component sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            [component insertObject:[emailToName objectForKey:email] atIndex:0];
+            [ans addObject:component];
+        }
+    }
+    
+    return [ans copy];
 }
 
 - (void)test {
