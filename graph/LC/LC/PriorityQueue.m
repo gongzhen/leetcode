@@ -9,10 +9,8 @@
 #import "PriorityQueue.h"
 #define TESTPQ NO
 
-@interface PriorityQueue() {
+@interface PriorityQueue()
 
-}
-@property(nonatomic, copy) NSMutableArray* queue;
 @property (assign) NSInteger size;
 
 - (BOOL)offer:(id)e;
@@ -24,9 +22,27 @@
     void **_pointer;
 }
 
+static int DEFAULT_INITIAL_CAPACITY = 11;
+
++ (instancetype)queue {
+    static id instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [self new];
+    });
+    return instance;
+}
+
+- (instancetype)init {
+    if(self = [super init]) {
+        _pointer = (void **)malloc(DEFAULT_INITIAL_CAPACITY * sizeof(void *));
+        _size = 0;
+    }
+    return self;
+}
+
 - (instancetype)initWithCapacity:(NSInteger)capacity {
     if(self = [super init]) {
-        _queue = [[NSMutableArray alloc] initWithCapacity:capacity];
         _size = 0;
         _pointer = (void **)malloc(capacity * sizeof(void *));
     }
@@ -46,13 +62,13 @@
         return NO;
     }
     NSInteger i = _size;
-    if(i >= _queue.count) {
+    if(i >= _size) {
         /// grow
         // [self grow:(i + 1)];
     }
     _size = i + 1;
     if(i == 0) {
-        [_queue addObject:e];
+        // [_queue addObject:e];
         _pointer[0] = (__bridge void *)(e);
         // both fixed.
         // _pointer[0] = CFBridgingRetain(e);
@@ -80,6 +96,10 @@
         [self siftDown:0 x:x];
     }
     return result;
+}
+
+- (BOOL)isEmpty {
+    return _size == 0;
 }
 
 

@@ -10,8 +10,11 @@
 
 @interface PriorityQueue : NSObject
 
+- (instancetype)initWithCapacity:(NSInteger)capacity;
+- (instancetype)init;
 - (BOOL)offer:(id)e;
 - (id)poll;
+- (BOOL)isEmpty;
 - (void)testPQ;
 
 @end
