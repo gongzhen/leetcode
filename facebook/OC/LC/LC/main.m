@@ -73,6 +73,9 @@
 #import "LC30.h"
 #import "Queue.h"
 #import "BinarySearchTree.h"
+#import "LC208.h"
+#import "LC218.h"
+#import "LC721.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -208,8 +211,14 @@ int main(int argc, const char * argv[]) {
 //        [lc30 test];
 //        Queue *queue = [Queue queue];
 //        [queue test];
-        BinarySearchTree *btree = [[BinarySearchTree alloc] init];
-        [btree test];
+//        BinarySearchTree *btree = [[BinarySearchTree alloc] init];
+//        [btree test];
+//        LC208 *lc208 = [[LC208 alloc] init];
+//        [lc208 test];
+//        LC218 *lc218 = [[LC218 alloc] init];
+//        [lc218 test];
+        LC721 *lc721 = [[LC721 alloc] init];
+        [lc721 test];
     }
     return 0;
 }
