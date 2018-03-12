@@ -11,6 +11,7 @@
 #import "LC261.h"
 #import "LC310.h"
 #import "LC332.h"
+#import "LC207.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -21,8 +22,10 @@ int main(int argc, const char * argv[]) {
 //        [lc310 test];
 //        PriorityQueue *pq = [[PriorityQueue alloc] init];
 //        [pq testPQ];
-        LC332 *lc332 = [[LC332 alloc] init];
-        [lc332 test];
+//        LC332 *lc332 = [[LC332 alloc] init];
+//        [lc332 test];
+        LC207 *lc207 = [[LC207 alloc] init];
+        [lc207 test];
     }
     return 0;
 }

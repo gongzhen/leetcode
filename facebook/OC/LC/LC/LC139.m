@@ -17,7 +17,7 @@
 @implementation LC139
 
 - (BOOL)wordBreak:(NSString *)s wordDict:(NSArray *)wordDict {
-    int* dp = calloc(s.length + 1, sizeof(int *)); /// dp length is s.length + 1.
+    int* dp = (int *)calloc(s.length + 1, sizeof(int)); /// dp length is s.length + 1.
     dp[0] = 1;
     for(int i = 1; i <= [s length]; i++) { // i start from 1.
         for(int j = 0; j < i; j++) { // j from 0 to i.
