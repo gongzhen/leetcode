@@ -35,7 +35,8 @@
     }];
     
     [map enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, PriorityQueue * _Nonnull obj, BOOL * _Nonnull stop) {
-        DLog(@"key:%@ ==> %@", key, obj);
+//        DLog(@"key:%@", key);
+//        [obj printPQ];
     }];
     
     NSMutableArray *res = [NSMutableArray array];
@@ -46,14 +47,17 @@
     while(![stack empty]) {
         NSString *peek = (NSString *)[stack peek];
         DLog(@"peek:%@", peek);
-        DLog(@"[map objectForKey:peek]:%@", [map objectForKey:peek]);
-        while([map objectForKey:peek] != NULL && [map objectForKey:peek].isEmpty != YES) {
+        while([map objectForKey:[stack peek]] != NULL && [map objectForKey:[stack peek]].isEmpty != YES) {
             PriorityQueue *pq = [map objectForKey:peek];
+            [pq printPQ];
             NSString *pop = [pq poll];
-            DLog(@"pop:%@", pop);
+            DLog(@"targets.get(stack.peek()).poll():%@", pop);
             [stack push:pop];
+            DLog(@"[stack peek]:%@", [stack peek]);
         }
-        [res insertObject:[stack pop] atIndex:0];
+        NSString *spop = (NSString *)[stack pop];
+        DLog(@"spop:%@", spop);
+        [res insertObject:spop atIndex:0];
     }
     [res enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"res:%@", obj);

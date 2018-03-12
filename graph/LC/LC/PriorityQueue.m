@@ -200,4 +200,10 @@ static int DEFAULT_INITIAL_CAPACITY = 11;
     }
 }
 
+- (void)printPQ {
+    for(int i = 0; i < _size; i++) {
+        DLog(@"%@", _pointer[i]);
+    }
+}
+
 @end

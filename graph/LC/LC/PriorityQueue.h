@@ -16,5 +16,6 @@
 - (id)poll;
 - (BOOL)isEmpty;
 - (void)testPQ;
+- (void)printPQ;
 
 @end
