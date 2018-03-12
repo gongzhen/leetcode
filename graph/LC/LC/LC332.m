@@ -45,23 +45,21 @@
     [stack push:@"JFK"];
     
     while(![stack empty]) {
-        NSString *peek = (NSString *)[stack peek];
-        DLog(@"peek:%@", peek);
         while([map objectForKey:[stack peek]] != NULL && [map objectForKey:[stack peek]].isEmpty != YES) {
-            PriorityQueue *pq = [map objectForKey:peek];
-            [pq printPQ];
-            NSString *pop = [pq poll];
-            DLog(@"targets.get(stack.peek()).poll():%@", pop);
-            [stack push:pop];
             DLog(@"[stack peek]:%@", [stack peek]);
+            PriorityQueue *pq = [map objectForKey:[stack peek]];
+            [pq printPQ];
+            NSString *pop = (NSString *)[pq poll];
+            DLog(@"poll():%@", pop);
+            [stack push:pop];
         }
         NSString *spop = (NSString *)[stack pop];
-        DLog(@"spop:%@", spop);
+//        DLog(@"spop:%@", spop);
         [res insertObject:spop atIndex:0];
     }
-    [res enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        DLog(@"res:%@", obj);
-    }];
+//    [res enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        DLog(@"res:%@", obj);
+//    }];
     return [res copy];
 }
 
