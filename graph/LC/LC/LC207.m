@@ -29,11 +29,11 @@
     
     int* indegree = (int *)calloc(numCourses, sizeof(int));
     for(int i = 0; i < row; i++) {
-        /// [1,0] ==> start 0 to finish 1
-        int s = prerequisites[i][1];
-        int e = prerequisites[i][0];
-        [[graph objectAtIndex:s] addObject:@(e)];
-        indegree[s]++;
+        /// [1,0] ==> start first class: 0 then next class: 1.
+        int first = prerequisites[i][1];
+        int next = prerequisites[i][0];
+        [[graph objectAtIndex:first] addObject:@(next)];
+        indegree[next]++;
     }
     
     Queue *queue = [Queue queue];
@@ -56,22 +56,34 @@
             }
         }];
     }
-    DLog(@"%d", count);
+    DLog(@"%d", count == row);
     return count == row;
 }
 
 - (void)test {
-    int grid[2][2] = {{1, 0}, {0, 1}};
-    int **prerequisites = (int **)malloc(2 * sizeof(int *));
-    for(int i = 0; i < 2; i++) {
+//    int grid[2][2] = {{1, 0}, {0, 1}};
+//    int **prerequisites = (int **)malloc(2 * sizeof(int *));
+//    for(int i = 0; i < 2; i++) {
+//        prerequisites[i] = (int *)malloc(2 * sizeof(int));
+//    }
+//    for(int i = 0; i < 2; i++) {
+//        for(int j = 0; j < 2; j++) {
+//            prerequisites[i][j] = grid[i][j];
+//        }
+//    }
+//    [self canFinish:2 prerequisites:prerequisites row:2 col:2];
+    
+    int grid[5][2] = {{ 1, 0 }, { 2, 0 }, { 3, 1 }, { 3, 2 }, { 2, 4 }};
+    int **prerequisites = (int **)malloc(5 * sizeof(int *));
+    for(int i = 0; i < 5; i++) {
         prerequisites[i] = (int *)malloc(2 * sizeof(int));
     }
-    for(int i = 0; i < 2; i++) {
+    for(int i = 0; i < 5; i++) {
         for(int j = 0; j < 2; j++) {
             prerequisites[i][j] = grid[i][j];
         }
     }
-    [self canFinish:2 prerequisites:prerequisites row:2 col:2];
+    [self canFinish:5 prerequisites:prerequisites row:5 col:2];
 }
 
 @end
