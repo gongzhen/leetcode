@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D35916F2058A3670025AB8D /* HashSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D35916E2058A3670025AB8D /* HashSet.m */; };
 		3D729ECC205360CD00C25D14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729ECB205360CD00C25D14 /* main.m */; };
 		3D729ED4205362B800C25D14 /* LC261.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729ED3205362B800C25D14 /* LC261.m */; };
 		3D729EE1205370E400C25D14 /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EE0205370E400C25D14 /* LC.m */; };
@@ -33,6 +34,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D35916D2058A3670025AB8D /* HashSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HashSet.h; sourceTree = "<group>"; };
+		3D35916E2058A3670025AB8D /* HashSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HashSet.m; sourceTree = "<group>"; };
 		3D729EC8205360CD00C25D14 /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D729ECB205360CD00C25D14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3D729ED2205362B800C25D14 /* LC261.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC261.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				3D729ECB205360CD00C25D14 /* main.m */,
+				3D35916D2058A3670025AB8D /* HashSet.h */,
+				3D35916E2058A3670025AB8D /* HashSet.m */,
 				3D729EE2205370EA00C25D14 /* Queue.h */,
 				3D729EE3205370EA00C25D14 /* Queue.m */,
 				3D729EEE2054BF9000C25D14 /* Stack.h */,
@@ -171,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D35916F2058A3670025AB8D /* HashSet.m in Sources */,
 				848EAB8520573366003FFAFD /* LC133.m in Sources */,
 				60047FDD20567E3500C17DC2 /* LC207.m in Sources */,
 				3D729EF02054BF9000C25D14 /* Stack.m in Sources */,
