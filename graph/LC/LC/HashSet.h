@@ -12,10 +12,11 @@
 
 - (BOOL)add:(id)e;
 - (void)clear;
-- (id)clone;
+//- (id)clone;
 - (BOOL)contains:(id)e;
 - (BOOL)isEmpty;
 - (BOOL)remove:(id)e;
 - (NSInteger)size;
-
+- (NSArray *)arrayList;
+-(instancetype)init;
 @end

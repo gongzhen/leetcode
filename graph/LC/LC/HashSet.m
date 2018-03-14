@@ -8,14 +8,15 @@
 
 #import "HashSet.h"
 
-@interface HashSet()<NSCopying>
+@interface HashSet() {
+    id PRESENT;
+}
+
+@property(strong, nonatomic)NSMutableDictionary *map;
 
 @end
 
-@implementation HashSet {
-    NSMutableDictionary *_map;
-    id PRESENT;
-}
+@implementation HashSet
 
 -(instancetype)init {
     if(self = [super init]) {
@@ -23,12 +24,6 @@
         PRESENT = [[NSObject alloc] init];
     }
     return self;
-}
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    HashSet *newHashSet = [[HashSet alloc] init];
-    newHashSet->_map = [_map copyWithZone:zone];
-    return newHashSet;
 }
 
 #pragma mark - public methods
@@ -45,13 +40,16 @@
     [_map removeAllObjects];
 }
 
-- (id)clone {
-    HashSet* newSet = [[HashSet alloc] init];
-    newSet->_map = [_map copy];
-    return newSet;
-}
+//- (id)clone {
+//    HashSet* newSet = [[HashSet alloc] init];
+//    newSet->_map = [_map copy];
+//    return newSet;
+//}
 
 - (BOOL)contains:(id)e {
+    DLog(@"e:%@", e);
+    DLog(@"_map objectForKey:e:%@", [_map objectForKey:e]);
+    DLog(@"_map:%@", _map);
     return [_map objectForKey:e] != NULL;
 }
 
@@ -69,6 +67,10 @@
 
 - (NSInteger)size {
     return _map.allKeys.count;
+}
+
+- (NSArray *)arrayList {
+    return _map.allKeys;
 }
 
 @end

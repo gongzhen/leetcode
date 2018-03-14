@@ -8,7 +8,7 @@
 
 #import "UndirectedGraphNode.h"
 
-@interface UndirectedGraphNode()
+@interface UndirectedGraphNode() <NSCopying>
 
 @end
 
@@ -20,5 +20,12 @@
         _neighbors = [NSMutableArray array];
     }
     return self;
+}
+
+- (instancetype)copyWithZone:(NSZone *)zone {
+    UndirectedGraphNode *copy = [UndirectedGraphNode allocWithZone:zone];
+    copy.label = _label;
+    copy.neighbors = [_neighbors mutableCopy];
+    return copy;
 }
 @end

@@ -9,14 +9,55 @@
 #import "LC133.h"
 #import "UndirectedGraphNode.h"
 #import "Queue.h"
+#import "HashSet.h"
 
 @interface LC133()
 
+- (UndirectedGraphNode *)cloneGraphBFSJZ:(UndirectedGraphNode *)node;
 - (UndirectedGraphNode *)cloneGraph:(UndirectedGraphNode *)node;
 
 @end
 
 @implementation LC133
+
+- (UndirectedGraphNode *)cloneGraphBFSJZ:(UndirectedGraphNode *)node {
+    if(node == NULL) {
+        return NULL;
+    }
+    
+    NSMutableDictionary<NSNumber *, UndirectedGraphNode *> *map = [NSMutableDictionary dictionary];
+    Queue *queue = [Queue queue];
+    HashSet *set = [[HashSet alloc] init];
+    [queue offer:node];
+    [set add:node];
+    
+    while(![queue isEmpty]) {
+        UndirectedGraphNode *top = [queue poll];
+        DLog(@"top:%ld", top.label);
+        for(UndirectedGraphNode *neighbor in top.neighbors) {
+            DLog(@"neighbor:%@", neighbor);
+            /// Not working right now becauwe HashSet key is applying NSCopying and is copied everythime to put inside dictionary.
+            if([set contains:neighbor] == NO) {
+                [set add:neighbor];
+                [queue offer:neighbor];
+            }
+        }
+    }
+    
+    NSArray<UndirectedGraphNode *> *nodeList = [set arrayList];
+
+    for(UndirectedGraphNode *node in nodeList) {
+        [map setObject:[[UndirectedGraphNode alloc] initWith:node.label] forKey:@(node.label)];
+    }
+    
+    for(UndirectedGraphNode *key in nodeList) {
+        NSArray *neighbors = node.neighbors;
+        for(UndirectedGraphNode *neighbor in neighbors) {
+            [[map objectForKey:@(key.label)].neighbors addObject:[map objectForKey:@(neighbor.label)]];
+        }
+    }
+    return [map objectForKey:@(node.label)];
+}
 
 - (UndirectedGraphNode *)cloneGraph:(UndirectedGraphNode *)node {
     if(node == NULL) {
@@ -73,8 +114,8 @@
     [node1.neighbors addObject:node2];
     [node2.neighbors addObject:node2];
     UndirectedGraphNode *result = [self cloneGraph:node0];
-    DLog(@"result.label:%ld", result.label);
-    [self printGraph:result];
+    // DLog(@"result.label:%ld", result.label);
+    [self cloneGraphBFSJZ:result];
 }
 
 @end
