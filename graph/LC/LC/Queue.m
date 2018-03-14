@@ -8,7 +8,7 @@
 
 #import "Queue.h"
 
-@interface Entry<ObjectType>:NSObject
+@interface Entry<__covariant ObjectType>:NSObject
 {
     @public
     id _element;
