@@ -23,13 +23,13 @@
         [edges addObject:[NSMutableArray array]]; /// add empty array. [0, 1, 2, ... numCourses - 1]
     }
     
-    int* degree = (int *)calloc(numCourses, sizeof(int)); /// degree is array with 0 initialized .
+    int* indegree = (int *)calloc(numCourses, sizeof(int)); /// degree is array with 0 initialized .
     
     for(int i = 0; i < prerequisites.count; i++) {
-        int prev = [[[prerequisites objectAtIndex:i] objectAtIndex:0] intValue]; /// prereq[i][0] is prev course
-        int next = [[[prerequisites objectAtIndex:i] objectAtIndex:1] intValue]; /// prereq[i][1] is next course
-        degree[prev]++; /// degree update prev
-        [[edges objectAtIndex:next] addObject:@(prev)]; /// build edges.
+        int prev = [[[prerequisites objectAtIndex:i] objectAtIndex:1] intValue]; /// prereq[i][1] is prev course
+        int next = [[[prerequisites objectAtIndex:i] objectAtIndex:0] intValue]; /// prereq[i][0] is next course
+        indegree[next]++; /// degree update prev
+        [[edges objectAtIndex:prev] addObject:@(next)]; /// build edges.
     }
     
 //    [edges enumerateObjectsUsingBlock:^(NSMutableArray*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -42,7 +42,7 @@
     
     NSMutableArray *queue = [NSMutableArray array];
     for(int i = 0; i < numCourses; i++) {
-        if(degree[i] == 0) {
+        if(indegree[i] == 0) {
             [queue offer:@(i)];
         }
     }
@@ -52,12 +52,13 @@
     while(queue.count != 0) {
         int course = [[queue poll] intValue];
         order[count] = course;
+        DLog(@"count:%d => course:%d", count, course);
         count++;
         int size = (int)[[edges objectAtIndex:course] count];
         for(int i = 0; i < size; i++) {
             int pointer = [[[edges objectAtIndex:course] objectAtIndex:i] intValue];
-            degree[pointer]--;
-            if(degree[pointer] == 0) {
+            indegree[pointer]--;
+            if(indegree[pointer] == 0) {
                 [queue offer:@(pointer)];
             }
         }
