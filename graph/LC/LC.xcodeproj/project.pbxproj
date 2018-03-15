@@ -20,6 +20,7 @@
 		848EAB8520573366003FFAFD /* LC133.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB8420573366003FFAFD /* LC133.m */; };
 		848EAB88205733FC003FFAFD /* UndirectedGraphNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB87205733FC003FFAFD /* UndirectedGraphNode.m */; };
 		848EAB8E205999C9003FFAFD /* LC210.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB8D205999C9003FFAFD /* LC210.m */; };
+		848EAB912059F2D6003FFAFD /* LC444.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB902059F2D6003FFAFD /* LC444.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,8 @@
 		848EAB87205733FC003FFAFD /* UndirectedGraphNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UndirectedGraphNode.m; sourceTree = "<group>"; };
 		848EAB8C205999C9003FFAFD /* LC210.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC210.h; sourceTree = "<group>"; };
 		848EAB8D205999C9003FFAFD /* LC210.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC210.m; sourceTree = "<group>"; };
+		848EAB8F2059F2D6003FFAFD /* LC444.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC444.h; sourceTree = "<group>"; };
+		848EAB902059F2D6003FFAFD /* LC444.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC444.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				848EAB8420573366003FFAFD /* LC133.m */,
 				848EAB8C205999C9003FFAFD /* LC210.h */,
 				848EAB8D205999C9003FFAFD /* LC210.m */,
+				848EAB8F2059F2D6003FFAFD /* LC444.h */,
+				848EAB902059F2D6003FFAFD /* LC444.m */,
 				3D729ED82053630300C25D14 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -184,6 +189,7 @@
 				3D35916F2058A3670025AB8D /* HashSet.m in Sources */,
 				848EAB8520573366003FFAFD /* LC133.m in Sources */,
 				60047FDD20567E3500C17DC2 /* LC207.m in Sources */,
+				848EAB912059F2D6003FFAFD /* LC444.m in Sources */,
 				3D729EF02054BF9000C25D14 /* Stack.m in Sources */,
 				3D729EE1205370E400C25D14 /* LC.m in Sources */,
 				848EAB88205733FC003FFAFD /* UndirectedGraphNode.m in Sources */,

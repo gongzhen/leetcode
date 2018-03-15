@@ -85,8 +85,9 @@
     for(int i = 0; i < 4; i++) {
         free(prerequisites[i]);
     }
+    DLog(@"%@", res);
     free(prerequisites);
-    DLog(@"res:%@", res);
+
 }
 
 @end
