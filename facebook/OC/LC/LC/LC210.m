@@ -55,8 +55,7 @@
         DLog(@"count:%d => course:%d", count, course);
         count++;
         int size = (int)[[edges objectAtIndex:course] count];
-        for(int i = 0; i < size; i++) {
-            int pointer = [[[edges objectAtIndex:course] objectAtIndex:i] intValue];
+        for(int i = 0; i < size; i++) {                 int pointer = [[[edges objectAtIndex:course] objectAtIndex:i] intValue];
             indegree[pointer]--;
             if(indegree[pointer] == 0) {
                 [queue offer:@(pointer)];
