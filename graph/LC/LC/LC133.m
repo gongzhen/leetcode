@@ -113,9 +113,10 @@
     [node0.neighbors addObjectsFromArray:@[node1, node2]];
     [node1.neighbors addObject:node2];
     [node2.neighbors addObject:node2];
-    UndirectedGraphNode *result = [self cloneGraph:node0];
-    // DLog(@"result.label:%ld", result.label);
-    [self cloneGraphBFSJZ:result];
+//    UndirectedGraphNode *result = [self cloneGraph:node0];
+//    DLog(@"result.label:%ld", result.label);
+    UndirectedGraphNode *result = [self cloneGraphBFSJZ:node0];
+    DLog(@"result.label:%ld", result.label);
 }
 
 @end

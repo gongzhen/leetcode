@@ -19,4 +19,7 @@
 - (NSInteger)size;
 - (NSArray *)arrayList;
 -(instancetype)init;
+
+- (void)printSet;
+- (void)test;
 @end

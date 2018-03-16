@@ -7,12 +7,13 @@
 //
 
 #import "HashSet.h"
+#import "UndirectedGraphNode.h"
 
 @interface HashSet() {
     id PRESENT;
 }
 
-@property(strong, nonatomic)NSMutableDictionary *map;
+@property(strong, nonatomic)NSMapTable *map;
 
 @end
 
@@ -20,7 +21,7 @@
 
 -(instancetype)init {
     if(self = [super init]) {
-        _map = [NSMutableDictionary dictionary];
+        _map = [[NSMapTable alloc] init];
         PRESENT = [[NSObject alloc] init];
     }
     return self;
@@ -54,7 +55,7 @@
 }
 
 - (BOOL)isEmpty {
-    return _map.allKeys.count == 0;
+    return _map.count == 0;
 }
 
 - (BOOL)remove:(id)e {
@@ -66,11 +67,34 @@
 }
 
 - (NSInteger)size {
-    return _map.allKeys.count;
+    return _map.count;
 }
 
 - (NSArray *)arrayList {
-    return _map.allKeys;
+    NSMutableArray *array = [NSMutableArray array];
+    for(id obj in _map.keyEnumerator) {
+        [array addObject:obj];
+    }
+    return [array copy];
+}
+
+- (void)printSet {
+    [self add:@(1)];
+    [self add:@(2)];
+    [self add:@(3)];
+    if([self contains:@(1)]) {
+        [self add:@(1)];
+    }
+    UndirectedGraphNode *n1 = [[UndirectedGraphNode alloc] initWith:1];
+    UndirectedGraphNode *n2 = [[UndirectedGraphNode alloc] initWith:2];
+    [self add:n1];
+    if([self contains:n1]) {
+        [self add:n2];
+    }
+}
+
+- (void)test {
+    [self printSet];
 }
 
 @end
