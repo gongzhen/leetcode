@@ -15,6 +15,7 @@
 #import "LC133.h"
 #import "LC210.h"
 #import "LC444.h"
+#import "LC684.h"
 #import "HashSet.h"
 
 int main(int argc, const char * argv[]) {
@@ -30,14 +31,16 @@ int main(int argc, const char * argv[]) {
 //        [lc332 test];
 //        LC207 *lc207 = [[LC207 alloc] init];
 //        [lc207 test];
-        LC133 *lc133 = [[LC133 alloc] init];
-        [lc133 test];
+//        LC133 *lc133 = [[LC133 alloc] init];
+//        [lc133 test];
 //        LC210 *lc210 = [[LC210 alloc] init];
 //        [lc210 test];
 //        LC444 *lc444 = [[LC444 alloc] init];
 //        [lc444 test];
 //        HashSet* set = [[HashSet alloc] init];
 //        [set test];
+        LC684 *lc684 = [[LC684 alloc] init];
+        [lc684 test];
     }
     return 0;
 }
