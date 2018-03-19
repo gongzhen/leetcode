@@ -22,6 +22,7 @@
 		848EAB8E205999C9003FFAFD /* LC210.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB8D205999C9003FFAFD /* LC210.m */; };
 		848EAB912059F2D6003FFAFD /* LC444.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB902059F2D6003FFAFD /* LC444.m */; };
 		848EAB94205C7F9C003FFAFD /* LC684.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EAB93205C7F9C003FFAFD /* LC684.m */; };
+		848EABA720602FEE003FFAFD /* LC269.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EABA620602FEE003FFAFD /* LC269.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		848EAB902059F2D6003FFAFD /* LC444.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC444.m; sourceTree = "<group>"; };
 		848EAB92205C7F9C003FFAFD /* LC684.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC684.h; sourceTree = "<group>"; };
 		848EAB93205C7F9C003FFAFD /* LC684.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC684.m; sourceTree = "<group>"; };
+		848EABA520602FEE003FFAFD /* LC269.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC269.h; sourceTree = "<group>"; };
+		848EABA620602FEE003FFAFD /* LC269.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC269.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				848EAB902059F2D6003FFAFD /* LC444.m */,
 				848EAB92205C7F9C003FFAFD /* LC684.h */,
 				848EAB93205C7F9C003FFAFD /* LC684.m */,
+				848EABA520602FEE003FFAFD /* LC269.h */,
+				848EABA620602FEE003FFAFD /* LC269.m */,
 				3D729ED82053630300C25D14 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -193,6 +198,7 @@
 			files = (
 				3D35916F2058A3670025AB8D /* HashSet.m in Sources */,
 				848EAB8520573366003FFAFD /* LC133.m in Sources */,
+				848EABA720602FEE003FFAFD /* LC269.m in Sources */,
 				60047FDD20567E3500C17DC2 /* LC207.m in Sources */,
 				848EAB912059F2D6003FFAFD /* LC444.m in Sources */,
 				3D729EF02054BF9000C25D14 /* Stack.m in Sources */,

@@ -44,7 +44,7 @@
         }
     }
     
-    NSArray<UndirectedGraphNode *> *nodeList = [set arrayList];
+    NSArray<UndirectedGraphNode *> *nodeList = [set toArray];
 
     for(UndirectedGraphNode *node in nodeList) {
         [map setObject:[[UndirectedGraphNode alloc] initWith:node.label] forKey:@(node.label)];

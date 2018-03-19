@@ -17,6 +17,7 @@
 #import "LC444.h"
 #import "LC684.h"
 #import "HashSet.h"
+#import "LC269.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -39,8 +40,10 @@ int main(int argc, const char * argv[]) {
 //        [lc444 test];
 //        HashSet* set = [[HashSet alloc] init];
 //        [set test];
-        LC684 *lc684 = [[LC684 alloc] init];
-        [lc684 test];
+//        LC684 *lc684 = [[LC684 alloc] init];
+//        [lc684 test];
+        LC269 *lc269 = [[LC269 alloc] init];
+        [lc269 test];
     }
     return 0;
 }

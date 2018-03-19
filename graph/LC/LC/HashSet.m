@@ -14,7 +14,7 @@
 }
 
 @property(strong, nonatomic)NSMapTable *map;
-
+@property(strong, nonatomic) NSEnumerator *enumerator;
 @end
 
 @implementation HashSet
@@ -23,6 +23,7 @@
     if(self = [super init]) {
         _map = [[NSMapTable alloc] init];
         PRESENT = [[NSObject alloc] init];
+        _enumerator = _map.keyEnumerator;
     }
     return self;
 }
@@ -31,6 +32,13 @@
 
 - (BOOL)add:(id)e {
     if(_map == NULL) {
+        return NO;
+    }
+    if(e == nil) {
+        return NO;
+    }
+    
+    if([_map objectForKey:e] != nil) {
         return NO;
     }
     [_map setObject:PRESENT forKey:e];
@@ -48,9 +56,9 @@
 //}
 
 - (BOOL)contains:(id)e {
-    DLog(@"e:%@", e);
-    DLog(@"_map objectForKey:e:%@", [_map objectForKey:e]);
-    DLog(@"_map:%@", _map);
+//    DLog(@"e:%@", e);
+//    DLog(@"_map objectForKey:e:%@", [_map objectForKey:e]);
+//    DLog(@"_map:%@", _map);
     return [_map objectForKey:e] != NULL;
 }
 
@@ -70,7 +78,7 @@
     return _map.count;
 }
 
-- (NSArray *)arrayList {
+- (NSArray *)toArray {
     NSMutableArray *array = [NSMutableArray array];
     for(id obj in _map.keyEnumerator) {
         [array addObject:obj];

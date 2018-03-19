@@ -17,7 +17,7 @@
 - (BOOL)isEmpty;
 - (BOOL)remove:(id)e;
 - (NSInteger)size;
-- (NSArray *)arrayList;
+- (NSArray *)toArray;
 -(instancetype)init;
 
 - (void)printSet;
