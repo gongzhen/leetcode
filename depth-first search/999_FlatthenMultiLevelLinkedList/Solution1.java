@@ -151,17 +151,17 @@ public class Solution1 {
             return node;
         }
 
-        ListNode ptr = node;
+        // ListNode ptr = node;
         ListNode headNext = node.next;
 
         if(node.down != null) {
             node.next = node.down;
-            ptr = dfs(node.down);
+            node = dfs(node.down);
             node.down = null;
         }
 
-        ptr.next = headNext;
-        return headNext == null ? ptr : dfs(ptr.next);
+        node.next = headNext;
+        return headNext == null ? node : dfs(node.next);
     }
 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
