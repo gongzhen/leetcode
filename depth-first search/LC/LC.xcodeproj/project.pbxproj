@@ -11,6 +11,9 @@
 		3D35921A2061EEED0025AB8D /* ListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3592192061EEED0025AB8D /* ListNode.m */; };
 		3D35921D2061EF900025AB8D /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D35921C2061EF900025AB8D /* LC.m */; };
 		3D3592202061EFCB0025AB8D /* LC999.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D35921F2061EFCB0025AB8D /* LC999.m */; };
+		84B34DAC206319940030729D /* LC111.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B34DAB206319940030729D /* LC111.m */; };
+		84B34DAF206319E60030729D /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B34DAE206319E60030729D /* TreeNode.m */; };
+		84B34DB220631AF80030729D /* LCTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B34DB020631AF80030729D /* LCTreeNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +38,12 @@
 		3D35921E2061EFCB0025AB8D /* LC999.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC999.h; sourceTree = "<group>"; };
 		3D35921F2061EFCB0025AB8D /* LC999.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC999.m; sourceTree = "<group>"; };
 		3D35922120621F150025AB8D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		84B34DAA206319940030729D /* LC111.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC111.h; sourceTree = "<group>"; };
+		84B34DAB206319940030729D /* LC111.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC111.m; sourceTree = "<group>"; };
+		84B34DAD206319E60030729D /* TreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
+		84B34DAE206319E60030729D /* TreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
+		84B34DB020631AF80030729D /* LCTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTreeNode.m; sourceTree = "<group>"; };
+		84B34DB120631AF80030729D /* LCTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTreeNode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,12 +78,18 @@
 			children = (
 				3D3592112061EE7D0025AB8D /* main.m */,
 				3D35922120621F150025AB8D /* PrefixHeader.pch */,
+				84B34DB120631AF80030729D /* LCTreeNode.h */,
+				84B34DB020631AF80030729D /* LCTreeNode.m */,
 				3D3592182061EEEC0025AB8D /* ListNode.h */,
 				3D3592192061EEED0025AB8D /* ListNode.m */,
+				84B34DAD206319E60030729D /* TreeNode.h */,
+				84B34DAE206319E60030729D /* TreeNode.m */,
 				3D35921B2061EF900025AB8D /* LC.h */,
 				3D35921C2061EF900025AB8D /* LC.m */,
 				3D35921E2061EFCB0025AB8D /* LC999.h */,
 				3D35921F2061EFCB0025AB8D /* LC999.m */,
+				84B34DAA206319940030729D /* LC111.h */,
+				84B34DAB206319940030729D /* LC111.m */,
 			);
 			path = LC;
 			sourceTree = "<group>";
@@ -139,7 +154,10 @@
 				3D3592202061EFCB0025AB8D /* LC999.m in Sources */,
 				3D35921D2061EF900025AB8D /* LC.m in Sources */,
 				3D3592122061EE7D0025AB8D /* main.m in Sources */,
+				84B34DB220631AF80030729D /* LCTreeNode.m in Sources */,
 				3D35921A2061EEED0025AB8D /* ListNode.m in Sources */,
+				84B34DAC206319940030729D /* LC111.m in Sources */,
+				84B34DAF206319E60030729D /* TreeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +275,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J9PKQ8Y5Y3;
+				DEVELOPMENT_TEAM = X92HRP6SLX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -266,7 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J9PKQ8Y5Y3;
+				DEVELOPMENT_TEAM = X92HRP6SLX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
