@@ -1,0 +1,149 @@
+//
+//  LINT543.m
+//  LC
+//
+//  Created by ULS on 3/22/18.
+//  Copyright © 2018 ULS. All rights reserved.
+//
+
+#import "LINT543.h"
+#import "PriorityQueue.h"
+#import "QuickSort.h"
+#import "Pair.h"
+
+@interface ArrayNode: NSObject
+
+@property(assign)int row, col, val;
+
+- (instancetype)initWith:(int)row col:(int)col val:(int)val;
+
+@end
+
+@implementation ArrayNode
+
+- (instancetype)initWith:(int)row col:(int)col val:(int)val {
+    if(self = [super init]) {
+        _row = row;
+        _col = col;
+        _val = val;
+    }
+    return self;
+}
+
+@end
+
+@interface LINT543()
+
+- (int)kthInArrays:(int **)arrays row:(int)row col:(int)col k:(int)k;
+
+@end
+
+@implementation LINT543
+
+- (int)kthInArrays:(int **)arrays row:(int)row col:(int)col k:(int)k {
+    // sort each array of arrays
+    for(int i = 0; i < row; i++) {        
+        [QuickSort quickSortInt:arrays[i] size:col];
+        [QuickSort printIntArray:arrays[i] size:col];
+    }
+    
+    /// Create a heap and add the largest number to heap.
+    /// PriorityQueue *pq = [[PriorityQueue alloc] initWithCapacity:row];
+    PriorityQueue *pq = [[PriorityQueue alloc] init];
+    pq.comparator = ^(ArrayNode*  _Nonnull obj1, ArrayNode*  _Nonnull obj2) {
+        DLog(@"obj1:%@ === obj2:%@", obj1, obj2);
+        if(obj1.val >= obj2.val) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedDescending;
+    };
+    
+    for(int i = 0; i < row; i++) {
+        ArrayNode *node = [[ArrayNode alloc] initWith:i col:col - 1 val:arrays[i][col - 1]];
+        DLog(@"node:%@, node.row:%d, node.col:%d, node.val:%d", node, node.row, node.col, node.val);
+        [pq offer:node];
+    }
+    [pq printPQ];
+    
+    for(int i = 0; i < k; i++) {
+        ArrayNode* temp = [pq poll];
+        DLog(@"temp:%@, temp.row:%d, temp.col:%d, temp.val:%d", temp, temp.row, temp.col, temp.val);
+        if(i == k - 1) {
+            return temp.val;
+        }
+        if(temp.col > 0) {
+            ArrayNode *node = [[ArrayNode alloc] initWith:temp.row col:temp.col - 1 val:arrays[temp.row][temp.col - 1]];
+            DLog(@"node:%@, node.row:%d, node.col:%d, node.val:%d", node, node.row, node.col, node.val);
+            [pq offer:node];
+        }
+    }
+    return -1;
+}
+
+- (void)test {
+    int matrix[2][5] = {{9, 3, 2, 4}, {8, 4, 3, 2}};
+    int** arrays = (int **)malloc(sizeof(int *) * 2);
+    for(int i = 0; i < 2; i++) {
+        arrays[i] = matrix[i];
+    }
+    int res = [self kthInArrays:arrays row:2 col:4 k:3];
+    DLog(@"res:%d", res);
+}
+
+- (void)testPQ {
+    
+//    PriorityQueue *pq = [[PriorityQueue alloc] init];
+//    pq.comparator = ^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+//        Pair *node1 = (Pair *)obj1;
+//        Pair *node2 = (Pair *)obj2;
+//        DLog(@"node1:%d === node2.val:%d", node1.x, node2.x);
+//        if(node1.x > node2.x) {
+//            return NSOrderedAscending;
+//        }
+//        return NSOrderedDescending;
+//    };
+//    Pair *n1 = [[Pair alloc] initWith:1 y:1];
+//    Pair *n2 = [[Pair alloc] initWith:1 y:2];
+//    Pair *n3 = [[Pair alloc] initWith:2 y:2];
+//    Pair *n4 = [[Pair alloc] initWith:2 y:2];
+//    [pq offer:n1];
+//    [pq offer:n2];
+//    [pq offer:n3];
+//    [pq offer:n4];
+//    [pq printPQ];
+//    while(![pq isEmpty]) {
+//        Pair *top = [pq poll];
+//        DLog(@"top:%@, top.x:%d, top.y:%d", top, top.x, top.y);
+//    }
+    
+//    pq.comparator = ^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+//        NSNumber *num1 = (NSNumber *)obj1;
+//        NSNumber *num2 = (NSNumber *)obj2;
+//        DLog(@"num1:%ld compare:num2:%ld", num1.integerValue, num2.integerValue);
+//        if([num1 integerValue] > [num2 integerValue]) {
+//            return NSOrderedAscending;
+//        } else if ([num1 integerValue] == [num2 integerValue]) {
+//            return NSOrderedSame;
+//        }
+//        return NSOrderedDescending;
+//    };
+//
+//    [pq offer:@(4)];
+//    [pq offer:@(2)];
+//    [pq offer:@(1)];
+//    [pq offer:@(3)];
+//
+//    while(![pq isEmpty]) {
+//        NSNumber *top = [pq poll];
+//        DLog(@"top:%ld", [top integerValue]);
+//    }
+    
+    /// Error example
+    // void *pointer = (void *)malloc(sizeof(void));
+    // pointer = (void *)CFBridgingRetain(n1);
+    // pointer = (__bridge void *)(n1); /// error pointer being freed was not allocated
+    // pointer = (__bridge_retained void *)(n1);
+    // free(pointer);
+}
+
+@end

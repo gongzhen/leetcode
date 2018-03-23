@@ -70,6 +70,8 @@
 		3D18EE352049D36E00F67268 /* LC347.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE342049D36E00F67268 /* LC347.m */; };
 		3D18EE382049FEB600F67268 /* LC49.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE372049FEB600F67268 /* LC49.m */; };
 		3D18EE3E204A00D100F67268 /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE3D204A00D100F67268 /* QuickSort.m */; };
+		3D35922A2063EA630025AB8D /* LINT543.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3592292063EA630025AB8D /* LINT543.m */; };
+		3D35922D2063EE5A0025AB8D /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D35922C2063EE5A0025AB8D /* PriorityQueue.m */; };
 		3D729E25204A390000C25D14 /* LC209.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E24204A390000C25D14 /* LC209.m */; };
 		3D729E28204B619D00C25D14 /* LC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E27204B619D00C25D14 /* LC3.m */; };
 		3D729E2B204B6C2700C25D14 /* LC30.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E2A204B6C2700C25D14 /* LC30.m */; };
@@ -233,6 +235,10 @@
 		3D18EE372049FEB600F67268 /* LC49.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC49.m; sourceTree = "<group>"; };
 		3D18EE3C204A00D100F67268 /* QuickSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickSort.h; sourceTree = "<group>"; };
 		3D18EE3D204A00D100F67268 /* QuickSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickSort.m; sourceTree = "<group>"; };
+		3D3592282063EA630025AB8D /* LINT543.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LINT543.h; sourceTree = "<group>"; };
+		3D3592292063EA630025AB8D /* LINT543.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LINT543.m; sourceTree = "<group>"; };
+		3D35922B2063EE5A0025AB8D /* PriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
+		3D35922C2063EE5A0025AB8D /* PriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
 		3D729E23204A390000C25D14 /* LC209.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC209.h; sourceTree = "<group>"; };
 		3D729E24204A390000C25D14 /* LC209.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC209.m; sourceTree = "<group>"; };
 		3D729E26204B619D00C25D14 /* LC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC3.h; sourceTree = "<group>"; };
@@ -315,6 +321,8 @@
 				3D14EBD220374D2700149E3F /* LC.m */,
 				843A1C392048DB1A0044E6FC /* Pair.h */,
 				843A1C3A2048DB1A0044E6FC /* Pair.m */,
+				3D35922B2063EE5A0025AB8D /* PriorityQueue.h */,
+				3D35922C2063EE5A0025AB8D /* PriorityQueue.m */,
 				3D14EBF2203948B200149E3F /* UndirectedGraphNode.h */,
 				3D14EBF3203948B200149E3F /* UndirectedGraphNode.m */,
 				3D14EBD420374ECA00149E3F /* Interval.h */,
@@ -479,6 +487,8 @@
 				3DC98C4D202FC17A00DB15CD /* LC301.m */,
 				3DC98C50202FEA7F00DB15CD /* LC621.h */,
 				3DC98C51202FEA7F00DB15CD /* LC621.m */,
+				3D3592282063EA630025AB8D /* LINT543.h */,
+				3D3592292063EA630025AB8D /* LINT543.m */,
 				3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -563,6 +573,7 @@
 				3D14EC1E203CA68900149E3F /* LC206.m in Sources */,
 				3D14EB852031976000149E3F /* LC325.m in Sources */,
 				3D729E31204D10A600C25D14 /* LC689.m in Sources */,
+				3D35922D2063EE5A0025AB8D /* PriorityQueue.m in Sources */,
 				3D14EC6C203DE30500149E3F /* LC207.m in Sources */,
 				3D14EB8E2032248100149E3F /* LC15.m in Sources */,
 				3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */,
@@ -574,6 +585,7 @@
 				3D14EC782040DD1C00149E3F /* LC54.m in Sources */,
 				3D14EBC02035DF6400149E3F /* LC157.m in Sources */,
 				3D14EB9120327F4500149E3F /* LC297.m in Sources */,
+				3D35922A2063EA630025AB8D /* LINT543.m in Sources */,
 				843A1C32204723B50044E6FC /* LC523.m in Sources */,
 				3D14EC75203F966800149E3F /* LC261.m in Sources */,
 				3D14EB9C2032B80500149E3F /* LCTreeNode.m in Sources */,

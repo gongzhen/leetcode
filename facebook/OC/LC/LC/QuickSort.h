@@ -12,5 +12,6 @@
 
 +(void)quickSort:(char *)array size:(int)size;
 +(void)quickSortInt:(int *)array size:(int)size;
++(void)printIntArray:(int *)array size:(int)size;
 
 @end

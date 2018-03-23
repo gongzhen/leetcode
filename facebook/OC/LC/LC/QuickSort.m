@@ -46,6 +46,8 @@
             int temp = array[i];
             array[i] = array[j];
             array[j] = temp;
+            i++;
+            j--;
         }
     }
     
@@ -102,6 +104,11 @@
     
 }
 
-
++(void)printIntArray:(int *)array size:(int)size {
+    for(int i = 0; i < size; i++) {
+        printf("%d ", *(array + i));
+    }
+    printf("\n");
+}
 
 @end
