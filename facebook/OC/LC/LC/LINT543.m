@@ -10,6 +10,7 @@
 #import "PriorityQueue.h"
 #import "QuickSort.h"
 #import "Pair.h"
+/// https://zhengyang2015.gitbooks.io/lintcode/kth_largest_in_n_arrays_543.html
 
 @interface ArrayNode: NSObject
 
@@ -52,10 +53,12 @@
     PriorityQueue *pq = [[PriorityQueue alloc] init];
     pq.comparator = ^(ArrayNode*  _Nonnull obj1, ArrayNode*  _Nonnull obj2) {
         DLog(@"obj1:%@ === obj2:%@", obj1, obj2);
-        if(obj1.val >= obj2.val) {
+        if(obj1.val > obj2.val) {
             return NSOrderedAscending;
+        } else if (obj1.val < obj2.val) {
+            return NSOrderedDescending;
         }
-        return NSOrderedDescending;
+        return NSOrderedSame;
     };
     
     for(int i = 0; i < row; i++) {
@@ -63,7 +66,6 @@
         DLog(@"node:%@, node.row:%d, node.col:%d, node.val:%d", node, node.row, node.col, node.val);
         [pq offer:node];
     }
-    [pq printPQ];
     
     for(int i = 0; i < k; i++) {
         ArrayNode* temp = [pq poll];
@@ -81,13 +83,25 @@
 }
 
 - (void)test {
-    int matrix[2][5] = {{9, 3, 2, 4}, {8, 4, 3, 2}};
+    int matrix[2][5] = {{9, 3, 2, 4, 8}, {1, 2, 3, 4, 2}};
     int** arrays = (int **)malloc(sizeof(int *) * 2);
     for(int i = 0; i < 2; i++) {
         arrays[i] = matrix[i];
     }
-    int res = [self kthInArrays:arrays row:2 col:4 k:3];
+//    int res = [self kthInArrays:arrays row:2 col:5 k:1];
+//    DLog(@"res:%d", res);
+//    res = [self kthInArrays:arrays row:2 col:5 k:2];
+//    DLog(@"res:%d", res);
+    int res = [self kthInArrays:arrays row:2 col:5 k:6];
     DLog(@"res:%d", res);
+
+//    int matrix[2][5] = {{9, 3, 2, 4, 7}, {8, 4, 3, 2, 1}};
+//    int** arrays = (int **)malloc(sizeof(int *) * 2);
+//    for(int i = 0; i < 2; i++) {
+//        arrays[i] = matrix[i];
+//    }
+//    int res = [self kthInArrays:arrays row:2 col:5 k:3];
+//    DLog(@"res:%d", res);
 }
 
 - (void)testPQ {

@@ -221,8 +221,8 @@ int main(int argc, const char * argv[]) {
 //        LC721 *lc721 = [[LC721 alloc] init];
 //        [lc721 test];
         LINT543 *lc543 = [[LINT543 alloc] init];
-        // [lc543 test];
-        [lc543 testPQ];
+        [lc543 test];
+//        [lc543 testPQ];
     }
     return 0;
 }
