@@ -12,6 +12,7 @@
 
 @property (copy, nonatomic) NSString *fileContent;
 - (NSInteger)read:(char *)buf n:(int)n;
+- (NSInteger)read2:(char *)buf n:(int)n;
 @end
 
 @implementation LC157
@@ -52,11 +53,31 @@
     return i;
 }
 
+
+- (NSInteger)read2:(char *)buf n:(int)n {
+    int i = 0;
+    char buf4[4];
+    while(i < n) {
+        NSInteger count = [self read4:buf4];
+        for(int j = 0; i < n && j < count; j++) {
+            buf[i++] = buf4[j];
+        }
+        if(count < 4) {
+            break;
+        }
+    }
+    return i;
+}
+
 - (void)test {
     self.fileContent = @"abcdefg";
     char buf[32];
     DLog(@"res:%ld", [self read:buf n:10]);
     DLog(@"buf:%s", buf);
+    self.fileContent = @"abcdefg";
+    char buf2[32];
+    DLog(@"res:%ld", [self read2:buf2 n:10]);
+    DLog(@"buf2:%s", buf2);
 }
 
 @end

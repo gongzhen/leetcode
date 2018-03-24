@@ -120,8 +120,8 @@ int main(int argc, const char * argv[]) {
 //        [lc543 test];
 //        LC23 *lc23 = [[LC23 alloc] init];
 //        [lc23 test];
-//        LC157 *lc157 = [[LC157 alloc] init];
-//        [lc157 test];
+        LC157 *lc157 = [[LC157 alloc] init];
+        [lc157 test];
 //        LC125 *lc125 = [[LC125 alloc] init];
 //        [lc125 test];
 //        LC211 *lc211 = [[LC211 alloc] init];
@@ -220,8 +220,8 @@ int main(int argc, const char * argv[]) {
 //        [lc218 test];
 //        LC721 *lc721 = [[LC721 alloc] init];
 //        [lc721 test];
-        LINT543 *lc543 = [[LINT543 alloc] init];
-        [lc543 test];
+//        LINT543 *lc543 = [[LINT543 alloc] init];
+//        [lc543 test];
 //        [lc543 testPQ];
     }
     return 0;
