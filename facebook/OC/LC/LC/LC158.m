@@ -13,14 +13,16 @@
 }
 
 @property (strong, nonatomic) NSString *fileContent;
-@property (assign) NSInteger bufCount;
-@property (assign) NSInteger bufIdx;
+
 
 - (NSInteger)read:(char *)buf n:(int)n;
 - (NSInteger)read_2:(char *)buf n:(int)n;
 @end
 
-@implementation LC158
+@implementation LC158 {
+    NSInteger _bufCount;
+    NSInteger _bufIdx;
+}
 
 - (instancetype)init {
     if(self = [super init]) {
@@ -39,16 +41,16 @@
     int i = 0;
     while (i < n) {
         /// 1: Check bufIdx == bufCunt == 0.
-        if(self.bufIdx < self.bufCount) { /// bufCount == 4
-            buf[i++] = buf4[self.bufIdx++];
+        if(_bufCount != 0 && _bufIdx < _bufCount) { /// bufCount == 4
+            buf[i++] = buf4[_bufIdx++];
         } else {
             /// 2: bufIdx == bufCount == 0 then fetch string.
-            self.bufCount = [self read4:buf4];
-            if(self.bufCount == 0) { /// fileContent is empty.
+            _bufCount = [self read4:buf4];
+            if(_bufCount == 0) { /// fileContent is empty.
                 break;
             } else {
                 /// reflush bufIdx tpo 0.
-                self.bufIdx = 0;
+                _bufIdx = 0;
             }
         }
     }
@@ -60,7 +62,7 @@
     while (i < n) {
         if(_bufCount == 0) { /// cannot move _bufCount == 0. It will flush _bufCount every times.
             _bufCount = [self read4:buf4];
-            DLog(@"buf4:%s", buf4);
+            DLog(@"buf4:%s _bufCount:%ld", buf4, _bufCount);
         }
         if(_bufCount == 0) {
             break;
@@ -73,6 +75,8 @@
             _bufCount = 0; /// set _bufCount == 0 when all the buf4 is finished.
         }
     }
+//    _bufIdx = 0;
+//    _bufCount = 0; /// set _bufCount == 0 when all the buf4 is finished.
     return i;
 }
 
@@ -93,7 +97,7 @@
 }
 
 - (void)test {
-    self.fileContent = @"ab";
+    self.fileContent = @"abc";
     char buf[64];
 //    DLog(@"[self read4:buf]:%ld", [self read4:buf]);
 //    DLog(@"buf:%s", buf);
@@ -101,10 +105,12 @@
 //    DLog(@"[self read4:buf]:%ld", [self read4:buf]);
 //    DLog(@"buf:%s", buf);
 //    DLog(@"fileContent:%@", self.fileContent);
-    DLog(@"idx1:%ld", [self read_2:buf n:1]);
-    DLog(@"buf:%s", buf);
     DLog(@"idx1:%ld", [self read_2:buf n:2]);
     DLog(@"buf:%s", buf);
+//    DLog(@"idx1:%ld", [self read_2:buf n:6]);
+//    DLog(@"buf:%s", buf);
+//    DLog(@"idx1:%ld", [self read :buf n:2]);
+//    DLog(@"buf:%s", buf);
 }
 
 @end

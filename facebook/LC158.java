@@ -159,8 +159,14 @@ import java.util.regex.*;
 
 public class LC158 {
 
-    private int read4(char[] buf) {
-        return 4;
+    private int read4(char[] buf) {  
+
+        for(int i = 0; i < 3; i++) {
+            printString("files[i]:" + files[i]);
+            buf[i] = files[i];
+            printString("buf[i]:" + buf[i]);
+        }
+        return 3;
     }
 
     /**
@@ -169,45 +175,43 @@ public class LC158 {
      * @return    The number of characters read
      */
     
+    public char[] files = new char[]{'a', 'b', 'c'};
+    public char[] buf4 = new char[4];
+    public int bufIdx = 0;
     public int bufCount = 0;
-    public int bufPtr = 0;
-    public char[] buf44 = new char[4];
     public int read(char[] buf, int n) {
-        int localPtr = 0; 
-        while(localPtr < n) {
-            if(bufPtr == 0) {
-                bufCount = read4(buf44);                
+        
+        int i = 0; 
+        while(i < n) {
+            if(bufIdx == 0) {
+                bufCount = read4(buf4);                               
             }
             if(bufCount == 0) {
                 break;
             }
             
-            while(localPtr < n && bufPtr < bufCount) {
-                buf[localPtr++] = buf44[bufPtr++];
+            while(i < n && bufIdx < bufCount) {
+                buf[i++] = buf4[bufIdx++];
             }
-            if(bufPtr == bufCount) {
-                bufPtr = 0;
+            if(bufIdx == bufCount) {
+                bufIdx = 0;
             }            
         }
-        return localPtr;
+        return i;
     }
-
-    private int bufIdx = 0;
-    private int bufCount = 0;
-    private char[] buf4 = new char[4];
     
     public int read_2(char[] buf, int n) {
         int i = 0;
         while(i < n) {
             if(bufCount == 0) {
-                bufCount = read4(buf4);
+                bufCount = read4(buf4);             
             } 
             
             if(bufCount == 0) {
                 break;
             }            
             
-            if (bufIdx < bufCount){
+            if (bufIdx < bufCount){                
                 buf[i++] = buf4[bufIdx++];
             }
             if(bufIdx == bufCount) {
@@ -236,6 +240,11 @@ public class LC158 {
 
 	public static void main(String[] args) {
 		LC158 obj = new LC158();
+        char[] buf = new char[64];
+        obj.read_2(buf, 2);
+        for(int i = 0; i < 2; i++) {
+            obj.printString("buf:" + buf[i]);
+        }
 	}
 
 }
