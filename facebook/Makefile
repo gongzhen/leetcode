@@ -4,7 +4,7 @@ JC = javac
 .java.class:
 	$(JC) $(JFLAGS) $*.java
 
-CLASSES = LC158.java 
+CLASSES = LC543.java 
 
 default: classes
 

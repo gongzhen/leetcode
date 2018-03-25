@@ -41,10 +41,14 @@
     LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
     LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
     LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
+    LCTreeNode *node6 = [[LCTreeNode alloc] initWith:6];
+    LCTreeNode *node7 = [[LCTreeNode alloc] initWith:7];
     node1.left = node2;
     node1.right = node3;
     node2.left = node4;
     node2.right = node5;
+    node4.right = node6;
+    node5.left = node7;
     DLog(@"d: %ld", [self diameterOfBinaryTree:node1]); /// 3
 }
 

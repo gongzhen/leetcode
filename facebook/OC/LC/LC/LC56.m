@@ -30,7 +30,9 @@
     for(int i = 1; i < intervals.count; i++) {
         if(prev.end < ((Interval *)[intervals objectAtIndex:i]).start) {
             [res addObject:[[Interval alloc] initWith:prev.start e:prev.end]];
-            prev = [[Interval alloc] initWith:((Interval *)intervals[i]).start e:((Interval *)intervals[i]).end];
+            // prev = [[Interval alloc] initWith:((Interval *)intervals[i]).start e:((Interval *)intervals[i]).end];
+            prev.start = ((Interval *)intervals[i]).start;
+            prev.end = ((Interval *)intervals[i]).end;
         } else {
             if(prev.end < ((Interval *)[intervals objectAtIndex:i]).end) {
                 prev.end = ((Interval *)[intervals objectAtIndex:i]).end;
