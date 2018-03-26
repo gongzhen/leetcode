@@ -11,11 +11,37 @@
 @interface LC4()
 
 - (double)findMedianSortedArrays:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
+- (double)findMedianSortedArrays_1:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
 
 @end
 
 @implementation LC4
 
+- (double)findMedianSortedArrays_1:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2 {
+    int len = len1 + len2;
+    if(len % 2 == 0) {
+        return ([self divide_1:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2] + [self divide_1:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2 + 1]) / 2;
+    }
+    return [self divide_1:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2 + 1];
+}
+
+- (double)divide_1:(int *)nums1 start1:(int)start1 len1:(int)len1 nums2:(int *)nums2 start2:(int)start2 len2:(int)len2 k:(int)k {
+    if(start1 >= len1) {
+        return nums2[start2 + k - 1];
+    }
+    if(start2 >= len2) {
+        return nums1[start1 + k - 1];
+    }
+    if(k == 1) {
+        return MIN(nums1[start1], nums2[start2]);
+    }
+    double middle1 = start1 + k / 2 - 1 < len1 ? nums1[start1 + k / 2 - 1] : NSIntegerMax;
+    double middle2 = start2 + k / 2 - 1 < len2 ? nums2[start2 + k / 2 - 1] : NSIntegerMax;
+    if(middle1 < middle2) {
+        return [self divide_1:nums1 start1:start1 + k / 2 len1:len1 nums2:nums2 start2:start2 len2:len2 k:k - k / 2];
+    }
+    return [self divide_1:nums1 start1:start1 len1:len1 nums2:nums2 start2:start2 + k / 2 len2:len2 k:k - k / 2];
+}
 
 /// 1 2 , 3 4
 /// [2 + 3] / 2 = 2.5
@@ -68,11 +94,17 @@
 }
 
 - (void)test {
-    int n1[2] = {1, 2};
+//    int n1[2] = {1, 2};
+//    int* num1 = n1;
+//    int n2[4] = {3, 4, 5, 6};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays:num1 len1:2 nums2:num2 len2:4];
+//    DLog(@"res:%.2f", res);
+    int n1[0] = {};
     int* num1 = n1;
-    int n2[4] = {3, 4, 5, 6};
+    int n2[1] = {1};
     int* num2 = n2;
-    double res = [self findMedianSortedArrays:num1 len1:2 nums2:num2 len2:4];
+    double res = [self findMedianSortedArrays_1:num1 len1:0 nums2:num2 len2:1];
     DLog(@"res:%.2f", res);
 }
 

@@ -56,25 +56,29 @@ import java.util.regex.*;
 
 public class Solution1 {
 
-    public int maxArea(int[] height) {
-        if(height.length == 0) {
-            return 0;
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+        if((len1 + len2) / 2 == 0) {
+            return (divide(nums1, 0, num2, 0, (len1  + len2)/ 2) + divide(nums1, 0, mums2, 0, (len1 + len2) / 2 + 1)) / 2;
+        } 
+        return divide(nums1, 0, nums2, 0, (len1 + len2) / 2);
+    }
+
+    public double divide(int[] nums1, int start1, int[] nums2, int start2, int k) {
+        if(start1 >= nums1.length) {
+
+        }
+        if(start2 >= nums2.length) {
+
         }
 
-        int max = 0, i = 0, j = height.length - 1;
-        while(i < j) {
-            int h = Math.min(height[i], height[j]);
-            int w = j - i;
-            if(max < h * w) {
-                max = h * w;
-            }
-            if(height[i] < height[j]) {
-                i++;
-            } else {
-                j--;
-            }
+        int middleA = start1 + k / 2 - 1 < nums1.length ? nums1[start1 + k / 2 - 1] : Integer.MAX_VALUE;
+        int middleB = start2 + k / 2 - 1 < nums2.length ? nums2[start2 + k / 2 - 1] : Integer.MAX_VALUE;
+        if(middleA < middleB) {
+            return divide(nums1, start1 + k / 2, nums2, start2, k - k / 2);
         }
-        return max;
+        return divide(nums1, start1, nums2, start2 + k / 2, k - k / 2);
     }
 
     private void printLine() {
