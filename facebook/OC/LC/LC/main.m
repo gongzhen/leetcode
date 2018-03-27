@@ -77,6 +77,7 @@
 #import "LC218.h"
 #import "LC721.h"
 #import "LINT543.h"
+#import "LC16.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -89,8 +90,8 @@ int main(int argc, const char * argv[]) {
 //        [lc301 test];
 //        LC621 *lc621 = [[LC621 alloc] init];
 //        [lc621 test];
-        LC67 *lc67 = [[LC67 alloc] init];
-        [lc67 test];
+//        LC67 *lc67 = [[LC67 alloc] init];
+//        [lc67 test];
 //        LC273 *lc273 = [[LC273 alloc] init];
 //        [lc273 test];
 //        LC253 *lc253 = [[LC253 alloc] init];
@@ -112,8 +113,8 @@ int main(int argc, const char * argv[]) {
 //        [lc158 test];
 //        LC278 *lc278 = [[LC278 alloc] init];
 //        [lc278 test];
-        LC200 *lc200 = [[LC200 alloc] init];
-        [lc200 test];
+//        LC200 *lc200 = [[LC200 alloc] init];
+//        [lc200 test];
 //        LC76 *lc76 = [[LC76 alloc] init];
 //        [lc76 test];
 //        LC543 *lc543 = [[LC543 alloc] init];
@@ -223,6 +224,8 @@ int main(int argc, const char * argv[]) {
 //        LINT543 *lc543 = [[LINT543 alloc] init];
 //        [lc543 test];
 //        [lc543 testPQ];
+        LC16 *lc16 = [[LC16 alloc] init];
+        [lc16 test];
     }
     return 0;
 }
