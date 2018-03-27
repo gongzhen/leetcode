@@ -89,8 +89,8 @@ int main(int argc, const char * argv[]) {
 //        [lc301 test];
 //        LC621 *lc621 = [[LC621 alloc] init];
 //        [lc621 test];
-//        LC67 *lc67 = [[LC67 alloc] init];
-//        [lc67 test];
+        LC67 *lc67 = [[LC67 alloc] init];
+        [lc67 test];
 //        LC273 *lc273 = [[LC273 alloc] init];
 //        [lc273 test];
 //        LC253 *lc253 = [[LC253 alloc] init];
@@ -116,8 +116,8 @@ int main(int argc, const char * argv[]) {
 //        [lc200 test];
 //        LC76 *lc76 = [[LC76 alloc] init];
 //        [lc76 test];
-        LC543 *lc543 = [[LC543 alloc] init];
-        [lc543 test];
+//        LC543 *lc543 = [[LC543 alloc] init];
+//        [lc543 test];
 //        LC23 *lc23 = [[LC23 alloc] init];
 //        [lc23 test];
 //        LC157 *lc157 = [[LC157 alloc] init];

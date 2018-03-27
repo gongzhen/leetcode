@@ -10,11 +10,47 @@
 @interface LC67()
 
 - (NSString *)addBinary:(NSString *)a b:(NSString *) b;
+- (NSString *)addBinary2:(NSString *)a b:(NSString *) b;
 
 @end
 
 @implementation LC67
 
+- (NSString *)addBinary2:(NSString *)a b:(NSString *) b {
+    NSInteger i = [a length] - 1;
+    NSInteger j = [b length] - 1;
+    int carry = 0;
+    int sum = 0;
+    NSMutableString *res = [NSMutableString string];
+    while(i >= 0 && j >= 0) {
+        int n = [a characterAtIndex:i--] - '0';
+        int m = [b characterAtIndex:j--] - '0';
+        sum = (n + m + carry) % 2;
+        carry = (n + m + carry) / 2;
+        [res insertString:[NSString stringWithFormat:@"%d", sum] atIndex:0];
+    }
+    
+    if(i > j) {
+        for(; i >= 0; i--) {
+            int n = [a characterAtIndex:i] - '0';
+            sum = (n + carry) % 2;
+            carry = (n + carry) / 2;
+            [res insertString:[NSString stringWithFormat:@"%d", sum] atIndex:0];
+        }
+    } else if (j > i) {
+        for(; j >= 0; j--) {
+            int n = [b characterAtIndex:j] - '0';
+            sum = (n + carry) % 2;
+            carry = (n + carry) / 2;
+            [res insertString:[NSString stringWithFormat:@"%d", sum] atIndex:0];
+        }
+    }
+    if(carry == 1) {
+        [res insertString:[NSString stringWithFormat:@"%d", carry] atIndex:0];
+    }
+    DLog(@"res:%@", res);
+    return [NSString stringWithString:res];
+}
 - (NSString *)addBinary:(NSString *)a b:(NSString *) b {
     NSUInteger len1 = [a length];
     NSUInteger len2 = [b length];
@@ -61,13 +97,13 @@
         [res insertString:[NSString stringWithFormat:@"%d", carry] atIndex:0];
     }
     DLog(@"res:%@", res);
-    return [res copy];
+    return [NSString stringWithString:res];
 }
 
 - (void)test {
     NSString *s1 = @"111";
     NSString *s2 = @"100";
-    [self addBinary:s1 b:s2];
-    
+    // [self addBinary:s1 b:s2];
+    [self addBinary2:s1 b:s2];
 }
 @end
