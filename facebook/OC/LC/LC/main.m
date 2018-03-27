@@ -112,12 +112,12 @@ int main(int argc, const char * argv[]) {
 //        [lc158 test];
 //        LC278 *lc278 = [[LC278 alloc] init];
 //        [lc278 test];
-//        LC200 *lc200 = [[LC200 alloc] init];
-//        [lc200 test];
+        LC200 *lc200 = [[LC200 alloc] init];
+        [lc200 test];
 //        LC76 *lc76 = [[LC76 alloc] init];
 //        [lc76 test];
-        LC543 *lc543 = [[LC543 alloc] init];
-        [lc543 test];
+//        LC543 *lc543 = [[LC543 alloc] init];
+//        [lc543 test];
 //        LC23 *lc23 = [[LC23 alloc] init];
 //        [lc23 test];
 //        LC157 *lc157 = [[LC157 alloc] init];
