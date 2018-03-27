@@ -7,12 +7,15 @@
 //
 
 #import "LC200.h"
+#import "Queue.h"
+#import "Pair.h"
 
 @interface LC200() {
     int dir[4][2];
 }
 
 - (NSInteger)numIslands:(char** )grid gridRowSize:(int)gridRowSize gridColSize:(int)gridColsize;
+- (NSInteger)numIslandsBFS:(char** )grid gridRowSize:(int)gridRowSize gridColSize:(int)gridColsize;
 
 @end
 
@@ -47,6 +50,44 @@
         }
     }
     return count;
+}
+
+- (NSInteger)numIslandsBFS:(char** )grid gridRowSize:(int)gridRowSize gridColSize:(int)gridColsize {
+    int m = gridRowSize;
+    int n = gridColsize;
+    DLog(@"m:%d, n:%d", m, n)
+    NSInteger count = 0;
+    
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            if(grid[i][j] == '1') {
+                [self bfs:grid m:m n:n x:i y:j];
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+- (void)bfs:(char **)grid m:(int)m n:(int)n x:(int)x y:(int)y {
+    Queue* pq = [Queue queue];
+    [pq offer:[[Pair alloc] initWith:x y:y]];
+    grid[x][y] = '0';
+    
+    while(![pq isEmpty]) {
+        Pair *top = [pq poll];
+        x = top.x;
+        y = top.y;
+        for(int i = 0; i < 4; i++) {
+            int _x = x + dir[i][0];
+            int _y = y + dir[i][1];
+            if(_x < 0 || _y < 0 || _x >= m || _y >= n || grid[_x][_y] == '0') {
+                continue;
+            }
+            [pq offer:[[Pair alloc] initWith:_x y:_y]];
+            grid[_x][_y] = '0';
+        }
+    }
 }
 
 - (void)dfs:(char** )grid m:(int)m n:(int)n x:(int)x y:(int)y {

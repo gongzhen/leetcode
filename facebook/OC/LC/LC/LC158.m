@@ -17,6 +17,7 @@
 
 - (NSInteger)read:(char *)buf n:(int)n;
 - (NSInteger)read_2:(char *)buf n:(int)n;
+- (NSInteger)read_3:(char *)buf n:(int)n;
 @end
 
 @implementation LC158 {
@@ -80,6 +81,29 @@
     return i;
 }
 
+- (NSInteger)read_3:(char *)buf n:(int)n {
+    int i = 0;
+    while ( i < n) {
+        if(_bufCount == 0) {
+            _bufCount = [self read4:buf4];
+        }
+        if(_bufCount == 0) {
+            break;
+        }
+        
+        while(i < n && _bufIdx < _bufCount) {
+            buf[i++] = buf4[_bufIdx++];
+        }
+        if(_bufIdx == _bufCount) {
+            _bufIdx = 0;
+            _bufCount = 0;
+        }
+    }
+//    _bufIdx = 0;
+//    _bufCount = 0; /// set _bufCount == 0 when all the buf4 is finished.
+    return i;
+}
+
 
 /// healler API
 - (NSInteger)read4:(char *)buf {
@@ -88,16 +112,12 @@
         buf[i] = [self.fileContent characterAtIndex:i];
         i++;
     }
-    if(self.fileContent.length < 4) {
-        self.fileContent = @"";
-    } else {
-        self.fileContent = [self.fileContent substringFromIndex:4];
-    }
+    self.fileContent = [self.fileContent substringFromIndex:i];
     return i;
 }
 
 - (void)test {
-    self.fileContent = @"abc";
+    self.fileContent = @"ab";
     char buf[64];
 //    DLog(@"[self read4:buf]:%ld", [self read4:buf]);
 //    DLog(@"buf:%s", buf);
@@ -105,12 +125,18 @@
 //    DLog(@"[self read4:buf]:%ld", [self read4:buf]);
 //    DLog(@"buf:%s", buf);
 //    DLog(@"fileContent:%@", self.fileContent);
-    DLog(@"idx1:%ld", [self read_2:buf n:2]);
+//    DLog(@"idx1:%ld", [self read_2:buf n:2]);
+//    DLog(@"buf:%s", buf);
+    DLog(@"idx1:%ld", [self read_2:buf n:1]);
     DLog(@"buf:%s", buf);
-//    DLog(@"idx1:%ld", [self read_2:buf n:6]);
+    DLog(@"idx1:%ld", [self read :buf n:2]);
+    DLog(@"buf:%s", buf);
+//    DLog(@"idx1:%ld", [self read_3:buf n:1]);
 //    DLog(@"buf:%s", buf);
-//    DLog(@"idx1:%ld", [self read :buf n:2]);
+//    DLog(@"file:%@", self.fileContent);
+//    DLog(@"idx1:%ld", [self read_3:buf n:2]);
 //    DLog(@"buf:%s", buf);
+
 }
 
 @end
