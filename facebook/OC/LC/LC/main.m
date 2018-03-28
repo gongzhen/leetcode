@@ -78,6 +78,7 @@
 #import "LC721.h"
 #import "LINT543.h"
 #import "LC16.h"
+#import "LC658.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -153,8 +154,8 @@ int main(int argc, const char * argv[]) {
 //        [lc285 test];
 //        LC215 *lc215 = [[LC215 alloc] init];
 //        [lc215 test];
-        LC139 *lc139 = [[LC139 alloc] init];
-        [lc139 test];
+//        LC139 *lc139 = [[LC139 alloc] init];
+//        [lc139 test];
 //        LC57 *lc57 = [[LC57 alloc] init];
 //        [lc57 test];
 //        LC238 *lc238 = [[LC238 alloc] init];
@@ -226,6 +227,8 @@ int main(int argc, const char * argv[]) {
 //        [lc543 testPQ];
 //        LC16 *lc16 = [[LC16 alloc] init];
 //        [lc16 test];
+        LC658 *lc658 = [[LC658 alloc] init];
+        [lc658 test];
     }
     return 0;
 }

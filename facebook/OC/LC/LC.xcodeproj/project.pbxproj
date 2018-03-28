@@ -95,6 +95,7 @@
 		843A1C3E204C97ED0044E6FC /* BinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C3D204C97ED0044E6FC /* BinarySearchTree.m */; };
 		843A1C41204C9DF00044E6FC /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C40204C9DF00044E6FC /* TreeNode.m */; };
 		84746D12206AC28200638F75 /* LC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 84746D11206AC28200638F75 /* LC16.m */; };
+		84746D15206C01BF00638F75 /* LC658.m in Sources */ = {isa = PBXBuildFile; fileRef = 84746D14206C01BF00638F75 /* LC658.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -287,6 +288,8 @@
 		843A1C40204C9DF00044E6FC /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
 		84746D10206AC28200638F75 /* LC16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC16.h; sourceTree = "<group>"; };
 		84746D11206AC28200638F75 /* LC16.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC16.m; sourceTree = "<group>"; };
+		84746D13206C01BF00638F75 /* LC658.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC658.h; sourceTree = "<group>"; };
+		84746D14206C01BF00638F75 /* LC658.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC658.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +497,8 @@
 				3D3592292063EA630025AB8D /* LINT543.m */,
 				84746D10206AC28200638F75 /* LC16.h */,
 				84746D11206AC28200638F75 /* LC16.m */,
+				84746D13206C01BF00638F75 /* LC658.h */,
+				84746D14206C01BF00638F75 /* LC658.m */,
 				3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -627,6 +632,7 @@
 				3D14EC09203B9B3F00149E3F /* LC139.m in Sources */,
 				3D14EBB12034F30800149E3F /* LC200.m in Sources */,
 				3D14EBE52038ACED00149E3F /* LC252.m in Sources */,
+				84746D15206C01BF00638F75 /* LC658.m in Sources */,
 				3D14EBBD203551E300149E3F /* ListNode.m in Sources */,
 				3D14EC12203BCC1D00149E3F /* LC75.m in Sources */,
 				3D14EBF7203960D900149E3F /* LC43.m in Sources */,
