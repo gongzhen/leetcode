@@ -21,17 +21,17 @@
     dp[0] = 1;
     for(int i = 1; i <= [s length]; i++) { // i start from 1.
         for(int j = 0; j < i; j++) { // j from 0 to i.
-            // DLog(@"i:%d, j:%d, substr:%@",i, j, [s substringWithRange:NSMakeRange(j, i - j)]);
+            DLog(@"j:%d, i:%d, substr:%@",j, i, [s substringWithRange:NSMakeRange(j, i - j)]);
             if(dp[j] == 1 && [wordDict containsObject:[s substringWithRange:NSMakeRange(j, i - j )]]) {
-                // DLog(@"substr===============:%@", [s substringWithRange:NSMakeRange(j, i - j)]);
+                DLog(@"substr===============:%@", [s substringWithRange:NSMakeRange(j, i - j)]);
                 dp[i] = true;
                 break;
             }
         }
     }
-//    for(int i = 0; i < s.length + 1; i++) {
-//        DLog(@"dp:%d", dp[i]);
-//    }
+    for(int i = 0; i < s.length + 1; i++) {
+        DLog(@"dp:%d", dp[i]);
+    }
     return dp[s.length];
 }
 
