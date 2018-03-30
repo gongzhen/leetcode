@@ -80,6 +80,9 @@
 		3D729EB8204F304E00C25D14 /* Trie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EB7204F304E00C25D14 /* Trie.m */; };
 		3D729EBB20500DC500C25D14 /* LC218.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EBA20500DC500C25D14 /* LC218.m */; };
 		3D729EBE20508BEF00C25D14 /* LC721.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EBD20508BEF00C25D14 /* LC721.m */; };
+		3DA4CA70206CAC8A00E99437 /* LC999.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA6F206CAC8A00E99437 /* LC999.m */; };
+		3DA4CA73206CAD8D00E99437 /* LCPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA72206CAD8D00E99437 /* LCPoint.m */; };
+		3DA4CA76206D27A400E99437 /* LC998.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA75206D27A400E99437 /* LC998.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -257,6 +260,12 @@
 		3D729EBA20500DC500C25D14 /* LC218.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC218.m; sourceTree = "<group>"; };
 		3D729EBC20508BEF00C25D14 /* LC721.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC721.h; sourceTree = "<group>"; };
 		3D729EBD20508BEF00C25D14 /* LC721.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC721.m; sourceTree = "<group>"; };
+		3DA4CA6E206CAC8A00E99437 /* LC999.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC999.h; sourceTree = "<group>"; };
+		3DA4CA6F206CAC8A00E99437 /* LC999.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC999.m; sourceTree = "<group>"; };
+		3DA4CA71206CAD8D00E99437 /* LCPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPoint.h; sourceTree = "<group>"; };
+		3DA4CA72206CAD8D00E99437 /* LCPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPoint.m; sourceTree = "<group>"; };
+		3DA4CA74206D27A400E99437 /* LC998.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC998.h; sourceTree = "<group>"; };
+		3DA4CA75206D27A400E99437 /* LC998.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC998.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -325,6 +334,8 @@
 				3DC98C3F202F8E7D00DB15CD /* main.m */,
 				3D14EBD120374D2700149E3F /* LC.h */,
 				3D14EBD220374D2700149E3F /* LC.m */,
+				3DA4CA71206CAD8D00E99437 /* LCPoint.h */,
+				3DA4CA72206CAD8D00E99437 /* LCPoint.m */,
 				843A1C392048DB1A0044E6FC /* Pair.h */,
 				843A1C3A2048DB1A0044E6FC /* Pair.m */,
 				3D35922B2063EE5A0025AB8D /* PriorityQueue.h */,
@@ -493,12 +504,16 @@
 				3DC98C4D202FC17A00DB15CD /* LC301.m */,
 				3DC98C50202FEA7F00DB15CD /* LC621.h */,
 				3DC98C51202FEA7F00DB15CD /* LC621.m */,
-				3D3592282063EA630025AB8D /* LINT543.h */,
-				3D3592292063EA630025AB8D /* LINT543.m */,
 				84746D10206AC28200638F75 /* LC16.h */,
 				84746D11206AC28200638F75 /* LC16.m */,
 				84746D13206C01BF00638F75 /* LC658.h */,
 				84746D14206C01BF00638F75 /* LC658.m */,
+				3D3592282063EA630025AB8D /* LINT543.h */,
+				3D3592292063EA630025AB8D /* LINT543.m */,
+				3DA4CA74206D27A400E99437 /* LC998.h */,
+				3DA4CA75206D27A400E99437 /* LC998.m */,
+				3DA4CA6E206CAC8A00E99437 /* LC999.h */,
+				3DA4CA6F206CAC8A00E99437 /* LC999.m */,
 				3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -561,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA4CA70206CAC8A00E99437 /* LC999.m in Sources */,
 				3D14EBD92037610500149E3F /* LC1.m in Sources */,
 				3D14EBAB2034E37E00149E3F /* LC278.m in Sources */,
 				3D14EB992032B5F300149E3F /* NSMutableArray+Queue.m in Sources */,
@@ -581,7 +597,9 @@
 				843A1C35204777700044E6FC /* LC286.m in Sources */,
 				3D14EC1B203C932D00149E3F /* LC670.m in Sources */,
 				3D14EC1E203CA68900149E3F /* LC206.m in Sources */,
+				3DA4CA73206CAD8D00E99437 /* LCPoint.m in Sources */,
 				3D14EB852031976000149E3F /* LC325.m in Sources */,
+				3DA4CA76206D27A400E99437 /* LC998.m in Sources */,
 				3D729E31204D10A600C25D14 /* LC689.m in Sources */,
 				3D35922D2063EE5A0025AB8D /* PriorityQueue.m in Sources */,
 				3D14EC6C203DE30500149E3F /* LC207.m in Sources */,
