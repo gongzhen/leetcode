@@ -17,6 +17,7 @@
 		3D14EBFD2039EF2600149E3F /* NSMutableArray+Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */; };
 		3D14EC54203D681F00149E3F /* LC105.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D14EC53203D681F00149E3F /* LC105.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
+		84F81933206EBD8A0008F206 /* LC230.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F81932206EBD8A0008F206 /* LC230.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,8 @@
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		84F81931206EBD8A0008F206 /* LC230.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC230.h; sourceTree = "<group>"; };
+		84F81932206EBD8A0008F206 /* LC230.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC230.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				3D14EBFC2039EF2600149E3F /* NSMutableArray+Stack.m */,
 				3D14EC52203D681F00149E3F /* LC105.h */,
 				3D14EC53203D681F00149E3F /* LC105.m */,
+				84F81931206EBD8A0008F206 /* LC230.h */,
+				84F81932206EBD8A0008F206 /* LC230.m */,
 				3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -172,6 +177,7 @@
 				3D14EBD620374ECA00149E3F /* Interval.m in Sources */,
 				3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */,
 				3D14EB9C2032B80500149E3F /* TreeNode.m in Sources */,
+				84F81933206EBD8A0008F206 /* LC230.m in Sources */,
 				3DC98C40202F8E7D00DB15CD /* main.m in Sources */,
 				3D14EBBD203551E300149E3F /* ListNode.m in Sources */,
 				3D14EBFD2039EF2600149E3F /* NSMutableArray+Stack.m in Sources */,
@@ -293,7 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J9PKQ8Y5Y3;
+				DEVELOPMENT_TEAM = X92HRP6SLX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -302,7 +308,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = J9PKQ8Y5Y3;
+				DEVELOPMENT_TEAM = X92HRP6SLX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
