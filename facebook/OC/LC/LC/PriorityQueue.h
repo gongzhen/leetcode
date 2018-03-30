@@ -16,6 +16,7 @@
 - (instancetype)init;
 - (BOOL)offer:(id)e;
 - (id)poll;
+- (id)peek;
 - (BOOL)isEmpty;
 - (void)testPQ;
 - (void)printPQ;

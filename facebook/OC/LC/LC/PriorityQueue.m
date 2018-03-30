@@ -12,9 +12,6 @@
 
 @property (assign) NSInteger size;
 
-- (BOOL)offer:(id)e;
-- (id)poll;
-
 @end
 
 @implementation PriorityQueue {
@@ -82,6 +79,13 @@ static int DEFAULT_INITIAL_CAPACITY = 11;
         [self siftUp:i x:e];
     }
     return YES;
+}
+
+- (id)peek {
+    if(self.size == 0) {
+        return NULL;
+    }
+    return (__bridge id)(_pointer[0]);
 }
 
 - (id)poll {
