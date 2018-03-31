@@ -84,6 +84,8 @@
 		3DA4CA73206CAD8D00E99437 /* LCPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA72206CAD8D00E99437 /* LCPoint.m */; };
 		3DA4CA76206D27A400E99437 /* LC998.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA75206D27A400E99437 /* LC998.m */; };
 		3DA4CACF206FF6BD00E99437 /* LC38.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CACE206FF6BD00E99437 /* LC38.m */; };
+		3DA4CAD2207028BA00E99437 /* LC997.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CAD1207028BA00E99437 /* LC997.m */; };
+		3DA4CAD5207032E400E99437 /* PQNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CAD4207032E400E99437 /* PQNode.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -270,6 +272,10 @@
 		3DA4CA75206D27A400E99437 /* LC998.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC998.m; sourceTree = "<group>"; };
 		3DA4CACD206FF6BD00E99437 /* LC38.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC38.h; sourceTree = "<group>"; };
 		3DA4CACE206FF6BD00E99437 /* LC38.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC38.m; sourceTree = "<group>"; };
+		3DA4CAD0207028BA00E99437 /* LC997.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC997.h; sourceTree = "<group>"; };
+		3DA4CAD1207028BA00E99437 /* LC997.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC997.m; sourceTree = "<group>"; };
+		3DA4CAD3207032E400E99437 /* PQNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQNode.h; sourceTree = "<group>"; };
+		3DA4CAD4207032E400E99437 /* PQNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQNode.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -342,6 +348,8 @@
 				3D14EBD220374D2700149E3F /* LC.m */,
 				3DA4CA71206CAD8D00E99437 /* LCPoint.h */,
 				3DA4CA72206CAD8D00E99437 /* LCPoint.m */,
+				3DA4CAD3207032E400E99437 /* PQNode.h */,
+				3DA4CAD4207032E400E99437 /* PQNode.m */,
 				843A1C392048DB1A0044E6FC /* Pair.h */,
 				843A1C3A2048DB1A0044E6FC /* Pair.m */,
 				3D35922B2063EE5A0025AB8D /* PriorityQueue.h */,
@@ -520,6 +528,8 @@
 				3DA4CACE206FF6BD00E99437 /* LC38.m */,
 				3D3592282063EA630025AB8D /* LINT543.h */,
 				3D3592292063EA630025AB8D /* LINT543.m */,
+				3DA4CAD0207028BA00E99437 /* LC997.h */,
+				3DA4CAD1207028BA00E99437 /* LC997.m */,
 				3DA4CA74206D27A400E99437 /* LC998.h */,
 				3DA4CA75206D27A400E99437 /* LC998.m */,
 				3DA4CA6E206CAC8A00E99437 /* LC999.h */,
@@ -596,6 +606,7 @@
 				3D14EBCF20374BAB00149E3F /* LC56.m in Sources */,
 				3D14EC72203F869E00149E3F /* Queue.m in Sources */,
 				3D14EBDF20389A8B00149E3F /* LC680.m in Sources */,
+				3DA4CAD5207032E400E99437 /* PQNode.m in Sources */,
 				3D14EC0C203BAEE400149E3F /* LC57.m in Sources */,
 				3D14EBB4203516A000149E3F /* LC76.m in Sources */,
 				3D14ECA42043CBBD00149E3F /* LC445.m in Sources */,
@@ -624,6 +635,7 @@
 				3D729E25204A390000C25D14 /* LC209.m in Sources */,
 				3D14EC782040DD1C00149E3F /* LC54.m in Sources */,
 				3D14EBC02035DF6400149E3F /* LC157.m in Sources */,
+				3DA4CAD2207028BA00E99437 /* LC997.m in Sources */,
 				3D14EB9120327F4500149E3F /* LC297.m in Sources */,
 				3D35922A2063EA630025AB8D /* LINT543.m in Sources */,
 				843A1C32204723B50044E6FC /* LC523.m in Sources */,

@@ -52,6 +52,6 @@
 }
 
 - (void)test {
-    DLog(@"%@", [self countAndSay:5]);
+    DLog(@"%@", [self countAndSay:4]);
 }
 @end
