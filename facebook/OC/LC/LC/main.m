@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LC999.h"
 #import "LC998.h"
+#import "LC498.h"
 #import "LC146.h"
 #import "LC283.h"
 #import "LC301.h"
@@ -233,8 +234,10 @@ int main(int argc, const char * argv[]) {
 //        [lc658 test];
 //        LC999 *lc999 = [[LC999 alloc] init];
 //        [lc999 test];
-        LC998 *lc998 = [[LC998 alloc] init];
-        [lc998 test];
+//        LC998 *lc998 = [[LC998 alloc] init];
+//        [lc998 test];
+        LC498 *lc498 = [[LC498 alloc] init];
+        [lc498 test];
 
     }
     return 0;
