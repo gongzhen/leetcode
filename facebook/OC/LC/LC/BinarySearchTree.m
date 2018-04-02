@@ -83,7 +83,7 @@
     Queue *queue = [Queue queue];
     [queue offer:ptr];
     while (![queue isEmpty]) {
-        NSUInteger size = [queue getSize];
+        NSUInteger size = [queue size];
         for(int i = 0; i < size; i++) {
             TreeNode *top = (TreeNode *)[queue poll];
             DLog(@"val: %@", top.val);

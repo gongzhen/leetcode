@@ -9,18 +9,19 @@
 #import <Foundation/Foundation.h>
 @class Entry;
 
-@interface Queue : NSObject
+@interface Queue<__covariant ObjectType> : NSObject
+
+@property(nonatomic, readonly) NSInteger size;
 
 + (instancetype)queue;
-- (BOOL)offer:(id)e;
-- (id)poll;
-- (id)removeFirst;
-- (id)remove:(Entry *)e;
-- (id)peek;
-- (id)getFirst;
+- (BOOL)offer:(ObjectType)e;
+- (ObjectType)poll;
+- (ObjectType)removeFirst;
+- (ObjectType)remove:(Entry *)e;
+- (ObjectType)peek;
+- (ObjectType)getFirst;
 - (BOOL)add:(id)e;
 - (BOOL)isEmpty;
-- (NSInteger)getSize;
 - (void)test;
 
 @end
