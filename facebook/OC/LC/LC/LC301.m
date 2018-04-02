@@ -31,6 +31,7 @@
 }
 
 - (void)removeFromLeft:(NSString *)str {
+    NSLog(@"str:%@", str);
     int count = 0;
     /// (())
     for(int i = (int)[str length] - 1; i >= 0; i--) {
@@ -40,15 +41,18 @@
             count--;
         }
         
-        if(count < 0) {
+        if(count < 0) { /// More ( than )
             for(int j = (int)[str length] - 1; j >= i; j--) {
+                /// Only process str[j] == '(' and skip all other char.
                 if([str characterAtIndex:j] != '(') {
                     continue ;
                 }
+                /// Only process str[j] == '('
                 NSString *substring = [[str substringToIndex:j] stringByAppendingString:[str substringFromIndex:j + 1]];
                 if([self.set containsObject:substring]) {
                     continue;
                 }
+                DLog(@"substring:%@", substring);
                 [self.set addObject:substring];
                 [self removeFromLeft:substring];
             }
@@ -63,6 +67,7 @@
 }
 
 - (void)removeFromRight:(NSString *)str {
+    NSLog(@"str:%@", str);
     int count = 0;
     for(int i = 0; i < [str length]; i++) {
         if([str characterAtIndex:i] == '(') {
@@ -75,10 +80,12 @@
                 if([str characterAtIndex:j] != ')') {
                     continue;
                 }
+                /// substring =[0 .... j) + [j + 1 ... str.length)
                 NSString *substring = [[str substringToIndex:j] stringByAppendingString:[str substringFromIndex:j + 1]];
                 if([self.set containsObject:substring]) {
                     continue;
                 }
+                DLog(@"substring:%@", substring);
                 [self.set addObject:substring];
                 [self removeFromRight:substring];
             }
@@ -93,7 +100,7 @@
 
 
 - (NSArray *)removeInvalidParentheses:(NSString *)s {
-    DLog(@" s:%@", s);
+    DLog(@"s:%@", s);
     NSMutableArray* res = [NSMutableArray array];
     NSMutableSet* set = [NSMutableSet set];
     
@@ -108,7 +115,7 @@
     while(pq.count != 0) {
         s = [pq poll];
         DLog(@"s:%@",s);
-        if([self isValid:s]) {
+        if([self isValid:s]) { /// O(n)
             [res addObject:s];
             isFound = true;
         }
@@ -122,7 +129,9 @@
         }
         
         for(int i = 0; i < [s length]; i++) {
+            /// Only process c == '(' || c == ')'
             if([s characterAtIndex:i] == '(' || [s characterAtIndex:i] == ')') {
+                /// substring = [0 ... i) + [i + 1 ... s.lenth)
                 NSString *substring = [[s substringToIndex:i] stringByAppendingString:[s substringFromIndex:i + 1]];
                 if([set containsObject:substring] == false) {
                     [set addObject:substring];
@@ -135,6 +144,7 @@
     return res;
 }
 
+/// O(n) time and O(1) space
 - (BOOL)isValid:(NSString *)str {
     int count = 0;
     int i = 0;
@@ -155,7 +165,7 @@
 - (void)test {
     NSString *str =@"(a)())()";
     [self removeInvalidParentheses:str];
-//    [self removeInvalidParenthesesDFS:str];
+    // [self removeInvalidParenthesesDFS:str];
 }
 
 @end

@@ -17,7 +17,7 @@
 @implementation LC91
 
 - (int)numDecodings:(NSString *)s {
-    
+    NSLog(@"s:%@", s);
     if(s == nil || s.length == 0) {
         return 0;
     }
