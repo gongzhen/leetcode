@@ -12,6 +12,7 @@
 #import "LC997.h"
 #import "LC498.h"
 #import "LC127.h"
+#import "LC173.h"
 #import "LC38.h"
 #import "LC257.h"
 #import "LC146.h"
@@ -251,8 +252,12 @@ int main(int argc, const char * argv[]) {
 //        [lc257 test];
 //        LC127 *lc127 = [[LC127 alloc] init];
 //        [lc127 test];
-        LC95 *lc95 = [[LC95 alloc] init];
-        [lc95 test];
+//        LC95 *lc95 = [[LC95 alloc] init];
+//        [lc95 test];
+        LCTree *tree = [[LCTree alloc] init];
+        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
+        [lc173 test];
+
     }
     return 0;
 }

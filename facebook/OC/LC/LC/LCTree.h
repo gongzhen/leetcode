@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "LC.h"
 
+@class LCTreeNode;
+
 @interface LCTree : LC
+
+- (LCTreeNode *)bst;
 
 @end
