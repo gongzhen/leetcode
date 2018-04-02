@@ -11,10 +11,42 @@
 @interface LC125()
 
 - (BOOL)isPalindrome:(NSString *)s;
+- (BOOL)isPalindrome_1:(NSString *)s;
 
 @end
 
 @implementation LC125
+
+- (BOOL)isPalindrome_1:(NSString *)s {
+    if(s.length == 0) {
+        return YES;
+    }
+    NSInteger i = 0, j = s.length - 1;
+    while(i < j) {
+        char ci = [s characterAtIndex:i];
+        char cj = [s characterAtIndex:j];
+        if(![self isLetter:ci] && ![self isDigit:ci]) {
+            i++;
+        } else if (![self isLetter:cj] && ![self isDigit:cj]) {
+            j--;
+        } else {
+            if(tolower(ci) != tolower(cj)) {
+                return NO;
+            }
+            i++;
+            j--;
+        }
+    }
+    return YES;
+}
+
+- (BOOL)isLetter:(char)c {
+    return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+}
+
+- (BOOL)isDigit:(char)c {
+    return c >= '0' && c <= '9';
+}
 
 - (BOOL)isPalindrome:(NSString *)s {
     if(s.length == 0) {
@@ -59,7 +91,8 @@
     DLog(@"%d", [self isPalindrome:s]);
     NSString *t = @"A man, a plan, a canal: Panama";
     DLog(@"%d", [self isPalindrome:t]);
-
+    DLog(@"%d", [self isPalindrome_1:s]);
+    DLog(@"%d", [self isPalindrome_1:t]);
 }
 
 @end
