@@ -110,6 +110,19 @@
     }
 }
 
+- (LCTreeNode *)bst {
+    LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
+    LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];
+    LCTreeNode *node3 = [[LCTreeNode alloc] initWith:3];
+    LCTreeNode *node4 = [[LCTreeNode alloc] initWith:4];
+    LCTreeNode *node5 = [[LCTreeNode alloc] initWith:5];
+    node3.left = node1;
+    node1.right = node2;
+    node3.right = node5;
+    node5.left = node4;
+    return node3;
+}
+
 - (void)test {
     LCTreeNode *node1 = [[LCTreeNode alloc] initWith:1];
     LCTreeNode *node2 = [[LCTreeNode alloc] initWith:2];

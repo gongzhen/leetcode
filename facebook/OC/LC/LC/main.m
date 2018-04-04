@@ -7,11 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LC999.h"
+#import "LC998.h"
+#import "LC997.h"
+#import "LC498.h"
+#import "LC127.h"
+#import "LC173.h"
+#import "LC38.h"
+#import "LC257.h"
 #import "LC146.h"
 #import "LC283.h"
 #import "LC301.h"
 #import "LC621.h"
 #import "LC67.h"
+#import "LC95.h"
 #import "LC273.h"
 #import "LC253.h"
 #import "LC325.h"
@@ -77,6 +86,8 @@
 #import "LC218.h"
 #import "LC721.h"
 #import "LINT543.h"
+#import "LC16.h"
+#import "LC658.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -89,8 +100,8 @@ int main(int argc, const char * argv[]) {
 //        [lc301 test];
 //        LC621 *lc621 = [[LC621 alloc] init];
 //        [lc621 test];
-        LC67 *lc67 = [[LC67 alloc] init];
-        [lc67 test];
+//        LC67 *lc67 = [[LC67 alloc] init];
+//        [lc67 test];
 //        LC273 *lc273 = [[LC273 alloc] init];
 //        [lc273 test];
 //        LC253 *lc253 = [[LC253 alloc] init];
@@ -112,8 +123,8 @@ int main(int argc, const char * argv[]) {
 //        [lc158 test];
 //        LC278 *lc278 = [[LC278 alloc] init];
 //        [lc278 test];
-        LC200 *lc200 = [[LC200 alloc] init];
-        [lc200 test];
+//        LC200 *lc200 = [[LC200 alloc] init];
+//        [lc200 test];
 //        LC76 *lc76 = [[LC76 alloc] init];
 //        [lc76 test];
 //        LC543 *lc543 = [[LC543 alloc] init];
@@ -223,6 +234,30 @@ int main(int argc, const char * argv[]) {
 //        LINT543 *lc543 = [[LINT543 alloc] init];
 //        [lc543 test];
 //        [lc543 testPQ];
+//        LC16 *lc16 = [[LC16 alloc] init];
+//        [lc16 test];
+//        LC658 *lc658 = [[LC658 alloc] init];
+//        [lc658 test];
+//        LC999 *lc999 = [[LC999 alloc] init];
+//        [lc999 test];
+//        LC998 *lc998 = [[LC998 alloc] init];
+//        [lc998 test];
+//        LC498 *lc498 = [[LC498 alloc] init];
+//        [lc498 test];
+//        LC38 *lc38 = [[LC38 alloc] init];
+//        [lc38 test];
+//        LC997 *lc997 = [[LC997 alloc] init];
+//        [lc997 test];
+//        LC257 *lc257 = [[LC257 alloc] init];
+//        [lc257 test];
+//        LC127 *lc127 = [[LC127 alloc] init];
+//        [lc127 test];
+//        LC95 *lc95 = [[LC95 alloc] init];
+//        [lc95 test];
+        LCTree *tree = [[LCTree alloc] init];
+        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
+        [lc173 test];
+
     }
     return 0;
 }

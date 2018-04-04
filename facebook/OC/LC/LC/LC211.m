@@ -12,6 +12,7 @@
 @interface LC211()
 
 @property (strong, nonatomic) TrieNode* root;
+
 - (void)addWord:(NSString *)word;
 - (BOOL)search:(NSString *)word;
 

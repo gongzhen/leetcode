@@ -8,7 +8,7 @@
 
 #import "Queue.h"
 
-@interface Entry<ObjectType>:NSObject
+@interface Entry<__covariant ObjectType>:NSObject
 {
     @public
     id _element;
@@ -35,8 +35,9 @@
 @interface Queue() {
     NSMutableArray* _array;
     Entry *_header;
-    NSUInteger _size;
 }
+
+@property (nonatomic) NSInteger size;
 
 @end
 

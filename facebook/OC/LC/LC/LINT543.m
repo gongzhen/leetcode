@@ -10,31 +10,13 @@
 #import "PriorityQueue.h"
 #import "QuickSort.h"
 #import "Pair.h"
+#import "PQNode.h"
+/// https://github.com/misspink1011/LintCode
 /// https://zhengyang2015.gitbooks.io/lintcode/kth_largest_in_n_arrays_543.html
-
-@interface ArrayNode: NSObject
-
-@property(assign)int row, col, val;
-
-- (instancetype)initWith:(int)row col:(int)col val:(int)val;
-
-@end
-
-@implementation ArrayNode
-
-- (instancetype)initWith:(int)row col:(int)col val:(int)val {
-    if(self = [super init]) {
-        _row = row;
-        _col = col;
-        _val = val;
-    }
-    return self;
-}
-
-@end
 
 @interface LINT543()
 
+/// Kth Largest in N Arrays 543
 - (int)kthInArrays:(int **)arrays row:(int)row col:(int)col k:(int)k;
 
 @end
@@ -51,7 +33,7 @@
     /// Create a heap and add the largest number to heap.
     /// PriorityQueue *pq = [[PriorityQueue alloc] initWithCapacity:row];
     PriorityQueue *pq = [[PriorityQueue alloc] init];
-    pq.comparator = ^(ArrayNode*  _Nonnull obj1, ArrayNode*  _Nonnull obj2) {
+    pq.comparator = ^(PQNode*  _Nonnull obj1, PQNode*  _Nonnull obj2) {
         DLog(@"obj1:%@ === obj2:%@", obj1, obj2);
         if(obj1.val > obj2.val) {
             return NSOrderedAscending;
@@ -62,19 +44,19 @@
     };
     
     for(int i = 0; i < row; i++) {
-        ArrayNode *node = [[ArrayNode alloc] initWith:i col:col - 1 val:arrays[i][col - 1]];
+        PQNode *node = [[PQNode alloc] initWithRow:i col:col - 1 val:arrays[i][col - 1]];
         DLog(@"node:%@, node.row:%d, node.col:%d, node.val:%d", node, node.row, node.col, node.val);
         [pq offer:node];
     }
     
     for(int i = 0; i < k; i++) {
-        ArrayNode* temp = [pq poll];
+        PQNode* temp = [pq poll];
         DLog(@"temp:%@, temp.row:%d, temp.col:%d, temp.val:%d", temp, temp.row, temp.col, temp.val);
-        if(i == k - 1) {
+        if(i == k - 1) { /// reacth the number
             return temp.val;
         }
-        if(temp.col > 0) {
-            ArrayNode *node = [[ArrayNode alloc] initWith:temp.row col:temp.col - 1 val:arrays[temp.row][temp.col - 1]];
+        if(temp.col > 0) { /// check col > 0 for col - 1.
+            PQNode *node = [[PQNode alloc] initWithRow:temp.row col:temp.col - 1 val:arrays[temp.row][temp.col - 1]];
             DLog(@"node:%@, node.row:%d, node.col:%d, node.val:%d", node, node.row, node.col, node.val);
             [pq offer:node];
         }

@@ -72,6 +72,7 @@
 		3D18EE3E204A00D100F67268 /* QuickSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D18EE3D204A00D100F67268 /* QuickSort.m */; };
 		3D35922A2063EA630025AB8D /* LINT543.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D3592292063EA630025AB8D /* LINT543.m */; };
 		3D35922D2063EE5A0025AB8D /* PriorityQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D35922C2063EE5A0025AB8D /* PriorityQueue.m */; };
+		3D47397220727AFC00CEF6ED /* LC173.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D47397120727AFC00CEF6ED /* LC173.m */; };
 		3D729E25204A390000C25D14 /* LC209.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E24204A390000C25D14 /* LC209.m */; };
 		3D729E28204B619D00C25D14 /* LC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E27204B619D00C25D14 /* LC3.m */; };
 		3D729E2B204B6C2700C25D14 /* LC30.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729E2A204B6C2700C25D14 /* LC30.m */; };
@@ -80,6 +81,15 @@
 		3D729EB8204F304E00C25D14 /* Trie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EB7204F304E00C25D14 /* Trie.m */; };
 		3D729EBB20500DC500C25D14 /* LC218.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EBA20500DC500C25D14 /* LC218.m */; };
 		3D729EBE20508BEF00C25D14 /* LC721.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D729EBD20508BEF00C25D14 /* LC721.m */; };
+		3DA4CA70206CAC8A00E99437 /* LC999.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA6F206CAC8A00E99437 /* LC999.m */; };
+		3DA4CA73206CAD8D00E99437 /* LCPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA72206CAD8D00E99437 /* LCPoint.m */; };
+		3DA4CA76206D27A400E99437 /* LC998.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CA75206D27A400E99437 /* LC998.m */; };
+		3DA4CACF206FF6BD00E99437 /* LC38.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CACE206FF6BD00E99437 /* LC38.m */; };
+		3DA4CAD2207028BA00E99437 /* LC997.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CAD1207028BA00E99437 /* LC997.m */; };
+		3DA4CAD5207032E400E99437 /* PQNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CAD4207032E400E99437 /* PQNode.m */; };
+		3DA4CAD8207041AA00E99437 /* LC257.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CAD7207041AA00E99437 /* LC257.m */; };
+		3DA4CADB2071994200E99437 /* LC127.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CADA2071994200E99437 /* LC127.m */; };
+		3DA4CAE12072660200E99437 /* LC95.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA4CAE02072660200E99437 /* LC95.m */; };
 		3DC98C40202F8E7D00DB15CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C3F202F8E7D00DB15CD /* main.m */; };
 		3DC98C48202F901800DB15CD /* LC146.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C47202F901800DB15CD /* LC146.m */; };
 		3DC98C4B202FB99000DB15CD /* LC283.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC98C4A202FB99000DB15CD /* LC283.m */; };
@@ -94,6 +104,9 @@
 		843A1C3B2048DB1A0044E6FC /* Pair.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C3A2048DB1A0044E6FC /* Pair.m */; };
 		843A1C3E204C97ED0044E6FC /* BinarySearchTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C3D204C97ED0044E6FC /* BinarySearchTree.m */; };
 		843A1C41204C9DF00044E6FC /* TreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C40204C9DF00044E6FC /* TreeNode.m */; };
+		84746D12206AC28200638F75 /* LC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 84746D11206AC28200638F75 /* LC16.m */; };
+		84746D15206C01BF00638F75 /* LC658.m in Sources */ = {isa = PBXBuildFile; fileRef = 84746D14206C01BF00638F75 /* LC658.m */; };
+		84F81936206F004E0008F206 /* LC498.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F81935206F004E0008F206 /* LC498.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -239,6 +252,8 @@
 		3D3592292063EA630025AB8D /* LINT543.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LINT543.m; sourceTree = "<group>"; };
 		3D35922B2063EE5A0025AB8D /* PriorityQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriorityQueue.h; sourceTree = "<group>"; };
 		3D35922C2063EE5A0025AB8D /* PriorityQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriorityQueue.m; sourceTree = "<group>"; };
+		3D47397020727AFC00CEF6ED /* LC173.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC173.h; sourceTree = "<group>"; };
+		3D47397120727AFC00CEF6ED /* LC173.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC173.m; sourceTree = "<group>"; };
 		3D729E23204A390000C25D14 /* LC209.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC209.h; sourceTree = "<group>"; };
 		3D729E24204A390000C25D14 /* LC209.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC209.m; sourceTree = "<group>"; };
 		3D729E26204B619D00C25D14 /* LC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC3.h; sourceTree = "<group>"; };
@@ -255,6 +270,24 @@
 		3D729EBA20500DC500C25D14 /* LC218.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC218.m; sourceTree = "<group>"; };
 		3D729EBC20508BEF00C25D14 /* LC721.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC721.h; sourceTree = "<group>"; };
 		3D729EBD20508BEF00C25D14 /* LC721.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC721.m; sourceTree = "<group>"; };
+		3DA4CA6E206CAC8A00E99437 /* LC999.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC999.h; sourceTree = "<group>"; };
+		3DA4CA6F206CAC8A00E99437 /* LC999.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC999.m; sourceTree = "<group>"; };
+		3DA4CA71206CAD8D00E99437 /* LCPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPoint.h; sourceTree = "<group>"; };
+		3DA4CA72206CAD8D00E99437 /* LCPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPoint.m; sourceTree = "<group>"; };
+		3DA4CA74206D27A400E99437 /* LC998.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC998.h; sourceTree = "<group>"; };
+		3DA4CA75206D27A400E99437 /* LC998.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC998.m; sourceTree = "<group>"; };
+		3DA4CACD206FF6BD00E99437 /* LC38.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC38.h; sourceTree = "<group>"; };
+		3DA4CACE206FF6BD00E99437 /* LC38.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC38.m; sourceTree = "<group>"; };
+		3DA4CAD0207028BA00E99437 /* LC997.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC997.h; sourceTree = "<group>"; };
+		3DA4CAD1207028BA00E99437 /* LC997.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC997.m; sourceTree = "<group>"; };
+		3DA4CAD3207032E400E99437 /* PQNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PQNode.h; sourceTree = "<group>"; };
+		3DA4CAD4207032E400E99437 /* PQNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PQNode.m; sourceTree = "<group>"; };
+		3DA4CAD6207041AA00E99437 /* LC257.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC257.h; sourceTree = "<group>"; };
+		3DA4CAD7207041AA00E99437 /* LC257.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC257.m; sourceTree = "<group>"; };
+		3DA4CAD92071994200E99437 /* LC127.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC127.h; sourceTree = "<group>"; };
+		3DA4CADA2071994200E99437 /* LC127.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC127.m; sourceTree = "<group>"; };
+		3DA4CADF2072660200E99437 /* LC95.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC95.h; sourceTree = "<group>"; };
+		3DA4CAE02072660200E99437 /* LC95.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC95.m; sourceTree = "<group>"; };
 		3DC98C3C202F8E7D00DB15CD /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC98C3F202F8E7D00DB15CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DC98C46202F901800DB15CD /* LC146.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC146.h; sourceTree = "<group>"; };
@@ -284,6 +317,12 @@
 		843A1C3D204C97ED0044E6FC /* BinarySearchTree.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinarySearchTree.m; sourceTree = "<group>"; };
 		843A1C3F204C9DF00044E6FC /* TreeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeNode.h; sourceTree = "<group>"; };
 		843A1C40204C9DF00044E6FC /* TreeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeNode.m; sourceTree = "<group>"; };
+		84746D10206AC28200638F75 /* LC16.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC16.h; sourceTree = "<group>"; };
+		84746D11206AC28200638F75 /* LC16.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC16.m; sourceTree = "<group>"; };
+		84746D13206C01BF00638F75 /* LC658.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC658.h; sourceTree = "<group>"; };
+		84746D14206C01BF00638F75 /* LC658.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC658.m; sourceTree = "<group>"; };
+		84F81934206F004E0008F206 /* LC498.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC498.h; sourceTree = "<group>"; };
+		84F81935206F004E0008F206 /* LC498.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC498.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +358,10 @@
 				3DC98C3F202F8E7D00DB15CD /* main.m */,
 				3D14EBD120374D2700149E3F /* LC.h */,
 				3D14EBD220374D2700149E3F /* LC.m */,
+				3DA4CA71206CAD8D00E99437 /* LCPoint.h */,
+				3DA4CA72206CAD8D00E99437 /* LCPoint.m */,
+				3DA4CAD3207032E400E99437 /* PQNode.h */,
+				3DA4CAD4207032E400E99437 /* PQNode.m */,
 				843A1C392048DB1A0044E6FC /* Pair.h */,
 				843A1C3A2048DB1A0044E6FC /* Pair.m */,
 				3D35922B2063EE5A0025AB8D /* PriorityQueue.h */,
@@ -487,8 +530,30 @@
 				3DC98C4D202FC17A00DB15CD /* LC301.m */,
 				3DC98C50202FEA7F00DB15CD /* LC621.h */,
 				3DC98C51202FEA7F00DB15CD /* LC621.m */,
+				84746D10206AC28200638F75 /* LC16.h */,
+				84746D11206AC28200638F75 /* LC16.m */,
+				84746D13206C01BF00638F75 /* LC658.h */,
+				84746D14206C01BF00638F75 /* LC658.m */,
+				84F81934206F004E0008F206 /* LC498.h */,
+				84F81935206F004E0008F206 /* LC498.m */,
+				3DA4CACD206FF6BD00E99437 /* LC38.h */,
+				3DA4CACE206FF6BD00E99437 /* LC38.m */,
+				3DA4CADF2072660200E99437 /* LC95.h */,
+				3DA4CAE02072660200E99437 /* LC95.m */,
+				3D47397020727AFC00CEF6ED /* LC173.h */,
+				3D47397120727AFC00CEF6ED /* LC173.m */,
+				3DA4CAD6207041AA00E99437 /* LC257.h */,
+				3DA4CAD7207041AA00E99437 /* LC257.m */,
+				3DA4CAD92071994200E99437 /* LC127.h */,
+				3DA4CADA2071994200E99437 /* LC127.m */,
 				3D3592282063EA630025AB8D /* LINT543.h */,
 				3D3592292063EA630025AB8D /* LINT543.m */,
+				3DA4CAD0207028BA00E99437 /* LC997.h */,
+				3DA4CAD1207028BA00E99437 /* LC997.m */,
+				3DA4CA74206D27A400E99437 /* LC998.h */,
+				3DA4CA75206D27A400E99437 /* LC998.m */,
+				3DA4CA6E206CAC8A00E99437 /* LC999.h */,
+				3DA4CA6F206CAC8A00E99437 /* LC999.m */,
 				3DC98C4F202FD76200DB15CD /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -551,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA4CA70206CAC8A00E99437 /* LC999.m in Sources */,
 				3D14EBD92037610500149E3F /* LC1.m in Sources */,
 				3D14EBAB2034E37E00149E3F /* LC278.m in Sources */,
 				3D14EB992032B5F300149E3F /* NSMutableArray+Queue.m in Sources */,
@@ -560,8 +626,10 @@
 				3D14EBCF20374BAB00149E3F /* LC56.m in Sources */,
 				3D14EC72203F869E00149E3F /* Queue.m in Sources */,
 				3D14EBDF20389A8B00149E3F /* LC680.m in Sources */,
+				3DA4CAD5207032E400E99437 /* PQNode.m in Sources */,
 				3D14EC0C203BAEE400149E3F /* LC57.m in Sources */,
 				3D14EBB4203516A000149E3F /* LC76.m in Sources */,
+				3DA4CAE12072660200E99437 /* LC95.m in Sources */,
 				3D14ECA42043CBBD00149E3F /* LC445.m in Sources */,
 				3D14EC21203CA95200149E3F /* LC79.m in Sources */,
 				3D14EBC92036187500149E3F /* TrieNode.m in Sources */,
@@ -571,19 +639,25 @@
 				843A1C35204777700044E6FC /* LC286.m in Sources */,
 				3D14EC1B203C932D00149E3F /* LC670.m in Sources */,
 				3D14EC1E203CA68900149E3F /* LC206.m in Sources */,
+				3DA4CA73206CAD8D00E99437 /* LCPoint.m in Sources */,
 				3D14EB852031976000149E3F /* LC325.m in Sources */,
+				3DA4CA76206D27A400E99437 /* LC998.m in Sources */,
 				3D729E31204D10A600C25D14 /* LC689.m in Sources */,
 				3D35922D2063EE5A0025AB8D /* PriorityQueue.m in Sources */,
+				3DA4CADB2071994200E99437 /* LC127.m in Sources */,
 				3D14EC6C203DE30500149E3F /* LC207.m in Sources */,
 				3D14EB8E2032248100149E3F /* LC15.m in Sources */,
 				3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */,
+				3DA4CACF206FF6BD00E99437 /* LC38.m in Sources */,
 				3D14EC00203A0ABF00149E3F /* LC285.m in Sources */,
 				3D14EC18203C3D6A00149E3F /* LC88.m in Sources */,
 				3D14EC9E20436FD100149E3F /* LC44.m in Sources */,
 				3D14EBBA203551B700149E3F /* LC23.m in Sources */,
+				84F81936206F004E0008F206 /* LC498.m in Sources */,
 				3D729E25204A390000C25D14 /* LC209.m in Sources */,
 				3D14EC782040DD1C00149E3F /* LC54.m in Sources */,
 				3D14EBC02035DF6400149E3F /* LC157.m in Sources */,
+				3DA4CAD2207028BA00E99437 /* LC997.m in Sources */,
 				3D14EB9120327F4500149E3F /* LC297.m in Sources */,
 				3D35922A2063EA630025AB8D /* LINT543.m in Sources */,
 				843A1C32204723B50044E6FC /* LC523.m in Sources */,
@@ -598,16 +672,19 @@
 				3DC98C4B202FB99000DB15CD /* LC283.m in Sources */,
 				3D14EBEB2038C85100149E3F /* LC98.m in Sources */,
 				3DC98C52202FEA7F00DB15CD /* LC621.m in Sources */,
+				84746D12206AC28200638F75 /* LC16.m in Sources */,
 				3D14EC24203CBF3900149E3F /* LC494.m in Sources */,
 				3DC98C4E202FC17A00DB15CD /* LC301.m in Sources */,
 				843A1C2F20471B1A0044E6FC /* LC236.m in Sources */,
 				3D729EBB20500DC500C25D14 /* LC218.m in Sources */,
 				3D14EC8120422DF200149E3F /* TreeLinkNode.m in Sources */,
+				3DA4CAD8207041AA00E99437 /* LC257.m in Sources */,
 				3D729EBE20508BEF00C25D14 /* LC721.m in Sources */,
 				843A1C3E204C97ED0044E6FC /* BinarySearchTree.m in Sources */,
 				3D14EBF12039486700149E3F /* LC133.m in Sources */,
 				3D14EC06203A188200149E3F /* LC215.m in Sources */,
 				3D18EE322045B09E00F67268 /* LC91.m in Sources */,
+				3D47397220727AFC00CEF6ED /* LC173.m in Sources */,
 				3D14EB8220313C9F00149E3F /* LC253.m in Sources */,
 				3D14EC15203C310500149E3F /* LC33.m in Sources */,
 				3D14EC0F203BC51C00149E3F /* LC238.m in Sources */,
@@ -621,6 +698,7 @@
 				3D14EC09203B9B3F00149E3F /* LC139.m in Sources */,
 				3D14EBB12034F30800149E3F /* LC200.m in Sources */,
 				3D14EBE52038ACED00149E3F /* LC252.m in Sources */,
+				84746D15206C01BF00638F75 /* LC658.m in Sources */,
 				3D14EBBD203551E300149E3F /* ListNode.m in Sources */,
 				3D14EC12203BCC1D00149E3F /* LC75.m in Sources */,
 				3D14EBF7203960D900149E3F /* LC43.m in Sources */,

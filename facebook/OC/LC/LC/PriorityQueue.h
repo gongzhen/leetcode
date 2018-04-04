@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PriorityQueue : NSObject
+@interface PriorityQueue <__covariant ObjectType> : NSObject
 
 @property (copy, nonatomic) NSComparator comparator;
 
 - (instancetype)initWithCapacity:(NSInteger)capacity;
 - (instancetype)init;
-- (BOOL)offer:(id)e;
-- (id)poll;
+- (BOOL)offer:(ObjectType)e;
+- (ObjectType)poll;
+- (ObjectType)peek;
 - (BOOL)isEmpty;
 - (void)testPQ;
 - (void)printPQ;

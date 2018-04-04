@@ -10,6 +10,8 @@
 #import "LC999.h"
 #import "LC111.h"
 #import "LC124.h"
+#import "LC129.h"
+#import "LC105.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -18,8 +20,12 @@ int main(int argc, const char * argv[]) {
 //        [lc999 test];
 //        LC111 *lc111 = [[LC111 alloc] init];
 //        [lc111 test];
-        LC124 *lc124 = [[LC124 alloc] init];
-        [lc124 test];
+//        LC124 *lc124 = [[LC124 alloc] init];
+//        [lc124 test];
+//        LC129 *lc129 = [[LC129 alloc] init];
+//        [lc129 test];
+        LC105 *lc105 = [[LC105 alloc] init];
+        [lc105 test];
     }
     return 0;
 }

@@ -83,7 +83,7 @@
     Queue *queue = [Queue queue];
     [queue offer:ptr];
     while (![queue isEmpty]) {
-        NSUInteger size = [queue getSize];
+        NSUInteger size = [queue size];
         for(int i = 0; i < size; i++) {
             TreeNode *top = (TreeNode *)[queue poll];
             DLog(@"val: %@", top.val);
@@ -117,6 +117,7 @@
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:nil ascending:YES];
     return [sort compareObject:e1 toObject:e2];
 }
+
 
 - (void)test {
     [self add:@3];
