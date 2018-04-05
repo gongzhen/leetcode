@@ -31,6 +31,10 @@
     [p enumerateObjectsUsingBlock:^(LCPoint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [mutArray addObject:obj];
     }];
+    [mutArray enumerateObjectsUsingBlock:^(LCPoint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"p.x:%d p.y:%d", obj.x, obj.y);
+    }];
+    DLog(@"------------------------------------------------");
     while(true) {
         int idx = [self partition_2:mutArray left:left right:right target:target];
         if(idx == k - 1) {
@@ -40,6 +44,10 @@
         } else {
             left = idx + 1;
         }
+        [mutArray enumerateObjectsUsingBlock:^(LCPoint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            DLog(@"p.x:%d p.y:%d", obj.x, obj.y);
+        }];
+        DLog(@"------------------------------------------------");
     }
     NSMutableArray *res = [NSMutableArray array];
     for(int i = 0; i < k; i++) {
@@ -55,13 +63,11 @@
         while(i < right && [self less:array[i] pivot:array[left] target:target]) {
             i++;
         }
-        while(left < j && [self less:array[left] pivot:array[j] target:target]) {
+        while(left < j && ![self less:array[j] pivot:array[left] target:target]) {
             j--;
         }
         if(i < j) {
             [self swap:array left:i right:j];
-            i++;
-            j--;
         }
     }
     
@@ -126,6 +132,10 @@
     LCPoint *temp = array[left];
     array[left] = array[right];
     array[right] = temp;
+    [array enumerateObjectsUsingBlock:^(LCPoint * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"p.x:%d p.y:%d", obj.x, obj.y);
+    }];
+    DLog(@"------------------------------------------------");
 }
 
 - (NSArray *)findKClosest_1:(NSArray<LCPoint *> *)p k:(int)k target:(LCPoint *)target {
