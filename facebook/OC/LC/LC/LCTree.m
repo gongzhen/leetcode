@@ -120,7 +120,7 @@
     node1.right = node2;
     node3.right = node5;
     node5.left = node4;
-    return node3;
+    return node3;   
 }
 
 - (void)test {

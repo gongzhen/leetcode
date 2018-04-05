@@ -255,8 +255,13 @@ int main(int argc, const char * argv[]) {
 //        LC95 *lc95 = [[LC95 alloc] init];
 //        [lc95 test];
         LCTree *tree = [[LCTree alloc] init];
+        DLog(@"%ld", CFGetRetainCount((__bridge CFTypeRef)(tree)));
+        LCTree *treeB = tree;
+        DLog(@"%ld", CFGetRetainCount((__bridge CFTypeRef)(tree)));
+        DLog(@"%ld", CFGetRetainCount((__bridge CFTypeRef)(treeB)));
         LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
         [lc173 test];
+
 
     }
     return 0;

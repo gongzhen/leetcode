@@ -124,14 +124,35 @@ class Point {
 // 245. Subtree 
 public class LC999 {
 
+
+/***
+    607    private void siftUpUsingComparator(int k, E x) {
+    608        while (k > 0) {
+    609            int parent = (k - 1) >>> 1;
+    610            Object e = queue[parent];
+    611            if (comparator.compare(x, (E) e) >= 0)
+    612                break;
+    613            queue[k] = e;
+    614            k = parent;
+    615        }
+    616        queue[k] = x;
+    617    }
+*/
+
     public List<Point> findKClosest(Point[] points, int k) {             
         PriorityQueue<Point> pq = new PriorityQueue<Point>(points.length, new Comparator<Point>(){
-            public int compare(Point a, Point b) {
+            /// a - b > 0 is min Heap
+            /// b - a > 0 is max Heap
+            public int compare(Point a, Point b) {   
+                /// previous point b: new coming point: a
                 if(b.x * b.x + b.y * b.y > a.x * a.x + a.y * a.y) {
+                    printString("b.x:" + b.x + ", b.y:" + b.y + " > " + "a.x:" + a.x + ", a.y:" + a.y);
                 	return 1;
                 } else if (b.x * b.x + b.y * b.y == a.x * a.x + a.y * a.y) {
+                    printString("b.x:" + b.x + ", b.y:" + b.y + " == " + "a.x:" + a.x + ", a.y:" + a.y);
                 	return 0;
                 } 
+                printString("b.x:" + b.x + ", b.y:" + b.y + " < " + "a.x:" + a.x + ", a.y:" + a.y);
                 return -1;
             }
         });
@@ -139,10 +160,12 @@ public class LC999 {
         
         for(int i = 0; i < points.length; i++) {
             if(i < k) {
+                printString("line 146 points[i:" + i + "].x:" + points[i].x + ", points[i:" + i + "].y:" + points[i].y);
                 pq.offer(points[i]);
             } else {
                 Point top = pq.peek();
                 if((points[i].x * points[i].x + points[i].y * points[i].y) < (top.x * top.x + top.y * top.y)) {
+                    printString("line 151 points[i:" + i + "].x:" + points[i].x + ", points[i:" + i + "].y:" + points[i].y + ",top.x:" + top.x + " ,top.y:" + top.y);
                 	pq.poll();
                 	pq.offer(points[i]);
                 }
@@ -151,10 +174,12 @@ public class LC999 {
 
         List<Point> res = new ArrayList<Point>();
         while(!pq.isEmpty()) {
+            Point p = pq.peek();
+            printString("line 161 p.x:" + p.x + ", p.y:" + p.y);
         	res.add(pq.poll());
         }
         for(Point p : res) {
-        	printString("p.x:" + p.x + ", p.y:" + p.y);
+            printString("line 165 p.x:" + p.x + ", p.y:" + p.y);
         }
         return res;
     }
