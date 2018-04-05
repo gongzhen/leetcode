@@ -4,7 +4,12 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-
+// class TreeNode {
+//  int val;
+//  TreeNode left;
+//  TreeNode right;
+//  TreeNode(int x) { val = x; }
+// }
 // class ListNode {
 //     int val;
 //     ListNode next;
@@ -13,11 +18,43 @@ import java.util.regex.*;
 //         next = null;
 //     }
 // }
-
+// class Interval {
+//     int start;
+//     int end;
+//     Interval() { start = 0; end = 0; }
+//     Interval(int s, int e) { start = s; end = e; }
+// }
+// private TreeNode createTree() {
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
 //  }
+// }
+// private void printListMap(Map<Integer, List<Integer>> map) {
+//     for(Integer key:map.keySet()) {
+//         List<Integer> list = map.get(key);
+//         printStringWithoutNewLine("key:" + key + "[");   
+//         for(int n : list) {
+//             printStringWithoutNewLine(n + ", ");    
+//         }
+//         printString("]");               
+//     }
 // }
 // private void printQueue(Queue<String> list) {
 //  for(String s: list) {
@@ -56,6 +93,12 @@ import java.util.regex.*;
 //     System.out.println("---------------------"); 
 // }  
 // 
+// private void printMap(HashMap<TreeNode, Integer> map) {
+//     for(TreeNode node:map.keySet()) {
+//         Integer value = map.get(node);
+//         printString("key:" + node.val + ",value:" + value);
+//     }
+// }
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg + ","); 
 // } 
@@ -114,85 +157,55 @@ import java.util.regex.*;
 //     }
 // } 
 
-class Pair {
-    int key;
-    int value;
-    Pair(int key, int value) { this.key = key; this.value = value; }
-}
-
-// 245. Subtree 
-public class LC347 {
-
-
-/***
-    607    private void siftUpUsingComparator(int k, E x) {
-    608        while (k > 0) {
-    609            int parent = (k - 1) >>> 1;
-    610            Object e = queue[parent];
-    611            if (comparator.compare(x, (E) e) >= 0)
-    612                break;
-    613            queue[k] = e;
-    614            k = parent;
-    615        }
-    616        queue[k] = x;
-    617    }
-*/
-
-    public List<Integer> topKFrequent(int[] nums, int k) {
-        List<Integer> res = new ArrayList<Integer>();
-        if(nums.length == 0) {
-            return res;
-        }
-
-        PriorityQueue<Pair> pq = new PriorityQueue<Pair>(k, new Comparator<Pair>(){
-            public int compare(Pair a, Pair b){
-                if(a.value > b.value) {
-                    return 1;
-                } else if (a.value == b.value) {
-                    return 0;
-                }
-                return -1;
-            }
-        });
-
-        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
-        for(int i = 0; i < nums.length; i++) {
-            if(hashMap.containsKey(nums[i]) == false) {
-                hashMap.put(nums[i], 1);
-            } else {
-                int count = hashMap.get(nums[i]);
-                hashMap.put(nums[i], ++count);
-            }
-        }
-
-        for(Integer num : hashMap.keySet()) {
-            int value = hashMap.get(num);
-            pq.offer(new Pair(num, value));
-            if(pq.size() > k) {
-                pq.poll();
-            }
-        }
-
-        while(!pq.isEmpty()) {
-            res.add(pq.poll().key);
-        }
-        // printList(res);
-        return res;
-    }
-
-private void printList(List<Integer> list) {
-    for(Integer s: list) {
-        System.out.println(s);
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
     }
 }
 
-    private void printMap(Map<Integer, Integer> map) {
-        for(Integer key:map.keySet()) {
-            Integer value = map.get(key);
-            printString("key:" + key + ",value:" + value);
+public class LC2 {
+
+    public ListNode addTwoNumbers(ListNode head) {
+        ListNode head = new ListNode(0);
+        int carry = 0;
+        int sum = 0;
+        ListNode ptr = head;
+        while(l1 != null && l2 != null) {
+            sum = (l1.val + l2.val + carry) % 10;
+            carry = (l1.val + l2.val + carry) / 10;
+            ListNode node = new ListNode(sum);
+            ptr.next = node;
+            l1 = l1.next;
+            l2 = l2.next;
+            ptr = ptr.next;
         }
+        while(l1 != null) {
+            sum = (l1.val + carry) % 10;
+            carry = (l1.val + carry) / 10;
+            ListNode node = new ListNode(sum);
+            ptr.next = node;
+            ptr = ptr.next;
+            l1 = l1.next;
+        }
+        while(l2 != null) {
+            sum = (l2.val + carry) % 10;
+            carry = (l2.val + carry) / 10;
+            ListNode node = new ListNode(sum);
+            ptr.next = node;
+            ptr = ptr.next;
+            l2 = l2.next;
+        } 
+        if(carry == 1) {
+            ListNode node = new ListNode(carry);
+            ptr.next = node;
+        }
+        return head.next;
     }
 
+    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -202,25 +215,16 @@ private void printList(List<Integer> list) {
         System.out.println(arg); 
     }    
 
-    private void printArray(int[] list) {
-        printStringWithoutNewLine("[");
-        int i = 0;
-        for(int n : list) {
-            printStringWithoutNewLine("[" + i + "]" + n + ", ");
-            i++;
-        }
-        printStringWithoutNewLine("]\n");
-    } 
-
-    private void printStringWithoutNewLine(String arg) {
-        System.out.print(arg + ","); 
-    } 
-
+	private void printList(int[] list, int length) {
+		for(int i = 0; i < length; i ++ ){
+			System.out.println(list[i]);
+		}
+	}    
 
 	public static void main(String[] args) {
-		LC347 obj = new LC347();
-        int[] list = new int[]{1,1,1,2,2,3};
-		obj.topKFrequent(list, 2);
+		LC2 obj = new LC2();
+		ListNode head = new ListNode(2);
+		System.out.println(obj.addTwoNumbers(head));
 	}
 
 }
