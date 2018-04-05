@@ -17,6 +17,19 @@
 
 @implementation LC49
 
+/**
+ 49. Group Anagrams
+ Given an array of strings, group anagrams together.
+ 
+ For example, given: ["eat", "tea", "tan", "ate", "nat", "bat"],
+ Return:
+ 
+ [
+ ["ate", "eat","tea"],
+ ["nat","tan"],
+ ["bat"]
+ ]
+ */
 - (NSArray *)groupAnagrams:(char **)strs size:(int)size {
     if(size == 0) {
         return [NSArray array];
