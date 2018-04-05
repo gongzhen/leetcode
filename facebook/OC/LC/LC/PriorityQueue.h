@@ -10,6 +10,7 @@
 
 @interface PriorityQueue <__covariant ObjectType> : NSObject
 
+@property (assign) NSInteger size;
 @property (copy, nonatomic) NSComparator comparator;
 
 - (instancetype)initWithCapacity:(NSInteger)capacity;

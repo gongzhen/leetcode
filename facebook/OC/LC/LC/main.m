@@ -10,6 +10,7 @@
 #import "LC999.h"
 #import "LC998.h"
 #import "LC997.h"
+#import "LC996.h"
 #import "LC498.h"
 #import "LC127.h"
 #import "LC173.h"
@@ -254,14 +255,11 @@ int main(int argc, const char * argv[]) {
 //        [lc127 test];
 //        LC95 *lc95 = [[LC95 alloc] init];
 //        [lc95 test];
-        LCTree *tree = [[LCTree alloc] init];
-        DLog(@"%ld", CFGetRetainCount((__bridge CFTypeRef)(tree)));
-        LCTree *treeB = tree;
-        DLog(@"%ld", CFGetRetainCount((__bridge CFTypeRef)(tree)));
-        DLog(@"%ld", CFGetRetainCount((__bridge CFTypeRef)(treeB)));
-        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
-        [lc173 test];
-
+//        LCTree *tree = [[LCTree alloc] init];
+//        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
+//        [lc173 test];
+        LC996 *lc996 = [[LC996 alloc] init];
+        [lc996 test];
 
     }
     return 0;
