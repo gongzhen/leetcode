@@ -170,8 +170,8 @@ int main(int argc, const char * argv[]) {
 //        [lc57 test];
 //        LC238 *lc238 = [[LC238 alloc] init];
 //        [lc238 test];
-//        LC75 *lc75 = [[LC75 alloc] init];
-//        [lc75 test];
+        LC75 *lc75 = [[LC75 alloc] init];
+        [lc75 test];
 //        LC33 *lc33 = [[LC33 alloc] init];
 //        [lc33 test];
 //        LC88 *lc88 = [[LC88 alloc] init];
@@ -258,8 +258,8 @@ int main(int argc, const char * argv[]) {
 //        LCTree *tree = [[LCTree alloc] init];
 //        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
 //        [lc173 test];
-        LC996 *lc996 = [[LC996 alloc] init];
-        [lc996 test];
+//        LC996 *lc996 = [[LC996 alloc] init];
+//        [lc996 test];
 
     }
     return 0;
