@@ -18,20 +18,31 @@
 
 - (int *)productExceptSelf:(int *)nums numsSize:(int)numsSize returnSize:(int *)returnSize;
 {
-    int product = 1;
-    for(int i = 0; i < numsSize; i++) {
-        returnSize[i] = product;
-        product *= nums[i];
+    returnSize[0] = 1;
+    ///      1,   2,   3,   4
+    ///   1, 1*1, 1*2  2*3
+    /// left side of 1 has no number, so only 1.
+    
+    for(int i = 1; i < numsSize; i++) {
+        /// Collect product from left side.
+        returnSize[i] = nums[i - 1] * returnSize[i - 1];
     }
     
-    product = 1;
     for(int i = 0; i < 4; i++) {
+        /// 1, 1, 2, 6
         DLog(@"%d", returnSize[i]);
     }
     
+    int right = 1; /// right side of 4 has no number, so only 1
+    /// 1,      2,      3,              4
+    /// 1       1       2               6
+    ///                                 1 * 6 = 6, right = 1 * 4 = 4
+    /// 1       1      2*right(4)=8 right=right*3=12
+    /// 1       1*12=12 right=right*2=12
+    /// 1*24=24
     for(int i = numsSize - 1; i >= 0; i--) {
-        returnSize[i] = product * returnSize[i];
-        product *= nums[i];
+        returnSize[i] = right * returnSize[i];
+        right *= nums[i];
     }
  
     return returnSize;
