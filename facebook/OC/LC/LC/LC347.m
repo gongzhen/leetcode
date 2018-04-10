@@ -16,6 +16,17 @@
 
 @implementation LC347
 
+/**
+ 347. Top K Frequent Elements
+ Given a non-empty array of integers, return the k most frequent elements.
+ 
+ For example,
+ Given [1,1,1,2,2,3] and k = 2, return [1,2].
+ 
+ Note:
+ You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
+ Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+ */
 - (NSArray *)topKFrequent:(int *)nums size:(int)size k:(int)k {
     if(size == 0) {
         return [NSArray array];
@@ -42,17 +53,17 @@
         [[bucket objectAtIndex:[freq intValue]] addObject:number];
     }];
     
-    [bucket enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull numbers, NSUInteger freq, BOOL * _Nonnull stop) {
-        if(numbers.count == 0) {
-            DLog(@"freq:%ld has no element.", freq);
-        } else {
-            DLog(@"freq:%ld", freq);
-            [numbers enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull num, NSUInteger idx, BOOL * _Nonnull stop) {
-                DLog(@"frequence:%d", [num intValue]);
-            }];
-            DLog(@"----------------------------------");
-        }
-    }];
+//    [bucket enumerateObjectsUsingBlock:^(NSMutableArray * _Nonnull numbers, NSUInteger freq, BOOL * _Nonnull stop) {
+//        if(numbers.count == 0) {
+//            DLog(@"freq:%ld has no element.", freq);
+//        } else {
+//            DLog(@"freq:%ld", freq);
+//            [numbers enumerateObjectsUsingBlock:^(NSNumber *  _Nonnull num, NSUInteger idx, BOOL * _Nonnull stop) {
+//                DLog(@"frequence:%d", [num intValue]);
+//            }];
+//            DLog(@"----------------------------------");
+//        }
+//    }];
     
     NSMutableArray *res = [NSMutableArray array];
     

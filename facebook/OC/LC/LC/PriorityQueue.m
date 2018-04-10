@@ -10,8 +10,6 @@
 
 @interface PriorityQueue()
 
-@property (assign) NSInteger size;
-
 @end
 
 @implementation PriorityQueue {

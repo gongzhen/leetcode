@@ -114,15 +114,14 @@ import java.util.regex.*;
 //     }
 // } 
 
-class Point {
-    int x;
-    int y;
-    Point() { x = 0; y = 0; }
-    Point(int s, int e) { x = s; y = e; }
+class Pair {
+    int key;
+    int value;
+    Pair(int key, int value) { this.key = key; this.value = value; }
 }
 
 // 245. Subtree 
-public class LC999 {
+public class LC347 {
 
 
 /***
@@ -139,51 +138,53 @@ public class LC999 {
     617    }
 */
 
-    public List<Point> findKClosest(Point[] points, int k) {             
-        PriorityQueue<Point> pq = new PriorityQueue<Point>(points.length, new Comparator<Point>(){
-            /// a - b > 0 is min Heap
-            /// b - a > 0 is max Heap
-            public int compare(Point a, Point b) {   
-                /// previous point b: new coming point: a
-                if(b.x * b.x + b.y * b.y > a.x * a.x + a.y * a.y) {
-                    printString("b.x:" + b.x + ", b.y:" + b.y + " > " + "a.x:" + a.x + ", a.y:" + a.y);
-                	return 1;
-                } else if (b.x * b.x + b.y * b.y == a.x * a.x + a.y * a.y) {
-                    printString("b.x:" + b.x + ", b.y:" + b.y + " == " + "a.x:" + a.x + ", a.y:" + a.y);
-                	return 0;
-                } 
-                printString("b.x:" + b.x + ", b.y:" + b.y + " < " + "a.x:" + a.x + ", a.y:" + a.y);
+    public List<Integer> topKFrequent(int[] nums, int k) {
+        List<Integer> res = new ArrayList<Integer>();
+        if(nums.length == 0) {
+            return res;
+        }
+
+        PriorityQueue<Pair> pq = new PriorityQueue<Pair>(k, new Comparator<Pair>(){
+            public int compare(Pair a, Pair b){
+                if(a.value > b.value) {
+                    return 1;
+                } else if (a.value == b.value) {
+                    return 0;
+                }
                 return -1;
             }
         });
 
-        
-        for(int i = 0; i < points.length; i++) {
-            if(i < k) {
-                printString("line 146 points[i:" + i + "].x:" + points[i].x + ", points[i:" + i + "].y:" + points[i].y);
-                pq.offer(points[i]);
+        Map<Integer, Integer> hashMap = new HashMap<Integer, Integer>();
+        for(int i = 0; i < nums.length; i++) {
+            if(hashMap.containsKey(nums[i]) == false) {
+                hashMap.put(nums[i], 1);
             } else {
-                Point top = pq.peek();
-                if((points[i].x * points[i].x + points[i].y * points[i].y) < (top.x * top.x + top.y * top.y)) {
-                    printString("line 151 points[i:" + i + "].x:" + points[i].x + ", points[i:" + i + "].y:" + points[i].y + ",top.x:" + top.x + " ,top.y:" + top.y);
-                	pq.poll();
-                	pq.offer(points[i]);
-                }
+                int count = hashMap.get(nums[i]);
+                hashMap.put(nums[i], ++count);
             }
         }
 
-        List<Point> res = new ArrayList<Point>();
+        for(Integer num : hashMap.keySet()) {
+            int value = hashMap.get(num);
+            pq.offer(new Pair(num, value));
+            if(pq.size() > k) {
+                pq.poll();
+            }
+        }
+
         while(!pq.isEmpty()) {
-            Point p = pq.peek();
-            printString("line 161 p.x:" + p.x + ", p.y:" + p.y);
-        	res.add(pq.poll());
+            res.add(pq.poll().key);
         }
-        for(Point p : res) {
-            printString("line 165 p.x:" + p.x + ", p.y:" + p.y);
-        }
+        // printList(res);
         return res;
     }
 
+private void printList(List<Integer> list) {
+    for(Integer s: list) {
+        System.out.println(s);
+    }
+}
 
     private void printMap(Map<Integer, Integer> map) {
         for(Integer key:map.keySet()) {
@@ -217,15 +218,9 @@ public class LC999 {
 
 
 	public static void main(String[] args) {
-		LC999 obj = new LC999();
-        Point p1 = new Point(1, 3);
-		Point p2 = new Point(4, 3);        
-		Point p3 = new Point(2, 5);        		
-		Point p4 = new Point(2, 3);        		
-		Point p5 = new Point(3, 2);
-		Point p6 = new Point(3, 8);
-		Point[] list = new Point[]{p1, p2, p3, p4, p5, p6};
-		obj.findKClosest(list, 3);
+		LC347 obj = new LC347();
+        int[] list = new int[]{1,1,1,2,2,3};
+		obj.topKFrequent(list, 2);
 	}
 
 }

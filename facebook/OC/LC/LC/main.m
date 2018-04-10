@@ -10,6 +10,7 @@
 #import "LC999.h"
 #import "LC998.h"
 #import "LC997.h"
+#import "LC996.h"
 #import "LC498.h"
 #import "LC127.h"
 #import "LC173.h"
@@ -167,8 +168,8 @@ int main(int argc, const char * argv[]) {
 //        [lc139 test];
 //        LC57 *lc57 = [[LC57 alloc] init];
 //        [lc57 test];
-//        LC238 *lc238 = [[LC238 alloc] init];
-//        [lc238 test];
+        LC238 *lc238 = [[LC238 alloc] init];
+        [lc238 test];
 //        LC75 *lc75 = [[LC75 alloc] init];
 //        [lc75 test];
 //        LC33 *lc33 = [[LC33 alloc] init];
@@ -254,10 +255,11 @@ int main(int argc, const char * argv[]) {
 //        [lc127 test];
 //        LC95 *lc95 = [[LC95 alloc] init];
 //        [lc95 test];
-        LCTree *tree = [[LCTree alloc] init];
-        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
-        [lc173 test];
-
+//        LCTree *tree = [[LCTree alloc] init];
+//        LC173 *lc173 = [[LC173 alloc] initWithRoot:[tree bst]];
+//        [lc173 test];
+//        LC996 *lc996 = [[LC996 alloc] init];
+//        [lc996 test];
     }
     return 0;
 }

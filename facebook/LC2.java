@@ -4,7 +4,12 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-
+// class TreeNode {
+//  int val;
+//  TreeNode left;
+//  TreeNode right;
+//  TreeNode(int x) { val = x; }
+// }
 // class ListNode {
 //     int val;
 //     ListNode next;
@@ -13,11 +18,43 @@ import java.util.regex.*;
 //         next = null;
 //     }
 // }
-
+// class Interval {
+//     int start;
+//     int end;
+//     Interval() { start = 0; end = 0; }
+//     Interval(int s, int e) { start = s; end = e; }
+// }
+// private TreeNode createTree() {
+//  //       5
+//  //    2      7
+//  //  1   3      10
+//  TreeNode node5 = new TreeNode(5);
+//  TreeNode node2 = new TreeNode(2);
+//  TreeNode node1 = new TreeNode(1);
+//  TreeNode node7 = new TreeNode(7);
+//  TreeNode node10 = new TreeNode(10);
+//  node5.left = node2;
+//  node5.right = node7;
+//  node2.left = node1;
+//  node2.right = node3;
+//  node5.right = node7;
+//  node7.right = node10; 
+//  return node5;
+// }
 // private void printList(List<String> list) {
 //  for(String s: list) {
 //      System.out.println(s);
 //  }
+// }
+// private void printListMap(Map<Integer, List<Integer>> map) {
+//     for(Integer key:map.keySet()) {
+//         List<Integer> list = map.get(key);
+//         printStringWithoutNewLine("key:" + key + "[");   
+//         for(int n : list) {
+//             printStringWithoutNewLine(n + ", ");    
+//         }
+//         printString("]");               
+//     }
 // }
 // private void printQueue(Queue<String> list) {
 //  for(String s: list) {
@@ -56,6 +93,12 @@ import java.util.regex.*;
 //     System.out.println("---------------------"); 
 // }  
 // 
+// private void printMap(HashMap<TreeNode, Integer> map) {
+//     for(TreeNode node:map.keySet()) {
+//         Integer value = map.get(node);
+//         printString("key:" + node.val + ",value:" + value);
+//     }
+// }
 // private void printStringWithoutNewLine(String arg) {
 //     System.out.print(arg + ","); 
 // } 
@@ -114,84 +157,55 @@ import java.util.regex.*;
 //     }
 // } 
 
-class Point {
-    int x;
-    int y;
-    Point() { x = 0; y = 0; }
-    Point(int s, int e) { x = s; y = e; }
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
 }
 
-// 245. Subtree 
-public class LC999 {
+public class LC2 {
 
-
-/***
-    607    private void siftUpUsingComparator(int k, E x) {
-    608        while (k > 0) {
-    609            int parent = (k - 1) >>> 1;
-    610            Object e = queue[parent];
-    611            if (comparator.compare(x, (E) e) >= 0)
-    612                break;
-    613            queue[k] = e;
-    614            k = parent;
-    615        }
-    616        queue[k] = x;
-    617    }
-*/
-
-    public List<Point> findKClosest(Point[] points, int k) {             
-        PriorityQueue<Point> pq = new PriorityQueue<Point>(points.length, new Comparator<Point>(){
-            /// a - b > 0 is min Heap
-            /// b - a > 0 is max Heap
-            public int compare(Point a, Point b) {   
-                /// previous point b: new coming point: a
-                if(b.x * b.x + b.y * b.y > a.x * a.x + a.y * a.y) {
-                    printString("b.x:" + b.x + ", b.y:" + b.y + " > " + "a.x:" + a.x + ", a.y:" + a.y);
-                	return 1;
-                } else if (b.x * b.x + b.y * b.y == a.x * a.x + a.y * a.y) {
-                    printString("b.x:" + b.x + ", b.y:" + b.y + " == " + "a.x:" + a.x + ", a.y:" + a.y);
-                	return 0;
-                } 
-                printString("b.x:" + b.x + ", b.y:" + b.y + " < " + "a.x:" + a.x + ", a.y:" + a.y);
-                return -1;
-            }
-        });
-
-        
-        for(int i = 0; i < points.length; i++) {
-            if(i < k) {
-                printString("line 146 points[i:" + i + "].x:" + points[i].x + ", points[i:" + i + "].y:" + points[i].y);
-                pq.offer(points[i]);
-            } else {
-                Point top = pq.peek();
-                if((points[i].x * points[i].x + points[i].y * points[i].y) < (top.x * top.x + top.y * top.y)) {
-                    printString("line 151 points[i:" + i + "].x:" + points[i].x + ", points[i:" + i + "].y:" + points[i].y + ",top.x:" + top.x + " ,top.y:" + top.y);
-                	pq.poll();
-                	pq.offer(points[i]);
-                }
-            }
+    public ListNode addTwoNumbers(ListNode head) {
+        ListNode head = new ListNode(0);
+        int carry = 0;
+        int sum = 0;
+        ListNode ptr = head;
+        while(l1 != null && l2 != null) {
+            sum = (l1.val + l2.val + carry) % 10;
+            carry = (l1.val + l2.val + carry) / 10;
+            ListNode node = new ListNode(sum);
+            ptr.next = node;
+            l1 = l1.next;
+            l2 = l2.next;
+            ptr = ptr.next;
         }
-
-        List<Point> res = new ArrayList<Point>();
-        while(!pq.isEmpty()) {
-            Point p = pq.peek();
-            printString("line 161 p.x:" + p.x + ", p.y:" + p.y);
-        	res.add(pq.poll());
+        while(l1 != null) {
+            sum = (l1.val + carry) % 10;
+            carry = (l1.val + carry) / 10;
+            ListNode node = new ListNode(sum);
+            ptr.next = node;
+            ptr = ptr.next;
+            l1 = l1.next;
         }
-        for(Point p : res) {
-            printString("line 165 p.x:" + p.x + ", p.y:" + p.y);
+        while(l2 != null) {
+            sum = (l2.val + carry) % 10;
+            carry = (l2.val + carry) / 10;
+            ListNode node = new ListNode(sum);
+            ptr.next = node;
+            ptr = ptr.next;
+            l2 = l2.next;
+        } 
+        if(carry == 1) {
+            ListNode node = new ListNode(carry);
+            ptr.next = node;
         }
-        return res;
+        return head.next;
     }
 
-
-    private void printMap(Map<Integer, Integer> map) {
-        for(Integer key:map.keySet()) {
-            Integer value = map.get(key);
-            printString("key:" + key + ",value:" + value);
-        }
-    }
-
+    private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private void printLine() {
     	System.out.println("---------------------"); 
@@ -201,31 +215,16 @@ public class LC999 {
         System.out.println(arg); 
     }    
 
-    private void printArray(int[] list) {
-        printStringWithoutNewLine("[");
-        int i = 0;
-        for(int n : list) {
-            printStringWithoutNewLine("[" + i + "]" + n + ", ");
-            i++;
-        }
-        printStringWithoutNewLine("]\n");
-    } 
-
-    private void printStringWithoutNewLine(String arg) {
-        System.out.print(arg + ","); 
-    } 
-
+	private void printList(int[] list, int length) {
+		for(int i = 0; i < length; i ++ ){
+			System.out.println(list[i]);
+		}
+	}    
 
 	public static void main(String[] args) {
-		LC999 obj = new LC999();
-        Point p1 = new Point(1, 3);
-		Point p2 = new Point(4, 3);        
-		Point p3 = new Point(2, 5);        		
-		Point p4 = new Point(2, 3);        		
-		Point p5 = new Point(3, 2);
-		Point p6 = new Point(3, 8);
-		Point[] list = new Point[]{p1, p2, p3, p4, p5, p6};
-		obj.findKClosest(list, 3);
+		LC2 obj = new LC2();
+		ListNode head = new ListNode(2);
+		System.out.println(obj.addTwoNumbers(head));
 	}
 
 }
