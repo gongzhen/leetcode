@@ -160,35 +160,46 @@ class TreeNode {
     TreeNode(int x) { val = x; }
 }
 
-public class Solution1 {
+public class Solution3 {
 
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int len = nums1.length + nums2.length;
-        if(len % 2 == 0) { /// find the sum of two median and divied by 2.         
-            return (divide(nums1, 0, nums2, 0, len / 2) + divide(nums1, 0, nums2, 0, len / 2 + 1)) / 2;
+        if (len % 2 == 1) {
+            return divide(nums1, 0, nums2, 0, len / 2 + 1);
         }
-        return divide(nums1, 0, nums2, 0, len / 2 + 1);
+        return (divide(nums1, 0, nums2, 0, len / 2) + divide(nums1, 0, nums2, 0, len / 2 + 1)) / 2.0;
     }
     
-    public double divide(int[] nums1, int start1, int[] nums2, int start2, int k) {
-        if(start1 >= nums1.length) {
-            return nums2[start2 + k - 1];
-        }
-        if(start2 >= nums2.length) {
-            return nums1[start1 + k - 1];
+    
+    // find kth number of two sorted array
+    public int divide(int[] A, int A_start, int[] B, int B_start, int k){
+        int i = A_start;
+        int j = B_start;
+        int kth = k;
+        while(i < A.length && j < B.length) {
+            if (kth == 1) {
+                break;
+            }
+            
+            int A_key = i + kth / 2 - 1 < A.length ? A[i + kth / 2 - 1] : Integer.MAX_VALUE;
+            int B_key = j + kth / 2 - 1 < B.length ? B[j + kth / 2 - 1] : Integer.MAX_VALUE; 
+            
+            if (A_key < B_key) {
+                i = i + kth / 2; 
+            } else {
+                j = j + kth / 2;
+            }   
+            kth = kth - kth / 2;
         }
         
-        if(k == 1) {
-            return Math.min(nums1[start1], nums2[start2]);
+        if (i >= A.length) {
+            return B[j + kth - 1];
         }
-        
-        int middleA = start1 + k / 2 - 1 < nums1.length ? nums1[start1 + k / 2 - 1] : Integer.MAX_VALUE;
-        int middleB = start2 + k / 2 - 1 < nums2.length ? nums2[start2 + k / 2 - 1] : Integer.MAX_VALUE;
-        if(middleA < middleB) {
-            return divide(nums1, start1 + k / 2, nums2, start2, k - k / 2);
-        }
-        return divide(nums1, start1, nums2, start2 + k / 2, k - k / 2);
-    }
+        if (j >= B.length) {
+            return A[i + kth - 1];
+        }        
+        return Math.min(A[i], B[j]);                      
+    } 
     private int[][] direction = new int[][]{{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
 
     private void printLine() {
@@ -206,7 +217,7 @@ public class Solution1 {
 	}    
 
 	public static void main(String[] args) {
-		Solution1 obj = new Solution1();
+		Solution3 obj = new Solution3();
         int[] list1 = new int[]{1, 2};
         int[] list2 = new int[]{3, 4};
         double res = obj.findMedianSortedArrays(list1, list2);

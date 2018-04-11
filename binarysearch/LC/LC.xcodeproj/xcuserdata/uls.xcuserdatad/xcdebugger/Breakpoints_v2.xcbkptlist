@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LC/LC4.m"
+            timestampString = "545108479.387253"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-divide_2:start1:len1:nums2:start2:len2:k:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LC4 divide_2:start1:len1:nums2:start2:len2:k:]"
+                  moduleName = "LC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uls/Projects/leetcode/binarysearch/LC/LC/LC4.m"
+                  timestampString = "545108479.705651"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "599">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LC4 divide_2:start1:len1:nums2:start2:len2:k:]"
+                  moduleName = "LC"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/uls/Projects/leetcode/binarysearch/LC/LC/LC4.m"
+                  timestampString = "545108479.707384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "671">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

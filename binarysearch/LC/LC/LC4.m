@@ -12,16 +12,64 @@
 
 - (double)findMedianSortedArrays:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
 - (double)findMedianSortedArrays_1:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
+- (double)findMedianSortedArrays_2:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
 
 @end
 
 @implementation LC4
 
+- (double)findMedianSortedArrays_2:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2 {
+    int len = len1 + len2;
+    if(len % 2 == 0) {
+        /// 1, 3
+        /// 2, 4
+        /// 1, 2, 3, 4 count = 4
+        /// need to find k = 2 and k = 3 largest numbers and find the median of 2th and 3th.
+        /// 2 = len / 2, 3 = len / 2 + 1
+        return ([self divide_2:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2] + [self divide_2:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2 + 1]) / 2;
+    }
+    /// For odd number of length, k = len / 2 + 1.
+    return [self divide_2:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2 + 1];
+}
+
+- (double)divide_2:(int *)nums1 start1:(int)start1 len1:(int)len1 nums2:(int *)nums2 start2:(int)start2 len2:(int)len2 k:(int)k {
+    int i = start1;
+    int j = start2;
+    int kth = k;
+    while(i < len1 && j < len2) {
+        if(kth == 1) {
+            break;
+        }
+        NSInteger m1 = i + kth / 2 - 1 < len1 ? nums1[i + kth / 2 - 1] : NSIntegerMax;
+        NSInteger m2 = j + kth / 2 - 1 < len2 ? nums2[j + kth / 2 - 1] : NSIntegerMax;
+        if(m1 > m2) {
+            j = j + kth / 2;
+        } else {
+            i = i + kth / 2;
+        }
+        kth = kth - kth / 2;
+    }
+    
+    if(i >= len1) {
+        return nums2[j + kth - 1];
+    }
+    if(j >= len2) {
+        return nums1[i + kth - 1];
+    }
+    return MIN(nums1[i], nums2[j]);
+}
+
 - (double)findMedianSortedArrays_1:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2 {
     int len = len1 + len2;
     if(len % 2 == 0) {
+        /// 1, 3
+        /// 2, 4
+        /// 1, 2, 3, 4 count = 4
+        /// need to find k = 2 and k = 3 largest numbers and find the median of 2th and 3th.
+        /// 2 = len / 2, 3 = len / 2 + 1
         return ([self divide_1:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2] + [self divide_1:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2 + 1]) / 2;
     }
+    /// For odd number of length, k = len / 2 + 1.
     return [self divide_1:nums1 start1:0 len1:len1 nums2:nums2 start2:0 len2:len2 k:len / 2 + 1];
 }
 
@@ -100,11 +148,17 @@
 //    int* num2 = n2;
 //    double res = [self findMedianSortedArrays:num1 len1:2 nums2:num2 len2:4];
 //    DLog(@"res:%.2f", res);
-    int n1[0] = {};
+//    int n1[0] = {};
+//    int* num1 = n1;
+//    int n2[1] = {1};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays_1:num1 len1:0 nums2:num2 len2:1];
+//    DLog(@"res:%.2f", res);
+    int n1[2] = {1, 2};
     int* num1 = n1;
-    int n2[1] = {1};
+    int n2[4] = {3, 4};
     int* num2 = n2;
-    double res = [self findMedianSortedArrays_1:num1 len1:0 nums2:num2 len2:1];
+    double res = [self findMedianSortedArrays_2:num1 len1:2 nums2:num2 len2:2];
     DLog(@"res:%.2f", res);
 }
 
