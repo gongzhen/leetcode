@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D19364C207E408000490F8D /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19364B207E408000490F8D /* BlockTest.m */; };
+		3DAA7B31207F054B0053109A /* RetainCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA7B30207F054B0053109A /* RetainCount.m */; };
+		3DAA7B34207FF1630053109A /* GCDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA7B33207FF1630053109A /* GCDTest.m */; };
 		3DAA8AFD207B01E10089BB60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8AFC207B01E10089BB60 /* main.m */; };
 		3DAA8B05207B022C0089BB60 /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B03207B022C0089BB60 /* LC.m */; };
 		3DAA8B08207B02400089BB60 /* LC42.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B07207B02400089BB60 /* LC42.m */; };
@@ -27,6 +30,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D19364A207E408000490F8D /* BlockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockTest.h; sourceTree = "<group>"; };
+		3D19364B207E408000490F8D /* BlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockTest.m; sourceTree = "<group>"; };
+		3DAA7B2F207F054B0053109A /* RetainCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RetainCount.h; sourceTree = "<group>"; };
+		3DAA7B30207F054B0053109A /* RetainCount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RetainCount.m; sourceTree = "<group>"; };
+		3DAA7B32207FF1630053109A /* GCDTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDTest.h; sourceTree = "<group>"; };
+		3DAA7B33207FF1630053109A /* GCDTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDTest.m; sourceTree = "<group>"; };
 		3DAA8AF9207B01E10089BB60 /* LC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LC; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DAA8AFC207B01E10089BB60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3DAA8B03207B022C0089BB60 /* LC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LC.m; sourceTree = "<group>"; };
@@ -79,6 +88,12 @@
 				3DAA8B0E207C97F70089BB60 /* LC48.m */,
 				3DAA8B13207D405B0089BB60 /* LC36.h */,
 				3DAA8B14207D405B0089BB60 /* LC36.m */,
+				3D19364A207E408000490F8D /* BlockTest.h */,
+				3D19364B207E408000490F8D /* BlockTest.m */,
+				3DAA7B2F207F054B0053109A /* RetainCount.h */,
+				3DAA7B30207F054B0053109A /* RetainCount.m */,
+				3DAA7B32207FF1630053109A /* GCDTest.h */,
+				3DAA7B33207FF1630053109A /* GCDTest.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -143,8 +158,11 @@
 			files = (
 				3DAA8B15207D405B0089BB60 /* LC36.m in Sources */,
 				3DAA8B0F207C97F70089BB60 /* LC48.m in Sources */,
+				3DAA7B34207FF1630053109A /* GCDTest.m in Sources */,
 				3DAA8B05207B022C0089BB60 /* LC.m in Sources */,
+				3D19364C207E408000490F8D /* BlockTest.m in Sources */,
 				3DAA8AFD207B01E10089BB60 /* main.m in Sources */,
+				3DAA7B31207F054B0053109A /* RetainCount.m in Sources */,
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
