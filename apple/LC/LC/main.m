@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
         GCDTest *gcdTest = [[GCDTest alloc] init];
-        [gcdTest test];
+        [gcdTest test];        
     }
     return 0;
 }
