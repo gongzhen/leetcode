@@ -22,10 +22,10 @@ int main(int argc, const char * argv[]) {
 //        [lc48 test];
 //        BlockTest *blockTest = [[BlockTest alloc] init];
 //        [blockTest test];
-//        RetainCount *retainCount = [[RetainCount alloc] init];
-//        [retainCount test];
-        GCDTest *gcdTest = [[GCDTest alloc] init];
-        [gcdTest test];
+        RetainCount *retainCount = [[RetainCount alloc] init];
+        [retainCount test];
+//        GCDTest *gcdTest = [[GCDTest alloc] init];
+//        [gcdTest test];
     }
     return 0;
 }
