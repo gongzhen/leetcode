@@ -74,6 +74,14 @@
     s = "aab";
     p = "c*a*b";
     DLog(@"res:%d", [self isMatch:s p:p]);
+    
+    s = "adceb";
+    p = "*a*b";
+    DLog(@"res:%d", [self isMatch:s p:p]);
+    
+    s = "acdcb";
+    p = "a*c?b";
+    DLog(@"res:%d", [self isMatch:s p:p]);
 }
 
 @end
