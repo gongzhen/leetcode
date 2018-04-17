@@ -17,6 +17,7 @@
 #import "LC38.h"
 #import "LC68.h"
 #import "LC745.h"
+#import "LC269.h"
 #import "LC257.h"
 #import "LC146.h"
 #import "LC283.h"
@@ -270,9 +271,12 @@ int main(int argc, const char * argv[]) {
 //        [lc102 test];
 //        LC68 *lc68 = [[LC68 alloc] init];
 //        [lc68 test];
-        char* words[2] = {"apple"};
-        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
-        [lc745 test];
+//        char* words[2] = {"apple"};
+//        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
+//        [lc745 test];
+        LC269 *lc269 = [[LC269 alloc] init];
+        [lc269 test];
+
     }
     return 0;
 }
