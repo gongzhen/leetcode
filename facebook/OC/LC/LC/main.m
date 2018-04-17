@@ -270,9 +270,9 @@ int main(int argc, const char * argv[]) {
 //        [lc102 test];
 //        LC68 *lc68 = [[LC68 alloc] init];
 //        [lc68 test];
-        LC745 *lc745 = [[LC745 alloc] init];
+        char* words[2] = {"apple"};
+        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
         [lc745 test];
-
     }
     return 0;
 }

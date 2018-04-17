@@ -14,7 +14,6 @@
 @property (strong, nonatomic) TrieNode *root;
 
 - (void)insert:(NSString *)word;
-- (void)insert:(NSString *)word index:(int)index;
 - (BOOL)search:(NSString *)word;
 - (BOOL)startWith:(NSString *)prefix;
     

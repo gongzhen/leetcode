@@ -7,10 +7,11 @@
 //
 
 #import "LC745.h"
+#import "IndexTrie.h"
 
 @interface LC745()
 
-@property(strong, nonatomic) Trie* trie;
+@property(strong, nonatomic) IndexTrie* trie;
 
 @end
 
@@ -18,18 +19,30 @@
 
 - (instancetype)initWithWords:(char **)words {
     if(self = [super init]) {
+        _trie = [[IndexTrie alloc] init];
         int len = sizeof(words) / sizeof(words[0]);
         for(int i = 0; i < len; i++) {
-            
+            NSString* key = [NSString stringWithFormat:@"{%s",words[i]];
+            [_trie insert:key index:i];
+            NSInteger len = strlen(words[i]);
+            for(int j = 0; j < len; j++) {
+                key = [NSString stringWithFormat:@"%c%@", words[i][len - j - 1], key];
+                DLog(@"key:%@", key);
+                [_trie insert:key index:i];
+            }
         }
     }
     return self;
 }
 
+- (int)f:(NSString *)prefix suffix:(NSString *)suffix {
+    NSString *key = [NSString stringWithFormat:@"%@{%@", suffix, prefix];
+    return [_trie startWith:key];
+}
+
 - (void)test {
-    char* words[2] = {"apple", "abc"};
-    int len = sizeof(words) / sizeof(words[0]);
-    DLog(@"%d", len);
+    int res = [self f:@"a" suffix:@"e"];
+    DLog(@"res:%d", res);
 }
 
 @end
