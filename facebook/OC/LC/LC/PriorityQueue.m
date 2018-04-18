@@ -54,7 +54,6 @@ static int DEFAULT_INITIAL_CAPACITY = 11;
     DLog(@"PriorityQueue_pointer dealloc");
 }
 
-
 - (BOOL)offer:(id)e {
     if(e == NULL) {
         return NO;
@@ -84,6 +83,47 @@ static int DEFAULT_INITIAL_CAPACITY = 11;
         return NULL;
     }
     return (__bridge id)(_pointer[0]);
+}
+
+- (BOOL)remove:(id)e {
+    int i = [self indexOf:e];
+    if(i == -1) {
+        return NO;
+    }
+    [self removeAt:i];
+    return YES;
+}
+
+- (id)removeAt:(int)idx {
+    if(idx < 0 || idx >= _size) {
+        return NULL;
+    }
+    long int s = --_size;
+    if(s == idx) {
+        _pointer[s] = NULL;
+    } else {
+        id moved = (__bridge id)(_pointer[s]);
+        _pointer[s] = NULL;
+        [self siftDown:idx x:moved];
+        if(_pointer[idx] == (__bridge void *)(moved)) {
+            [self siftUp:idx x:moved];
+            if(_pointer[idx] != (__bridge void *)(moved)) {
+                return moved;
+            }
+        }
+    }
+    return NULL;
+}
+
+- (int)indexOf:(id)e {
+    if(e != NULL) {
+        for(int i = 0; i < _size; i++) {
+            if(_pointer[i] == (__bridge_retained void *)(e)) {
+                return i;
+            }
+        }
+    }
+    return -1;
 }
 
 - (id)poll {

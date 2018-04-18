@@ -19,6 +19,7 @@
 - (ObjectType)poll;
 - (ObjectType)peek;
 - (BOOL)isEmpty;
+- (BOOL)remove:(ObjectType)e;
 - (void)testPQ;
 - (void)printPQ;
 
