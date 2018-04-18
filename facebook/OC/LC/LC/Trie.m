@@ -37,6 +37,22 @@
     node.isWord = YES;
 }
 
+- (void)insert:(NSString *)word index:(int)index {
+    if(_root == nil) {
+        return;
+    }
+    TrieNode *node = _root;
+    for(int i = 0; i < [word length]; i++) {
+        char c = [word characterAtIndex:i];
+        if([node.children objectAtIndex:(c - 'a')] == [NSNull null]) {
+            TrieNode *newNode = [[TrieNode alloc] init];
+            [node.children replaceObjectAtIndex:(c - 'a') withObject:newNode];
+        }
+        node = [node.children objectAtIndex:(c - 'a')];
+    }
+    node.isWord = YES;
+}
+
 - (BOOL)search:(NSString *)word {
     if(word.length == 0 || _root == NULL) {
         return NO;

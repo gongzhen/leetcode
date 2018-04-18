@@ -12,8 +12,84 @@
 
 - (void)test {
     /// test gcd group
-    [self testGCDGroup];
+    // [self testGCDGroup];
     // [self testGCDGroup2];
+    // [self testGCDGroup3];
+    [self testGCDGroup4];
+    
+}
+/// Example from
+/// https://knightsj.github.io/2017/01/13/%E6%B5%85%E6%98%BE%E6%98%93%E6%87%82%E8%AE%B2%E8%A7%A3%E7%9A%84iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF-GCD/
+/// 
+- (void)testGCDGroup4 {
+    dispatch_queue_t queue = dispatch_queue_create("12312312", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        
+        for (NSInteger index = 0; index < 10000; index ++) {
+        }
+        NSLog(@"完成了任务1");
+    });
+    dispatch_async(queue, ^{
+        
+        for (NSInteger index = 0; index < 20000; index ++) {
+        }
+        NSLog(@"完成了任务2");
+    });
+    dispatch_async(queue, ^{
+        
+        for (NSInteger index = 0; index < 200000; index ++) {
+        }
+        NSLog(@"完成了任务3");
+    });
+    
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"--------我是分割线--------");
+    });
+    
+    dispatch_async(queue, ^{
+        
+        for (NSInteger index = 0; index < 400000; index ++) {
+        }
+        NSLog(@"完成了任务4");
+    });
+    dispatch_async(queue, ^{
+        
+        for (NSInteger index = 0; index < 1000000; index ++) {
+        }
+        NSLog(@"完成了任务5");
+    });
+    dispatch_async(queue, ^{
+        
+        for (NSInteger index = 0; index < 1000; index ++) {
+        }
+        NSLog(@"完成了任务6");
+    });
+    int i = 0;
+    while(i != 100000000) {
+        i++;
+    }
+    NSLog(@"group is over.");
+}
+
+- (void)testGCDGroup3 {
+    dispatch_queue_t queue = dispatch_queue_create("12312312", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        NSLog(@"----任务 1-----");
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"----任务 2-----");
+    });
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"----barrier-----");
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"----任务 3-----");
+    });
+    dispatch_async(queue, ^{
+        NSLog(@"----任务 4-----");
+    });
 }
 
 - (void)testGCDGroup2{

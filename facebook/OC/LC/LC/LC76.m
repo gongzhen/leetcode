@@ -25,13 +25,18 @@
     NSInteger len2 = t.length;
     int count = (int)len2;
     
+    /// 1: Create a map with 256 index including lowercase and uppercase.
     for(int i = 0; i < len2; i++) {
         char c = [t characterAtIndex:i];
         map[c - 'A']++;
     }
     
+    /// 2: maintaining two pointers i and j.
     int min = (int)len1 + 1;
     while(i < len1) {
+        
+        /// 3: If s[i] is in the map and map[s[i]]'s value is 1 ....2...3...
+        /// count--; count is the s2's number of characters.
         if(map[[s characterAtIndex:i] - 'A'] >= 1) {
             count--;
         }
