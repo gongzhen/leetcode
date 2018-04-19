@@ -12,30 +12,34 @@
 
 - (NSMutableArray *)addOperators:(NSString *)num target:(int)target {
     NSMutableArray *res = [NSMutableArray array];
-    [self dfs:res num:num str:@"" pos:0 target:target sum:0];
+    [self dfs:res num:num str:@"" pos:0 target:target sum:0 prev:0];
 //    [res enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        DLog(@"obj:%@", obj);
 //    }];
     return res;
 }
 
-- (void)dfs:(NSMutableArray *)res num:(NSString *)num str:(NSString *)str pos:(int)pos target:(int)target sum:(NSInteger)sum{
+- (void)dfs:(NSMutableArray *)res num:(NSString *)num str:(NSString *)str pos:(int)pos target:(int)target sum:(NSInteger)sum prev:(NSInteger)prev{
     if(pos == num.length && target == sum) {
-        DLog(@"num:%@", num);
+        DLog(@"str:%@", str);
         DLog(@"sum:%ld", sum);
         [res addObject:str];
         return;
     }
     
     for(int i = pos; i < num.length; i++) {
+        if(i != pos && [num characterAtIndex:pos] == '0') {
+            DLog(@"continue:%@", [num substringWithRange:NSMakeRange(pos, i + 1 - pos)]);
+            continue;
+        }
         NSString *subStr = [num substringWithRange:NSMakeRange(pos, i + 1 - pos)];
         NSInteger strNum = [subStr integerValue];
         if(pos == 0) {
-            [self dfs:res num:num str:[NSString stringWithFormat:@"%@", subStr] pos:i + 1 target:target sum:strNum];
+            [self dfs:res num:num str:[NSString stringWithFormat:@"%@", subStr] pos:i + 1 target:target sum:sum + strNum prev:strNum];
         } else {
-            [self dfs:res num:num str:[NSString stringWithFormat:@"%@+%@", str, subStr] pos:i + 1 target:target sum:sum + strNum];
-            [self dfs:res num:num str:[NSString stringWithFormat:@"%@-%@", str, subStr] pos:i + 1 target:target sum:sum - strNum];
-            [self dfs:res num:num str:[NSString stringWithFormat:@"%@*%@", str, subStr] pos:i + 1 target:target sum:sum * strNum];
+            [self dfs:res num:num str:[NSString stringWithFormat:@"%@+%@", str, subStr] pos:i + 1 target:target sum:sum + strNum prev:strNum];
+            [self dfs:res num:num str:[NSString stringWithFormat:@"%@-%@", str, subStr] pos:i + 1 target:target sum:sum - strNum prev:-strNum];
+            [self dfs:res num:num str:[NSString stringWithFormat:@"%@*%@", str, subStr] pos:i + 1 target:target sum:sum - prev + prev * strNum prev:prev * strNum];
         }
     }
     
@@ -53,9 +57,11 @@
 
 
 - (void)test {
-    NSString *test1 = @"123";
-    int target = 6;
+    NSString *test1 = @"232";
+    int target = 8;
     [self addOperators:test1 target:target];
-    
+    test1 = @"105";
+    target = 5;
+    [self addOperators:test1 target:target];
 }
 @end
