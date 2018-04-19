@@ -181,10 +181,12 @@ public class LC282 {
             if(pos == 0) {
                 /// printString("182 " + (str + num.charAt(pos) + op[j]));
                 dfs_2(res, num, str + num.charAt(pos) + op[j], target, pos + 1, op);
+            } 
+            else if (pos + 1 == num.length()){                
+                dfs_2(res, num, str + num.charAt(pos), target, pos + 1, op);
             } else {
-                printString("185 " + (str + num.charAt(pos) + op[j]));
                 dfs_2(res, num, str + num.charAt(pos) + op[j], target, pos + 1, op);
-            }            
+            }           
         }            
     }     
 
