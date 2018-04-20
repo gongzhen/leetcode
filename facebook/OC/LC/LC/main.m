@@ -96,6 +96,7 @@
 #import "LINT543.h"
 #import "LC16.h"
 #import "LC658.h"
+#import "LC642.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -280,8 +281,10 @@ int main(int argc, const char * argv[]) {
 //        [lc269 test];
 //        LC85 *lc85 = [[LC85 alloc] init];
 //        [lc85 test];
-        LC282 *lc282 = [[LC282 alloc] init];
-        [lc282 test];
+//        LC282 *lc282 = [[LC282 alloc] init];
+//        [lc282 test];
+        LC642 *lc642 = [[LC642 alloc] init];
+        [lc642 test];
     }
     return 0;
 }
