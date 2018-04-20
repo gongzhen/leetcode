@@ -22,6 +22,7 @@
 #import "LC257.h"
 #import "LC146.h"
 #import "LC283.h"
+#import "LC689.h"
 #import "LC301.h"
 #import "LC621.h"
 #import "LC67.h"
@@ -285,6 +286,8 @@ int main(int argc, const char * argv[]) {
 //        [lc282 test];
         LC642 *lc642 = [[LC642 alloc] init];
         [lc642 test];
+        LC689 *lc689 = [[LC689 alloc] init];
+        [lc689 test];
     }
     return 0;
 }

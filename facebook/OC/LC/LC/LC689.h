@@ -6,8 +6,7 @@
 //  Copyright © 2018 ULS. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-@interface LC689 : NSObject
+#import "LC.h"
+@interface LC689 : LC
 
 @end
