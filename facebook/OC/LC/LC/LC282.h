@@ -1,12 +1,13 @@
 //
-//  LC689.h
+//  LC282.h
 //  LC
 //
-//  Created by ULS on 3/4/18.
+//  Created by Admin  on 4/18/18.
 //  Copyright © 2018 ULS. All rights reserved.
 //
 
 #import "LC.h"
-@interface LC689 : LC
+
+@interface LC282 : LC
 
 @end

@@ -157,6 +157,39 @@ import java.util.regex.*;
 
 public class LC282 {
 
+    public List<String> addOperators_2(String num, int target) {
+        List<String> res = new ArrayList<String>();
+        if(num.length() == 0) {
+            return res;
+        }
+        String s = "";
+        String ops = "+-*";
+        char[] op = ops.toCharArray();
+        dfs_2(res, num, s, target, 0, op); 
+        printList(res);
+        return res;
+    }   
+
+    private void dfs_2(List<String> res, String num, String str, int target, int pos, char[] op) {
+        if(pos == num.length()) {
+            printString("175 " + str);
+            res.add(str);
+            return;
+        }
+        
+        for(int j = 0; j < op.length; j++) {
+            if(pos == 0) {
+                /// printString("182 " + (str + num.charAt(pos) + op[j]));
+                dfs_2(res, num, str + num.charAt(pos) + op[j], target, pos + 1, op);
+            } 
+            else if (pos + 1 == num.length()){                
+                dfs_2(res, num, str + num.charAt(pos), target, pos + 1, op);
+            } else {
+                dfs_2(res, num, str + num.charAt(pos) + op[j], target, pos + 1, op);
+            }           
+        }            
+    }     
+
     public List<String> addOperators(String num, int target) {
         List<String> res = new ArrayList<String>();
         
@@ -215,7 +248,8 @@ public class LC282 {
 
 	public static void main(String[] args) {
 		LC282 obj = new LC282();
-		obj.addOperators("105", 5);
+		// obj.addOperators("105", 5);
+        obj.addOperators_2("105", 5);
 	}
 
 }

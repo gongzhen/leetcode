@@ -15,12 +15,14 @@
 #import "LC127.h"
 #import "LC173.h"
 #import "LC38.h"
+#import "LC282.h"
 #import "LC68.h"
 #import "LC745.h"
 #import "LC269.h"
 #import "LC257.h"
 #import "LC146.h"
 #import "LC283.h"
+#import "LC689.h"
 #import "LC301.h"
 #import "LC621.h"
 #import "LC67.h"
@@ -63,6 +65,7 @@
 #import "LC75.h"
 #import "LC33.h"
 #import "LC88.h"
+#import "LC85.h"
 #import "LC670.h"
 #import "LC206.h"
 #import "LC79.h"
@@ -94,6 +97,7 @@
 #import "LINT543.h"
 #import "LC16.h"
 #import "LC658.h"
+#import "LC642.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -274,9 +278,16 @@ int main(int argc, const char * argv[]) {
 //        char* words[2] = {"apple"};
 //        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
 //        [lc745 test];
-        LC269 *lc269 = [[LC269 alloc] init];
-        [lc269 test];
-
+//        LC269 *lc269 = [[LC269 alloc] init];
+//        [lc269 test];
+//        LC85 *lc85 = [[LC85 alloc] init];
+//        [lc85 test];
+//        LC282 *lc282 = [[LC282 alloc] init];
+//        [lc282 test];
+        LC642 *lc642 = [[LC642 alloc] init];
+        [lc642 test];
+        LC689 *lc689 = [[LC689 alloc] init];
+        [lc689 test];
     }
     return 0;
 }
