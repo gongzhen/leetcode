@@ -104,6 +104,7 @@
 		3DF0B1BA20300C3400C2BCBE /* LC273.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF0B1B920300C3400C2BCBE /* LC273.m */; };
 		60F2135D2084E96500D571D2 /* LC10.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F2135C2084E96500D571D2 /* LC10.m */; };
 		60F21360208B118500D571D2 /* LC256.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F2135F208B118500D571D2 /* LC256.m */; };
+		60F21363208B9D4600D571D2 /* LC265.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F21362208B9D4600D571D2 /* LC265.m */; };
 		843A1C2F20471B1A0044E6FC /* LC236.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C2E20471B1A0044E6FC /* LC236.m */; };
 		843A1C32204723B50044E6FC /* LC523.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C31204723B50044E6FC /* LC523.m */; };
 		843A1C35204777700044E6FC /* LC286.m in Sources */ = {isa = PBXBuildFile; fileRef = 843A1C34204777700044E6FC /* LC286.m */; };
@@ -329,6 +330,8 @@
 		60F2135C2084E96500D571D2 /* LC10.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC10.m; sourceTree = "<group>"; };
 		60F2135E208B118500D571D2 /* LC256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC256.h; sourceTree = "<group>"; };
 		60F2135F208B118500D571D2 /* LC256.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC256.m; sourceTree = "<group>"; };
+		60F21361208B9D4600D571D2 /* LC265.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC265.h; sourceTree = "<group>"; };
+		60F21362208B9D4600D571D2 /* LC265.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC265.m; sourceTree = "<group>"; };
 		843A1C2D20471B1A0044E6FC /* LC236.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC236.h; sourceTree = "<group>"; };
 		843A1C2E20471B1A0044E6FC /* LC236.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC236.m; sourceTree = "<group>"; };
 		843A1C30204723B50044E6FC /* LC523.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC523.h; sourceTree = "<group>"; };
@@ -436,6 +439,8 @@
 				843A1C3D204C97ED0044E6FC /* BinarySearchTree.m */,
 				84614C1320890CCC00A4958F /* LC642.h */,
 				84614C1420890CCC00A4958F /* LC642.m */,
+				60F21361208B9D4600D571D2 /* LC265.h */,
+				60F21362208B9D4600D571D2 /* LC265.m */,
 				84614C1020882BF000A4958F /* LC282.h */,
 				84614C1120882BF000A4958F /* LC282.m */,
 				60F2135E208B118500D571D2 /* LC256.h */,
@@ -708,6 +713,7 @@
 				3D35922D2063EE5A0025AB8D /* PriorityQueue.m in Sources */,
 				3DA4CADB2071994200E99437 /* LC127.m in Sources */,
 				3D14EC6C203DE30500149E3F /* LC207.m in Sources */,
+				60F21363208B9D4600D571D2 /* LC265.m in Sources */,
 				84614C0F2087D88A00A4958F /* LC85.m in Sources */,
 				3D14EB8E2032248100149E3F /* LC15.m in Sources */,
 				3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */,

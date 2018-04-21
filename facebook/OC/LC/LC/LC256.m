@@ -33,5 +33,6 @@
     }
     int res = [self minCost:ptr row:3 col:3];
     DLog(@"res:%d", res);
+    [self free_DoubleArray:ptr row:3 col:3];
 }
 @end
