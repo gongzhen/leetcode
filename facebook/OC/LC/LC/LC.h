@@ -14,6 +14,8 @@
 
 - (void)test;
 - (void)free_fields:(char **)chars size:(int)size;
+- (void)free_intArray:(int *)array;
+- (void)free_DoubleArray:(int **)array row:(int)row col:(int)col;
 - (NSTimeInterval)executionTime:(NSDate *)methodStart;
 
 @end

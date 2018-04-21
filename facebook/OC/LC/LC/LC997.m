@@ -76,5 +76,6 @@
     }
     
     [self mergekSortedArrays:matrix row:3 col:4];
+    [self free_DoubleArray:matrix row:3 col:4];
 }
 @end

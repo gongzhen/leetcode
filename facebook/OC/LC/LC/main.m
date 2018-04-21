@@ -14,6 +14,7 @@
 #import "LC498.h"
 #import "LC127.h"
 #import "LC173.h"
+#import "LC256.h"
 #import "LC38.h"
 #import "LC410.h"
 #import "LC282.h"
@@ -38,6 +39,7 @@
 #import "LC311.h"
 #import "LC158.h"
 #import "LC278.h"
+#import "LC265.h"
 #import "LC200.h"
 #import "LC76.h"
 #import "LC543.h"
@@ -291,6 +293,11 @@ int main(int argc, const char * argv[]) {
 //        [lc689 test];
         LC410 *lc410 = [[LC410 alloc] init];
         [lc410 test];
+        LC256 *lc256 = [[LC256 alloc] init];
+        [lc256 test];
+        LC265 *lc265 = [[LC265 alloc] init];
+        [lc265 test];
+
     }
     return 0;
 }
