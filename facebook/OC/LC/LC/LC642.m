@@ -48,6 +48,11 @@
         for(int i = 0; i < size; i++) {
             [_map setObject:@(times[i]) forKey:[NSString stringWithFormat:@"%s", sentense[i]]];
         }
+        
+        [_map enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+            DLog(@"key:%@ ==> value:%@", key, obj);
+        }];
+        DLog(@"--------------------------------------------------------------------------------------------");
     }
     return self;
 }

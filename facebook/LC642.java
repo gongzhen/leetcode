@@ -60,14 +60,19 @@ public class LC642 {
 	}
 
 	public LC642(String[] sentences, int[] times) {
+		initLC642_1(sentences, times);
+	}
+
+	private void initLC642_1(String[] sentences, int[] times) {
 		map = new HashMap<String, Integer>();
 		currentWord = "";
 		for(int i = 0; i < sentences.length && i < times.length; i++) {
-			map.put(times[i], sentences[i]);
-		}
+			map.put(sentences[i], times[i]);
+		}		
 	}
 
 	public List<String> input(char c) {
+		printString("c:" + c);
 		List<String> res = new ArrayList<String>();
 		if(c == '#') {
 			map.put(currentWord, map.getOrDefault(currentWord, 0) + 1);
@@ -85,10 +90,15 @@ public class LC642 {
 					if(a.times == b.times) {
 						return a.sentence.compareTo(b.sentence);
 					}
-					return b.times.compareTo(a.times);
+					return Integer.compare(a.times, b.times);
 				}
-			});
+			});		
+
+			for(int i = 0; i < Math.min(3, list.size()); i++) {
+				res.add(map.get(list.get(i).key));
+			}
 		}
+		return res;
 	}
 
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
@@ -123,9 +133,22 @@ public class LC642 {
     	return false;
     }
 
-	public static void main(String[] args) {
-		LC642 obj = new LC642();
+	private void printList(List<String> list) {
+		for(String s: list) {
+			System.out.println(s);
+		}
+	}   
 
+	private void printString(String arg) {
+	    System.out.println(arg); 
+	}	 
+
+	public static void main(String[] args) {
+		int[] timesArray = new int[]{5, 3, 2, 2};
+		String[] sentences	 = new String[]{"i love you", "island", "ironman", "i love leetcode"};
+		LC642 obj = new LC642(sentences, timesArray);
+		List<String> res = obj.input('i');
+		obj.printList(res);
 	}
 
 }
