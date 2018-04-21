@@ -46,4 +46,16 @@
     }
     return [methodStart timeIntervalSinceDate:methodStart];
 }
+
+- (void)free_intArray:(int *)array{
+    free(array);
+}
+
+- (void)free_DoubleArray:(int **)array row:(int)row col:(int)col {
+    for(int i = 0; i < row; i++) {
+        free(array[i]);
+    }
+    free(array);
+}
+
 @end
