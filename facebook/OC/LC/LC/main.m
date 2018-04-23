@@ -26,6 +26,7 @@
 #import "LC146.h"
 #import "LC283.h"
 #import "LC689.h"
+#import "LC801.h"
 #import "LC301.h"
 #import "LC621.h"
 #import "LC67.h"
@@ -222,8 +223,8 @@ int main(int argc, const char * argv[]) {
 //        [lc91 test];
 //        LC236 *lc236 = [[LC236 alloc] init];
 //        [lc236 test];
-        LC523 *lc523 = [[LC523 alloc] init];
-        [lc523 test];
+//        LC523 *lc523 = [[LC523 alloc] init];
+//        [lc523 test];
 //        LC347 *lc347 = [[LC347 alloc] init];
 //        [lc347 test];
 //        LC286 *lc286 = [[LC286 alloc] init];
@@ -303,6 +304,8 @@ int main(int argc, const char * argv[]) {
 //        [lc128 test];
 //        LC84 *lc84 = [[LC84 alloc] init];
 //        [lc84 test];
+        LC801 *lc801 = [[LC801 alloc] init];
+        [lc801 test];
     }
     return 0;
 }
