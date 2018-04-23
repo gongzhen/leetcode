@@ -169,8 +169,8 @@ int main(int argc, const char * argv[]) {
 //        [lc98 test];
 //        LC78 *lc78 = [[LC78 alloc] init];
 //        [lc78 test];
-        LC133 *lc133 = [[LC133 alloc] init];
-        [lc133 test];
+//        LC133 *lc133 = [[LC133 alloc] init];
+//        [lc133 test];
 //        LC43 *lc43 = [[LC43 alloc] init];
 //        [lc43 test];
 //        Tree *tree = [[Tree alloc] init];
@@ -279,8 +279,8 @@ int main(int argc, const char * argv[]) {
 //        [lc996 test];
 //        LC102 *lc102 = [[LC102 alloc] init];
 //        [lc102 test];
-//        LC68 *lc68 = [[LC68 alloc] init];
-//        [lc68 test];
+        LC68 *lc68 = [[LC68 alloc] init];
+        [lc68 test];
 //        char* words[2] = {"apple"};
 //        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
 //        [lc745 test];
