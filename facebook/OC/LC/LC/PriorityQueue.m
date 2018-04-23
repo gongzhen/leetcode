@@ -31,7 +31,8 @@ static int DEFAULT_INITIAL_CAPACITY = 11;
     if(self = [super init]) {
         _pointer = (void **)malloc(DEFAULT_INITIAL_CAPACITY * sizeof(void *));
         for(int i = 0; i < DEFAULT_INITIAL_CAPACITY; i++) {
-            _pointer[i] = (void *)malloc(sizeof(void));
+            /// https://www.quora.com/How-do-I-correctly-free-a-double-pointer-in-C
+//            _pointer[i] = (void *)malloc(1 * sizeof(void));
         }
         _size = 0;
     }
@@ -48,7 +49,8 @@ static int DEFAULT_INITIAL_CAPACITY = 11;
 
 - (void)dealloc {
     for(int i = 0; i < _size; i++) {
-        free(_pointer[i]);
+        DLog(@"pointer:%p", _pointer[i]);
+//        free(_pointer[i]);
     }
     free(_pointer);
     DLog(@"PriorityQueue_pointer dealloc");
