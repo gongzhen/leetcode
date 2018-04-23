@@ -84,7 +84,7 @@
                 [queue offer:neighbor];
                 [map setObject:[[UndirectedGraphNode alloc] initWith:neighbor.label] forKey:@(neighbor.label)];
             }
-            [((UndirectedGraphNode *)[map objectForKey:@(_node.label)]).neighbors addObject:neighbor];
+            [((UndirectedGraphNode *)[map objectForKey:@(_node.label)]).neighbors addObject:[map objectForKey:@(neighbor.label)]];
         }
     }
     return (UndirectedGraphNode *)[map objectForKey:@(node.label)];
@@ -147,7 +147,8 @@
     [node0.neighbors addObjectsFromArray:@[node1, node2]];
     [node1.neighbors addObject:node2];
     [node2.neighbors addObject:node2];
-    UndirectedGraphNode *result = [self cloneGraphBFSJZ:node0];
+//    UndirectedGraphNode *result = [self cloneGraphBFSJZ:node0];
+    UndirectedGraphNode *result = [self cloneGraphBFS:node0];
     DLog(@"result.label:%ld", result.label);
     [self printGraph:result];
 }
