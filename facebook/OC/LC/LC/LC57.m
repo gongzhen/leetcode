@@ -30,6 +30,12 @@
 
 - (NSArray *)insert:(NSArray *)intervals newInterval:(Interval *)newInterval {
     NSMutableArray *res = [NSMutableArray array];
+    if(intervals.count == 0) {
+        if(newInterval != nil) {
+            [res addObject:newInterval];
+        }
+        return res;
+    }
     
     int i = 0; /// start pointer i = 0;
     

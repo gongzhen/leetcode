@@ -40,4 +40,12 @@
     return self.count == 0;
 }
 
+- (void)printStack {
+    NSLog(@"----------------------");
+    for(int i = 0; i < self.count; i++) {
+        printf("%d, ", [self[i] intValue]);
+    }
+    printf("\n");
+    NSLog(@"----------------------");
+}
 @end

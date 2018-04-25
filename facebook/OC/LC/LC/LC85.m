@@ -8,6 +8,7 @@
 
 #import "LC85.h"
 #import "NSMutableArray+Stack.h"
+#import "QuickSort.h"
 
 @implementation LC85
 
@@ -22,6 +23,8 @@
         right[i] = col;
     }
     int* height = (int *)calloc(col, sizeof(int));
+    [QuickSort printCharMatrix:matrix row:row col:col];
+    DLog(@"for loop --------------------------------------------------------------------------");
     int res = 0;
     for(int i = 0; i < row; i++) {
         int currentLeft = 0, currentRight = col;
@@ -32,9 +35,8 @@
                 left[j] = 0;
                 currentLeft = j + 1;
             }
-            
         }
-        
+        [QuickSort printIntArray:left size:col];
         for(int j = col - 1; j >= 0; j--) {
             if(matrix[i][j] == '1') {
                 right[j] = MIN(right[j], currentRight);
@@ -44,6 +46,7 @@
             }
         }
         
+        [QuickSort printIntArray:right size:col];
         for(int j = 0; j < col; j++) {
             if(matrix[i][j] == '1') {
                 height[j]++;
@@ -51,9 +54,11 @@
                 height[j] = 0;
             }
         }
+        [QuickSort printIntArray:height size:col];
         
         for(int j = 0; j < col; j++) {
             res = MAX(res, (right[j] - left[j]) * height[j]);
+            DLog(@"(res:%d = right[%d]:%d - left[%d]:%d) * height[j:%d]:%d",res, j, right[j], left[j], left[j], j, height[j]);
         }
     }
     free(left);
@@ -66,7 +71,8 @@
     if(row == 0 || col == 0) {
         return 0;
     }
-    
+    [QuickSort printCharMatrix:matrix row:row col:col];
+    DLog(@"for loop --------------------------------------------------------------------------");
     int* height = (int *)calloc(col + 1, sizeof(int));
     int res = 0;
     
@@ -80,7 +86,9 @@
                     height[j] = 0;
                 }
             }
-            
+            [QuickSort printIntArray:height size:col];
+            DLog(@"for stack--------------------------------------------------------------------------");
+            [stack printStack];
             if(stack.count == 0 || height[[[stack peek] intValue]] <= height[j]) {
                 [stack push:@(j)];
             } else {
@@ -101,7 +109,7 @@
     for(int i = 0; i < 4; i++) {
         board[i] = (char *)malloc(4 * sizeof(char));
     }
-    
+
     for(int i = 0; i < 4; i++) {
         for(int j = 0; j < 5; j++) {
             board[i][j] = grid[i][j];
@@ -115,5 +123,21 @@
         free(board[i]);
     }
     free(board);
+    
+//    char* grid[1] = {"1"};
+//    char** board = (char **)malloc(1 * sizeof(char *));
+//    for(int i = 0; i < 1; i++) {
+//        board[i] = (char *)malloc(1 * sizeof(char));
+//    }
+//
+//    for(int i = 0; i < 1; i++) {
+//        board[i] = grid[i];
+//    }
+//    int res = [self maximalRectangle:board row:1 col:1];
+//    int res2 = [self maximalRectangle_stack:board row:1 col:1];
+//    DLog(@"res:%d", res);
+//    DLog(@"res2:%d", res2);
+//    free(board);
 }
+
 @end

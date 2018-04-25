@@ -104,6 +104,19 @@
     
 }
 
++(void)printCharMatrix:(char **)matrix row:(int)row col:(int)col {
+    for(int i = 0; i < row; i++) {
+        [self printCharArray:matrix[i] size:col];
+    }
+}
+
++(void)printCharArray:(char *)array size:(int)size {
+    for(int i = 0; i < size; i++) {
+        printf("%c ", *(array + i));
+    }
+    printf("\n");
+}
+
 +(void)printIntArray:(int *)array size:(int)size {
     for(int i = 0; i < size; i++) {
         printf("%d ", *(array + i));
