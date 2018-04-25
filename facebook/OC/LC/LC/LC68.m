@@ -119,12 +119,12 @@
         }
         DLog(@"tmp:%@ == length:%ld", tmp, tmp.length); /// tmp is "Thisisan" not "Thisisanexample".
         /// step3: str to added for each line.
-        /// diff is the number of the spaces
+        /// numberOfSpace is the number of the spaces
         /// 1: last is the last word of words array OR diff == 0 means there is only one word for this line.
         NSMutableString *str = [NSMutableString string];
-        NSInteger diff = last - i - 1; /// last - i - 1 is the number of spaces
-        DLog(@"diff(number of spaces):%ld last:%d count:%ld", diff, last, count);
-        if(last == wordsSize || diff == 0) {
+        NSInteger numberOfSpace = last - i - 1; /// last - i - 1 is the number of spaces
+        DLog(@"numberOfSpace(number of spaces):%ld last:%d count:%ld", numberOfSpace, last, count);
+        if(last == wordsSize || numberOfSpace == 0) {
             for(int j = i; j < last; j++) {
                 if(j + 1 == last) {
                     [str appendFormat:@"%@", [NSString stringWithUTF8String:words[j]]];
@@ -138,12 +138,12 @@
             }
         } else {
             /// 2:Calcuat the spaces and reminder
-            NSInteger spaces = (maxWidth - count) / diff;
-            DLog(@"space for each gap:%ld <==== (16 - %ld) / %ld.", spaces, count, diff);
+            NSInteger spaces = (maxWidth - count) / numberOfSpace;
+            DLog(@"space for each gap:%ld <==== (16 - %ld) / %ld.", spaces, count, numberOfSpace);
             /// maxWidth - count is the total space length, then divided by how many block of space.
-            NSInteger r = (maxWidth - count) % diff;
+            NSInteger r = (maxWidth - count) % numberOfSpace;
             /// r: r is the reminder of space if the spaces is not integer.
-            DLog(@"r:%ld <==== (16 - %ld) model %ld.", r, count, diff);
+            DLog(@"r:%ld <==== (16 - %ld) model %ld.", r, count, numberOfSpace);
             DLog(@"spaces:%ld r:%ld count:%ld", spaces, r, count);
             for(int j = i; j < last; j++) {
                 [str appendString:[NSString stringWithCString:words[j] encoding:NSUTF8StringEncoding]];
@@ -159,7 +159,7 @@
                     /// so space + 0 is good.
                     for(int k = 0; k <= (spaces + ((j - i) < r ? 1 : 0)); k++) {
                         [str appendString:@" "];
-                        DLog(@"str:%@|", str);
+                        DLog(@"[str:%@]", str);
                     }
                 }
             }
@@ -171,6 +171,59 @@
     return res;
 }
 
+/// https://leetcode.com/problems/text-justification/discuss/24873/Share-my-concise-c++-solution-less-than-20-lines
+- (NSArray *)fullJustify_2:(char **)words wordsSize:(int)wordsSize maxWidth:(int)maxWidth {
+    NSMutableArray *res = [NSMutableArray array];
+    if(wordsSize == 0 || maxWidth == 0) {
+        [res addObject:@""];
+        return res;
+    }
+    
+    for(int i = 0; i < wordsSize;) {
+        
+        int count = (int)strlen(words[i]);
+        int last = i + 1;
+        
+//        int count = -1;
+//        int last = i;
+        for(; last < wordsSize && count + strlen(words[last]) + 1 <= maxWidth; last++) {
+            count += strlen(words[last]) + 1;
+        }
+        
+        int evenlyDistributedSpaces = 1;
+        int extraSpace = 0;
+        int numOfGapsBwWords = last - i - 1;
+        
+        if(last != i + 1 && last != wordsSize) {
+            evenlyDistributedSpaces = (maxWidth - count) / numOfGapsBwWords + 1;
+            extraSpace = (maxWidth - count) % numOfGapsBwWords;
+        }
+        
+        NSMutableString *sb = [NSMutableString string];
+        for(int j = i; j < last; j++) {
+            [sb appendString:[NSString stringWithUTF8String:words[j]]];
+            if(j + 1 < last) {
+                for(int s = 0; s < evenlyDistributedSpaces; s++) {
+                    [sb appendString:@" "];
+                }
+                if(extraSpace > 0) {
+                    [sb appendString:@" "];
+                    extraSpace--;
+                }
+            }
+        }
+        
+        int remaining = maxWidth - (int)sb.length;
+        while(remaining > 0) {
+            [sb appendString:@" "];
+            remaining--;
+        }
+        DLog(@"[%@]",sb)
+        [res addObject:sb];
+        i = last;
+    }
+    return res;
+}
 
 - (void)test {
 //    char* words[7] = {"This", "is", "an", "example", "of", "text", "justification."};
@@ -183,17 +236,22 @@
 //    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        DLog(@"%@", obj);
 //    }];
-    char* words[1] = {"a"};
-    NSArray<NSString *> *res = [self fullJustify:words wordsSize:1 maxWidth:1];
+//    char* words[1] = {"a"};
+//    NSArray<NSString *> *res = [self fullJustify:words wordsSize:1 maxWidth:1];
+//    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        DLog(@"%@", obj);
+//    }];
+//
+    char* words[7] = {"This", "is", "an", "example", "of", "text", "justification."};
+    NSArray<NSString *> *res = [self fullJustify_1:words wordsSize:7 maxWidth:16];
     [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"%@", obj);
     }];
 
-//    char* words[7] = {"This", "is", "an", "example", "of", "text", "justification."};
-//    NSArray<NSString *> *res = [self fullJustify_1:words wordsSize:7 maxWidth:16];
-//    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        DLog(@"%@", obj);
-//    }];
+    res = [self fullJustify_2:words wordsSize:7 maxWidth:16];
+    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"%@", obj);
+    }];
 
 }
 @end

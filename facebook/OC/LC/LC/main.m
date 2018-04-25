@@ -26,6 +26,7 @@
 #import "LC146.h"
 #import "LC283.h"
 #import "LC689.h"
+#import "LC801.h"
 #import "LC301.h"
 #import "LC621.h"
 #import "LC67.h"
@@ -210,8 +211,8 @@ int main(int argc, const char * argv[]) {
 //        [lc53 test];
 //        LC117 *lc117 = [[LC117 alloc] init];
 //        [lc117 test];
-//        LC44 *lc44 = [[LC44 alloc] init];
-//        [lc44 test];
+        LC44 *lc44 = [[LC44 alloc] init];
+        [lc44 test];
 //        LC10 *lc10 = [[LC10 alloc] init];
 //        [lc10 test];
 //        LC445 *lc445 = [[LC445 alloc] init];
@@ -280,9 +281,9 @@ int main(int argc, const char * argv[]) {
 //        [lc102 test];
 //        LC68 *lc68 = [[LC68 alloc] init];
 //        [lc68 test];
-//        char* words[2] = {"apple"};
-//        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
-//        [lc745 test];
+        char* words[2] = {"apple", "alive"};
+        LC745 *lc745 = [[LC745 alloc] initWithWords:words len:2];
+        [lc745 test];
 //        LC269 *lc269 = [[LC269 alloc] init];
 //        [lc269 test];
 //        LC85 *lc85 = [[LC85 alloc] init];
@@ -301,8 +302,10 @@ int main(int argc, const char * argv[]) {
 //        [lc265 test];
 //        LC128 *lc128 = [[LC128 alloc] init];
 //        [lc128 test];
-        LC84 *lc84 = [[LC84 alloc] init];
-        [lc84 test];
+//        LC84 *lc84 = [[LC84 alloc] init];
+//        [lc84 test];
+//        LC801 *lc801 = [[LC801 alloc] init];
+//        [lc801 test];
     }
     return 0;
 }

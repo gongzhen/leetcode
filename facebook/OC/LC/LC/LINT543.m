@@ -88,7 +88,7 @@
 
 - (void)testPQ {
     
-//    PriorityQueue *pq = [[PriorityQueue alloc] init];
+    PriorityQueue *pq = [[PriorityQueue alloc] init];
 //    pq.comparator = ^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
 //        Pair *node1 = (Pair *)obj1;
 //        Pair *node2 = (Pair *)obj2;
@@ -112,28 +112,44 @@
 //        DLog(@"top:%@, top.x:%d, top.y:%d", top, top.x, top.y);
 //    }
     
-//    pq.comparator = ^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-//        NSNumber *num1 = (NSNumber *)obj1;
-//        NSNumber *num2 = (NSNumber *)obj2;
-//        DLog(@"num1:%ld compare:num2:%ld", num1.integerValue, num2.integerValue);
-//        if([num1 integerValue] > [num2 integerValue]) {
-//            return NSOrderedAscending;
-//        } else if ([num1 integerValue] == [num2 integerValue]) {
-//            return NSOrderedSame;
-//        }
-//        return NSOrderedDescending;
-//    };
-//
-//    [pq offer:@(4)];
-//    [pq offer:@(2)];
-//    [pq offer:@(1)];
-//    [pq offer:@(3)];
-//
-//    while(![pq isEmpty]) {
-//        NSNumber *top = [pq poll];
-//        DLog(@"top:%ld", [top integerValue]);
-//    }
-    
+    pq.comparator = ^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        NSNumber *num1 = (NSNumber *)obj1;
+        NSNumber *num2 = (NSNumber *)obj2;
+        DLog(@"num1:%ld compare:num2:%ld", num1.integerValue, num2.integerValue);
+        if([num1 integerValue] > [num2 integerValue]) {
+            return NSOrderedAscending;
+        } else if ([num1 integerValue] == [num2 integerValue]) {
+            return NSOrderedSame;
+        }
+        return NSOrderedDescending;
+    };
+
+    [pq offer:@(4)];
+    [pq offer:@(2)];
+    [pq offer:@(1)];
+    [pq offer:@(3)];
+    DLog(@"pq count:%ld", pq.size);
+    [pq printPQ];
+    [pq remove:@(3)];
+    DLog(@"pq count:%ld", pq.size);
+    [pq printPQ];
+    [pq remove:@(4)];
+    DLog(@"pq count:%ld", pq.size);
+    [pq printPQ];
+    [pq remove:@(1)];
+    DLog(@"pq count:%ld", pq.size);
+    [pq printPQ];
+    while(![pq isEmpty]) {
+        NSNumber *top = [pq poll];
+        DLog(@"top:%ld", [top integerValue]);
+    }
+    DLog(@"pq is empty:%d == true", [pq isEmpty]);
+    [pq offer:@(4)];
+    [pq offer:@(2)];
+    [pq offer:@(1)];
+    [pq offer:@(3)];
+    [pq printPQ];
+    DLog(@"pq count:%ld", pq.size);
     /// Error example
     // void *pointer = (void *)malloc(sizeof(void));
     // pointer = (void *)CFBridgingRetain(n1);
