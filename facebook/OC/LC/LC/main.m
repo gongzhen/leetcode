@@ -279,11 +279,11 @@ int main(int argc, const char * argv[]) {
 //        [lc996 test];
 //        LC102 *lc102 = [[LC102 alloc] init];
 //        [lc102 test];
-        LC68 *lc68 = [[LC68 alloc] init];
-        [lc68 test];
-//        char* words[2] = {"apple"};
-//        LC745 *lc745 = [[LC745 alloc] initWithWords:words];
-//        [lc745 test];
+//        LC68 *lc68 = [[LC68 alloc] init];
+//        [lc68 test];
+        char* words[2] = {"apple", "alive"};
+        LC745 *lc745 = [[LC745 alloc] initWithWords:words len:2];
+        [lc745 test];
 //        LC269 *lc269 = [[LC269 alloc] init];
 //        [lc269 test];
 //        LC85 *lc85 = [[LC85 alloc] init];

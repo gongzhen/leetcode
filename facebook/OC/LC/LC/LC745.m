@@ -17,10 +17,9 @@
 
 @implementation LC745
 
-- (instancetype)initWithWords:(char **)words {
+- (instancetype)initWithWords:(char **)words len:(int)len {
     if(self = [super init]) {
         _trie = [[IndexTrie alloc] init];
-        int len = sizeof(words) / sizeof(words[0]);
         for(int i = 0; i < len; i++) {
             NSString* key = [NSString stringWithFormat:@"{%s",words[i]];
             [_trie insert:key index:i];
@@ -37,6 +36,7 @@
 
 - (int)f:(NSString *)prefix suffix:(NSString *)suffix {
     NSString *key = [NSString stringWithFormat:@"%@{%@", suffix, prefix];
+    DLog(@"key:%@", key);
     return [_trie startWith:key];
 }
 

@@ -12,6 +12,6 @@
 @interface LC745 : LC
 
 - (int)f:(NSString *)prefix suffix:(NSString *)suffix;
-- (instancetype)initWithWords:(char **)words;
+- (instancetype)initWithWords:(char **)words len:(int)len;
 
 @end
