@@ -22,6 +22,7 @@
         _trie = [[IndexTrie alloc] init];
         for(int i = 0; i < len; i++) {
             NSString* key = [NSString stringWithFormat:@"{%s",words[i]];
+            DLog(@"key:%@", key);
             [_trie insert:key index:i];
             NSInteger len = strlen(words[i]);
             for(int j = 0; j < len; j++) {

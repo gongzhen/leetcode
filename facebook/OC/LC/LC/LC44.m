@@ -49,39 +49,39 @@
 - (void)test {
     char* s = "aa";
     char* p = "a";
-    DLog(@"res:%d", [self isMatch:s p:p]);
-    
-    s = "aa";
-    p = "aa";
-    DLog(@"res:%d", [self isMatch:s p:p]);
-    
-    s = "aaa";
-    p = "aa";
-    DLog(@"res:%d", [self isMatch:s p:p]);
-    
-    s = "aa";
-    p = "*";
-    DLog(@"res:%d", [self isMatch:s p:p]);
-    
-    s = "aa";
-    p = "a*";
-    DLog(@"res:%d", [self isMatch:s p:p]);
-    
-    s = "ab";
-    p = "?*";
-    DLog(@"res:%d", [self isMatch:s p:p]);
-    
-    s = "aab";
-    p = "c*a*b";
-    DLog(@"res:%d", [self isMatch:s p:p]);
+//    DLog(@"res:%d", [self isMatch:s p:p]);
+//    
+//    s = "aa";
+//    p = "aa";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
+//    
+//    s = "aaa";
+//    p = "aa";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
+//    
+//    s = "aa";
+//    p = "*";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
+//    
+//    s = "aa";
+//    p = "a*";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
+//    
+//    s = "ab";
+//    p = "?*";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
+//    
+//    s = "aab";
+//    p = "c*a*b";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
     
     s = "adceb";
     p = "*a*b";
     DLog(@"res:%d", [self isMatch:s p:p]);
     
-    s = "acdcb";
-    p = "a*c?b";
-    DLog(@"res:%d", [self isMatch:s p:p]);
+//    s = "acdcb";
+//    p = "a*c?b";
+//    DLog(@"res:%d", [self isMatch:s p:p]);
 }
 
 @end
