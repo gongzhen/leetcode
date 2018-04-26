@@ -14,5 +14,6 @@
 - (id)pop;
 - (id)peek;
 - (BOOL)empty;
+- (void)printStack;
 
 @end
