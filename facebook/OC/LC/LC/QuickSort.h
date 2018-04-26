@@ -14,5 +14,6 @@
 +(void)quickSortInt:(int *)array size:(int)size;
 +(void)printIntArray:(int *)array size:(int)size;
 +(void)printCharMatrix:(char **)matrix row:(int)row col:(int)col;
++(void)printIntMatrix:(int **)matrix row:(int)row col:(int)col;
 
 @end
