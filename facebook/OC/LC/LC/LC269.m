@@ -73,6 +73,13 @@
         }
     }
     
+    [map enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        DLog(@"key:%c", (char)[key intValue]);
+        [((NSSet *)obj) enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+            DLog(@"value:%c", (char)[obj intValue]);
+        }];
+    }];
+    
     NSMutableString *res = [ NSMutableString string];
     Queue* queue = [Queue queue];
     for(int i = 0; i < 26; i++) {
