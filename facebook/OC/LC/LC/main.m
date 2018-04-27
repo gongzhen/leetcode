@@ -292,14 +292,14 @@ int main(int argc, const char * argv[]) {
 //        [lc282 test];
 //        LC642 *lc642 = [[LC642 alloc] init];
 //        [lc642 test];
-//        LC689 *lc689 = [[LC689 alloc] init];
-//        [lc689 test];
+        LC689 *lc689 = [[LC689 alloc] init];
+        [lc689 test];
 //        LC410 *lc410 = [[LC410 alloc] init];
 //        [lc410 test];
 //        LC256 *lc256 = [[LC256 alloc] init];
 //        [lc256 test];
-        LC265 *lc265 = [[LC265 alloc] init];
-        [lc265 test];
+//        LC265 *lc265 = [[LC265 alloc] init];
+//        [lc265 test];
 //        LC128 *lc128 = [[LC128 alloc] init];
 //        [lc128 test];
 //        LC84 *lc84 = [[LC84 alloc] init];
