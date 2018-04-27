@@ -7,16 +7,78 @@
 //
 
 #import "LC689.h"
+#import "QuickSort.h"
+
 @interface LC689()
 
 @end
 
 @implementation LC689
 
+- (NSArray *)maxSumOfThreeSubarrays_2:(int *)nums size:(int)size k:(int)k {
+    for(int i = 0; i < size; i++) {
+        printf("[%d]%d, ", i, nums[i]);
+    }
+    printf("\n");
+    DLog(@"\nnums --------------------------------------------------------------------------");
+    
+    NSMutableArray *res = [NSMutableArray array];
+    int* sum = (int *)calloc(size + 1, sizeof(int));
+    [QuickSort printIntArray:sum size:size + 1];
+    int* posLeft = (int *)calloc(size, sizeof(int));
+    [QuickSort printIntArray:posLeft size:size];
+    int* posRight = (int *)calloc(size, sizeof(int));
+    [QuickSort printIntArray:posRight size:size];
+    int* ans = (int *)calloc(3, sizeof(int));
+    [QuickSort printIntArray:ans size:3];
+    int maxSum = 0;
+    for(int i = k, total = sum[k] - sum[0]; i < size; i++) {
+        if(sum[i + 1] - sum[i + 1 - k] > total) {
+            posLeft[i] = i + 1 - k;
+            total = sum[i + 1] - sum[i + 1 - k];
+        } else {
+            posLeft[i] = posLeft[i - 1];
+        }
+    }
+    
+    posRight[size - k] = size - k;
+    for(int i = size - k - 1, total = sum[size] - sum[size - k]; i >= 0; i--) {
+        if(sum[i + k] - sum[i] >= total) {
+            posRight[i] = i;
+            total = sum[i + k] - sum[i];
+        } else {
+            posRight[i] = posRight[i + 1];
+        }
+    }
+    
+    for(int i = k; i <= size - 2 * k; i++) {
+        int left = posLeft[i - 1];
+        int right = posRight[i + k];
+        int total = (sum[i + k] - sum[i]) + (sum[left + k] - sum[left]) + (sum[right + k] - sum[right]);
+        if(total > maxSum) {
+            maxSum = total;
+            ans[0] = left;
+            ans[1] = i;
+            ans[2] = right;
+        }
+    }
+    
+    for(int i = 0; i < 3; i++) {
+        [res addObject:@(ans[i])];
+    }
+    
+    free(sum);
+    free(posLeft);
+    free(posRight);
+    free(ans);
+    return res;
+}
+
 - (NSArray *)maxSumOfThreeSubarrays:(int *)nums size:(int)size k:(int)k {
     for(int i = 0; i < size; i++) {
         printf("[%d]%d, ", i, nums[i]);
     }
+    printf("\n");
     DLog(@"\nnums --------------------------------------------------------------------------");
 
     NSMutableArray *res = [NSMutableArray array];
@@ -39,6 +101,7 @@
     for(int i = 0; i < wLength; i++) {
         printf("[%d]%d, ", i, w[i]);
     }
+    printf("\n");
     DLog(@"\nw --------------------------------------------------------------------------");
     DLog(@"\nleft  start--------------------------------------------------------------------------");
     // step2: maintain the array of index of MAX value from left to right.
@@ -139,7 +202,7 @@
 - (void)test {
     int array[8] = {1,2,1,2,6,7,5,1};
     int* nums = array;
-    NSArray* res = [self maxSumOfThreeSubarrays:nums size:8 k:2];
+    NSArray* res = [self maxSumOfThreeSubarrays_2:nums size:8 k:2];
     [res enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"%d", ((NSNumber *)obj).intValue);
     }];
