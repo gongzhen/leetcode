@@ -292,8 +292,6 @@ int main(int argc, const char * argv[]) {
 //        [lc282 test];
 //        LC642 *lc642 = [[LC642 alloc] init];
 //        [lc642 test];
-        LC689 *lc689 = [[LC689 alloc] init];
-        [lc689 test];
 //        LC410 *lc410 = [[LC410 alloc] init];
 //        [lc410 test];
 //        LC256 *lc256 = [[LC256 alloc] init];
@@ -304,8 +302,8 @@ int main(int argc, const char * argv[]) {
 //        [lc128 test];
 //        LC84 *lc84 = [[LC84 alloc] init];
 //        [lc84 test];
-//        LC801 *lc801 = [[LC801 alloc] init];
-//        [lc801 test];
+        LC801 *lc801 = [[LC801 alloc] init];
+        [lc801 test];
     }
     return 0;
 }
