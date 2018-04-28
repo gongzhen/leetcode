@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 public class LC801 {
 
+    /// https://blog.csdn.net/magicbean2/article/details/79826617
     public int minSwap(int[] A, int[] B) {
         if(A.length == 0 || B.length == 0) {
             return 0;
