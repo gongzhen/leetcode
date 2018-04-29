@@ -19,6 +19,6 @@ public class PrintUtils {
     }
 
     public static void printStringWithoutNewLine(String arg) {
-        System.out.print(arg + ",");
+        System.out.print(arg);
     }
 }
