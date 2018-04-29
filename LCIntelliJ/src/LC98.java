@@ -1,5 +1,3 @@
-import jdk.nashorn.api.tree.Tree;
-
 public class LC98 {
 
     public boolean isValidBST(TreeNode root) {
