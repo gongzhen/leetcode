@@ -34,6 +34,8 @@ public class LC43 {
         for(; i < digit.length; i++) {
             sb.append(digit[i]);
         }
+
+        /// if digit is [0, 0] => sb is empty.
         return sb.length() == 0 ? "0" : sb.toString();
     }
 
