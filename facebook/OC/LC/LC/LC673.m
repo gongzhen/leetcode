@@ -39,8 +39,12 @@
             res += count[i];
         }
         
-        if(maxLen)
+        if(maxLen < len[i]) {
+            maxLen = len[i];
+            res = count[i];
+        }
     }
+    return res;
 }
 
 - (void)test {

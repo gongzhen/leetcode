@@ -1,6 +1,6 @@
 public class LC50 {
 
-    //// https://blog.csdn.net/prstaxy/article/details/8740838
+    //// https://blog.csdn.net/prstaxy/article/details/8740838˜
     public double myPow(double x, int n) {
         if(n == 0) return 1;
         long p = n;
