@@ -12,7 +12,7 @@
 
 -(char* )simplifyPath:(char* )path {
 
-    NSSet* skipSet = [[NSSet alloc] initWithObjects:@"..", @".", @"", nil];
+    /// NSSet* skipSet = [[NSSet alloc] initWithObjects:@"..", @".", @"", nil];
     NSArray* res = [self split:path c:'/'];
     [res enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"res:%@", obj);
