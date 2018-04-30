@@ -9,9 +9,9 @@ public class LC139 {
         PrintUtils.printString("");
         for(int i = 1; i <= s.length(); i++) {
             for(int j = 0; j < i; j++) {
-                PrintUtils.printString("subStr:" + s.substring(j, i));
+               ///  PrintUtils.printString("subStr:" + s.substring(j, i));
                 if(dp[j] == true && isValid(s.substring(j, i), wordDict)) {
-                    PrintUtils.printString("d[" + j +  "]:" +  dp[j] + ", dp[" + i + "]:" +  dp[i]);
+                    /// PrintUtils.printString("d[" + j +  "]:" +  dp[j] + ", dp[" + i + "]:" +  dp[i]);
                     dp[i] = true;
                 }
             }
