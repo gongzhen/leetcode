@@ -54,13 +54,13 @@
         }
     }
     
-//    [graph enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSMutableArray * _Nonnull obj, BOOL * _Nonnull stop) {
-//        DLog(@"key:%@", key);
-//        [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            NSString *email = (NSString *)obj;
-//            DLog(@"email:%@", email);
-//        }];
-//    }];
+    [graph enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSMutableArray * _Nonnull obj, BOOL * _Nonnull stop) {
+        DLog(@"key:%@", key);
+        [obj enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSString *email = (NSString *)obj;
+            DLog(@"email:%@", email);
+        }];
+    }];
     
     [emailToName enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         DLog(@"key: %@, value: %@", key, obj);

@@ -125,6 +125,7 @@
 		84614C72209698AB00A4958F /* LC673.m in Sources */ = {isa = PBXBuildFile; fileRef = 84614C71209698AB00A4958F /* LC673.m */; };
 		84746D12206AC28200638F75 /* LC16.m in Sources */ = {isa = PBXBuildFile; fileRef = 84746D11206AC28200638F75 /* LC16.m */; };
 		84746D15206C01BF00638F75 /* LC658.m in Sources */ = {isa = PBXBuildFile; fileRef = 84746D14206C01BF00638F75 /* LC658.m */; };
+		84CADF5C2097E9D00066D27B /* LC274.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CADF5B2097E9D00066D27B /* LC274.m */; };
 		84F81936206F004E0008F206 /* LC498.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F81935206F004E0008F206 /* LC498.m */; };
 /* End PBXBuildFile section */
 
@@ -378,6 +379,8 @@
 		84746D11206AC28200638F75 /* LC16.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC16.m; sourceTree = "<group>"; };
 		84746D13206C01BF00638F75 /* LC658.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC658.h; sourceTree = "<group>"; };
 		84746D14206C01BF00638F75 /* LC658.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC658.m; sourceTree = "<group>"; };
+		84CADF5A2097E9D00066D27B /* LC274.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC274.h; sourceTree = "<group>"; };
+		84CADF5B2097E9D00066D27B /* LC274.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC274.m; sourceTree = "<group>"; };
 		84F81934206F004E0008F206 /* LC498.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC498.h; sourceTree = "<group>"; };
 		84F81935206F004E0008F206 /* LC498.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC498.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -461,6 +464,8 @@
 				84614C1D208C06BB00A4958F /* LC84.m */,
 				84614C70209698AB00A4958F /* LC673.h */,
 				84614C71209698AB00A4958F /* LC673.m */,
+				84CADF5A2097E9D00066D27B /* LC274.h */,
+				84CADF5B2097E9D00066D27B /* LC274.m */,
 				84614C6D20951F8C00A4958F /* LC71.h */,
 				84614C6E20951F8C00A4958F /* LC71.m */,
 				84614C1F208D751A00A4958F /* LC801.h */,
@@ -680,7 +685,7 @@
 		3DC98C34202F8E7D00DB15CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = ULS;
 				TargetAttributes = {
 					3DC98C3B202F8E7D00DB15CD = {
@@ -789,6 +794,7 @@
 				3D14EBF12039486700149E3F /* LC133.m in Sources */,
 				3D14EC06203A188200149E3F /* LC215.m in Sources */,
 				3D18EE322045B09E00F67268 /* LC91.m in Sources */,
+				84CADF5C2097E9D00066D27B /* LC274.m in Sources */,
 				3D47397220727AFC00CEF6ED /* LC173.m in Sources */,
 				3D594D992085966800349438 /* IndexTrie.m in Sources */,
 				3D14EB8220313C9F00149E3F /* LC253.m in Sources */,
@@ -850,6 +856,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -857,6 +864,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -907,6 +915,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -914,6 +923,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
