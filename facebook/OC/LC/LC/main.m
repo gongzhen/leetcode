@@ -43,6 +43,7 @@
 #import "LC297.h"
 #import "LC311.h"
 #import "LC158.h"
+#import "LC90.h"
 #import "LC278.h"
 #import "LC265.h"
 #import "LC200.h"
@@ -250,8 +251,8 @@ int main(int argc, const char * argv[]) {
 //        [lc208 test];
 //        LC218 *lc218 = [[LC218 alloc] init];
 //        [lc218 test];
-        LC721 *lc721 = [[LC721 alloc] init];
-        [lc721 test];
+//        LC721 *lc721 = [[LC721 alloc] init];
+//        [lc721 test];
 //        LINT543 *lc543 = [[LINT543 alloc] init];
 //        [lc543 test];
 //        [lc543 testPQ];
@@ -311,8 +312,11 @@ int main(int argc, const char * argv[]) {
 //        [lc71 test];
 //        LC673 *lc673 = [[LC673 alloc] init];
 //        [lc673 test];
-        LC274 *lc274 = [[LC274 alloc] init];
-        [lc274 test];
+//        LC274 *lc274 = [[LC274 alloc] init];
+//        [lc274 test];
+        LC90 *lc90 = [[LC90 alloc] init];
+        [lc90 test];
+
     }
     return 0;
 }
