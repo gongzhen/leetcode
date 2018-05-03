@@ -46,7 +46,7 @@ public class LC525 {
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{0, 1, 0, 1, 0, 1, 0, 1, 0};
+        int[] nums = new int[]{0, 1, 0, 1, 1, 1};
         LC525 obj = new LC525();
         PrintUtils.printString("res:" + obj.findMaxLength_1(nums));
     }
