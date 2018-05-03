@@ -21,13 +21,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LC525.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LC525.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LC525.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="244">
               <caret line="44" column="19" lean-forward="true" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LC377.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/LC377.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#226#241#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,6 +89,7 @@
         <option value="$PROJECT_DIR$/src/LC721.java" />
         <option value="$PROJECT_DIR$/src/LC215.java" />
         <option value="$PROJECT_DIR$/src/LC525.java" />
+        <option value="$PROJECT_DIR$/src/LC377.java" />
       </list>
     </option>
   </component>
@@ -88,11 +102,11 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="822" />
-    <option name="y" value="42" />
-    <option name="width" value="1875" />
-    <option name="height" value="1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="71" />
+    <option name="y" value="23" />
+    <option name="width" value="1876" />
+    <option name="height" value="1058" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -143,14 +157,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LC525">
-    <configuration name="LC117" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LC117" />
+  <component name="RunManager" selected="Application.LC377">
+    <configuration name="LC215" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LC215" />
       <module name="LCIntelliJ" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="LC215" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LC215" />
+    <configuration name="LC377" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LC377" />
       <module name="LCIntelliJ" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -211,19 +225,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.LC117" />
       <item itemvalue="Application.LC90" />
       <item itemvalue="Application.LC75" />
       <item itemvalue="Application.LC215" />
       <item itemvalue="Application.LC525" />
+      <item itemvalue="Application.LC377" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LC377" />
         <item itemvalue="Application.LC525" />
         <item itemvalue="Application.LC215" />
         <item itemvalue="Application.LC75" />
         <item itemvalue="Application.LC90" />
-        <item itemvalue="Application.LC117" />
       </list>
     </recent_temporary>
   </component>
@@ -249,7 +263,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71001000" />
+    <option name="totallyTimeSpent" value="74150000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -261,7 +275,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="822" y="42" width="1875" height="1057" extended-state="0" />
+    <frame x="43" y="23" width="1637" height="1027" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
@@ -273,18 +287,18 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.48219734" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36516264" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14293334" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16371411" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" />
       <window_info anchor="right" id="Theme Preview" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.41098678" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41028333" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Designer" order="2" />
@@ -324,17 +338,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="32" />
+      <option name="time" value="35" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/UndirectedGraphNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="32" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UndirectedGraphUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -697,6 +704,17 @@
           <caret line="44" column="19" lean-forward="true" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LC377.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="90" column="69" selection-start-line="90" selection-start-column="69" selection-end-line="90" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#226#241#0" expanded="true" />
           </folding>
         </state>
       </provider>
