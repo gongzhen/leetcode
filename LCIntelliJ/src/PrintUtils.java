@@ -21,6 +21,13 @@ public class PrintUtils {
         printStringWithoutNewLine("]\n");
     }
 
+     public static void printListString(List<String> list) {
+        for(String s: list) {
+            printStringWithoutNewLine( s + ", ");
+        }
+         printStringWithoutNewLine("\n");
+     }
+
      public static void printMatrixInt(int[][] matrix) {
         int i = 0;
          for(int[] s: matrix) {
