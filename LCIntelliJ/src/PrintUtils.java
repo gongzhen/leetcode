@@ -21,6 +21,18 @@ public class PrintUtils {
         printStringWithoutNewLine("]\n");
     }
 
+     public static void printMatrixInt(int[][] matrix) {
+        int i = 0;
+         for(int[] s: matrix) {
+             int j = 0;
+             for(int n: s) {
+                 printStringWithoutNewLine( "[" + i + "]" + "[" + (j++) + "]" + n + ", ");
+             }
+             System.out.println();
+             i++;
+         }
+     }
+
     public static void printStringWithoutNewLine(String arg) {
         System.out.print(arg);
     }

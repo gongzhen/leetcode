@@ -7,16 +7,16 @@
 *.o
 *.so
 
-LeetCodeIntelliJ/.idea/*
+LCIntelliJ/.idea/*
 
 # Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
+LCIntelliJ/.idea/**/gradle.xml
+LCIntelliJ/.idea/**/libraries
 
 # User-specific stuff
-LeetCodeIntelliJ/.idea/workspace.xml
-LeetCodeIntelliJ/.idea/tasks.xml
-LeetCodeIntelliJ/LeetCodeIntelliJ.iml
+LCIntelliJ/.idea/workspace.xml
+LCIntelliJ/.idea/tasks.xml
+LCIntelliJ/.idea/LeetCodeIntelliJ.iml
 .idea/**/dictionaries
 .idea/**/shelf
 
