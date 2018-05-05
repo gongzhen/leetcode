@@ -131,8 +131,9 @@
     }
     NSArray *tempQueue = [_queue copy];
     _queue = [[NSMutableArray alloc] initWithCapacity:newCapacity];
+    __weak LC253PriorityQueue *weakSelf = self;
     [tempQueue enumerateObjectsUsingBlock:^(Interval*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [_queue addObject:obj];
+        [weakSelf.queue addObject:obj];
     }];
 }
 

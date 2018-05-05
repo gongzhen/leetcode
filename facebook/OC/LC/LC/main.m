@@ -108,6 +108,7 @@
 #import "LC16.h"
 #import "LC658.h"
 #import "LC642.h"
+#import "Trie.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -314,9 +315,28 @@ int main(int argc, const char * argv[]) {
 //        [lc673 test];
 //        LC274 *lc274 = [[LC274 alloc] init];
 //        [lc274 test];
-        LC90 *lc90 = [[LC90 alloc] init];
-        [lc90 test];
-
+//        LC90 *lc90 = [[LC90 alloc] init];
+//        [lc90 test];
+        Trie *trie = [[Trie alloc] init];
+        [trie insert:@"asdasdasdsa"];
+        [trie insert:@"a"];
+        [trie insert:@"nms"];
+        [trie insert:@"ab"];
+        [trie insert:@"bbb"];
+        [trie insert:@"adsadas"];
+        NSSet *expectedList1 = [NSSet setWithArray:@[@"asdasdasdsa", @"a", @"ab", @"adsadas"]];
+        NSArray *result = [trie listStartWith:@"a"];
+        if(result.count == expectedList1.count) {
+            [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                NSString *word = (NSString *)obj;
+                if([expectedList1 containsObject:word] == NO) {
+                    DLog(@"word:%@ is not found.", word);
+                }
+                DLog(@"word:%@", word);
+            }];
+        }
+        NSArray *result1 = [trie listStartWith:@"z"];
+        DLog(@"result1.count == 0:%ld", result1.count);                
     }
     return 0;
 }

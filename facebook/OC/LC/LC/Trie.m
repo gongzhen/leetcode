@@ -84,4 +84,38 @@
     return node != NULL;
 }
 
+- (NSArray *)listStartWith:(NSString *)prefix {
+    if(prefix.length == 0 || _root == NULL) {
+        return [NSArray array];
+    }
+    
+    TrieNode *node = _root;
+    for(int i = 0; i < [prefix length]; i++) {
+        char c = [prefix characterAtIndex:i];
+        if([node.children objectAtIndex:(c - 'a')] == [NSNull null]) {
+            return [NSArray array];
+        }
+        node = [node.children objectAtIndex:(c - 'a')];
+    }
+    NSMutableArray *list = [NSMutableArray array];
+    [self dfs:node list:list word:prefix];
+    return list;
+}
+
+- (void)dfs:(TrieNode *)node list:(NSMutableArray *)list word:(NSString *)word {
+    if(node == nil) {
+        return;
+    }
+    if(node.isWord == true) {
+        [list addObject:word];
+    }
+    
+    for(int i = 0; i < 26; i++) {
+        if([node.children objectAtIndex:i] != [NSNull null]) {
+            char c = (char)('a' + i);
+            [self dfs:[node.children objectAtIndex:i] list:list word:[NSString stringWithFormat:@"%@%c", word, c]];
+        }
+    }
+}
+
 @end

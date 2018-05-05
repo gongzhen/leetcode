@@ -16,5 +16,6 @@
 - (void)insert:(NSString *)word;
 - (BOOL)search:(NSString *)word;
 - (BOOL)startWith:(NSString *)prefix;
+- (NSArray *)listStartWith:(NSString *)prefix;
     
 @end
