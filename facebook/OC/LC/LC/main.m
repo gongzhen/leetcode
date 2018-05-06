@@ -204,8 +204,8 @@ int main(int argc, const char * argv[]) {
 //        [lc79 test];
 //        LC494 *lc494 = [[LC494 alloc] init];
 //        [lc494 test];
-//        LC207 *lc207 = [[LC207 alloc] init];
-//        [lc207 test];
+        LC207 *lc207 = [[LC207 alloc] init];
+        [lc207 test];
 //        LC210 *lc210 = [[LC210 alloc] init];
 //        [lc210 test];
 //        LC261 *lc261 = [[LC261 alloc] init];
@@ -317,26 +317,26 @@ int main(int argc, const char * argv[]) {
 //        [lc274 test];
 //        LC90 *lc90 = [[LC90 alloc] init];
 //        [lc90 test];
-        Trie *trie = [[Trie alloc] init];
-        [trie insert:@"asdasdasdsa"];
-        [trie insert:@"a"];
-        [trie insert:@"nms"];
-        [trie insert:@"ab"];
-        [trie insert:@"bbb"];
-        [trie insert:@"adsadas"];
-        NSSet *expectedList1 = [NSSet setWithArray:@[@"asdasdasdsa", @"a", @"ab", @"adsadas"]];
-        NSArray *result = [trie listStartWith:@"a"];
-        if(result.count == expectedList1.count) {
-            [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                NSString *word = (NSString *)obj;
-                if([expectedList1 containsObject:word] == NO) {
-                    DLog(@"word:%@ is not found.", word);
-                }
-                DLog(@"word:%@", word);
-            }];
-        }
-        NSArray *result1 = [trie listStartWith:@"z"];
-        DLog(@"result1.count == 0:%ld", result1.count);                
+//        Trie *trie = [[Trie alloc] init];
+//        [trie insert:@"asdasdasdsa"];
+//        [trie insert:@"a"];
+//        [trie insert:@"nms"];
+//        [trie insert:@"ab"];
+//        [trie insert:@"bbb"];
+//        [trie insert:@"adsadas"];
+//        NSSet *expectedList1 = [NSSet setWithArray:@[@"asdasdasdsa", @"a", @"ab", @"adsadas"]];
+//        NSArray *result = [trie listStartWith:@"a"];
+//        if(result.count == expectedList1.count) {
+//            [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                NSString *word = (NSString *)obj;
+//                if([expectedList1 containsObject:word] == NO) {
+//                    DLog(@"word:%@ is not found.", word);
+//                }
+//                DLog(@"word:%@", word);
+//            }];
+//        }
+//        NSArray *result1 = [trie listStartWith:@"z"];
+//        DLog(@"result1.count == 0:%ld", result1.count);
     }
     return 0;
 }

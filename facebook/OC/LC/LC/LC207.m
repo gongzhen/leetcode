@@ -66,29 +66,30 @@
 }
 
 - (void)test {
-//    NSMutableArray *prerequisites = [NSMutableArray array];
-//    int numCourses = 2;
-//    NSArray *array1 = @[@1, @0];
-//    [prerequisites addObject:array1];
+    NSMutableArray *prerequisites = [NSMutableArray array];
+    int numCourses = 2;
+    NSArray *array1 = @[@1, @0];
+    [prerequisites addObject:array1];
+    DLog(@"res:%d", [self canFinish:numCourses prerequisites:prerequisites]);
 //    NSArray *array2 = @[@0, @1];
 //    [prerequisites addObject:array2];
 //
 //    DLog(@"res:%d", [self canFinish:numCourses prerequisites:prerequisites]);
 //    [prerequisites removeAllObjects];
     
-    NSMutableArray *prerequisites = [NSMutableArray array];
-    int numCourses = 5;
-    NSArray *array1 = @[@1, @0];
-    [prerequisites addObject:array1];
-    NSArray *array2 = @[@2, @0];
-    [prerequisites addObject:array2];
-    NSArray *array3 = @[@3, @1];
-    [prerequisites addObject:array3];
-    NSArray *array4 = @[@3, @02];
-    [prerequisites addObject:array4];
-    NSArray *array5 = @[@2, @04];
-    [prerequisites addObject:array5];
-    DLog(@"res:%d", [self canFinish:numCourses prerequisites:prerequisites]);
-    [prerequisites removeAllObjects];
+//    NSMutableArray *prerequisites = [NSMutableArray array];
+//    int numCourses = 5;
+//    NSArray *array1 = @[@1, @0];
+//    [prerequisites addObject:array1];
+//    NSArray *array2 = @[@2, @0];
+//    [prerequisites addObject:array2];
+//    NSArray *array3 = @[@3, @1];
+//    [prerequisites addObject:array3];
+//    NSArray *array4 = @[@3, @02];
+//    [prerequisites addObject:array4];
+//    NSArray *array5 = @[@2, @04];
+//    [prerequisites addObject:array5];
+//    DLog(@"res:%d", [self canFinish:numCourses prerequisites:prerequisites]);
+//    [prerequisites removeAllObjects];
 }
 @end
