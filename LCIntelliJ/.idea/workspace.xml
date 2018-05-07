@@ -12,11 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LC565.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LC565.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LC565.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
               <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LC7.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/LC7.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -88,6 +97,7 @@
         <option value="$PROJECT_DIR$/src/LC221.java" />
         <option value="$PROJECT_DIR$/src/LC284.java" />
         <option value="$PROJECT_DIR$/src/LC565.java" />
+        <option value="$PROJECT_DIR$/src/LC7.java" />
       </list>
     </option>
   </component>
@@ -155,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LC221">
+  <component name="RunManager" selected="Application.LC7">
     <configuration name="LC165" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LC165" />
       <module name="LCIntelliJ" />
@@ -176,8 +186,8 @@
       <module name="LCIntelliJ" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="LC647" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LC647" />
+    <configuration name="LC7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="LC7" />
       <module name="LCIntelliJ" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -223,19 +233,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Application.LC647" />
       <item itemvalue="Application.LC384" />
       <item itemvalue="Application.LC42" />
       <item itemvalue="Application.LC165" />
       <item itemvalue="Application.LC221" />
+      <item itemvalue="Application.LC7" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LC7" />
         <item itemvalue="Application.LC221" />
         <item itemvalue="Application.LC165" />
         <item itemvalue="Application.LC42" />
         <item itemvalue="Application.LC384" />
-        <item itemvalue="Application.LC647" />
       </list>
     </recent_temporary>
   </component>
@@ -259,12 +269,12 @@
       <workItem from="1525307031658" duration="1208000" />
       <workItem from="1525377641792" duration="2898000" />
       <workItem from="1525453785107" duration="1873000" />
-      <workItem from="1525668357671" duration="858000" />
+      <workItem from="1525668357671" duration="2838000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109292000" />
+    <option name="totallyTimeSpent" value="111272000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,22 +287,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="44" y="23" width="1636" height="1027" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32996893" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32919255" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.49422875" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6253935" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32996893" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14547677" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14547677" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -306,7 +316,6 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32919255" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,13 +393,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/TreeUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LC689.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-206">
@@ -579,7 +581,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Integer.java" />
     <entry file="file://$PROJECT_DIR$/src/LC461.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -710,6 +711,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="69" column="38" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LC7.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="49" column="46" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
         </state>
       </provider>
     </entry>
