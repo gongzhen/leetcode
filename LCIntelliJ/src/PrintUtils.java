@@ -7,6 +7,14 @@ public class PrintUtils {
         System.out.println("-------------------------------------------");
     }
 
+    public static int getLineNumber() {
+        return Thread.currentThread().getStackTrace()[2].getLineNumber();
+    }
+
+    public static void printBinaryString(int x) {
+        printString(Integer.toBinaryString(x));
+    }
+
     public static void printString(String arg) {
         System.out.println(arg);
     }
