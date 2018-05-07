@@ -15,8 +15,9 @@
         return;
     }
     
-    for(int i = 0; i < rows / 2; i++) {
-        for(int j = 0; j < (cols + 1) / 2; j++) {
+    for(int i = 0; i < (rows + 1) / 2; i++) {
+        for(int j = 0; j < cols / 2; j++) {
+            int temp = matrix[i][j];
             
         }
     }
