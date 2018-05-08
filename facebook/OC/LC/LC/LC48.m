@@ -17,7 +17,7 @@
     
     for(int i = 0; i < (rows + 1) / 2; i++) {
         for(int j = 0; j < cols / 2; j++) {
-            int temp = matrix[i][j];
+            // int temp = matrix[i][j];
             
         }
     }

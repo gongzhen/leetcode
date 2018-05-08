@@ -15,6 +15,8 @@
 		3DAA8B08207B02400089BB60 /* LC42.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B07207B02400089BB60 /* LC42.m */; };
 		3DAA8B0F207C97F70089BB60 /* LC48.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B0E207C97F70089BB60 /* LC48.m */; };
 		3DAA8B15207D405B0089BB60 /* LC36.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B14207D405B0089BB60 /* LC36.m */; };
+		60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */; };
+		60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +49,10 @@
 		3DAA8B0E207C97F70089BB60 /* LC48.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC48.m; sourceTree = "<group>"; };
 		3DAA8B13207D405B0089BB60 /* LC36.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC36.h; sourceTree = "<group>"; };
 		3DAA8B14207D405B0089BB60 /* LC36.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC36.m; sourceTree = "<group>"; };
+		60EB8EE720A19D4C00CECBDB /* NSBlockOperationTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSBlockOperationTest.h; sourceTree = "<group>"; };
+		60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSBlockOperationTest.m; sourceTree = "<group>"; };
+		60EB8EEA20A218D900CECBDB /* NSInvocationOperationTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSInvocationOperationTest.h; sourceTree = "<group>"; };
+		60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSInvocationOperationTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,10 @@
 				3DAA7B30207F054B0053109A /* RetainCount.m */,
 				3DAA7B32207FF1630053109A /* GCDTest.h */,
 				3DAA7B33207FF1630053109A /* GCDTest.m */,
+				60EB8EE720A19D4C00CECBDB /* NSBlockOperationTest.h */,
+				60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */,
+				60EB8EEA20A218D900CECBDB /* NSInvocationOperationTest.h */,
+				60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -125,7 +135,7 @@
 		3DAA8AF1207B01E10089BB60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = ULS;
 				TargetAttributes = {
 					3DAA8AF8207B01E10089BB60 = {
@@ -158,7 +168,9 @@
 			files = (
 				3DAA8B15207D405B0089BB60 /* LC36.m in Sources */,
 				3DAA8B0F207C97F70089BB60 /* LC48.m in Sources */,
+				60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */,
 				3DAA7B34207FF1630053109A /* GCDTest.m in Sources */,
+				60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */,
 				3DAA8B05207B022C0089BB60 /* LC.m in Sources */,
 				3D19364C207E408000490F8D /* BlockTest.m in Sources */,
 				3DAA8AFD207B01E10089BB60 /* main.m in Sources */,
@@ -184,6 +196,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -191,6 +204,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -239,6 +253,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -246,6 +261,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

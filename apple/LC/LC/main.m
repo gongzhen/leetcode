@@ -12,6 +12,8 @@
 #import "BlockTest.h"
 #import "RetainCount.h"
 #import "GCDTest.h"
+#import "NSBlockOperationTest.h"
+#import "NSInvocationOperationTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -24,8 +26,12 @@ int main(int argc, const char * argv[]) {
 //        [blockTest test];
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
-        GCDTest *gcdTest = [[GCDTest alloc] init];
-        [gcdTest test];
+//        GCDTest *gcdTest = [[GCDTest alloc] init];
+//        [gcdTest test];
+//        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
+//        [obj test];
+        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
+        [obj test];
     }
     return 0;
 }
