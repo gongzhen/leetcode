@@ -14,6 +14,8 @@
 #import "GCDTest.h"
 #import "NSBlockOperationTest.h"
 #import "NSInvocationOperationTest.h"
+#import "OSSpinLockTest.h"
+#import "OsUnfairLockTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -30,8 +32,14 @@ int main(int argc, const char * argv[]) {
 //        [gcdTest test];
 //        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
 //        [obj test];
-        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
+//        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
+//        [obj test];
+//        OSSpinLockTest *obj = [[OSSpinLockTest alloc] init];
+//        [obj test];
+//        sleep(10);
+        OsUnfairLockTest *obj = [[OsUnfairLockTest alloc] init];
         [obj test];
+        sleep(14);    
     }
     return 0;
 }
