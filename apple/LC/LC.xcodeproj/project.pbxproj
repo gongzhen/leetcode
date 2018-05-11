@@ -17,6 +17,7 @@
 		3DAA8B15207D405B0089BB60 /* LC36.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B14207D405B0089BB60 /* LC36.m */; };
 		60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421B720A41ECE00C1286F /* OSSpinLockTest.m */; };
 		60E421BB20A4210A00C1286F /* OsUnfairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */; };
+		60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BD20A4BA4100C1286F /* RunloopTest.m */; };
 		60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */; };
 		60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,8 @@
 		60E421B720A41ECE00C1286F /* OSSpinLockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSpinLockTest.m; sourceTree = "<group>"; };
 		60E421B920A4210A00C1286F /* OsUnfairLockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OsUnfairLockTest.h; sourceTree = "<group>"; };
 		60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OsUnfairLockTest.m; sourceTree = "<group>"; };
+		60E421BC20A4BA4100C1286F /* RunloopTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunloopTest.h; sourceTree = "<group>"; };
+		60E421BD20A4BA4100C1286F /* RunloopTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopTest.m; sourceTree = "<group>"; };
 		60EB8EE720A19D4C00CECBDB /* NSBlockOperationTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSBlockOperationTest.h; sourceTree = "<group>"; };
 		60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSBlockOperationTest.m; sourceTree = "<group>"; };
 		60EB8EEA20A218D900CECBDB /* NSInvocationOperationTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSInvocationOperationTest.h; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				60E421B720A41ECE00C1286F /* OSSpinLockTest.m */,
 				60E421B920A4210A00C1286F /* OsUnfairLockTest.h */,
 				60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */,
+				60E421BC20A4BA4100C1286F /* RunloopTest.h */,
+				60E421BD20A4BA4100C1286F /* RunloopTest.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -181,6 +186,7 @@
 				60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */,
 				60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */,
 				3DAA7B34207FF1630053109A /* GCDTest.m in Sources */,
+				60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */,
 				60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */,
 				3DAA8B05207B022C0089BB60 /* LC.m in Sources */,
 				3D19364C207E408000490F8D /* BlockTest.m in Sources */,

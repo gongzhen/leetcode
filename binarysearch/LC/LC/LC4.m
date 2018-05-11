@@ -100,7 +100,7 @@
     if(len % 2 == 1) {
         return [self divide:nums1 startA:0 len1:len1 nums2:nums2 startB:0 len2:len2 k:len / 2 + 1];
     }
-    return ([self divide:nums1 startA:0 len1:2 nums2:nums2 startB:0 len2:2 k:len / 2] + [self divide:nums1 startA:0 len1:len1 nums2:nums2 startB:0 len2:len2 k:len / 2 + 1]) / 2.0;
+    return ([self divide:nums1 startA:0 len1:len1 nums2:nums2 startB:0 len2:len2 k:len / 2] + [self divide:nums1 startA:0 len1:len1 nums2:nums2 startB:0 len2:len2 k:len / 2 + 1]) / 2.0;
 }
 
 - (double)divide:(int *)nums1 startA:(int)startA len1:(int)len1 nums2:(int *)nums2 startB:(int)startB len2:(int)len2 k:(int)k {
@@ -131,11 +131,13 @@
         DLog(@"i:%d", i);
         DLog(@"nums2[j + kth - 1]:%d", nums2[j + kth - 1]);
         return nums2[j + kth - 1];
+//        return nums2[j];
     }
     if(j >= len2) {
         DLog(@"j:%d", j);
         DLog(@"nums1[i + kth - 1]:%d", nums1[i + kth - 1]);
         return nums1[i + kth - 1];
+//        return nums1[i];
     }
     DLog(@"nums1[i]:%d <> nums2[j]:%d", nums1[i], nums2[j]);
     return MIN(nums1[i], nums2[j]);
@@ -154,11 +156,23 @@
 //    int* num2 = n2;
 //    double res = [self findMedianSortedArrays_1:num1 len1:0 nums2:num2 len2:1];
 //    DLog(@"res:%.2f", res);
-    int n1[2] = {1, 2};
+//    int n1[2] = {1, 2};
+//    int* num1 = n1;
+//    int n2[4] = {3, 4};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays_2:num1 len1:2 nums2:num2 len2:2];
+//    DLog(@"res:%.2f", res);
+//    int n1[3] = {1, 2, 3};
+//    int* num1 = n1;
+//    int n2[3] = {6, 7, 8};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays_2:num1 len1:3 nums2:num2 len2:3];
+//    DLog(@"res:%.2f", res);
+    int n1[0] = {};
     int* num1 = n1;
-    int n2[4] = {3, 4};
+    int n2[2] = {2, 3};
     int* num2 = n2;
-    double res = [self findMedianSortedArrays_2:num1 len1:2 nums2:num2 len2:2];
+    double res = [self findMedianSortedArrays:num1 len1:0 nums2:num2 len2:2];
     DLog(@"res:%.2f", res);
 }
 

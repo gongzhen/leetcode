@@ -16,6 +16,7 @@
 #import "NSInvocationOperationTest.h"
 #import "OSSpinLockTest.h"
 #import "OsUnfairLockTest.h"
+#import "RunloopTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -37,9 +38,12 @@ int main(int argc, const char * argv[]) {
 //        OSSpinLockTest *obj = [[OSSpinLockTest alloc] init];
 //        [obj test];
 //        sleep(10);
-        OsUnfairLockTest *obj = [[OsUnfairLockTest alloc] init];
+//        OsUnfairLockTest *obj = [[OsUnfairLockTest alloc] init];
+//        [obj test];
+//        sleep(14);
+        RunloopTest *obj = [[RunloopTest alloc] init];
         [obj test];
-        sleep(14);    
+        sleep(20);
     }
     return 0;
 }
