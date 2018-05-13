@@ -52,6 +52,7 @@ public class LC221 {
                 }
             }
         }
+        PrintUtils.printMatrixInt(dp);
         return maxLen * maxLen;
     }
 

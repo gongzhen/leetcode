@@ -52,14 +52,19 @@ public class LC42 {
         int size = heights.length;
         int[] leftMax = new int[size];
         int[] rightMax = new int[size];
-
+        leftMax[0] = heights[0];
         for(int i = 1; i < size; i++) {
             leftMax[i] = Math.max(heights[i], leftMax[i-1]);
         }
+
+        PrintUtils.printArray(leftMax);
+
         rightMax[size - 1] = heights[size - 1];
         for(int i = size - 2; i >= 0; i--) {
             rightMax[i] = Math.max(heights[i], rightMax[i + 1]);
         }
+        PrintUtils.printArray(rightMax);
+
         for(int i = 1; i < size - 1; i++) {
             max += Math.min(leftMax[i], rightMax[i]) - heights[i];
         }
@@ -95,9 +100,9 @@ public class LC42 {
         /// int[] heights = new int[]{0,1,0,2,1,0,1,3,2,1,2,1};
         int[] heights = new int[] {0,1,0,0,0,0,0,3,0,0,0,0};
         LC42 obj = new LC42();
-        PrintUtils.printString("res:" + obj.trap1(heights));
-        PrintUtils.printString("res:" + obj.trap2(heights));
+//        PrintUtils.printString("res:" + obj.trap1(heights));
+//        PrintUtils.printString("res:" + obj.trap2(heights));
         PrintUtils.printString("res:" + obj.trap3(heights));
-        PrintUtils.printString("res:" + obj.trap4(heights));
+//        PrintUtils.printString("res:" + obj.trap4(heights));
     }
 }

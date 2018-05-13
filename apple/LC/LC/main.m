@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "LC42.h"
 #import "LC48.h"
+#import "LC179.h"
 #import "BlockTest.h"
 #import "RetainCount.h"
 #import "GCDTest.h"
@@ -41,9 +42,11 @@ int main(int argc, const char * argv[]) {
 //        OsUnfairLockTest *obj = [[OsUnfairLockTest alloc] init];
 //        [obj test];
 //        sleep(14);
-        RunloopTest *obj = [[RunloopTest alloc] init];
-        [obj test];
-        sleep(20);
+//        RunloopTest *obj = [[RunloopTest alloc] init];
+//        [obj test];
+//        sleep(20);
+        LC179 *lc179 = [[LC179 alloc] init];
+        [lc179 test];
     }
     return 0;
 }
