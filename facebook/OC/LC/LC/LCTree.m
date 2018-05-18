@@ -134,10 +134,10 @@
     node2.left = node4;
     node2.right = node5;
     /// root is node1
-    [self inorder:node1];
-    [self inorderBFS:node1];
-    [self preorder:node1];
-    [self preorderBFS:node1];
+//    [self inorder:node1];
+//    [self inorderBFS:node1];
+//    [self preorder:node1];
+//    [self preorderBFS:node1];
     [self postorder:node1];
     [self postorderBFS:node1];
 }

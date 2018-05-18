@@ -84,6 +84,10 @@
     return node != NULL;
 }
 
+/// Xcode teacher add this method.
+/// return the list containing all the words with same prefix.
+/// prefix: abc
+/// list: abc, abcd, abcef, abccc, abcdf
 - (NSArray *)listStartWith:(NSString *)prefix {
     if(prefix.length == 0 || _root == NULL) {
         return [NSArray array];

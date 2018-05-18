@@ -30,7 +30,7 @@
             [node.indexedChildren replaceObjectAtIndex:(c - 'a') withObject:newNode];
         }
         node = [node.indexedChildren objectAtIndex:(c - 'a')];
-        node.index = index;
+        node.index = MAX(node.index, index);
     }
     node.isWord = YES;
 }

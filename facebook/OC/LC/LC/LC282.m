@@ -35,7 +35,7 @@
         NSString *subStr = [num substringWithRange:NSMakeRange(pos, i + 1 - pos)];
         NSInteger strNum = [subStr integerValue];
         if(pos == 0) {
-            [self dfs:res num:num str:[NSString stringWithFormat:@"%@", subStr] pos:i + 1 target:target sum:sum + strNum prev:strNum];
+            [self dfs:res num:num str:subStr pos:i + 1 target:target sum:sum + strNum prev:strNum];
         } else {
             [self dfs:res num:num str:[NSString stringWithFormat:@"%@+%@", str, subStr] pos:i + 1 target:target sum:sum + strNum prev:strNum];
             [self dfs:res num:num str:[NSString stringWithFormat:@"%@-%@", str, subStr] pos:i + 1 target:target sum:sum - strNum prev:-strNum];

@@ -59,6 +59,13 @@ public class PrintUtils {
         }
     }
 
+    public static void printMapKeyStringValueInteger(Map<String, Integer> map) {
+        for(String key:map.keySet()) {
+            Integer value = map.get(key);
+            printString("key:" + key + ": [" + value + "]");
+        }
+    }
+
     public static void printMapKeyStringValueList(Map<String, List<String>> map) {
         for(String key:map.keySet()) {
             List<String> list = map.get(key);

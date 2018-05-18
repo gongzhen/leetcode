@@ -8,6 +8,7 @@
 
 #import "LC269.h"
 #import "Queue.h"
+#import "QuickSort.h"
 
 @implementation LC269
 
@@ -40,7 +41,8 @@
         return @"";
     }
     
-    int *indegree = (int *)malloc(sizeof(int) * 26);
+    /// must be calloc not malloc
+    int *indegree = (int *)calloc(26, sizeof(int));
     int count = 0; /// count how many character totally.
     for(NSString *word in words) {
         for(int i = 0; i < word.length; i++) {
@@ -51,7 +53,7 @@
             }
         }
     }
-    
+//    [QuickSort printIntArray:indegree size:26];
     NSMutableDictionary *map = [NSMutableDictionary dictionary];
     for(int i = 0; i < words.count - 1; i++) {
         NSString* current = words[i];
@@ -66,12 +68,14 @@
                 if([set containsObject:@([next characterAtIndex:j])] == NO) {
                     char c = [next characterAtIndex:j];
                     indegree[c - 'a']++;
-                    [set addObject:@([next characterAtIndex:j])];
+                    [set addObject:@(c)];
                 }
                 break;
             }
         }
     }
+    
+    [QuickSort printIntArray:indegree size:26];
     
     [map enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         DLog(@"key:%c", (char)[key intValue]);
@@ -90,12 +94,12 @@
     
     while(![queue isEmpty]) {
         NSNumber *num = (NSNumber *)[queue poll];
-        char key = [num charValue];
+        char key = [num intValue];
         [res appendString:[NSString stringWithFormat:@"%c", key]];
         if([map objectForKey:@(key)] != NULL) {
             NSSet *set = [map objectForKey:@(key)];
             for(NSNumber *num in set) {
-                char key = [num charValue];
+                char key = [num intValue];
                 indegree[key - 'a']--;
                 if(indegree[key - 'a'] == 1) {
                     [queue offer:@(key)];
@@ -106,6 +110,7 @@
     if(res.length != count) {
         return @"";
     }
+    free(indegree);
     return res;
 }
 
@@ -113,5 +118,22 @@
     NSArray *words = @[@"wrt", @"wrf", @"er", @"ett", @"rftt"];
     NSString *result = [self alienOrder:words];
     DLog(@"res:%@", result); /// wertf
+    
+    NSString* string = @"mgadc";
+    NSMutableArray *charArray = [NSMutableArray array];
+    for(int i = 0; i < string.length; i++) {
+        [charArray addObject:@([string characterAtIndex:i])];
+    }
+    
+    NSArray *sortedArray = [charArray sortedArrayUsingSelector:@selector(compare:)];
+    __block NSMutableString *newStr = [NSMutableString string];
+    [sortedArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSNumber *num = (NSNumber *)obj;
+        DLog(@"%@", num);
+        DLog(@"%c", [num charValue]);
+        [newStr appendString:[NSString stringWithFormat:@"%c", [num charValue]]];
+    }];
+    DLog(@"newStr:%@", newStr);
+    
 }
 @end

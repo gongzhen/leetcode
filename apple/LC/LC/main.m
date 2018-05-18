@@ -18,6 +18,15 @@
 #import "OSSpinLockTest.h"
 #import "OsUnfairLockTest.h"
 #import "RunloopTest.h"
+#import "DispatchQueueTTest.h"
+#import "DispatchBarrierAsyncTest.h"
+#import "DispatchApplyTest.h"
+#import "DispatchGroupAsyncTest.h"
+#import "DispatchBlockTest.h"
+#import "DispatchBlockWaitTest.h"
+#import "DispatchBlockNotifyTest.h"
+#import "DispatchBlockCancel.h"
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -44,9 +53,27 @@ int main(int argc, const char * argv[]) {
 //        sleep(14);
 //        RunloopTest *obj = [[RunloopTest alloc] init];
 //        [obj test];
-//        sleep(20);
-        LC179 *lc179 = [[LC179 alloc] init];
-        [lc179 test];
+//        LC179 *lc179 = [[LC179 alloc] init];
+//        [lc179 test];
+//        DispatchQueueTTest *obj = [[DispatchQueueTTest alloc] init];
+//        [obj test];
+//        DispatchBarrierAsyncTest *obj = [[DispatchBarrierAsyncTest alloc] init];
+//        [obj test];
+//        DispatchApplyTest *obj = [[DispatchApplyTest alloc] init];
+//        [obj test];
+//        DispatchGroupAsyncTest *obj = [[DispatchGroupAsyncTest alloc] init];
+//        [obj test];
+//        DispatchBlockTest *obj = [[DispatchBlockTest alloc] init];
+//        [obj test];
+//        DispatchBlockTest *obj = [[DispatchBlockTest alloc] init];
+//        [obj test];
+//        DispatchBlockWaitTest *obj = [[DispatchBlockWaitTest alloc] init];
+//        [obj test];
+//        DispatchBlockNotifyTest *obj = [[DispatchBlockNotifyTest alloc] init];
+//        [obj test];
+        DispatchBlockCancel *obj = [[DispatchBlockCancel alloc] init];
+        [obj test];
+        sleep(10);
     }
     return 0;
 }

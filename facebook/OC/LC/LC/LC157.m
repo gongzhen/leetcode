@@ -65,6 +65,7 @@
         if(count < 4) {
             break;
         }
+        
     }
     return i;
 }

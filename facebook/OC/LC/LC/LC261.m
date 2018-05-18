@@ -67,26 +67,42 @@
             if(![set containsObject:num]) {
                 [set addObject:num];
                 [queue offer:num];
+                [[graph objectForKey:num] removeObject:@(node)];
             }
         }
     }
+    DLog(@"set.size:%ld", set.count);
     return visited == n;
 }
 
 - (void)test {
-    int grid[4][2] = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
-    int** edges = (int **)malloc(4 * sizeof(int *));
-    for(int i = 0; i < 4; i++) {
+//    int grid[4][2] = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
+//    int** edges = (int **)malloc(4 * sizeof(int *));
+//    for(int i = 0; i < 4; i++) {
+//        edges[i] = (int *)malloc(2 * sizeof(int));
+//    }
+//
+//    for(int i = 0; i < 4; i++) {
+//        for(int j = 0; j < 2; j++) {
+//            edges[i][j] = grid[i][j];
+//        }
+//    }
+//    /// 0, 1, 2, 3, 4
+//    DLog(@"res:%d", [self validTree:5 edges:edges row:4 col:2]);
+    
+    int grid[5][2] = {{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}};
+    int** edges = (int **)malloc(5 * sizeof(int *));
+    for(int i = 0; i < 5; i++) {
         edges[i] = (int *)malloc(2 * sizeof(int));
     }
     
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 5; i++) {
         for(int j = 0; j < 2; j++) {
             edges[i][j] = grid[i][j];
         }
     }
     /// 0, 1, 2, 3, 4
-    DLog(@"res:%d", [self validTree:5 edges:edges row:4 col:2]);
+    DLog(@"res:%d", [self validTree:5 edges:edges row:5 col:2]);
 }
 
 @end

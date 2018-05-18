@@ -28,7 +28,7 @@
             if(s.length == t.length) {
                 /// A B C
                 /// A T C
-                return [[s substringFromIndex:i + 1] isEqualToString:[t substringFromIndex:i]];
+                return [[s substringFromIndex:i + 1] isEqualToString:[t substringFromIndex:i + 1]];
             } else if (s.length < t.length) {
                 /// A B C
                 /// A D B C

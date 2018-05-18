@@ -225,6 +225,58 @@
     return res;
 }
 
+- (NSArray *)fullJustify_3:(char **)words wordsSize:(int)wordsSize maxWidth:(int)maxWidth {
+    if(words == 0) {
+        return [NSArray array];
+    }
+    NSMutableArray *result = [NSMutableArray array];
+    int i = 0, last = 0;
+    while(i < wordsSize) {
+        int count = 0;
+        while(last < wordsSize) {
+            count += strlen(words[last]);
+            if(count == maxWidth) {
+                last++;
+                break;
+            } else if (count > maxWidth) {
+                count -= (strlen(words[last]) + 1);
+                break;
+            }
+            last++;
+            count++;
+        }
+        
+        NSMutableString *str = [NSMutableString string];
+        int evenlyDistributedSpace = 1;
+        int spaceGap = last - i - 1;
+        int extraSpace = 0;
+        if(last != i + 1 && last != wordsSize) {
+            evenlyDistributedSpace = (maxWidth - count) / spaceGap + 1;
+            extraSpace = (maxWidth - count) % spaceGap;
+        }
+        
+        for(int j = i; j < last; j++) {
+            [str appendString:[NSString stringWithFormat:@"%s", words[j]]];
+            if(j + 1 != last) {
+                for(int s = 0; s < evenlyDistributedSpace; s++) {
+                    [str appendString:@" "];
+                }
+                if(extraSpace > 0) {
+                    [str appendString:@" "];
+                    extraSpace--;
+                }
+            }
+        }
+        int remainingSpace = maxWidth - (int)str.length;
+        for(int j = 0; j < remainingSpace; j++) {
+            [str appendString:@" "];
+        }
+        [result addObject:str];
+        i = last;
+    }
+    return result;
+}
+
 - (void)test {
 //    char* words[7] = {"This", "is", "an", "example", "of", "text", "justification."};
 //    NSArray<NSString *> *res = [self fullJustify:words wordsSize:7 maxWidth:16];
@@ -242,13 +294,34 @@
 //        DLog(@"%@", obj);
 //    }];
 //
-    char* words[7] = {"This", "is", "an", "example", "of", "text", "justification."};
-    NSArray<NSString *> *res = [self fullJustify_1:words wordsSize:7 maxWidth:16];
+//    char* words[7] = {"This", "is", "an", "example", "of", "text", "justification."};
+//    NSArray<NSString *> *res = [self fullJustify_1:words wordsSize:7 maxWidth:16];
+//    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        DLog(@"%@", obj);
+//    }];
+//
+//    res = [self fullJustify_2:words wordsSize:7 maxWidth:16];
+//    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        DLog(@"%@", obj);
+//    }];
+//
+//    res = [self fullJustify_3:words wordsSize:7 maxWidth:16];
+//    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        DLog(@"%@", obj);
+//    }];
+    
+    char* words[18] = {"Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"};
+    NSArray<NSString *> *res = [self fullJustify_1:words wordsSize:18 maxWidth:20];
     [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"%@", obj);
     }];
-
-    res = [self fullJustify_2:words wordsSize:7 maxWidth:16];
+    
+    res = [self fullJustify_2:words wordsSize:18 maxWidth:20];
+    [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"%@", obj);
+    }];
+    
+    res = [self fullJustify_3:words wordsSize:18 maxWidth:20];
     [res enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"%@", obj);
     }];

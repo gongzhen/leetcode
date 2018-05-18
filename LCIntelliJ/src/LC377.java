@@ -57,8 +57,8 @@ public class LC377 {
         List<Integer> list = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         dfs(res, list, nums, target);
+//        PrintUtils.printListOfListInteger(res);
         return res.size();
-        /// PrintUtils.printListOfListInteger(res);
     }
 
     private void dfs(List<List<Integer>> res, List<Integer> list, int[] nums, int target) {

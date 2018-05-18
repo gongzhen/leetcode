@@ -47,7 +47,7 @@
     
     /// (a + (n * x))% x is same as (a % x)
     /// https://leetcode.com/problems/continuous-subarray-sum/discuss/99499/Java-O(n)-time-O(k)-space
-    ///  1 + (2 * 6) % 6 = 1
+    ///  (1 + (2 * 6)) % 6 = 1
     ///  1 % 6 = 1
     NSMutableDictionary *map = [NSMutableDictionary dictionary];
     [map setObject:@(-1) forKey:@(0)];

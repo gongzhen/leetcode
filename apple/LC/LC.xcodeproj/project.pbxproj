@@ -16,6 +16,14 @@
 		3DAA8B0F207C97F70089BB60 /* LC48.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B0E207C97F70089BB60 /* LC48.m */; };
 		3DAA8B15207D405B0089BB60 /* LC36.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B14207D405B0089BB60 /* LC36.m */; };
 		6007CD3720A882C200D1E5FA /* LC179.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD3620A882C200D1E5FA /* LC179.m */; };
+		6007CD7D20AE7A3D00D1E5FA /* DispatchQueueTTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD7C20AE7A3D00D1E5FA /* DispatchQueueTTest.m */; };
+		6007CD8020AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD7F20AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m */; };
+		6007CD8320AF400700D1E5FA /* DispatchApplyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD8220AF400700D1E5FA /* DispatchApplyTest.m */; };
+		6007CD8620AF41EF00D1E5FA /* DispatchGroupAsyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD8520AF41EF00D1E5FA /* DispatchGroupAsyncTest.m */; };
+		6007CD8920AF77B300D1E5FA /* DispatchBlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD8820AF77B300D1E5FA /* DispatchBlockTest.m */; };
+		6007CD8C20AF793000D1E5FA /* DispatchBlockWaitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD8B20AF793000D1E5FA /* DispatchBlockWaitTest.m */; };
+		6007CD8F20AF7A3000D1E5FA /* DispatchBlockNotifyTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD8E20AF7A3000D1E5FA /* DispatchBlockNotifyTest.m */; };
+		6007CD9220AF7ACB00D1E5FA /* DispatchBlockCancel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6007CD9120AF7ACB00D1E5FA /* DispatchBlockCancel.m */; };
 		60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421B720A41ECE00C1286F /* OSSpinLockTest.m */; };
 		60E421BB20A4210A00C1286F /* OsUnfairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */; };
 		60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BD20A4BA4100C1286F /* RunloopTest.m */; };
@@ -55,6 +63,22 @@
 		3DAA8B14207D405B0089BB60 /* LC36.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC36.m; sourceTree = "<group>"; };
 		6007CD3520A882C200D1E5FA /* LC179.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC179.h; sourceTree = "<group>"; };
 		6007CD3620A882C200D1E5FA /* LC179.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC179.m; sourceTree = "<group>"; };
+		6007CD7B20AE7A3D00D1E5FA /* DispatchQueueTTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchQueueTTest.h; sourceTree = "<group>"; };
+		6007CD7C20AE7A3D00D1E5FA /* DispatchQueueTTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueTTest.m; sourceTree = "<group>"; };
+		6007CD7E20AE7D2400D1E5FA /* DispatchBarrierAsyncTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchBarrierAsyncTest.h; sourceTree = "<group>"; };
+		6007CD7F20AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchBarrierAsyncTest.m; sourceTree = "<group>"; };
+		6007CD8120AF400700D1E5FA /* DispatchApplyTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchApplyTest.h; sourceTree = "<group>"; };
+		6007CD8220AF400700D1E5FA /* DispatchApplyTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchApplyTest.m; sourceTree = "<group>"; };
+		6007CD8420AF41EF00D1E5FA /* DispatchGroupAsyncTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchGroupAsyncTest.h; sourceTree = "<group>"; };
+		6007CD8520AF41EF00D1E5FA /* DispatchGroupAsyncTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchGroupAsyncTest.m; sourceTree = "<group>"; };
+		6007CD8720AF77B300D1E5FA /* DispatchBlockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchBlockTest.h; sourceTree = "<group>"; };
+		6007CD8820AF77B300D1E5FA /* DispatchBlockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchBlockTest.m; sourceTree = "<group>"; };
+		6007CD8A20AF793000D1E5FA /* DispatchBlockWaitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchBlockWaitTest.h; sourceTree = "<group>"; };
+		6007CD8B20AF793000D1E5FA /* DispatchBlockWaitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchBlockWaitTest.m; sourceTree = "<group>"; };
+		6007CD8D20AF7A3000D1E5FA /* DispatchBlockNotifyTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchBlockNotifyTest.h; sourceTree = "<group>"; };
+		6007CD8E20AF7A3000D1E5FA /* DispatchBlockNotifyTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchBlockNotifyTest.m; sourceTree = "<group>"; };
+		6007CD9020AF7ACB00D1E5FA /* DispatchBlockCancel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchBlockCancel.h; sourceTree = "<group>"; };
+		6007CD9120AF7ACB00D1E5FA /* DispatchBlockCancel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchBlockCancel.m; sourceTree = "<group>"; };
 		60E421B620A41ECE00C1286F /* OSSpinLockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSpinLockTest.h; sourceTree = "<group>"; };
 		60E421B720A41ECE00C1286F /* OSSpinLockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSpinLockTest.m; sourceTree = "<group>"; };
 		60E421B920A4210A00C1286F /* OsUnfairLockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OsUnfairLockTest.h; sourceTree = "<group>"; };
@@ -124,6 +148,22 @@
 				60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */,
 				60E421BC20A4BA4100C1286F /* RunloopTest.h */,
 				60E421BD20A4BA4100C1286F /* RunloopTest.m */,
+				6007CD7B20AE7A3D00D1E5FA /* DispatchQueueTTest.h */,
+				6007CD7C20AE7A3D00D1E5FA /* DispatchQueueTTest.m */,
+				6007CD7E20AE7D2400D1E5FA /* DispatchBarrierAsyncTest.h */,
+				6007CD7F20AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m */,
+				6007CD8120AF400700D1E5FA /* DispatchApplyTest.h */,
+				6007CD8220AF400700D1E5FA /* DispatchApplyTest.m */,
+				6007CD8420AF41EF00D1E5FA /* DispatchGroupAsyncTest.h */,
+				6007CD8520AF41EF00D1E5FA /* DispatchGroupAsyncTest.m */,
+				6007CD8720AF77B300D1E5FA /* DispatchBlockTest.h */,
+				6007CD8820AF77B300D1E5FA /* DispatchBlockTest.m */,
+				6007CD8A20AF793000D1E5FA /* DispatchBlockWaitTest.h */,
+				6007CD8B20AF793000D1E5FA /* DispatchBlockWaitTest.m */,
+				6007CD8D20AF7A3000D1E5FA /* DispatchBlockNotifyTest.h */,
+				6007CD8E20AF7A3000D1E5FA /* DispatchBlockNotifyTest.m */,
+				6007CD9020AF7ACB00D1E5FA /* DispatchBlockCancel.h */,
+				6007CD9120AF7ACB00D1E5FA /* DispatchBlockCancel.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -186,7 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6007CD8320AF400700D1E5FA /* DispatchApplyTest.m in Sources */,
 				3DAA8B15207D405B0089BB60 /* LC36.m in Sources */,
+				6007CD8C20AF793000D1E5FA /* DispatchBlockWaitTest.m in Sources */,
 				3DAA8B0F207C97F70089BB60 /* LC48.m in Sources */,
 				60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */,
 				60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */,
@@ -194,10 +236,16 @@
 				60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */,
 				60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */,
 				3DAA8B05207B022C0089BB60 /* LC.m in Sources */,
+				6007CD8F20AF7A3000D1E5FA /* DispatchBlockNotifyTest.m in Sources */,
 				6007CD3720A882C200D1E5FA /* LC179.m in Sources */,
 				3D19364C207E408000490F8D /* BlockTest.m in Sources */,
+				6007CD8020AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m in Sources */,
+				6007CD8620AF41EF00D1E5FA /* DispatchGroupAsyncTest.m in Sources */,
+				6007CD8920AF77B300D1E5FA /* DispatchBlockTest.m in Sources */,
+				6007CD7D20AE7A3D00D1E5FA /* DispatchQueueTTest.m in Sources */,
 				3DAA8AFD207B01E10089BB60 /* main.m in Sources */,
 				60E421BB20A4210A00C1286F /* OsUnfairLockTest.m in Sources */,
+				6007CD9220AF7ACB00D1E5FA /* DispatchBlockCancel.m in Sources */,
 				3DAA7B31207F054B0053109A /* RetainCount.m in Sources */,
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
 			);
