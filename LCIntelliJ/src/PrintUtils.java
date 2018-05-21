@@ -29,14 +29,21 @@ public class PrintUtils {
         printStringWithoutNewLine("]\n");
     }
 
-     public static void printListString(List<String> list) {
+    public static void printListString(List<String> list) {
         for(String s: list) {
-            printStringWithoutNewLine( s + ", ");
+            printStringWithoutNewLine(s + ", ");
         }
-         printStringWithoutNewLine("\n");
-     }
+        printStringWithoutNewLine("\n");
+    }
 
-     public static void printMatrixInt(int[][] matrix) {
+    public static void printListStringWithLine(List<String> list) {
+        for(String s: list) {
+            printString(s + ", ");
+        }
+        printStringWithoutNewLine("\n");
+    }
+
+    public static void printMatrixInt(int[][] matrix) {
         int i = 0;
          for(int[] s: matrix) {
              int j = 0;
@@ -47,6 +54,18 @@ public class PrintUtils {
              i++;
          }
      }
+
+    public static void printMatrixChar(char[][] matrix) {
+        int i = 0;
+        for(char[] s: matrix) {
+            int j = 0;
+            for(char n: s) {
+                printStringWithoutNewLine( "[" + i + "]" + "[" + (j++) + "]" + n + ", ");
+            }
+            System.out.println();
+            i++;
+        }
+    }
 
     public static void printStringWithoutNewLine(String arg) {
         System.out.print(arg);
