@@ -21,13 +21,15 @@ public class LC44 {
             }
         }
 
-        while(j < p.length() && p.charAt(j) != '*') {
-            j++;
-        }
+//        while(j < p.length() && p.charAt(j) != '*') {
+//            j++;
+//        }
         return j == p.length();
     }
 
     public static void main(String[] args) {
-
+        LC44 obj = new LC44();
+//        obj.isMatch("acdcb", "a*c?b");
+        obj.isMatch("", "*");
     }
 }

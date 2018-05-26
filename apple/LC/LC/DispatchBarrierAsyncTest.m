@@ -46,6 +46,7 @@
         DLog(@"Executing setCount");
     });
     DLog(@"After setCount");
+    [self dispatchBarrierAsyncDemo];
 }
 
 - (void)dispatchBarrierAsyncDemo {

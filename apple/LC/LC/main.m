@@ -37,8 +37,8 @@ int main(int argc, const char * argv[]) {
 //        [lc48 test];
 //        BlockTest *blockTest = [[BlockTest alloc] init];
 //        [blockTest test];
-//        RetainCount *retainCount = [[RetainCount alloc] init];
-//        [retainCount test];
+        RetainCount *retainCount = [[RetainCount alloc] init];
+        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
 //        [gcdTest test];
 //        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
@@ -71,8 +71,8 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchBlockNotifyTest *obj = [[DispatchBlockNotifyTest alloc] init];
 //        [obj test];
-        DispatchBlockCancel *obj = [[DispatchBlockCancel alloc] init];
-        [obj test];
+//        DispatchBlockCancel *obj = [[DispatchBlockCancel alloc] init];
+//        [obj test];
         sleep(10);
     }
     return 0;

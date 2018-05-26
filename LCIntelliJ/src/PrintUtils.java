@@ -20,6 +20,9 @@ public class PrintUtils {
     }
 
     public static void printArray(int[] list) {
+        if(list == null) {
+            return;
+        }
         printStringWithoutNewLine("[");
         int i = 0;
         for(int n : list) {
@@ -31,6 +34,13 @@ public class PrintUtils {
 
     public static void printListString(List<String> list) {
         for(String s: list) {
+            printStringWithoutNewLine(s + ", ");
+        }
+        printStringWithoutNewLine("\n");
+    }
+
+    public static void printListInteger(List<Integer> list) {
+        for(Integer s: list) {
             printStringWithoutNewLine(s + ", ");
         }
         printStringWithoutNewLine("\n");
@@ -54,6 +64,18 @@ public class PrintUtils {
              i++;
          }
      }
+
+    public static void printMatrixBool(boolean[][] matrix) {
+        int i = 0;
+        for(boolean[] s: matrix) {
+            int j = 0;
+            for(boolean n: s) {
+                printStringWithoutNewLine( "[" + i + "]" + "[" + (j++) + "]" + n + ", ");
+            }
+            System.out.println();
+            i++;
+        }
+    }
 
     public static void printMatrixChar(char[][] matrix) {
         int i = 0;

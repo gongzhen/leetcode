@@ -8,20 +8,36 @@
 
 #import "RetainCount.h"
 
-@interface SampleClass: NSObject
+@interface SampleClass: NSObject <NSCopying>
 
+@property(copy, nonatomic) NSString *samepleName;
 - (void)sampleMethod;
+- (instancetype)initWithName:(NSString *)name;
+-(id) copyWithZone: (NSZone *) zone;
 
 @end
 
 @implementation SampleClass
 
 - (void)dealloc {
-    DLog(@"SampleClass is delocated.");
+    DLog(@"SampleClass is delocated.%@:%@", self.className, self.samepleName);
+    [super dealloc];
+}
+
+- (instancetype)initWithName:(NSString *)name {
+    if(self = [super init]) {
+        _samepleName = name;
+    }
+    return self;
+}
+
+-(instancetype)copyWithZone:(NSZone *)zone {
+    SampleClass *copy = [[[self class] allocWithZone:zone] initWithName:_samepleName];
+    return copy;
 }
 
 - (void)sampleMethod {
-    
+    DLog(@"sampleMethod.");
 }
 
 @end
@@ -39,6 +55,7 @@
 @implementation Parent
 
 - (void)dealloc {
+    [super dealloc];
     DLog(@"Parent is delocated.");
 }
 
@@ -52,6 +69,7 @@
 
 // @property(weak, nonatomic)Parent *parent;
 @property(strong, nonatomic)Parent *parent;
+
 - (void)sampleMethod;
 
 @end
@@ -59,7 +77,7 @@
 @implementation Child
 
 - (void)dealloc {
-    DLog(@"Child is delocated.");
+    [super dealloc];
 }
 
 - (void)sampleMethod {
@@ -70,7 +88,23 @@
 @implementation RetainCount
 
 - (void)test {
-    [self test3];
+    [self test4];
+}
+
+/// triple bytes test cases
+- (void)test4 {
+    SampleClass* a = [[SampleClass alloc] initWithName:@"a"];
+    DLog(@"a retainCount:%ld", [a retainCount]);
+    SampleClass *b = [a retain];
+    DLog(@"a retainCount:%ld", [a retainCount]);
+    DLog(@"b retainCount:%ld", [b retainCount]);
+    SampleClass *c = [b copy];
+    DLog(@"a retainCount:%ld", [a retainCount]);
+    DLog(@"b retainCount:%ld", [b retainCount]);
+    DLog(@"c retainCount:%ld", [c retainCount]);
+    [a release];
+    [b release];
+    [c release];
 }
 
 - (void)test1 {

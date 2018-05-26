@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D19364C207E408000490F8D /* BlockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D19364B207E408000490F8D /* BlockTest.m */; };
-		3DAA7B31207F054B0053109A /* RetainCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA7B30207F054B0053109A /* RetainCount.m */; };
+		3DAA7B31207F054B0053109A /* RetainCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA7B30207F054B0053109A /* RetainCount.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3DAA7B34207FF1630053109A /* GCDTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA7B33207FF1630053109A /* GCDTest.m */; };
 		3DAA8AFD207B01E10089BB60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8AFC207B01E10089BB60 /* main.m */; };
 		3DAA8B05207B022C0089BB60 /* LC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DAA8B03207B022C0089BB60 /* LC.m */; };
@@ -364,6 +364,7 @@
 		3DAA8B01207B01E10089BB60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X92HRP6SLX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -375,6 +376,7 @@
 		3DAA8B02207B01E10089BB60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X92HRP6SLX;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

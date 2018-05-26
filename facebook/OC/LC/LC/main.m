@@ -109,6 +109,7 @@
 #import "LC658.h"
 #import "LC642.h"
 #import "Trie.h"
+#import "LC995.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -208,8 +209,8 @@ int main(int argc, const char * argv[]) {
 //        [lc207 test];
 //        LC210 *lc210 = [[LC210 alloc] init];
 //        [lc210 test];
-        LC261 *lc261 = [[LC261 alloc] init];
-        [lc261 test];
+//        LC261 *lc261 = [[LC261 alloc] init];
+//        [lc261 test];
 //        LC54 *lc54 = [[LC54 alloc] init];
 //        [lc54 test];
 //        LC53 *lc53 = [[LC53 alloc] init];
@@ -338,6 +339,8 @@ int main(int argc, const char * argv[]) {
 //        }
 //        NSArray *result1 = [trie listStartWith:@"z"];
 //        DLog(@"result1.count == 0:%ld", result1.count);
+        LC995 *obj = [[LC995 alloc] init];
+        [obj test];
     }
     return 0;
 }

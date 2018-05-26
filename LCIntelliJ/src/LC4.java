@@ -21,8 +21,10 @@ public class LC4 {
             int mid2 = j + k / 2 - 1 <= e2 ? nums2[j + k / 2 - 1] : Integer.MAX_VALUE;
             if(mid1 < mid2) {
                 i = i + k / 2;
+//                i = i + k / 2 - 1;
             } else {
                 j = j + k / 2;
+//                j = j + k / 2 - 1;
             }
             k = k - k / 2;
         }
@@ -37,14 +39,14 @@ public class LC4 {
     }
 
     public static void main(String[] args) {
-//        int[] A1 = new int[] {1, 3};
-//        int[] B1 = new int[] {2};
-//        LC4 obj = new LC4();
-//        PrintUtils.printString("res:" + obj.findMedianSortedArrays(A1, B1));
-
-        int[] A1 = new int[] {1, 2, 3};
-        int[] B1 = new int[] {4, 5, 6};
+        int[] A1 = new int[] {1, 3};
+        int[] B1 = new int[] {2};
         LC4 obj = new LC4();
         PrintUtils.printString("res:" + obj.findMedianSortedArrays(A1, B1));
+
+//        int[] A1 = new int[] {1, 2, 3};
+//        int[] B1 = new int[] {4, 5, 6};
+//        LC4 obj = new LC4();
+//        PrintUtils.printString("res:" + obj.findMedianSortedArrays(A1, B1));
     }
 }
