@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -57,7 +57,6 @@
                                             <constraint firstAttribute="width" secondItem="PWK-kK-pA1" secondAttribute="height" multiplier="1:1" id="91R-Jc-6tq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jMZ-Nb-ppp"/>
                                         </connections>
@@ -68,7 +67,6 @@
                                             <constraint firstAttribute="width" secondItem="2mr-7K-Eid" secondAttribute="height" multiplier="1:1" id="BDf-kg-IDm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8zV-d6-XFM"/>
                                         </connections>
@@ -79,7 +77,6 @@
                                             <constraint firstAttribute="width" secondItem="Hx4-2k-9xe" secondAttribute="height" multiplier="1:1" id="aQM-Fm-bhf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jtr-w6-Obx"/>
                                         </connections>
@@ -90,7 +87,6 @@
                                             <constraint firstAttribute="width" secondItem="mRc-qj-CVB" secondAttribute="height" multiplier="1:1" id="gum-y2-mWy"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DZs-ao-SZS"/>
                                         </connections>
@@ -101,7 +97,6 @@
                                             <constraint firstAttribute="width" secondItem="wZ2-ta-kig" secondAttribute="height" multiplier="1:1" id="UiJ-dM-pok"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xcv-F6-3pw"/>
                                         </connections>
@@ -112,7 +107,6 @@
                                             <constraint firstAttribute="width" secondItem="nRc-AR-yZq" secondAttribute="height" multiplier="1:1" id="N7e-Y2-WG1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mtR-aF-7vx"/>
                                         </connections>
@@ -123,7 +117,6 @@
                                             <constraint firstAttribute="width" secondItem="qFJ-VY-rW3" secondAttribute="height" multiplier="1:1" id="FCx-wo-bUl"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="moD-aU-EJO"/>
                                         </connections>
@@ -134,7 +127,6 @@
                                             <constraint firstAttribute="width" secondItem="BEY-Hz-mWU" secondAttribute="height" multiplier="1:1" id="Dsp-nz-8t4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cSv-yn-Dmg"/>
                                         </connections>
@@ -145,7 +137,6 @@
                                             <constraint firstAttribute="width" secondItem="IDo-Vb-ygb" secondAttribute="height" multiplier="1:1" id="fN0-wH-0kR"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                        <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jC1-TD-KOZ"/>
                                         </connections>

@@ -110,6 +110,7 @@
 #import "LC642.h"
 #import "Trie.h"
 #import "LC995.h"
+#import "LC994.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -339,7 +340,9 @@ int main(int argc, const char * argv[]) {
 //        }
 //        NSArray *result1 = [trie listStartWith:@"z"];
 //        DLog(@"result1.count == 0:%ld", result1.count);
-        LC995 *obj = [[LC995 alloc] init];
+//        LC995 *obj = [[LC995 alloc] init];
+//        [obj test];
+        LC994 *obj = [[LC994 alloc] init];
         [obj test];
     }
     return 0;

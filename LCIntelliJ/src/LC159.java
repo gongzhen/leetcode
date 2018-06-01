@@ -51,12 +51,64 @@ public class LC159 {
         return res;
     }
 
+    public int lengthOfLongestSubstringTwoDistinct1(String s) {
+        if(s.length() == 0) {
+            return 0;
+        }
+
+        char[] array = s.toCharArray();
+        int j = 0;
+        int res = 0;
+        Map<Character, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < array.length; i++) {
+            if(map.containsKey(array[i])) {
+                int v = map.get(array[i]);
+                map.put(array[i], ++v);
+            } else {
+                map.put(array[i], 1);
+            }
+
+            while(map.size() > 2) {
+                if(map.containsKey(array[j])) {
+                    int v = map.get(array[j]);
+                    v--;
+                    map.put(array[j], v);
+                    if(v == 0) {
+                        map.remove(array[j]);
+                    }
+
+                }
+                j++;
+            }
+            res = Math.max(res, i - j + 1);
+        }
+        return res;
+    }
+
+    /// http://www.cnblogs.com/grandyang/p/5185561.html
+    public int lengthOfLongestSubstringTwoDistinct2(String s) {
+        int left = 0, right = -1, res = 0;
+        for (int i = 1; i < s.length(); ++i) {
+            if (s.charAt(i) == s.charAt(i - 1)) {
+                continue;
+            }
+            if (right >= 0 && s.charAt(right) != s.charAt(i)) {
+                res = Math.max(res, i - left);
+                left = right + 1;
+            }
+            right = i - 1;
+        }
+        return Math.max(s.length() - left, res);
+    }
+
     public static void main(String[] args) {
         /// bacc
         LC159 obj = new LC159();
 //        PrintUtils.printString("res:" + obj.lengthOfLongestSubstringTwoDistinct("bacc"));
 
         // ccaabbb
-        PrintUtils.printString("res:" + obj.lengthOfLongestSubstringTwoDistinct("ccaabbb"));
+//        PrintUtils.printString("res:" + obj.lengthOfLongestSubstringTwoDistinct("ccaabbb"));
+        PrintUtils.printString("res:" + obj.lengthOfLongestSubstringTwoDistinct2("ccaabbb"));
     }
 }
