@@ -19,6 +19,8 @@ public class LC644 {
     *
     * */
 
+
+
     private static class Solution {
         /// https://blog.csdn.net/MebiuW/article/details/76222743
         public double findMaxAverage(int[] nums, int k) {
