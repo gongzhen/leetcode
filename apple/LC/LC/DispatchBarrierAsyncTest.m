@@ -4,7 +4,7 @@
 //
 //  Created by Zhen Gong on 5/17/18.
 //  Copyright © 2018 ULS. All rights reserved.
-//
+//  https://www.jianshu.com/p/fbe6a654604c
 
 #import "DispatchBarrierAsyncTest.h"
 

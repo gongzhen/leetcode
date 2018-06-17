@@ -26,7 +26,13 @@
 #import "DispatchBlockWaitTest.h"
 #import "DispatchBlockNotifyTest.h"
 #import "DispatchBlockCancel.h"
-
+#import "DispatchAfterTest.h"
+#import "DispatchQueueConcurrentTest.h"
+#import "PerformSelectorTest.h"
+#import "DipatchQueueAttrMakeWithQosClassTest.h"
+#import "DispatchSyncDeadLockTest.h"
+#import "DispatchAyncSyncTest.h"
+#import "ThreadSafeNSMutableArrayTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -37,8 +43,8 @@ int main(int argc, const char * argv[]) {
 //        [lc48 test];
 //        BlockTest *blockTest = [[BlockTest alloc] init];
 //        [blockTest test];
-        RetainCount *retainCount = [[RetainCount alloc] init];
-        [retainCount test];
+//        RetainCount *retainCount = [[RetainCount alloc] init];
+//        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
 //        [gcdTest test];
 //        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
@@ -73,7 +79,22 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchBlockCancel *obj = [[DispatchBlockCancel alloc] init];
 //        [obj test];
-        sleep(10);
+//        DispatchAfterTest *obj = [DispatchAfterTest new];
+//        [obj test];
+//        DispatchQueueConcurrentTest *obj = [DispatchQueueConcurrentTest new];
+//        [obj test];
+//        PerformSelectorTest *obj = [PerformSelectorTest new];
+//        [obj test];
+//        DispatchSyncDeadLockTest *obj = [[DispatchSyncDeadLockTest alloc] init];
+//        [obj test];
+//        DipatchQueueAttrMakeWithQosClassTest *obj = [[DipatchQueueAttrMakeWithQosClassTest alloc] init];
+//        [obj test];
+//        DispatchAyncSyncTest *obj = [DispatchAyncSyncTest new];
+//        [obj test];
+        ThreadSafeNSMutableArrayTest *obj = [ThreadSafeNSMutableArrayTest new];
+        [obj test];
+//        [obj testBarrier];
+        sleep(30);
     }
     return 0;
 }
