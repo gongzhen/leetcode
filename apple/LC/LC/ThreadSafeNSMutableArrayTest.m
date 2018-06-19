@@ -25,62 +25,128 @@
 }
 
 - (void)test {
-    [self testReadTwoThread];
-//    ThreadSafeNSMutableArray *array = [[ThreadSafeNSMutableArray alloc] init];
-
-    
-//    for(NSInteger i = 0; i < 10; i++) {
-//        dispatch_async(queue, ^{
-//            DLog(@"addObject:%@", @(i));
-//            [array addObject:@(i)];
-//            [array iterateArray];
-//        });
-//        dispatch_async(queue, ^{
-//            [array iterateArray];
-//        });
-        
-//        dispatch_async(queue, ^{
-//            DLog(@"objectAtIndex[%ld]:%@", i, [array objectAtIndex:i]);
-//        });
-//    }
+//    [self testDispatchAsyncReadTwoThread];
+//    [self testDispatchSyncWriteRead];
+//    [self testDispatchAsyncSyncDifference];
+    [self testThreeThreadWriteToOneVariable];
 }
 
-- (void)testReadOneThread {
-    ThreadSafeNSMutableArray *obj = [[ThreadSafeNSMutableArray alloc] init];
-    for(NSInteger i = 0; i < 10; i++) {
-        [obj addObject:@(i)];
-        NSLog(@"add:%@", [obj objectAtIndex:i]);
-    }
-    
-    [obj iterateArray];
-}
-
-- (void)testReadTwoThread {
-    // global concurrent queue
-        dispatch_queue_t queue1 = dispatch_queue_create("com.gongzhen.queue1", DISPATCH_QUEUE_CONCURRENT);
-        dispatch_queue_t queue2 = dispatch_queue_create("com.gongzhen.queue2", DISPATCH_QUEUE_CONCURRENT);
+- (void)testDispatchAsyncWriteReadTwoQueue {
+    dispatch_queue_t queue1 = dispatch_queue_create("com.gongzhen.queue1", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue2 = dispatch_queue_create("com.gongzhen.queue2", DISPATCH_QUEUE_CONCURRENT);
     ThreadSafeNSMutableArray *obj = [[ThreadSafeNSMutableArray alloc] init];
     dispatch_async(queue1, ^{
         for(NSInteger i = 0; i < 10; i++) {
             [obj addObject:@(i)];
-            NSLog(@"++++++++++++add:%@", [obj objectAtIndex:i]);
+            NSLog(@"queue1 ++++++++++++add:%@", [obj objectAtIndex:i]);
         }
     });
     
     dispatch_async(queue2, ^{
         for(NSInteger i = 0; i < 10; i++) {
-            [obj addObject:@(i)];
-            NSLog(@"------------add:%@", [obj objectAtIndex:i]);
+            [obj replaceObjectAtIndex:i withObject:@(-i)];
+            NSLog(@"queue2 ------------add:%@", [obj objectAtIndex:i]);
         }
     });
     
     dispatch_barrier_async(queue1, ^{
         [obj iterateArray];
     });
-    
-
 }
 
+- (void)testDispatchAsyncWriteRead {
+    dispatch_queue_t queue1 = dispatch_queue_create("com.gongzhen.queue1", DISPATCH_QUEUE_SERIAL);
+    ThreadSafeNSMutableArray *obj = [[ThreadSafeNSMutableArray alloc] init];
+    dispatch_async(queue1, ^{
+        for(NSInteger i = 0; i < 10; i++) {
+            [obj addObject:@(i)];
+            NSLog(@"queue1 ++++++++++++add:%@", [obj objectAtIndex:i]);
+        }
+    });
+    
+    dispatch_async(queue1, ^{
+        for(NSInteger i = 0; i < 10; i++) {
+            [obj replaceObjectAtIndex:i withObject:@(-i)];
+            NSLog(@"queue1 ------------add:%@", [obj objectAtIndex:i]);
+        }
+    });
+    
+    dispatch_barrier_async(queue1, ^{
+        [obj iterateArray];
+    });
+}
+
+- (void)testDispatchSyncWriteRead {
+    dispatch_queue_t queue1 = dispatch_queue_create("com.gongzhen.queue1", DISPATCH_QUEUE_SERIAL);
+    ThreadSafeNSMutableArray *obj = [[ThreadSafeNSMutableArray alloc] init];
+    [obj addObject:@(10)];
+
+    for(int i = 0; i < 10; i++) {
+        dispatch_sync(queue1, ^{
+            NSLog(@"replace 10");
+            [obj replaceObjectAtIndex:0 withObject:@(20)];
+        });
+    }
+    
+    for(int i = 0; i < 10; i++) {
+        dispatch_sync(queue1, ^{
+            NSLog(@"replace -10");
+            [obj replaceObjectAtIndex:0 withObject:@(-20)];
+        });
+    }
+    dispatch_barrier_sync(queue1, ^{
+        [obj iterateArray];
+    });
+}
+
+- (void)testDispatchAsyncSyncDifference {
+    dispatch_queue_t queue1 = dispatch_queue_create("com.gongzhen.queue1", DISPATCH_QUEUE_CONCURRENT);
+    ThreadSafeNSMutableArray *obj = [[ThreadSafeNSMutableArray alloc] init];
+    [obj addObject:@(10)];
+    dispatch_async(queue1, ^{
+        [obj replaceObjectAtIndex:0 withObject:@(-10)];
+        DLog(@"queue1 ------------repalce:%@", [obj objectAtIndex:0]);
+    });
+    dispatch_async(queue1, ^{
+        [obj replaceObjectAtIndex:0 withObject:@(10)];
+        DLog(@"queue1 ------------repalce:%@", [obj objectAtIndex:0]);
+    });
+    dispatch_barrier_sync(queue1, ^{
+        [obj iterateArray];
+    });
+    DLog(@"dispatch_barrier_sync will stop current thread.");
+    dispatch_async(queue1, ^{
+        [obj replaceObjectAtIndex:0 withObject:@(20)];
+        DLog(@"queue1 ------------repalce:%@", [obj objectAtIndex:0]);
+    });
+    dispatch_async(queue1, ^{
+        [obj replaceObjectAtIndex:0 withObject:@(30)];
+        DLog(@"queue1 ------------repalce:%@", [obj objectAtIndex:0]);
+    });
+}
+
+- (void)testThreeThreadWriteToOneVariable {
+    dispatch_queue_t queue1 = dispatch_queue_create("com.gongzhen.queue1", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue2 = dispatch_queue_create("com.gongzhen.queue2", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue3 = dispatch_queue_create("com.gongzhen.queue3", DISPATCH_QUEUE_CONCURRENT);
+    ThreadSafeNSMutableArray *array = [[ThreadSafeNSMutableArray alloc] init];
+    
+    NSArray* list = @[queue1, queue2, queue3];
+    [list enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        dispatch_queue_t queue = (dispatch_queue_t)obj;
+        [self addObjectFromQueue:queue tfArray:array];
+    }];
+}
+
+- (void)addObjectFromQueue:(dispatch_queue_t) queue tfArray:(ThreadSafeNSMutableArray *)tfArray {
+    dispatch_async(queue, ^{
+        for(int i = 0; i < 1000; i++) {
+            // tfArray.countNumber++;
+            [tfArray setCountNumber:i];
+        }
+        DLog(@"%@ count:%ld", queue, tfArray.countNumber);
+    });
+}
 
 - (void)testBarrier {
      dispatch_queue_t queue = dispatch_queue_create("ThreadSafeNSMutableArrayTest", DISPATCH_QUEUE_CONCURRENT);

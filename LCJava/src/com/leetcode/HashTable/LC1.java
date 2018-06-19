@@ -3,7 +3,7 @@ package com.leetcode.HashTable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class LC2 {
+public class LC1 {
 
     /*
     * 1. Two Sum

@@ -13,7 +13,6 @@
 
 @interface ThreadSafeNSMutableArray() {
     CFMutableArrayRef _array;
-    CGFloat _capacity;
 }
 
 @property (nonatomic, strong) dispatch_queue_t syncQueue;
@@ -43,7 +42,7 @@
 - (instancetype)init
 {
     if(self = [super init]) {
-        _capacity = 10;
+        _countNumber = 0;
         _array = CFArrayCreateMutable(kCFAllocatorDefault, 10,  &kCFTypeArrayCallBacks);
     }
     return self;
@@ -54,7 +53,7 @@
     self = [super init];
     if (self)
     {
-        _capacity = numItems;
+        _countNumber = numItems;
         _array = CFArrayCreateMutable(kCFAllocatorDefault, numItems,  &kCFTypeArrayCallBacks);
     }
     return self;
@@ -179,6 +178,13 @@
             id result = CFArrayGetValueAtIndex(self->_array, i);
             DLog(@"iterateArray: [%d]%@", i, result);
         }
+    });
+}
+
+- (void)setCountNumber:(NSUInteger)countNumber {
+    dispatch_barrier_async(self.syncQueue, ^{
+        self->_countNumber++;
+        // NSLog(@"countNumber:%ld", self->_countNumber);
     });
 }
 

@@ -10,6 +10,8 @@
 
 @interface ThreadSafeNSMutableArray : NSObject
 
+@property (assign, nonatomic)NSUInteger countNumber;
+
 - (void)addObject:(_Nonnull id)anObject;
 - (void)insertObject:(_Nonnull id)anObject atIndex:(NSUInteger)index;
 - (void)removeLastObject;
