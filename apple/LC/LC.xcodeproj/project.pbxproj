@@ -32,6 +32,9 @@
 		608D214820D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214720D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m */; };
 		608D214B20D1C7D6003C3C3B /* DispatchAyncSyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214A20D1C7D6003C3C3B /* DispatchAyncSyncTest.m */; };
 		608D214E20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214D20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m */; };
+		60D74C8C20DAF02E003E410C /* MobileFormingQ1Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */; };
+		60D74CCD20DAF56B003E410C /* MobileFormingQ1UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74CCC20DAF56B003E410C /* MobileFormingQ1UnitTest.m */; };
+		60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74CCF20DB1BCA003E410C /* MobileFormingQ4Test.m */; };
 		60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421B720A41ECE00C1286F /* OSSpinLockTest.m */; };
 		60E421BB20A4210A00C1286F /* OsUnfairLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */; };
 		60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BD20A4BA4100C1286F /* RunloopTest.m */; };
@@ -103,6 +106,12 @@
 		608D214A20D1C7D6003C3C3B /* DispatchAyncSyncTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchAyncSyncTest.m; sourceTree = "<group>"; };
 		608D214C20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafeNSMutableArrayTest.h; sourceTree = "<group>"; };
 		608D214D20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeNSMutableArrayTest.m; sourceTree = "<group>"; };
+		60D74C8A20DAF02E003E410C /* MobileFormingQ1Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ1Test.h; sourceTree = "<group>"; };
+		60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileFormingQ1Test.m; sourceTree = "<group>"; };
+		60D74CCB20DAF56B003E410C /* MobileFormingQ1UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ1UnitTest.h; sourceTree = "<group>"; };
+		60D74CCC20DAF56B003E410C /* MobileFormingQ1UnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileFormingQ1UnitTest.m; sourceTree = "<group>"; };
+		60D74CCE20DB1BCA003E410C /* MobileFormingQ4Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ4Test.h; sourceTree = "<group>"; };
+		60D74CCF20DB1BCA003E410C /* MobileFormingQ4Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileFormingQ4Test.m; sourceTree = "<group>"; };
 		60E421B620A41ECE00C1286F /* OSSpinLockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSpinLockTest.h; sourceTree = "<group>"; };
 		60E421B720A41ECE00C1286F /* OSSpinLockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OSSpinLockTest.m; sourceTree = "<group>"; };
 		60E421B920A4210A00C1286F /* OsUnfairLockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OsUnfairLockTest.h; sourceTree = "<group>"; };
@@ -156,6 +165,12 @@
 				3DAA8B14207D405B0089BB60 /* LC36.m */,
 				6007CD3520A882C200D1E5FA /* LC179.h */,
 				6007CD3620A882C200D1E5FA /* LC179.m */,
+				60D74C8A20DAF02E003E410C /* MobileFormingQ1Test.h */,
+				60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */,
+				60D74CCB20DAF56B003E410C /* MobileFormingQ1UnitTest.h */,
+				60D74CCC20DAF56B003E410C /* MobileFormingQ1UnitTest.m */,
+				60D74CCE20DB1BCA003E410C /* MobileFormingQ4Test.h */,
+				60D74CCF20DB1BCA003E410C /* MobileFormingQ4Test.m */,
 				3D19364A207E408000490F8D /* BlockTest.h */,
 				3D19364B207E408000490F8D /* BlockTest.m */,
 				3DAA7B2F207F054B0053109A /* RetainCount.h */,
@@ -266,6 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60D74CCD20DAF56B003E410C /* MobileFormingQ1UnitTest.m in Sources */,
 				6007CD8320AF400700D1E5FA /* DispatchApplyTest.m in Sources */,
 				3DAA8B15207D405B0089BB60 /* LC36.m in Sources */,
 				6007CD8C20AF793000D1E5FA /* DispatchBlockWaitTest.m in Sources */,
@@ -294,7 +310,9 @@
 				602B963620C37105001D20B4 /* PerformSelectorTest.m in Sources */,
 				3DAA7B31207F054B0053109A /* RetainCount.m in Sources */,
 				608D214B20D1C7D6003C3C3B /* DispatchAyncSyncTest.m in Sources */,
+				60D74C8C20DAF02E003E410C /* MobileFormingQ1Test.m in Sources */,
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
+				60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */,
 				608D214520CFAA2C003C3C3B /* ThreadSafeNSMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +433,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X92HRP6SLX;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +446,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X92HRP6SLX;
+				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/PrefixHeader.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";

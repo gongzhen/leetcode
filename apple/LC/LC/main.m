@@ -33,6 +33,8 @@
 #import "DispatchSyncDeadLockTest.h"
 #import "DispatchAyncSyncTest.h"
 #import "ThreadSafeNSMutableArrayTest.h"
+#import "MobileFormingQ1UnitTest.h"
+#import "MobileFormingQ4Test.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -91,10 +93,15 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchAyncSyncTest *obj = [DispatchAyncSyncTest new];
 //        [obj test];
-        ThreadSafeNSMutableArrayTest *obj = [ThreadSafeNSMutableArrayTest new];
-        [obj test];
+//        ThreadSafeNSMutableArrayTest *obj = [ThreadSafeNSMutableArrayTest new];
+//        [obj test];
 //        [obj testBarrier];
-        sleep(30);
+//        MobileFormingQ1UnitTest *obj = [MobileFormingQ1UnitTest new];
+//        [obj test];
+//        sleep(30);
+        MobileFormingQ4Test* obj = [MobileFormingQ4Test new];
+        [obj test];
+        
     }
     return 0;
 }

@@ -13,10 +13,48 @@
 - (double)findMedianSortedArrays:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
 - (double)findMedianSortedArrays_1:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
 - (double)findMedianSortedArrays_2:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
+- (double)findMedianSortedArrays_3:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2;
 
 @end
 
 @implementation LC4
+
+- (double)findMedianSortedArrays_3:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2 {
+    int len = len1 + len2;
+    if(len % 2 == 0) {
+        return ([self divide_3:nums1 s1:0 e1:len1 - 1 nums2:nums2 s2:0 e2:len2 - 1 k:(len / 2)] + [self divide_3:nums1 s1:0 e1:len1 - 1 nums2:nums2 s2:0 e2:len2 - 1 k:(len / 2) + 1]) / 2.0;
+    }
+    return [self divide_3:nums1 s1:0 e1:len1 - 1 nums2:nums2 s2:0 e2:len2 - 1 k:(len / 2) + 1];
+}
+
+- (double)divide_3:(int *)nums1 s1:(int)s1 e1:(int)e1 nums2:(int *)nums2 s2:(int)s2 e2:(int)e2 k:(int)k {
+    while(s1 <= e1 && s2 <= e2) {
+        if(k == 1) {
+            break;
+        }
+        long int m1 = s1 + k / 2 - 1 <= e1 ? nums1[s1 + k / 2 - 1] : NSIntegerMax;
+        long int m2 = s2 + k / 2 - 1 <= e2 ? nums2[s2 + k / 2 - 1] : NSIntegerMax;
+//        long int m1 = s1 + k / 2 <= e1 ? nums1[s1 + k / 2] : NSIntegerMax;
+//        long int m2 = s2 + k / 2 <= e2 ? nums2[s2 + k / 2] : NSIntegerMax;
+
+        if(m1 > m2) {
+            s2 = s2 + k / 2;
+        } else {
+            s1 = s1 + k / 2;
+        }
+        k = k - k / 2;
+    }
+    
+    if(s1 > e1) {
+        return nums2[s2 + k - 1];
+        // return nums2[s2];
+    }
+    if(s2 > e2) {
+        return nums1[s1 + k - 1];
+        // return nums1[s1];
+    }
+    return MIN(nums1[s1], nums2[s2]);
+}
 
 - (double)findMedianSortedArrays_2:(int *)nums1 len1:(int)len1 nums2:(int *)nums2 len2:(int)len2 {
     int len = len1 + len2;
@@ -51,6 +89,7 @@
     }
     
     if(i >= len1) {
+        /// kth - 1 cannot be removed if i >= len1, the kth is not 1 but another number.
         return nums2[j + kth - 1];
     }
     if(j >= len2) {
@@ -168,12 +207,31 @@
 //    int* num2 = n2;
 //    double res = [self findMedianSortedArrays_2:num1 len1:3 nums2:num2 len2:3];
 //    DLog(@"res:%.2f", res);
+//    int n1[0] = {};
+//    int* num1 = n1;
+//    int n2[2] = {2, 3};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays:num1 len1:0 nums2:num2 len2:2];
+//    DLog(@"res:%.2f", res);
+//    int n1[2] = {1, 2};
+//    int* num1 = n1;
+//    int n2[4] = {3, 4, 5, 6};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays_3:num1 len1:2 nums2:num2 len2:4];
+//    DLog(@"res:%.2f", res);
+//    int n1[2] = {1, 2};
+//    int* num1 = n1;
+//    int n2[2] = {3, 4};
+//    int* num2 = n2;
+//    double res = [self findMedianSortedArrays_3:num1 len1:2 nums2:num2 len2:2];
+//    DLog(@"res:%.2f", res);
     int n1[0] = {};
     int* num1 = n1;
     int n2[2] = {2, 3};
     int* num2 = n2;
-    double res = [self findMedianSortedArrays:num1 len1:0 nums2:num2 len2:2];
+    double res = [self findMedianSortedArrays_2:num1 len1:0 nums2:num2 len2:2];
     DLog(@"res:%.2f", res);
+    
 }
 
 @end
