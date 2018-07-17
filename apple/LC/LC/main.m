@@ -35,6 +35,7 @@
 #import "ThreadSafeNSMutableArrayTest.h"
 #import "MobileFormingQ1UnitTest.h"
 #import "MobileFormingQ4Test.h"
+#import "DispatchAfterCounterTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -69,8 +70,8 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchApplyTest *obj = [[DispatchApplyTest alloc] init];
 //        [obj test];
-//        DispatchGroupAsyncTest *obj = [[DispatchGroupAsyncTest alloc] init];
-//        [obj test];
+        DispatchGroupAsyncTest *obj = [[DispatchGroupAsyncTest alloc] init];
+        [obj test];
 //        DispatchBlockTest *obj = [[DispatchBlockTest alloc] init];
 //        [obj test];
 //        DispatchBlockTest *obj = [[DispatchBlockTest alloc] init];
@@ -98,10 +99,11 @@ int main(int argc, const char * argv[]) {
 //        [obj testBarrier];
 //        MobileFormingQ1UnitTest *obj = [MobileFormingQ1UnitTest new];
 //        [obj test];
-//        sleep(30);
-        MobileFormingQ4Test* obj = [MobileFormingQ4Test new];
-        [obj test];
-        
+//        MobileFormingQ4Test* obj = [MobileFormingQ4Test new];
+//        [obj test];
+//        DispatchAfterCounterTest *obj = [DispatchAfterCounterTest new];
+//        [obj test];
+        sleep(5);
     }
     return 0;
 }

@@ -149,7 +149,7 @@
     });
 }
 
-// write
+// write: AFAutoPurgingImageCache uses dispatch_barrier_sync to remove all.
 - (void)removeAllObjects
 {
     dispatch_barrier_async(self.syncQueue, ^{

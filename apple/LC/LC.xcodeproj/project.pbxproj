@@ -27,6 +27,8 @@
 		602B963020C3657E001D20B4 /* DispatchAfterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602B962F20C3657E001D20B4 /* DispatchAfterTest.m */; };
 		602B963320C36E71001D20B4 /* DispatchQueueConcurrentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602B963220C36E71001D20B4 /* DispatchQueueConcurrentTest.m */; };
 		602B963620C37105001D20B4 /* PerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602B963520C37105001D20B4 /* PerformSelectorTest.m */; };
+		6085A4A320E48BD400B7B29A /* DispatchAfterCounterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085A4A220E48BD400B7B29A /* DispatchAfterCounterTest.m */; };
+		6085A4A720E5F6D000B7B29A /* NSObject+GZObjectCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085A4A620E5F6D000B7B29A /* NSObject+GZObjectCategory.m */; };
 		608D214220CD798F003C3C3B /* DispatchSyncDeadLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214120CD798F003C3C3B /* DispatchSyncDeadLockTest.m */; };
 		608D214520CFAA2C003C3C3B /* ThreadSafeNSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214420CFAA2C003C3C3B /* ThreadSafeNSMutableArray.m */; };
 		608D214820D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214720D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m */; };
@@ -96,6 +98,11 @@
 		602B963220C36E71001D20B4 /* DispatchQueueConcurrentTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueConcurrentTest.m; sourceTree = "<group>"; };
 		602B963420C37105001D20B4 /* PerformSelectorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformSelectorTest.h; sourceTree = "<group>"; };
 		602B963520C37105001D20B4 /* PerformSelectorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformSelectorTest.m; sourceTree = "<group>"; };
+		6085A4A120E48BD400B7B29A /* DispatchAfterCounterTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchAfterCounterTest.h; sourceTree = "<group>"; };
+		6085A4A220E48BD400B7B29A /* DispatchAfterCounterTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchAfterCounterTest.m; sourceTree = "<group>"; };
+		6085A4A420E535E300B7B29A /* GCD.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GCD.txt; sourceTree = "<group>"; };
+		6085A4A520E5F6D000B7B29A /* NSObject+GZObjectCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+GZObjectCategory.h"; sourceTree = "<group>"; };
+		6085A4A620E5F6D000B7B29A /* NSObject+GZObjectCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GZObjectCategory.m"; sourceTree = "<group>"; };
 		608D214020CD798F003C3C3B /* DispatchSyncDeadLockTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchSyncDeadLockTest.h; sourceTree = "<group>"; };
 		608D214120CD798F003C3C3B /* DispatchSyncDeadLockTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchSyncDeadLockTest.m; sourceTree = "<group>"; };
 		608D214320CFAA2C003C3C3B /* ThreadSafeNSMutableArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafeNSMutableArray.h; sourceTree = "<group>"; };
@@ -155,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				3DAA8AFC207B01E10089BB60 /* main.m */,
+				6085A4A420E535E300B7B29A /* GCD.txt */,
 				3DAA8B04207B022C0089BB60 /* LC.h */,
 				3DAA8B03207B022C0089BB60 /* LC.m */,
 				3DAA8B06207B02400089BB60 /* LC42.h */,
@@ -207,6 +215,8 @@
 				608D214720D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m */,
 				602B962E20C3657E001D20B4 /* DispatchAfterTest.h */,
 				602B962F20C3657E001D20B4 /* DispatchAfterTest.m */,
+				6085A4A120E48BD400B7B29A /* DispatchAfterCounterTest.h */,
+				6085A4A220E48BD400B7B29A /* DispatchAfterCounterTest.m */,
 				602B963120C36E71001D20B4 /* DispatchQueueConcurrentTest.h */,
 				602B963220C36E71001D20B4 /* DispatchQueueConcurrentTest.m */,
 				602B963420C37105001D20B4 /* PerformSelectorTest.h */,
@@ -219,6 +229,8 @@
 				608D214A20D1C7D6003C3C3B /* DispatchAyncSyncTest.m */,
 				608D214C20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.h */,
 				608D214D20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m */,
+				6085A4A520E5F6D000B7B29A /* NSObject+GZObjectCategory.h */,
+				6085A4A620E5F6D000B7B29A /* NSObject+GZObjectCategory.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -287,6 +299,7 @@
 				6007CD8C20AF793000D1E5FA /* DispatchBlockWaitTest.m in Sources */,
 				3DAA8B0F207C97F70089BB60 /* LC48.m in Sources */,
 				60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */,
+				6085A4A720E5F6D000B7B29A /* NSObject+GZObjectCategory.m in Sources */,
 				60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */,
 				3DAA7B34207FF1630053109A /* GCDTest.m in Sources */,
 				60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */,
@@ -310,6 +323,7 @@
 				602B963620C37105001D20B4 /* PerformSelectorTest.m in Sources */,
 				3DAA7B31207F054B0053109A /* RetainCount.m in Sources */,
 				608D214B20D1C7D6003C3C3B /* DispatchAyncSyncTest.m in Sources */,
+				6085A4A320E48BD400B7B29A /* DispatchAfterCounterTest.m in Sources */,
 				60D74C8C20DAF02E003E410C /* MobileFormingQ1Test.m in Sources */,
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
 				60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */,

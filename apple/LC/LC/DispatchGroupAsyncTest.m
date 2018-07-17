@@ -11,18 +11,18 @@
 @implementation DispatchGroupAsyncTest
 
 - (void)test {
-    dispatch_queue_t concurrentQueue = dispatch_queue_create("com.starming.gcddemo.concurrentqueue",DISPATCH_QUEUE_CONCURRENT);
-    dispatch_group_t group = dispatch_group_create();
-    //在group中添加队列的block
-    dispatch_group_async(group, concurrentQueue, ^{
-        [NSThread sleepForTimeInterval:2.f];
-        NSLog(@"1");
-    });
-    dispatch_group_async(group, concurrentQueue, ^{
-        NSLog(@"2");
-    });
-    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
-    NSLog(@"go on");
+//    dispatch_queue_t concurrentQueue = dispatch_queue_create("com.starming.gcddemo.concurrentqueue",DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_group_t group = dispatch_group_create();
+//    //在group中添加队列的block
+//    dispatch_group_async(group, concurrentQueue, ^{
+//        [NSThread sleepForTimeInterval:2.f];
+//        NSLog(@"1");
+//    });
+//    dispatch_group_async(group, concurrentQueue, ^{
+//        NSLog(@"2");
+//    });
+//    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+//    NSLog(@"go on");
     [self dispatchGroupNotifyDemo];
 }
 
@@ -31,16 +31,20 @@
     dispatch_queue_t concurrentQueue = dispatch_queue_create("com.starming.gcddemo.concurrentqueue",DISPATCH_QUEUE_CONCURRENT);
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, concurrentQueue, ^{
-        DLog(@"1");
+        for(int i = 0; i < 5; i++) {
+            DLog(@"1");
+        }
     });
     dispatch_group_async(group, concurrentQueue, ^{
-        DLog(@"2");
+        for(int i = 0; i < 5; i++) {
+            DLog(@"2");
+        }
     });
-    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    dispatch_group_notify(group, concurrentQueue, ^{
         DLog(@"end");
     });
     DLog(@"dispatchGroupNotifyDemo can continue");
-    [self dispatchGroupWaitDemo];
+//    [self dispatchGroupWaitDemo];
 }
 
 //dispatch_group_wait
@@ -49,11 +53,14 @@
     dispatch_group_t group = dispatch_group_create();
     //在group中添加队列的block
     dispatch_group_async(group, concurrentQueue, ^{
-        [NSThread sleepForTimeInterval:2.f];
-        DLog(@"1");
+        for(int i = 0; i < 5; i++) {
+            DLog(@"1");
+        }
     });
     dispatch_group_async(group, concurrentQueue, ^{
-        DLog(@"2");
+        for(int i = 0; i < 5; i++) {
+            DLog(@"2");
+        }
     });
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     DLog(@"dispatchGroupWaitDemo can continue");
