@@ -32,6 +32,14 @@
     
     dispatch_barrier_async(self.queue, ^{
         DLog(@"self.count:%ld", self.count);
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            DLog(@"self.count:%ld", self.count);
+            for(int i = 0; i < 10000; i++) {
+                self.count++;
+            }
+            DLog(@"self.count:%ld", self.count);
+        });
+        
     });
     DLog(@"self.count:%ld", self.count);
 }
