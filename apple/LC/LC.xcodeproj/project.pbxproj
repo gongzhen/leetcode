@@ -44,6 +44,7 @@
 		60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */; };
 		60FEDAA820FE3EA2001B48A0 /* RespondsToSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FEDAA720FE3EA2001B48A0 /* RespondsToSelectorTest.m */; };
 		60FEDAAB20FFA07D001B48A0 /* RuntimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */; };
+		60FEDAAE2105C913001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FEDAAD2105C912001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -135,6 +136,8 @@
 		60FEDAA720FE3EA2001B48A0 /* RespondsToSelectorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RespondsToSelectorTest.m; sourceTree = "<group>"; };
 		60FEDAA920FFA07D001B48A0 /* RuntimeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeTest.h; sourceTree = "<group>"; };
 		60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTest.m; sourceTree = "<group>"; };
+		60FEDAAC2105C912001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchQueueAttrMakeWithQosClassTest.h; sourceTree = "<group>"; };
+		60FEDAAD2105C912001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueAttrMakeWithQosClassTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +242,8 @@
 				6085A4A620E5F6D000B7B29A /* NSObject+GZObjectCategory.m */,
 				60FEDAA620FE3EA2001B48A0 /* RespondsToSelectorTest.h */,
 				60FEDAA720FE3EA2001B48A0 /* RespondsToSelectorTest.m */,
+				60FEDAAC2105C912001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.h */,
+				60FEDAAD2105C912001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m */,
 				60FEDAA920FFA07D001B48A0 /* RuntimeTest.h */,
 				60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
@@ -312,6 +317,7 @@
 				6085A4A720E5F6D000B7B29A /* NSObject+GZObjectCategory.m in Sources */,
 				60E421B820A41ECE00C1286F /* OSSpinLockTest.m in Sources */,
 				3DAA7B34207FF1630053109A /* GCDTest.m in Sources */,
+				60FEDAAE2105C913001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m in Sources */,
 				60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */,
 				602B963320C36E71001D20B4 /* DispatchQueueConcurrentTest.m in Sources */,
 				60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */,

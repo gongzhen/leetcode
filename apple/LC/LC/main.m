@@ -37,6 +37,7 @@
 #import "MobileFormingQ4Test.h"
 #import "DispatchAfterCounterTest.h"
 #import "RespondsToSelectorTest.h"
+#import "DispatchQueueAttrMakeWithQosClassTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -104,7 +105,9 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchAfterCounterTest *obj = [DispatchAfterCounterTest new];
 //        [obj test];
-        RespondsToSelectorTest *obj = [RespondsToSelectorTest new];
+//        RespondsToSelectorTest *obj = [RespondsToSelectorTest new];
+//        [obj test];
+        DispatchQueueAttrMakeWithQosClassTest *obj = [DispatchQueueAttrMakeWithQosClassTest new];
         [obj test];
         sleep(5);
     }
