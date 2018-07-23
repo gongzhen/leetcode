@@ -36,6 +36,7 @@
 #import "MobileFormingQ1UnitTest.h"
 #import "MobileFormingQ4Test.h"
 #import "DispatchAfterCounterTest.h"
+#import "RespondsToSelectorTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -70,8 +71,8 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchApplyTest *obj = [[DispatchApplyTest alloc] init];
 //        [obj test];
-        DispatchGroupAsyncTest *obj = [[DispatchGroupAsyncTest alloc] init];
-        [obj test];
+//        DispatchGroupAsyncTest *obj = [[DispatchGroupAsyncTest alloc] init];
+//        [obj test];
 //        DispatchBlockTest *obj = [[DispatchBlockTest alloc] init];
 //        [obj test];
 //        DispatchBlockTest *obj = [[DispatchBlockTest alloc] init];
@@ -103,6 +104,8 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchAfterCounterTest *obj = [DispatchAfterCounterTest new];
 //        [obj test];
+        RespondsToSelectorTest *obj = [RespondsToSelectorTest new];
+        [obj test];
         sleep(5);
     }
     return 0;

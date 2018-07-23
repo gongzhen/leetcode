@@ -42,6 +42,8 @@
 		60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E421BD20A4BA4100C1286F /* RunloopTest.m */; };
 		60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */; };
 		60EB8EEC20A218D900CECBDB /* NSInvocationOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */; };
+		60FEDAA820FE3EA2001B48A0 /* RespondsToSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FEDAA720FE3EA2001B48A0 /* RespondsToSelectorTest.m */; };
+		60FEDAAB20FFA07D001B48A0 /* RuntimeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -129,6 +131,10 @@
 		60EB8EE820A19D4C00CECBDB /* NSBlockOperationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSBlockOperationTest.m; sourceTree = "<group>"; };
 		60EB8EEA20A218D900CECBDB /* NSInvocationOperationTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSInvocationOperationTest.h; sourceTree = "<group>"; };
 		60EB8EEB20A218D900CECBDB /* NSInvocationOperationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSInvocationOperationTest.m; sourceTree = "<group>"; };
+		60FEDAA620FE3EA2001B48A0 /* RespondsToSelectorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RespondsToSelectorTest.h; sourceTree = "<group>"; };
+		60FEDAA720FE3EA2001B48A0 /* RespondsToSelectorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RespondsToSelectorTest.m; sourceTree = "<group>"; };
+		60FEDAA920FFA07D001B48A0 /* RuntimeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeTest.h; sourceTree = "<group>"; };
+		60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +237,10 @@
 				608D214D20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m */,
 				6085A4A520E5F6D000B7B29A /* NSObject+GZObjectCategory.h */,
 				6085A4A620E5F6D000B7B29A /* NSObject+GZObjectCategory.m */,
+				60FEDAA620FE3EA2001B48A0 /* RespondsToSelectorTest.h */,
+				60FEDAA720FE3EA2001B48A0 /* RespondsToSelectorTest.m */,
+				60FEDAA920FFA07D001B48A0 /* RuntimeTest.h */,
+				60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -310,6 +320,7 @@
 				6007CD3720A882C200D1E5FA /* LC179.m in Sources */,
 				608D214220CD798F003C3C3B /* DispatchSyncDeadLockTest.m in Sources */,
 				3D19364C207E408000490F8D /* BlockTest.m in Sources */,
+				60FEDAA820FE3EA2001B48A0 /* RespondsToSelectorTest.m in Sources */,
 				6007CD8020AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m in Sources */,
 				602B963020C3657E001D20B4 /* DispatchAfterTest.m in Sources */,
 				6007CD8620AF41EF00D1E5FA /* DispatchGroupAsyncTest.m in Sources */,
@@ -325,6 +336,7 @@
 				608D214B20D1C7D6003C3C3B /* DispatchAyncSyncTest.m in Sources */,
 				6085A4A320E48BD400B7B29A /* DispatchAfterCounterTest.m in Sources */,
 				60D74C8C20DAF02E003E410C /* MobileFormingQ1Test.m in Sources */,
+				60FEDAAB20FFA07D001B48A0 /* RuntimeTest.m in Sources */,
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
 				60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */,
 				608D214520CFAA2C003C3C3B /* ThreadSafeNSMutableArray.m in Sources */,
