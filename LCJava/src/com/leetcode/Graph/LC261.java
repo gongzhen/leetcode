@@ -9,6 +9,36 @@ import java.util.Queue;
 
 public class LC261 {
 
+    private static class Solution1 {
+
+        public boolean validTree(int n, int[][] edges) {
+            if (n <= 0 || edges == null)
+                return false;
+            if (edges.length != n - 1)
+                return false;
+            int[] fathers = new int[n];
+            for (int i = 0; i < n; i++) {
+                fathers[i] = i;
+            }
+            for (int[] edge : edges) {
+                int fax = find(fathers, edge[0]);
+                int fay = find(fathers, edge[1]);
+                if (fax == fay)
+                    return false;
+                fathers[fax] = fay;
+            }
+            return true;
+        }
+
+        private int find(int[] fathers, int x) {
+            int fa = fathers[x];
+            while (fa != fathers[fa]) {
+                fa = fathers[fa];
+            }
+            return fa;
+        }
+    }
+
 
     /**
      * Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes),

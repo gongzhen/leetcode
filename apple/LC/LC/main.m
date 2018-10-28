@@ -38,6 +38,7 @@
 #import "DispatchAfterCounterTest.h"
 #import "RespondsToSelectorTest.h"
 #import "DispatchQueueAttrMakeWithQosClassTest.h"
+#import "MAXConcurrentDictionaryTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -107,7 +108,9 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        RespondsToSelectorTest *obj = [RespondsToSelectorTest new];
 //        [obj test];
-        DispatchQueueAttrMakeWithQosClassTest *obj = [DispatchQueueAttrMakeWithQosClassTest new];
+//        DispatchQueueAttrMakeWithQosClassTest *obj = [DispatchQueueAttrMakeWithQosClassTest new];
+//        [obj test];
+        MAXConcurrentDictionaryTest *obj = [[MAXConcurrentDictionaryTest alloc] init];
         [obj test];
         sleep(5);
     }

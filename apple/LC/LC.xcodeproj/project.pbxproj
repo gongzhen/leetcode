@@ -34,6 +34,9 @@
 		608D214820D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214720D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m */; };
 		608D214B20D1C7D6003C3C3B /* DispatchAyncSyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214A20D1C7D6003C3C3B /* DispatchAyncSyncTest.m */; };
 		608D214E20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214D20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m */; };
+		609303EC21333A53003293F4 /* MAXConcurrentDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 609303EB21333A53003293F4 /* MAXConcurrentDictionary.m */; };
+		609303EF213361F3003293F4 /* MAXConcurrentDictionaryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 609303EE213361F3003293F4 /* MAXConcurrentDictionaryTest.m */; };
+		609304002146909A003293F4 /* RunLoopCreateThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 609303FF2146909A003293F4 /* RunLoopCreateThread.m */; };
 		60D74C8C20DAF02E003E410C /* MobileFormingQ1Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */; };
 		60D74CCD20DAF56B003E410C /* MobileFormingQ1UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74CCC20DAF56B003E410C /* MobileFormingQ1UnitTest.m */; };
 		60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74CCF20DB1BCA003E410C /* MobileFormingQ4Test.m */; };
@@ -116,6 +119,12 @@
 		608D214A20D1C7D6003C3C3B /* DispatchAyncSyncTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchAyncSyncTest.m; sourceTree = "<group>"; };
 		608D214C20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadSafeNSMutableArrayTest.h; sourceTree = "<group>"; };
 		608D214D20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeNSMutableArrayTest.m; sourceTree = "<group>"; };
+		609303EA21333A53003293F4 /* MAXConcurrentDictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAXConcurrentDictionary.h; sourceTree = "<group>"; };
+		609303EB21333A53003293F4 /* MAXConcurrentDictionary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXConcurrentDictionary.m; sourceTree = "<group>"; };
+		609303ED213361F3003293F4 /* MAXConcurrentDictionaryTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MAXConcurrentDictionaryTest.h; sourceTree = "<group>"; };
+		609303EE213361F3003293F4 /* MAXConcurrentDictionaryTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MAXConcurrentDictionaryTest.m; sourceTree = "<group>"; };
+		609303FE2146909A003293F4 /* RunLoopCreateThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RunLoopCreateThread.h; sourceTree = "<group>"; };
+		609303FF2146909A003293F4 /* RunLoopCreateThread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunLoopCreateThread.m; sourceTree = "<group>"; };
 		60D74C8A20DAF02E003E410C /* MobileFormingQ1Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ1Test.h; sourceTree = "<group>"; };
 		60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileFormingQ1Test.m; sourceTree = "<group>"; };
 		60D74CCB20DAF56B003E410C /* MobileFormingQ1UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ1UnitTest.h; sourceTree = "<group>"; };
@@ -246,6 +255,12 @@
 				60FEDAAD2105C912001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m */,
 				60FEDAA920FFA07D001B48A0 /* RuntimeTest.h */,
 				60FEDAAA20FFA07D001B48A0 /* RuntimeTest.m */,
+				609303EA21333A53003293F4 /* MAXConcurrentDictionary.h */,
+				609303ED213361F3003293F4 /* MAXConcurrentDictionaryTest.h */,
+				609303EE213361F3003293F4 /* MAXConcurrentDictionaryTest.m */,
+				609303EB21333A53003293F4 /* MAXConcurrentDictionary.m */,
+				609303FE2146909A003293F4 /* RunLoopCreateThread.h */,
+				609303FF2146909A003293F4 /* RunLoopCreateThread.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -330,14 +345,17 @@
 				6007CD8020AE7D2400D1E5FA /* DispatchBarrierAsyncTest.m in Sources */,
 				602B963020C3657E001D20B4 /* DispatchAfterTest.m in Sources */,
 				6007CD8620AF41EF00D1E5FA /* DispatchGroupAsyncTest.m in Sources */,
+				609304002146909A003293F4 /* RunLoopCreateThread.m in Sources */,
 				6007CD8920AF77B300D1E5FA /* DispatchBlockTest.m in Sources */,
 				6007CD7D20AE7A3D00D1E5FA /* DispatchQueueTTest.m in Sources */,
 				608D214E20D2A8B5003C3C3B /* ThreadSafeNSMutableArrayTest.m in Sources */,
 				3DAA8AFD207B01E10089BB60 /* main.m in Sources */,
 				608D214820D011D4003C3C3B /* DipatchQueueAttrMakeWithQosClassTest.m in Sources */,
 				60E421BB20A4210A00C1286F /* OsUnfairLockTest.m in Sources */,
+				609303EC21333A53003293F4 /* MAXConcurrentDictionary.m in Sources */,
 				6007CD9220AF7ACB00D1E5FA /* DispatchBlockCancel.m in Sources */,
 				602B963620C37105001D20B4 /* PerformSelectorTest.m in Sources */,
+				609303EF213361F3003293F4 /* MAXConcurrentDictionaryTest.m in Sources */,
 				3DAA7B31207F054B0053109A /* RetainCount.m in Sources */,
 				608D214B20D1C7D6003C3C3B /* DispatchAyncSyncTest.m in Sources */,
 				6085A4A320E48BD400B7B29A /* DispatchAfterCounterTest.m in Sources */,
