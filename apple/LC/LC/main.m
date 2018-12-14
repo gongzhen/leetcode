@@ -51,8 +51,8 @@ int main(int argc, const char * argv[]) {
 //        [blockTest test];
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
-//        GCDTest *gcdTest = [[GCDTest alloc] init];
-//        [gcdTest test];
+        GCDTest *gcdTest = [[GCDTest alloc] init];
+        [gcdTest test];
 //        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
 //        [obj test];
 //        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
@@ -110,8 +110,8 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchQueueAttrMakeWithQosClassTest *obj = [DispatchQueueAttrMakeWithQosClassTest new];
 //        [obj test];
-        MAXConcurrentDictionaryTest *obj = [[MAXConcurrentDictionaryTest alloc] init];
-        [obj test];
+//        MAXConcurrentDictionaryTest *obj = [[MAXConcurrentDictionaryTest alloc] init];
+//        [obj test];
         sleep(5);
     }
     return 0;

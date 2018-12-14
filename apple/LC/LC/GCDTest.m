@@ -12,10 +12,10 @@
 
 - (void)test {
     /// test gcd group
-    // [self testGCDGroup];
+     [self testGCDGroup];
     // [self testGCDGroup2];
     // [self testGCDGroup3];
-    [self testGCDGroup4];
+//    [self testGCDGroup4];
     
 }
 /// Example from
