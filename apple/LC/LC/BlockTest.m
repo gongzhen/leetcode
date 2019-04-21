@@ -21,7 +21,7 @@
     
     void (^printXAndY)(int) = ^(int y) {
         
-        printf("x:%d y:%d\n", x, y);
+        printf("line 24 ===> x:%d y:%d\n", x, y);
     };
     
     printXAndY(456); // prints: 123 456
@@ -32,10 +32,10 @@
     
     void (^printXAndY)(int) = ^(int y) {
         
-        /// x = x + y; // error
-        printf("%d %d\n", x, y);
+        y = x + y; // error
+        printf("line 36 ===> x:%d y:%d\n", x, y);
     };
-    printXAndY(23);
+    printXAndY(456);
 }
 
 - (void)test3 {
@@ -44,7 +44,7 @@
     void (^printXAndY)(int) = ^(int y) {
         
         x = x + y; /// x value will change because x is __block
-        printf("x:%d y:%d\n", x, y);
+        printf("line 47 ===> x:%d y:%d\n", x, y);
         y = 0; /// will not change y value.
     };
     DLog(@"x:%d y:%d\n", x, y);

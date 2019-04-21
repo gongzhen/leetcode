@@ -48,8 +48,8 @@ int main(int argc, const char * argv[]) {
 //        [lc42 test];
 //        LC48 *lc48 = [[LC48 alloc] init];
 //        [lc48 test];
-//        BlockTest *blockTest = [[BlockTest alloc] init];
-//        [blockTest test];
+        BlockTest *blockTest = [[BlockTest alloc] init];
+        [blockTest test];
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
@@ -114,9 +114,9 @@ int main(int argc, const char * argv[]) {
 //        MAXConcurrentDictionaryTest *obj = [[MAXConcurrentDictionaryTest alloc] init];
 //        [obj test];
 //        sleep(5);
-        ForwardInvocationTest *forward = [[ForwardInvocationTest alloc] init];
+//        ForwardInvocationTest *forward = [[ForwardInvocationTest alloc] init];
         // [forward testMethod];
-        [forward performSelector:@selector(testMethod:)];
+//        [forward performSelector:@selector(testMethod:)];
     }
     return 0;
 }
