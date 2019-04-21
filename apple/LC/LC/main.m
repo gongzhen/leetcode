@@ -40,6 +40,7 @@
 #import "DispatchQueueAttrMakeWithQosClassTest.h"
 #import "MAXConcurrentDictionaryTest.h"
 #import "ForwardInvocationTest.h"
+#import "PropertySynthesizeDynamicTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -48,8 +49,8 @@ int main(int argc, const char * argv[]) {
 //        [lc42 test];
 //        LC48 *lc48 = [[LC48 alloc] init];
 //        [lc48 test];
-        BlockTest *blockTest = [[BlockTest alloc] init];
-        [blockTest test];
+//        BlockTest *blockTest = [[BlockTest alloc] init];
+//        [blockTest test];
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
@@ -117,6 +118,8 @@ int main(int argc, const char * argv[]) {
 //        ForwardInvocationTest *forward = [[ForwardInvocationTest alloc] init];
         // [forward testMethod];
 //        [forward performSelector:@selector(testMethod:)];
+        PropertySynthesizeDynamicTest *obj = [[PropertySynthesizeDynamicTest alloc] init];
+        [obj test];
     }
     return 0;
 }

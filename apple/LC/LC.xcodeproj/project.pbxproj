@@ -30,6 +30,7 @@
 		603AC84021CEC4330046FA97 /* GRScheduleBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AC83F21CEC4330046FA97 /* GRScheduleBlock.m */; };
 		603AC84321D169360046FA97 /* AddDelegateToQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AC84221D169360046FA97 /* AddDelegateToQueue.m */; };
 		603AC84621D306E60046FA97 /* ForwardInvocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AC84521D306E60046FA97 /* ForwardInvocationTest.m */; };
+		60716EB5226D18AD009B7A95 /* PropertySynthesizeDynamicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60716EB4226D18AD009B7A95 /* PropertySynthesizeDynamicTest.m */; };
 		6085A4A320E48BD400B7B29A /* DispatchAfterCounterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085A4A220E48BD400B7B29A /* DispatchAfterCounterTest.m */; };
 		6085A4A720E5F6D000B7B29A /* NSObject+GZObjectCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6085A4A620E5F6D000B7B29A /* NSObject+GZObjectCategory.m */; };
 		608D214220CD798F003C3C3B /* DispatchSyncDeadLockTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 608D214120CD798F003C3C3B /* DispatchSyncDeadLockTest.m */; };
@@ -113,6 +114,8 @@
 		603AC84221D169360046FA97 /* AddDelegateToQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddDelegateToQueue.m; sourceTree = "<group>"; };
 		603AC84421D306E60046FA97 /* ForwardInvocationTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForwardInvocationTest.h; sourceTree = "<group>"; };
 		603AC84521D306E60046FA97 /* ForwardInvocationTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForwardInvocationTest.m; sourceTree = "<group>"; };
+		60716EB3226D18AD009B7A95 /* PropertySynthesizeDynamicTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PropertySynthesizeDynamicTest.h; sourceTree = "<group>"; };
+		60716EB4226D18AD009B7A95 /* PropertySynthesizeDynamicTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropertySynthesizeDynamicTest.m; sourceTree = "<group>"; };
 		6085A4A120E48BD400B7B29A /* DispatchAfterCounterTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DispatchAfterCounterTest.h; sourceTree = "<group>"; };
 		6085A4A220E48BD400B7B29A /* DispatchAfterCounterTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchAfterCounterTest.m; sourceTree = "<group>"; };
 		6085A4A420E535E300B7B29A /* GCD.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = GCD.txt; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				603AC84221D169360046FA97 /* AddDelegateToQueue.m */,
 				603AC84421D306E60046FA97 /* ForwardInvocationTest.h */,
 				603AC84521D306E60046FA97 /* ForwardInvocationTest.m */,
+				60716EB3226D18AD009B7A95 /* PropertySynthesizeDynamicTest.h */,
+				60716EB4226D18AD009B7A95 /* PropertySynthesizeDynamicTest.m */,
 				3DAA8B09207B05160089BB60 /* PrefixHeader.pch */,
 			);
 			path = LC;
@@ -381,6 +386,7 @@
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
 				603AC84321D169360046FA97 /* AddDelegateToQueue.m in Sources */,
 				60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */,
+				60716EB5226D18AD009B7A95 /* PropertySynthesizeDynamicTest.m in Sources */,
 				608D214520CFAA2C003C3C3B /* ThreadSafeNSMutableArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
