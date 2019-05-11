@@ -55,8 +55,8 @@ public class LC10 {
         LC10 obj  = new LC10();
 //        obj.test1(obj);
 //        obj.test2(obj);
-//        obj.test3(obj);
-        obj.test4(obj);
+        obj.test3(obj);
+//        obj.test4(obj);
     }
 
     private void test1(LC10 obj) {
