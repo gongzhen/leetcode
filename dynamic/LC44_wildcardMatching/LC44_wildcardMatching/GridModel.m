@@ -1,41 +1,24 @@
 //
 //  GridModel.m
-//  10_regularexpressionmatching
+//  LC44_wildcardMatching
 //
-//  Created by Zhen Gong on 5/8/19.
+//  Created by Zhen Gong on 5/11/19.
 //  Copyright © 2019 Zhen Gong. All rights reserved.
 //
-/**
-    for (int i = 1; i < row; i++) {
-        for (int j = 1; j < col; j++) {
-            if (pattern[j-1] == string[i-1] || pattern[j-1] == '.') {
-                _dp[i][j] = _dp[i-1][j-1];
-            } else if ([_pattern characterAtIndex:(j-1)] == '*'){
- explanation:if pattern(j-1) is *, dp[i][j] will check previous column dp[i][j-1].
- if previous column dp[i][j-1] is false and j >=2 then will check the previous column dp[i][j-2]
- if dp[i][j-2] is false, then we will check if pattern[j-2] and string[i-1].
- if pattern[j-2] == string[i-1], or pattern[j-2] is ?, then we will check dp[i-1][j]
- if dp[i-1][j] is true, it will prove dp[i][j] is true.
- example
- 
-    "" m i s * i s *
- ""  T
- m
- i                 F <= dp[i-1][j]
- s                 F <= dp[i][j]
- 
- we want to know dp[i][j], we will check dp[i][j-2] but it is false.
- now previous char of "*" is "s" which is equal to "s", then we will check "mi" and "mis*is*", dp[i-1][j]
-                if (_dp[i][j-1] == false && j >= 2) {
-                    _dp[i][j] = _dp[i][j-2] || ((pattern[j-2] == string[i-1] || pattern[j-2] == '.') && _dp[i-1][j] == true); // && _dp[i-1][j] == true);
-                } else if (_dp[i][j-1] == true) {
-                    _dp[i][j] = _dp[i-1][j] && (string[i-1] == pattern[j-2] || pattern[j-2] == '.');
-                }
-            }
+
+
+/*
+for (int i = 1; i < row; i++) {
+    for (int j = 1; j < col; j++) {
+        if (pattern[j-1] == '?' || pattern[j-1] == string[i-1]) {
+            _dp[i][j] = _dp[i-1][j-1];
+        } else if (pattern[j-1] == '*'){
+            _dp[i][j] = _dp[i-1][j] || _dp[i][j-1];
         }
     }
- 
- _dp[i][j] = _dp[i][j-2] || ((pattern[j-2] == string[i-1] || pattern[j-2] == '.') && _dp[i-1][j] == true); // && _dp[i-1][j] == true);
+}
+
+ we just need to check  _dp[i][j] = _dp[i-1][j] || _dp[i][j-1];
  
 */
 
@@ -76,22 +59,18 @@
         _dp[i] = (BOOL *)calloc(col, sizeof(BOOL));
     }
     _dp[0][0] = true;
-    for (int i = 2; i < col; i++) {
+    for (int i = 1; i < col; i++) {
         if (pattern[i - 1] == '*') {
-            _dp[0][i] = _dp[0][i-2];
+            _dp[0][i] = _dp[0][i-1];
         }
     }
     
     for (int i = 1; i < row; i++) {
         for (int j = 1; j < col; j++) {
-            if (pattern[j-1] == string[i-1] || pattern[j-1] == '.') {
+            if (pattern[j-1] == '?' || pattern[j-1] == string[i-1]) {
                 _dp[i][j] = _dp[i-1][j-1];
             } else if (pattern[j-1] == '*'){
-                if (_dp[i][j-1] == false && j >= 2) {
-                    _dp[i][j] = _dp[i][j-2] || ((pattern[j-2] == string[i-1] || pattern[j-2] == '.') && _dp[i-1][j] == true); // && _dp[i-1][j] == true);
-                } else if (_dp[i][j-1] == true) {
-                    _dp[i][j] = _dp[i-1][j] && (string[i-1] == pattern[j-2] || pattern[j-2] == '.');
-                }
+                _dp[i][j] = _dp[i-1][j] || _dp[i][j-1];
             }
         }
     }
