@@ -1,33 +1,50 @@
 //
 //  ViewController.m
-//  10_regularexpressionmatching
+//  LC32_LongestValidParenthese
 //
-//  Created by Zhen Gong on 4/23/19.
+//  Created by Zhen Gong on 5/12/19.
 //  Copyright © 2019 Zhen Gong. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "GridView.h"
-#import "GridModel.h"
+/*
+ How to scroll UIScrollView with autolayout programmatically.
+ 
+ https://github.com/zaxonus/AutoLayScroll
+ https://stackoverflow.com/questions/48216808/programmatic-uiscrollview-with-autolayout
+ */
 
-@interface ViewController () <UITextFieldDelegate, GridViewDataSource>
+#import "ViewController.h"
+#import "StackView.h"
+#import "OpenParentheseImageView.h"
+
+@interface ViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *inputView;
+@property (strong, nonatomic) StackView *stackView;
 @property (strong, nonatomic) UITextField *stringInput;
 @property (strong, nonatomic) UITextField *patternInput;
 @property (strong, nonatomic) UIButton *submitButton;
 @property (strong, nonatomic) UIButton *resetButton;
-@property (strong, nonatomic) UIView *gridContainerView;
-@property (strong, nonatomic) GridView *gridView;
-@property (strong, nonatomic) GridModel *gridModel;
+@property (strong, nonatomic) UIView *containerView;
+@property (strong, nonatomic) NSMutableArray<OpenParentheseImageView *> *parentheseArray;
 
 @end
 
 @implementation ViewController
+
+- (instancetype)init
 {
-    NSUInteger _stringLength;
-    NSUInteger _patternLength;
+    self = [super init];
+    if (self) {
+        self.parentheseArray = [NSMutableArray new];
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self _inputViewConstraint];
 }
 
 #pragma mark - Property
@@ -35,20 +52,19 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
+        _scrollView.userInteractionEnabled = YES;
     }
     return _scrollView;
 }
 
-#pragma mark - Carousel Collection View Properties
-
-- (GridView *)gridView {
-    if (!_gridView) {
-        self.gridModel = [[GridModel alloc] init];
-        _gridView = [[GridView alloc] initWithModel:self.gridModel];
-        _gridView.dataSource = self;
+- (StackView *)stackView {
+    if (!_stackView) {
+        _stackView = [[StackView alloc] initWithFrame:CGRectZero];
+        _stackView.backgroundColor = UIColor.clearColor;
     }
-    return _gridView;
+    return _stackView;
 }
+
 
 - (UIView *)inputView {
     if (_inputView == nil) {
@@ -79,11 +95,11 @@
     return _patternInput;
 }
 
-- (UIView *)gridContainerView {
-    if (_gridContainerView == nil) {
-        _gridContainerView = [[UIView alloc] initWithFrame:CGRectZero];
+- (UIView *)containerView {
+    if (_containerView == nil) {
+        _containerView = [[UIView alloc] initWithFrame:CGRectZero];
     }
-    return _gridContainerView;
+    return _containerView;
 }
 
 - (UIButton *)submitButton {
@@ -103,7 +119,6 @@
     return _submitButton;
 }
 
-
 - (UIButton *)resetButton {
     if (!_resetButton) {
         _resetButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -121,21 +136,19 @@
     return _resetButton;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self _inputViewConstraint];
-}
+
+#pragma mark - private methods
 
 - (void)_inputViewConstraint {
     [self.view addSubview:self.scrollView];
-    self.scrollView.translatesAutoresizingMaskIntoConstraints = false;
-    self.inputView.translatesAutoresizingMaskIntoConstraints = false;
-    self.stringInput.translatesAutoresizingMaskIntoConstraints = false;
-    self.gridContainerView.translatesAutoresizingMaskIntoConstraints = false;
-    self.patternInput.translatesAutoresizingMaskIntoConstraints = false;
-    self.submitButton.translatesAutoresizingMaskIntoConstraints = false;
-    self.resetButton.translatesAutoresizingMaskIntoConstraints = false;
-    self.gridView.translatesAutoresizingMaskIntoConstraints = false;
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = false; /// 1st level
+    self.containerView.translatesAutoresizingMaskIntoConstraints = false; /// 2nd level
+    self.inputView.translatesAutoresizingMaskIntoConstraints = false; /// 3rd level
+    self.stringInput.translatesAutoresizingMaskIntoConstraints = false; /// 4th level
+    self.patternInput.translatesAutoresizingMaskIntoConstraints = false; /// 4th level
+    self.submitButton.translatesAutoresizingMaskIntoConstraints = false; /// 4th level
+    self.resetButton.translatesAutoresizingMaskIntoConstraints = false; /// 4th level
+    self.stackView.translatesAutoresizingMaskIntoConstraints = false; /// 3rd level
     //  stack view
     if (@available(iOS 11.0, *)) {
         [self.scrollView.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor].active = YES;
@@ -146,13 +159,18 @@
     }
     [self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor].active = YES;
     [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor].active = YES;
-    [self.scrollView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
-
-    [self.scrollView addSubview:self.inputView];
-    [self.inputView.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor constant:12.f].active = YES;
-    [self.inputView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:0.f].active = YES;
-    [self.inputView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-0.f].active = YES;
-    [self.inputView.widthAnchor constraintEqualToAnchor:self.scrollView.widthAnchor constant:0.f].active = YES;
+    
+    [self.scrollView addSubview:self.containerView];
+    [self.containerView.centerXAnchor constraintEqualToAnchor:self.scrollView.centerXAnchor].active = YES;
+    [self.containerView.widthAnchor constraintEqualToAnchor:self.scrollView.widthAnchor].active = YES;
+    [self.containerView.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor].active = YES;
+    [self.containerView.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor].active = YES;
+    
+    [self.containerView addSubview:self.inputView];
+    [self.inputView.topAnchor constraintEqualToAnchor:self.containerView.topAnchor constant:12.f].active = YES;
+    [self.inputView.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor constant:0.f].active = YES;
+    [self.inputView.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor constant:-0.f].active = YES;
+    [self.inputView.widthAnchor constraintEqualToAnchor:self.containerView.widthAnchor constant:0.f].active = YES;
     [self.inputView setContentHuggingPriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
     
     [self.inputView addSubview:self.stringInput];
@@ -168,7 +186,7 @@
     [self.patternInput.trailingAnchor constraintEqualToAnchor:self.inputView.trailingAnchor constant:-16.f].active = YES;
     [self.patternInput.heightAnchor constraintEqualToAnchor:self.stringInput.heightAnchor].active = YES;
     self.patternInput.backgroundColor = UIColor.greenColor;
-
+    
     [self.inputView addSubview:self.resetButton];
     [self.resetButton.topAnchor constraintEqualToAnchor:self.patternInput.bottomAnchor constant:16.f].active = YES;
     [self.resetButton.leadingAnchor constraintEqualToAnchor:self.inputView.leadingAnchor constant:- -16.f].active = YES;
@@ -180,91 +198,55 @@
     [self.submitButton.trailingAnchor constraintEqualToAnchor:self.inputView.trailingAnchor constant:-16.f].active = YES;
     [self.submitButton.heightAnchor constraintGreaterThanOrEqualToConstant:40.f].active = YES;
     [self.submitButton.bottomAnchor constraintEqualToAnchor:self.inputView.bottomAnchor constant:-32.f].active = YES;
-
-    [self.scrollView addSubview:self.gridContainerView];
-    [self.gridContainerView.topAnchor constraintEqualToAnchor:self.inputView.bottomAnchor constant:16.f].active = YES;
-    [self.gridContainerView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor].active = YES;
-    [self.gridContainerView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor].active = YES;
-    [self.gridContainerView.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor].active = YES;
-    [self.gridContainerView.widthAnchor constraintEqualToAnchor:self.inputView.widthAnchor].active = YES;
-    self.gridContainerView.backgroundColor = UIColor.clearColor;
     
-    [self.gridContainerView addSubview:self.gridView];
-    [self.gridView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-    [self.gridView setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-    [self.gridView.topAnchor constraintEqualToAnchor:self.gridContainerView.topAnchor].active = YES;
-    [self.gridView.leadingAnchor constraintEqualToAnchor:self.gridContainerView.leadingAnchor].active = YES;
-    [self.gridView.trailingAnchor constraintEqualToAnchor:self.gridContainerView.trailingAnchor].active = YES;
-    [self.gridView.heightAnchor constraintEqualToAnchor:self.gridContainerView.widthAnchor].active = YES;
-}
-
-#pragma mark UITextFieldDelegate
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
-    textField.backgroundColor = [UIColor whiteColor];
-    return YES;
-}
-
--  (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (textField  == self.stringInput) {
-        _stringLength = _stringInput.text.length;
-        return YES;
-    } else if (textField == self.patternInput) {
-        _patternLength = _patternInput.text.length;
-        return YES;
-    }
-    return NO;
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField  == self.stringInput) {
-        return YES;
-    } else if (textField == self.patternInput) {
-        return YES;
-    }
-    return NO;
+    [self.containerView addSubview:self.stackView];
+    [self.stackView.topAnchor constraintEqualToAnchor:self.inputView.bottomAnchor constant:16.f].active = YES;
+    [self.stackView.leadingAnchor constraintEqualToAnchor:self.containerView.leadingAnchor].active = YES;
+    [self.stackView.trailingAnchor constraintEqualToAnchor:self.containerView.trailingAnchor].active = YES;
+    [self.stackView.bottomAnchor constraintEqualToAnchor:self.containerView.bottomAnchor].active = YES;
+    [self.stackView.heightAnchor constraintEqualToConstant:800.f].active = YES;
+    self.containerView.backgroundColor = UIColor.clearColor;
+    self.stackView.backgroundColor = UIColor.grayColor;
 }
 
 #pragma mark - Action
 
 - (void)isMatchAction:(UIButton *)sender {
-    _stringLength = _stringInput.text ? _stringInput.text.length : 0;
-    _patternLength = _patternInput.text ? _patternInput.text.length : 0;
-    if (self.gridView) {
-        self.gridModel.stringInput = _stringInput.text;
-        self.gridModel.pattern =  _patternInput.text;
-        [self.gridModel initMatrix];
-        [self.gridView reloadData];
-    }
+    OpenParentheseImageView *open = [[OpenParentheseImageView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    open.translatesAutoresizingMaskIntoConstraints = NO;
+    open.backgroundColor = UIColor.yellowColor;
+    [self.containerView addSubview:open];
+    open.center = self.stackView.center;
+    [open.centerXAnchor constraintEqualToAnchor:self.containerView.centerXAnchor constant:0.f].active = YES;
+    [open.centerYAnchor constraintEqualToAnchor:self.containerView.centerYAnchor constant:0.f].active = YES;
+    [self.containerView layoutIfNeeded];
+    [self.view setNeedsLayout];
+    [open layoutIfNeeded];
+    [open setNeedsLayout];
+    [self.view layoutIfNeeded];
+    [self.containerView setNeedsLayout];
+    [self.containerView layoutIfNeeded];
+    [self.stackView setNeedsLayout];
+    [self.stackView layoutIfNeeded];
+    [UIView animateWithDuration:5.0 animations:^{
+
+    }];
+    
+//    [UIView animateWithDuration:5 delay:1 options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat animations:^{
+//        OpenParentheseImageView *open = [[OpenParentheseImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//        [self.parentheseArray addObject:open];
+//        [self.containerView addSubview:open];
+//        open.translatesAutoresizingMaskIntoConstraints = NO;
+//        [open.centerXAnchor constraintEqualToAnchor:self.containerView.centerXAnchor].active = YES;
+//        [open.centerYAnchor constraintEqualToAnchor:self.containerView.centerYAnchor].active = YES;
+//        [open layoutIfNeeded];
+//    } completion:^(BOOL finished) {
+//
+//    }];
+
 }
 
 - (void)resetAction:(UIButton *)sender {
-    _stringLength = 0;
-    _patternLength = 0;
-    _stringInput.text = @"";
-    _patternInput.text = @"";
-    if (self.gridView) {
-        [self.gridModel freeDP];
-        [self.gridView reloadData];
-    }
+
 }
-
-#pragma mark - GridViewDataSource
-
-- (NSInteger)numberOfRowsInGridView:(GridView *)gridView {
-     return _stringLength == 0 ? _stringLength : _stringLength + 2;
-}
-
-- (NSInteger)numberOfColumnsInGridView:(GridView *)gridView {
-    return _patternLength == 0 ? _patternLength : _patternLength + 2;
-}
-
 @end
