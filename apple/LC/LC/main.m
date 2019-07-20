@@ -41,6 +41,7 @@
 #import "MAXConcurrentDictionaryTest.h"
 #import "ForwardInvocationTest.h"
 #import "PropertySynthesizeDynamicTest.h"
+#import "TouchesBeganWithSharedThreads.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -118,7 +119,8 @@ int main(int argc, const char * argv[]) {
 //        ForwardInvocationTest *forward = [[ForwardInvocationTest alloc] init];
         // [forward testMethod];
 //        [forward performSelector:@selector(testMethod:)];
-        PropertySynthesizeDynamicTest *obj = [[PropertySynthesizeDynamicTest alloc] init];
+//        PropertySynthesizeDynamicTest *obj = [[PropertySynthesizeDynamicTest alloc] init];
+        TouchesBeganWithSharedThreads *obj = [[TouchesBeganWithSharedThreads alloc] init];
         [obj test];
     }
     return 0;

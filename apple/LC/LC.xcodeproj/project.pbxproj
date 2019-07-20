@@ -27,6 +27,7 @@
 		602B963020C3657E001D20B4 /* DispatchAfterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602B962F20C3657E001D20B4 /* DispatchAfterTest.m */; };
 		602B963320C36E71001D20B4 /* DispatchQueueConcurrentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602B963220C36E71001D20B4 /* DispatchQueueConcurrentTest.m */; };
 		602B963620C37105001D20B4 /* PerformSelectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 602B963520C37105001D20B4 /* PerformSelectorTest.m */; };
+		60383D4722C92B140091C162 /* TouchesBeganWithSharedThreads.m in Sources */ = {isa = PBXBuildFile; fileRef = 60383D4622C92B140091C162 /* TouchesBeganWithSharedThreads.m */; };
 		603AC84021CEC4330046FA97 /* GRScheduleBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AC83F21CEC4330046FA97 /* GRScheduleBlock.m */; };
 		603AC84321D169360046FA97 /* AddDelegateToQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AC84221D169360046FA97 /* AddDelegateToQueue.m */; };
 		603AC84621D306E60046FA97 /* ForwardInvocationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 603AC84521D306E60046FA97 /* ForwardInvocationTest.m */; };
@@ -108,6 +109,8 @@
 		602B963220C36E71001D20B4 /* DispatchQueueConcurrentTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueConcurrentTest.m; sourceTree = "<group>"; };
 		602B963420C37105001D20B4 /* PerformSelectorTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PerformSelectorTest.h; sourceTree = "<group>"; };
 		602B963520C37105001D20B4 /* PerformSelectorTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerformSelectorTest.m; sourceTree = "<group>"; };
+		60383D4522C92B140091C162 /* TouchesBeganWithSharedThreads.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchesBeganWithSharedThreads.h; sourceTree = "<group>"; };
+		60383D4622C92B140091C162 /* TouchesBeganWithSharedThreads.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TouchesBeganWithSharedThreads.m; sourceTree = "<group>"; };
 		603AC83E21CEC4330046FA97 /* GRScheduleBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GRScheduleBlock.h; sourceTree = "<group>"; };
 		603AC83F21CEC4330046FA97 /* GRScheduleBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRScheduleBlock.m; sourceTree = "<group>"; };
 		603AC84121D169360046FA97 /* AddDelegateToQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddDelegateToQueue.h; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				60E421BA20A4210A00C1286F /* OsUnfairLockTest.m */,
 				60E421BC20A4BA4100C1286F /* RunloopTest.h */,
 				60E421BD20A4BA4100C1286F /* RunloopTest.m */,
+				60383D4522C92B140091C162 /* TouchesBeganWithSharedThreads.h */,
+				60383D4622C92B140091C162 /* TouchesBeganWithSharedThreads.m */,
 				6007CD7B20AE7A3D00D1E5FA /* DispatchQueueTTest.h */,
 				6007CD7C20AE7A3D00D1E5FA /* DispatchQueueTTest.m */,
 				6007CD7E20AE7D2400D1E5FA /* DispatchBarrierAsyncTest.h */,
@@ -385,6 +390,7 @@
 				60FEDAAB20FFA07D001B48A0 /* RuntimeTest.m in Sources */,
 				3DAA8B08207B02400089BB60 /* LC42.m in Sources */,
 				603AC84321D169360046FA97 /* AddDelegateToQueue.m in Sources */,
+				60383D4722C92B140091C162 /* TouchesBeganWithSharedThreads.m in Sources */,
 				60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */,
 				60716EB5226D18AD009B7A95 /* PropertySynthesizeDynamicTest.m in Sources */,
 				608D214520CFAA2C003C3C3B /* ThreadSafeNSMutableArray.m in Sources */,

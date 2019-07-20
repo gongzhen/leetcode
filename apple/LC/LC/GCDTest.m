@@ -22,7 +22,7 @@
 /// https://knightsj.github.io/2017/01/13/%E6%B5%85%E6%98%BE%E6%98%93%E6%87%82%E8%AE%B2%E8%A7%A3%E7%9A%84iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF-GCD/
 /// 
 - (void)testGCDGroup4 {
-    dispatch_queue_t queue = dispatch_queue_create("12312312", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue = dispatch_queue_create("testGCDGroup4", DISPATCH_QUEUE_CONCURRENT);
     
     dispatch_async(queue, ^{
         
@@ -73,7 +73,7 @@
 }
 
 - (void)testGCDGroup3 {
-    dispatch_queue_t queue = dispatch_queue_create("12312312", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t queue = dispatch_queue_create("testGCDGroup3", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(queue, ^{
         NSLog(@"----任务 1-----");
     });
