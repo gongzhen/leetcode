@@ -43,6 +43,20 @@ public class PrintUtils {
         printStringWithoutNewLine("]\n");
     }
 
+    public static void printStringArray(String[] list) {
+        if(list == null) {
+            return;
+        }
+        printStringWithoutNewLine("[");
+        int i = 0;
+        for(String n : list) {
+            printStringWithoutNewLine("[" + i + "]" + n + ", ");
+            i++;
+        }
+        printStringWithoutNewLine("]\n");
+    }
+
+
     public static void printListString(List<String> list) {
         for(String s: list) {
             printStringWithoutNewLine(s + ", ");
@@ -130,6 +144,9 @@ public class PrintUtils {
     }
 
     public static void printListOfListInteger(List<List<Integer>> listOflist) {
+        if (listOflist == null || listOflist.isEmpty()) {
+            return;
+        }
         for(List<Integer> list: listOflist){
             printStringWithoutNewLine("[");
             for(int n : list) {

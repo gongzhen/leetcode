@@ -50,6 +50,5 @@ public class LC95 {
         LC95 obj = new LC95();
         // res:[1, 2, 3, 5, 7, 10]
         PrintUtils.printTreeNodeList(obj.generateTrees(3));
-
     }
 }

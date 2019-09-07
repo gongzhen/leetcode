@@ -1,5 +1,7 @@
 package com.leetcode.HashTable;
 
+import com.leetcode.Helper.PrintUtils;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,8 +20,8 @@ public class LC3 {
             if(!map.containsKey(array[i])) {
                 map.put(array[i], i);
             } else {
-                int id = map.get(array[i]);
-                j = Math.max(j, id + 1);
+                int index = map.get(array[i]);
+                j = Math.max(j, index + 1);
                 map.put(array[i], i);
             }
             if(max < i - j + 1) {
@@ -30,6 +32,8 @@ public class LC3 {
     }
 
     public static void main(String[] args) {
-
+        LC3 obj = new LC3();
+        int result = obj.lengthOfLongestSubstring("abcabcbb");
+        PrintUtils.printString("res:" + result);
     }
 }

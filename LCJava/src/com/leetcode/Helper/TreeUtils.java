@@ -56,6 +56,30 @@ public class TreeUtils {
         return node3;
     }
 
+    public static TreeNode LC1022createTree() {
+        //       1
+        //    0      1
+        //  0   1   0  1
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node00 = new TreeNode(0);
+        TreeNode node01 = new TreeNode(1);
+        TreeNode node000 = new TreeNode(0);
+        TreeNode node001 = new TreeNode(1);
+        TreeNode node010 = new TreeNode(0);
+        TreeNode node011 = new TreeNode(1);
+
+        node1.left = node00;
+        node1.right = node01;
+
+        node01.left = node010;
+        node01.right = node011;
+
+        node00.left = node000;
+        node00.right = node001;
+
+        return node1;
+    }
+
     public static TreeNode createBSTTree() {
         //       5
         //    2      7
@@ -90,6 +114,26 @@ public class TreeUtils {
         return node2;
     }
 
+    public static TreeNode LC230createBSTTree() {
+        //        5
+        //     3      6
+        //   2   4
+        // 1
+
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        node5.left = node3;
+        node5.right = node6;
+        node3.left = node2;
+        node3.right = node4;
+        node2.left = node1;
+        return node5;
+    }
+
     public static TreeNode LC112createTree() {
         //       -2
         //           -3
@@ -98,6 +142,37 @@ public class TreeUtils {
         node2.left = null;
         node2.right = node3;
         return node2;
+    }
+
+    public static TreeNode LC113createTree() {
+//                     5
+//                    / \
+//                   4   8
+//                  /   / \
+//                 11  13  4
+//                /  \    / \
+//               7    2  5   1
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node8 = new TreeNode(8);
+        TreeNode node11 = new TreeNode(11);
+        TreeNode node13 = new TreeNode(13);
+        TreeNode node4_1 = new TreeNode(4);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node5_1 = new TreeNode(5);
+        TreeNode node1 = new TreeNode(1);
+        node5.left = node4;
+        node5.right = node8;
+        node4.left = node11;
+        node4.right = null;
+        node8.left = node13;
+        node8.right = node4_1;
+        node11.left = node7;
+        node11.right = node2;
+        node4_1.left = node5_1;
+        node4_1.right = node1;
+        return node5;
     }
 
     public static TreeNode LC124createTree() {
@@ -128,5 +203,22 @@ public class TreeUtils {
 
         node2.left = node3;
         return node1;
+    }
+
+    public static TreeNode LC572_AMAZON_createTree() {
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node_2 = new TreeNode(-2);
+        TreeNode node14 = new TreeNode(14);
+        TreeNode node_1 = new TreeNode(-1);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node_11 = new TreeNode(-1);
+        node2.left = node_2;
+        node2.right = node14;
+        node_2.left = node_1;
+        node_2.right = node1;
+        node14.left = node5;
+        node14.right = node_11;
+        return node2;
     }
 }

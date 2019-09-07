@@ -12,9 +12,10 @@
 
 - (void)test {
     /// test gcd group
-     [self testGCDGroup];
-    // [self testGCDGroup2];
-    // [self testGCDGroup3];
+//     [self testGCDGroup];
+//     [self testGCDGroup2];
+//    [self testGCDGroup2_2];
+     [self testGCDGroup3];
 //    [self testGCDGroup4];
     
 }
@@ -44,7 +45,11 @@
     });
     
     dispatch_barrier_async(queue, ^{
-        NSLog(@"--------我是分割线--------");
+        NSLog(@"--------我是分割线 dispatch_barrier_async--------");
+    });
+    
+    dispatch_barrier_sync(queue, ^{
+        NSLog(@"--------我是分割线 dispatch_barrier_sync--------");
     });
     
     dispatch_async(queue, ^{
@@ -65,10 +70,7 @@
         }
         NSLog(@"完成了任务6");
     });
-    int i = 0;
-    while(i != 100000000) {
-        i++;
-    }
+    sleep(15);
     NSLog(@"group is over.");
 }
 
@@ -90,6 +92,8 @@
     dispatch_async(queue, ^{
         NSLog(@"----任务 4-----");
     });
+    sleep(10);
+    NSLog(@"group is over.");
 }
 
 - (void)testGCDGroup2{
@@ -99,14 +103,45 @@
     NSLog(@"group one start");
     dispatch_group_async(group, queue, ^{
         dispatch_async(queue, ^{
-            sleep(5); //这里线程睡眠1秒钟，模拟异步请求
-            NSLog(@"group one finish");
+            // sleep(5); //这里线程睡眠1秒钟，模拟异步请求
+            for(int i = 0; i < 5; i++) {
+                sleep(1);
+                NSLog(@"group one starting %d", i);
+            }
+            // NSLog(@"group one finish");
         });
     });
     
     dispatch_group_notify(group, queue, ^{
         NSLog(@"group finished");
     });
+    sleep(10);
+    NSLog(@"group is over.");
+}
+
+- (void)testGCDGroup2_2{
+    /// https://www.jianshu.com/p/6faea7ef35bc
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    NSLog(@"group one start");
+    dispatch_group_enter(group);
+    dispatch_group_async(group, queue, ^{
+        dispatch_async(queue, ^{
+            //这里线程睡眠1秒钟，模拟异步请求
+            for(int i = 0; i < 5; i++) {
+                sleep(1);
+                NSLog(@"group one starting %d", i);
+            }
+            NSLog(@"group one finish");
+            dispatch_group_leave(group);
+        });
+    });
+    
+    dispatch_group_notify(group, queue, ^{
+        NSLog(@"group finished");
+    });
+    sleep(15);
+    NSLog(@"sleep is over.");
 }
 
 - (void)testGCDGroup {
@@ -115,7 +150,8 @@
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         // 执行1个耗时的异步操作
-        for (NSInteger index = 0; index < 100; index ++) {
+        for (NSInteger index = 0; index < 10; index ++) {
+            NSLog(@"------------完成了任务1------------");
         }
         NSLog(@"完成了任务1");
     });
@@ -123,24 +159,25 @@
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         // 执行1个耗时的异步操作
-        for (NSInteger index = 0; index < 200; index ++) {
+        for (NSInteger index = 0; index < 10; index ++) {
+            NSLog(@"------------完成了任务2------------");
         }
         NSLog(@"完成了任务2");
     });
 
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
         // 执行1个耗时的异步操作
-        for (NSInteger index = 0; index < 2000; index ++) {
+        for (NSInteger index = 0; index < 10; index ++) {
+            NSLog(@"------------完成了任务3------------");
         }
         NSLog(@"完成了任务3");
         
     });
 
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
         // 执行1个耗时的异步操作
-        for (NSInteger index = 0; index < 400; index ++) {
+        for (NSInteger index = 0; index < 10; index ++) {
+            NSLog(@"------------完成了任务4------------");
         }
         NSLog(@"完成了任务4");
         
@@ -149,21 +186,17 @@
     dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         // 执行1个耗时的异步操作
-        for (NSInteger index = 0; index < 1000000; index ++) {
+        for (NSInteger index = 0; index < 10; index ++) {
+            NSLog(@"------------完成了任务5------------");
         }
         NSLog(@"完成了任务5");
         
     });
     
     dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        // 等前面的异步操作都执行完毕后，回到主线程...
         NSLog(@"都完成了");
     });
-    int i = 0;
-    while(i != 10000000) {
-        i++;
-    }
+    sleep(10);
     NSLog(@"group is over.");
     
 }

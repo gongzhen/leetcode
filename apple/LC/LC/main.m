@@ -13,6 +13,7 @@
 #import "BlockTest.h"
 #import "RetainCount.h"
 #import "GCDTest.h"
+#import "DispatchSemaphoreTest.h"
 #import "NSBlockOperationTest.h"
 #import "NSInvocationOperationTest.h"
 #import "OSSpinLockTest.h"
@@ -56,6 +57,10 @@ int main(int argc, const char * argv[]) {
 //        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
 //        [gcdTest test];
+        
+        DispatchSemaphoreTest *semaphoreTest = [[DispatchSemaphoreTest alloc] init];
+        [semaphoreTest test];
+        
 //        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
 //        [obj test];
 //        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
@@ -120,8 +125,8 @@ int main(int argc, const char * argv[]) {
         // [forward testMethod];
 //        [forward performSelector:@selector(testMethod:)];
 //        PropertySynthesizeDynamicTest *obj = [[PropertySynthesizeDynamicTest alloc] init];
-        TouchesBeganWithSharedThreads *obj = [[TouchesBeganWithSharedThreads alloc] init];
-        [obj test];
+//        TouchesBeganWithSharedThreads *obj = [[TouchesBeganWithSharedThreads alloc] init];
+//        [obj test];
     }
     return 0;
 }

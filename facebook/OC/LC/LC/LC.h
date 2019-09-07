@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ArraysUtility.h"
+#import "PrintHelper/PrintHelper.h"
+#import "NSArray+PrintUtility.h"
 
 @interface LC : NSObject {
     int dir[4][2];

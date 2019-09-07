@@ -15,7 +15,10 @@
 #import "LC127.h"
 #import "LC173.h"
 #import "LC256.h"
+#import "LC26.h"
 #import "LC84.h"
+#import "LC4.h"
+#import "LC11.h"
 #import "LC38.h"
 #import "LC410.h"
 #import "LC282.h"
@@ -89,6 +92,7 @@
 #import "LC44.h"
 #import "LC445.h"
 #import "LC2.h"
+#import "LC31.h"
 #import "LC91.h"
 #import "LC236.h"
 #import "LC523.h"
@@ -202,8 +206,8 @@ int main(int argc, const char * argv[]) {
 //        [lc670 test];
 //        LC206 *lc206 = [[LC206 alloc] init];
 //        [lc206 test];
-//        LC79 *lc79 = [[LC79 alloc] init];
-//        [lc79 test];
+        LC79 *lc79 = [[LC79 alloc] init];
+        [lc79 test];
 //        LC494 *lc494 = [[LC494 alloc] init];
 //        [lc494 test];
 //        LC207 *lc207 = [[LC207 alloc] init];
@@ -342,8 +346,17 @@ int main(int argc, const char * argv[]) {
 //        DLog(@"result1.count == 0:%ld", result1.count);
 //        LC995 *obj = [[LC995 alloc] init];
 //        [obj test];
-        LC994 *obj = [[LC994 alloc] init];
-        [obj test];
+//        LC994 *obj = [[LC994 alloc] init];
+//        [obj test];
+//        LC4 *obj = [[LC4 alloc] init];
+//        [obj test];
+//        LC11 *obj = [[LC11 alloc] init];
+//        [obj test];
+//        LC26 *lc26 = [[LC26 alloc] init];
+//        [lc26 test];
+//        LC31 *lc31 = [[LC31 alloc] init];
+//        [lc31 test];
+        
     }
     return 0;
 }

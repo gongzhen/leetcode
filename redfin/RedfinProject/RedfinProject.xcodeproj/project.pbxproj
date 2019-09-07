@@ -1,0 +1,653 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		60C9D9E52319B19F0031CC61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D9E42319B19F0031CC61 /* AppDelegate.swift */; };
+		60C9D9E72319B19F0031CC61 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D9E62319B19F0031CC61 /* ListViewController.swift */; };
+		60C9D9EC2319B1A00031CC61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C9D9EB2319B1A00031CC61 /* Assets.xcassets */; };
+		60C9D9EF2319B1A00031CC61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C9D9ED2319B1A00031CC61 /* LaunchScreen.storyboard */; };
+		60C9D9FA2319B1A10031CC61 /* RedfinProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9D9F92319B1A10031CC61 /* RedfinProjectTests.swift */; };
+		60C9DA052319B1A10031CC61 /* RedfinProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9DA042319B1A10031CC61 /* RedfinProjectUITests.swift */; };
+		60C9DA132319B46C0031CC61 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9DA122319B46C0031CC61 /* ListViewModel.swift */; };
+		60C9DA152319B9B60031CC61 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9DA142319B9B60031CC61 /* ListTableViewCell.swift */; };
+		60C9DA1D2319BDD80031CC61 /* SFFoodTruckAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9DA1C2319BDD80031CC61 /* SFFoodTruckAPIManager.swift */; };
+		60C9DA23231A21F40031CC61 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9DA22231A21F40031CC61 /* ListItem.swift */; };
+		60C9DA26231A55EE0031CC61 /* ListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C9DA25231A55ED0031CC61 /* ListCellViewModel.swift */; };
+		60EEEEDC231B2987003527F2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EEEEDB231B2987003527F2 /* MapViewController.swift */; };
+		60EEEEDF231D90E7003527F2 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EEEEDE231D90E7003527F2 /* MapViewModel.swift */; };
+		60EEEEE3231D9205003527F2 /* MapAnnotationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EEEEE2231D9205003527F2 /* MapAnnotationViewModel.swift */; };
+		60EEEEE7231DDF47003527F2 /* RedFinContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EEEEE6231DDF47003527F2 /* RedFinContainerViewController.swift */; };
+		60EEEEEB231DF8C6003527F2 /* FoodTruckInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EEEEEA231DF8C6003527F2 /* FoodTruckInfoView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60C9D9F62319B1A10031CC61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60C9D9D92319B19F0031CC61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60C9D9E02319B19F0031CC61;
+			remoteInfo = RedfinProject;
+		};
+		60C9DA012319B1A10031CC61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 60C9D9D92319B19F0031CC61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60C9D9E02319B19F0031CC61;
+			remoteInfo = RedfinProject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		60C9D9E12319B19F0031CC61 /* RedfinProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedfinProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C9D9E42319B19F0031CC61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60C9D9E62319B19F0031CC61 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		60C9D9EB2319B1A00031CC61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60C9D9EE2319B1A00031CC61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60C9D9F02319B1A00031CC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C9D9F52319B1A10031CC61 /* RedfinProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedfinProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C9D9F92319B1A10031CC61 /* RedfinProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedfinProjectTests.swift; sourceTree = "<group>"; };
+		60C9D9FB2319B1A10031CC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C9DA002319B1A10031CC61 /* RedfinProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedfinProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60C9DA042319B1A10031CC61 /* RedfinProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedfinProjectUITests.swift; sourceTree = "<group>"; };
+		60C9DA062319B1A10031CC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60C9DA122319B46C0031CC61 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		60C9DA142319B9B60031CC61 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		60C9DA1C2319BDD80031CC61 /* SFFoodTruckAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFFoodTruckAPIManager.swift; sourceTree = "<group>"; };
+		60C9DA22231A21F40031CC61 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		60C9DA25231A55ED0031CC61 /* ListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellViewModel.swift; sourceTree = "<group>"; };
+		60EEEEDB231B2987003527F2 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		60EEEEDE231D90E7003527F2 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		60EEEEE2231D9205003527F2 /* MapAnnotationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationViewModel.swift; sourceTree = "<group>"; };
+		60EEEEE6231DDF47003527F2 /* RedFinContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedFinContainerViewController.swift; sourceTree = "<group>"; };
+		60EEEEEA231DF8C6003527F2 /* FoodTruckInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckInfoView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60C9D9DE2319B19F0031CC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60C9D9F22319B1A10031CC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60C9D9FD2319B1A10031CC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		60C9D9D82319B19E0031CC61 = {
+			isa = PBXGroup;
+			children = (
+				60C9D9E32319B19F0031CC61 /* RedfinProject */,
+				60C9D9F82319B1A10031CC61 /* RedfinProjectTests */,
+				60C9DA032319B1A10031CC61 /* RedfinProjectUITests */,
+				60C9D9E22319B19F0031CC61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		60C9D9E22319B19F0031CC61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60C9D9E12319B19F0031CC61 /* RedfinProject.app */,
+				60C9D9F52319B1A10031CC61 /* RedfinProjectTests.xctest */,
+				60C9DA002319B1A10031CC61 /* RedfinProjectUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60C9D9E32319B19F0031CC61 /* RedfinProject */ = {
+			isa = PBXGroup;
+			children = (
+				60C9D9E42319B19F0031CC61 /* AppDelegate.swift */,
+				60C9DA1B2319BD830031CC61 /* View */,
+				60C9DA192319BD570031CC61 /* API */,
+				60C9DA182319BD3F0031CC61 /* View Model */,
+				60C9DA172319BD290031CC61 /* View Controller */,
+				60C9D9EB2319B1A00031CC61 /* Assets.xcassets */,
+				60C9D9ED2319B1A00031CC61 /* LaunchScreen.storyboard */,
+				60C9D9F02319B1A00031CC61 /* Info.plist */,
+			);
+			path = RedfinProject;
+			sourceTree = "<group>";
+		};
+		60C9D9F82319B1A10031CC61 /* RedfinProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				60C9D9F92319B1A10031CC61 /* RedfinProjectTests.swift */,
+				60C9D9FB2319B1A10031CC61 /* Info.plist */,
+			);
+			path = RedfinProjectTests;
+			sourceTree = "<group>";
+		};
+		60C9DA032319B1A10031CC61 /* RedfinProjectUITests */ = {
+			isa = PBXGroup;
+			children = (
+				60C9DA042319B1A10031CC61 /* RedfinProjectUITests.swift */,
+				60C9DA062319B1A10031CC61 /* Info.plist */,
+			);
+			path = RedfinProjectUITests;
+			sourceTree = "<group>";
+		};
+		60C9DA172319BD290031CC61 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				60C9D9E62319B19F0031CC61 /* ListViewController.swift */,
+				60EEEEE6231DDF47003527F2 /* RedFinContainerViewController.swift */,
+				60EEEEDB231B2987003527F2 /* MapViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		60C9DA182319BD3F0031CC61 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				60C9DA122319B46C0031CC61 /* ListViewModel.swift */,
+				60EEEEDE231D90E7003527F2 /* MapViewModel.swift */,
+				60C9DA22231A21F40031CC61 /* ListItem.swift */,
+				60C9DA25231A55ED0031CC61 /* ListCellViewModel.swift */,
+				60EEEEE2231D9205003527F2 /* MapAnnotationViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		60C9DA192319BD570031CC61 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				60C9DA1C2319BDD80031CC61 /* SFFoodTruckAPIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		60C9DA1B2319BD830031CC61 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				60C9DA142319B9B60031CC61 /* ListTableViewCell.swift */,
+				60EEEEEA231DF8C6003527F2 /* FoodTruckInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		60C9D9E02319B19F0031CC61 /* RedfinProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C9DA092319B1A10031CC61 /* Build configuration list for PBXNativeTarget "RedfinProject" */;
+			buildPhases = (
+				60C9D9DD2319B19F0031CC61 /* Sources */,
+				60C9D9DE2319B19F0031CC61 /* Frameworks */,
+				60C9D9DF2319B19F0031CC61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RedfinProject;
+			productName = RedfinProject;
+			productReference = 60C9D9E12319B19F0031CC61 /* RedfinProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+		60C9D9F42319B1A10031CC61 /* RedfinProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C9DA0C2319B1A10031CC61 /* Build configuration list for PBXNativeTarget "RedfinProjectTests" */;
+			buildPhases = (
+				60C9D9F12319B1A10031CC61 /* Sources */,
+				60C9D9F22319B1A10031CC61 /* Frameworks */,
+				60C9D9F32319B1A10031CC61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60C9D9F72319B1A10031CC61 /* PBXTargetDependency */,
+			);
+			name = RedfinProjectTests;
+			productName = RedfinProjectTests;
+			productReference = 60C9D9F52319B1A10031CC61 /* RedfinProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		60C9D9FF2319B1A10031CC61 /* RedfinProjectUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60C9DA0F2319B1A10031CC61 /* Build configuration list for PBXNativeTarget "RedfinProjectUITests" */;
+			buildPhases = (
+				60C9D9FC2319B1A10031CC61 /* Sources */,
+				60C9D9FD2319B1A10031CC61 /* Frameworks */,
+				60C9D9FE2319B1A10031CC61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60C9DA022319B1A10031CC61 /* PBXTargetDependency */,
+			);
+			name = RedfinProjectUITests;
+			productName = RedfinProjectUITests;
+			productReference = 60C9DA002319B1A10031CC61 /* RedfinProjectUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60C9D9D92319B19F0031CC61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Zhen Gong";
+				TargetAttributes = {
+					60C9D9E02319B19F0031CC61 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					60C9D9F42319B1A10031CC61 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 60C9D9E02319B19F0031CC61;
+					};
+					60C9D9FF2319B1A10031CC61 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 60C9D9E02319B19F0031CC61;
+					};
+				};
+			};
+			buildConfigurationList = 60C9D9DC2319B19F0031CC61 /* Build configuration list for PBXProject "RedfinProject" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 60C9D9D82319B19E0031CC61;
+			productRefGroup = 60C9D9E22319B19F0031CC61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60C9D9E02319B19F0031CC61 /* RedfinProject */,
+				60C9D9F42319B1A10031CC61 /* RedfinProjectTests */,
+				60C9D9FF2319B1A10031CC61 /* RedfinProjectUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60C9D9DF2319B19F0031CC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C9D9EF2319B1A00031CC61 /* LaunchScreen.storyboard in Resources */,
+				60C9D9EC2319B1A00031CC61 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60C9D9F32319B1A10031CC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60C9D9FE2319B1A10031CC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60C9D9DD2319B19F0031CC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C9DA23231A21F40031CC61 /* ListItem.swift in Sources */,
+				60C9D9E72319B19F0031CC61 /* ListViewController.swift in Sources */,
+				60C9DA152319B9B60031CC61 /* ListTableViewCell.swift in Sources */,
+				60C9D9E52319B19F0031CC61 /* AppDelegate.swift in Sources */,
+				60C9DA132319B46C0031CC61 /* ListViewModel.swift in Sources */,
+				60C9DA1D2319BDD80031CC61 /* SFFoodTruckAPIManager.swift in Sources */,
+				60C9DA26231A55EE0031CC61 /* ListCellViewModel.swift in Sources */,
+				60EEEEDC231B2987003527F2 /* MapViewController.swift in Sources */,
+				60EEEEE3231D9205003527F2 /* MapAnnotationViewModel.swift in Sources */,
+				60EEEEDF231D90E7003527F2 /* MapViewModel.swift in Sources */,
+				60EEEEEB231DF8C6003527F2 /* FoodTruckInfoView.swift in Sources */,
+				60EEEEE7231DDF47003527F2 /* RedFinContainerViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60C9D9F12319B1A10031CC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C9D9FA2319B1A10031CC61 /* RedfinProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60C9D9FC2319B1A10031CC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60C9DA052319B1A10031CC61 /* RedfinProjectUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60C9D9F72319B1A10031CC61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60C9D9E02319B19F0031CC61 /* RedfinProject */;
+			targetProxy = 60C9D9F62319B1A10031CC61 /* PBXContainerItemProxy */;
+		};
+		60C9DA022319B1A10031CC61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60C9D9E02319B19F0031CC61 /* RedfinProject */;
+			targetProxy = 60C9DA012319B1A10031CC61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		60C9D9ED2319B1A00031CC61 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60C9D9EE2319B1A00031CC61 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		60C9DA072319B1A10031CC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		60C9DA082319B1A10031CC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60C9DA0A2319B1A10031CC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G66RX9MATK;
+				INFOPLIST_FILE = RedfinProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhen.RedfinProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60C9DA0B2319B1A10031CC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G66RX9MATK;
+				INFOPLIST_FILE = RedfinProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhen.RedfinProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		60C9DA0D2319B1A10031CC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G66RX9MATK;
+				INFOPLIST_FILE = RedfinProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhen.RedfinProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RedfinProject.app/RedfinProject";
+			};
+			name = Debug;
+		};
+		60C9DA0E2319B1A10031CC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G66RX9MATK;
+				INFOPLIST_FILE = RedfinProjectTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhen.RedfinProjectTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RedfinProject.app/RedfinProject";
+			};
+			name = Release;
+		};
+		60C9DA102319B1A10031CC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G66RX9MATK;
+				INFOPLIST_FILE = RedfinProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhen.RedfinProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RedfinProject;
+			};
+			name = Debug;
+		};
+		60C9DA112319B1A10031CC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G66RX9MATK;
+				INFOPLIST_FILE = RedfinProjectUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.gongzhen.RedfinProjectUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RedfinProject;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60C9D9DC2319B19F0031CC61 /* Build configuration list for PBXProject "RedfinProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C9DA072319B1A10031CC61 /* Debug */,
+				60C9DA082319B1A10031CC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60C9DA092319B1A10031CC61 /* Build configuration list for PBXNativeTarget "RedfinProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C9DA0A2319B1A10031CC61 /* Debug */,
+				60C9DA0B2319B1A10031CC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60C9DA0C2319B1A10031CC61 /* Build configuration list for PBXNativeTarget "RedfinProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C9DA0D2319B1A10031CC61 /* Debug */,
+				60C9DA0E2319B1A10031CC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60C9DA0F2319B1A10031CC61 /* Build configuration list for PBXNativeTarget "RedfinProjectUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60C9DA102319B1A10031CC61 /* Debug */,
+				60C9DA112319B1A10031CC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 60C9D9D92319B19F0031CC61 /* Project object */;
+}
