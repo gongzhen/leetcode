@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TrieNodeWithMap : NSObject
 
-@property (strong, nonatomic) NSMutableDictionary *children;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, TrieNodeWithMap *> *children;
 @property (assign) BOOL isWord;
 
 @end

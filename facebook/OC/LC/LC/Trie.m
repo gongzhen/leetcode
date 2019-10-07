@@ -7,8 +7,11 @@
 //
 
 #import "Trie.h"
+#import "TrieNode.h"
 
 @interface Trie()
+
+@property (strong, nonatomic) TrieNode *root;
 
 @end
 

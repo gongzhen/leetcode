@@ -112,6 +112,7 @@
 		6093DBB9233A7DD900D43D4D /* LC451.m in Sources */ = {isa = PBXBuildFile; fileRef = 6093DBB8233A7DD900D43D4D /* LC451.m */; };
 		6093DBBF233D452C00D43D4D /* Solution.m in Sources */ = {isa = PBXBuildFile; fileRef = 6093DBBE233D452C00D43D4D /* Solution.m */; };
 		60AF5D38230E45FF002A9685 /* LC31.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AF5D37230E45FF002A9685 /* LC31.m */; };
+		60B984A2234BB8ED00D38FB8 /* MapTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984A1234BB8ED00D38FB8 /* MapTrie.m */; };
 		60EB31EB230DF3C8007CE71B /* LC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31EA230DF3C8007CE71B /* LC11.m */; };
 		60EB31EE230E0603007CE71B /* MathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31ED230E0603007CE71B /* MathUtility.m */; };
 		60EB31F1230E254C007CE71B /* LC26.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31F0230E254C007CE71B /* LC26.m */; };
@@ -369,6 +370,8 @@
 		6093DBBE233D452C00D43D4D /* Solution.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Solution.m; sourceTree = "<group>"; };
 		60AF5D36230E45FF002A9685 /* LC31.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC31.h; sourceTree = "<group>"; };
 		60AF5D37230E45FF002A9685 /* LC31.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC31.m; sourceTree = "<group>"; };
+		60B984A0234BB8ED00D38FB8 /* MapTrie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapTrie.h; sourceTree = "<group>"; };
+		60B984A1234BB8ED00D38FB8 /* MapTrie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTrie.m; sourceTree = "<group>"; };
 		60EB31E9230DF3C8007CE71B /* LC11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC11.h; sourceTree = "<group>"; };
 		60EB31EA230DF3C8007CE71B /* LC11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC11.m; sourceTree = "<group>"; };
 		60EB31EC230E0603007CE71B /* MathUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathUtility.h; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 				3D729EB7204F304E00C25D14 /* Trie.m */,
 				3D594D972085966800349438 /* IndexTrie.h */,
 				3D594D982085966800349438 /* IndexTrie.m */,
+				60B984A0234BB8ED00D38FB8 /* MapTrie.h */,
+				60B984A1234BB8ED00D38FB8 /* MapTrie.m */,
 				3D14EBBB203551E300149E3F /* ListNode.h */,
 				3D14EBBC203551E300149E3F /* ListNode.m */,
 				3D14EB9A2032B80500149E3F /* LCTreeNode.h */,
@@ -851,6 +856,7 @@
 				6093DBBF233D452C00D43D4D /* Solution.m in Sources */,
 				84614C1520890CCC00A4958F /* LC642.m in Sources */,
 				3D14EC1B203C932D00149E3F /* LC670.m in Sources */,
+				60B984A2234BB8ED00D38FB8 /* MapTrie.m in Sources */,
 				3D14EC1E203CA68900149E3F /* LC206.m in Sources */,
 				3DA4CA73206CAD8D00E99437 /* LCPoint.m in Sources */,
 				3DAA8B12207D1FB60089BB60 /* LC102.m in Sources */,

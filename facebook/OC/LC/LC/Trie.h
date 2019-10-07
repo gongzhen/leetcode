@@ -7,11 +7,10 @@
 //
 
 #import "LC.h"
-#import "TrieNode.h"
+
+@class TrieNode;
 
 @interface Trie : LC
-
-@property (strong, nonatomic) TrieNode *root;
 
 - (void)insert:(NSString *)word;
 - (BOOL)search:(NSString *)word;
