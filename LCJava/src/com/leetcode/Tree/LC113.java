@@ -5,33 +5,39 @@ import com.leetcode.Helper.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ *
+ * Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
+ *
+ * Note: A leaf is a node with no children.
+ *
+ * Example:
+ *
+ * Given the below binary tree and sum = 22,
+ *
+ *       5
+ *      / \
+ *     4   8
+ *    /   / \
+ *   11  13  4
+ *  /  \    / \
+ * 7    2  5   1
+ * Return:
+ *
+ * [
+ *    [5,4,11,2],
+ *    [5,8,4,5]
+ * ]
+ *
+ * */
 public class LC113 {
 
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         List<Integer> list = new ArrayList<Integer>();
-//        dfs(res, list, root, sum);
         dfs(root, sum, res, list);
         return res;
     }
-
-//    private void dfs(List<List<Integer>> res, List<Integer> list, TreeNode node, int sum) {
-//        if(node == null) {
-//            return;
-//        }
-//
-//        list.add(node.val);
-//        if(node.left == null && node.right == null && sum == node.val) {
-//            res.add(new ArrayList<Integer>(list));
-//            list.remove(list.size() - 1);
-//            return;
-//        }
-//
-//        dfs(res, list, node.left, sum - node.val);
-//        dfs(res, list, node.right, sum - node.val);
-//        list.remove(list.size() - 1);
-//    }
 
     private void dfs(TreeNode node, int sum, List<List<Integer>> res, List<Integer> list) {
         if (node == null) {

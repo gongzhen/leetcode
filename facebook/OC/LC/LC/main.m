@@ -18,6 +18,7 @@
 #import "LC26.h"
 #import "LC84.h"
 #import "LC4.h"
+#import "LC451.h"
 #import "LC11.h"
 #import "LC38.h"
 #import "LC410.h"
@@ -116,6 +117,7 @@
 #import "LC995.h"
 #import "LC994.h"
 
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
@@ -168,8 +170,8 @@ int main(int argc, const char * argv[]) {
 //        [lc121 test];
 //        LC56 *lc56 = [[LC56 alloc] init];
 //        [lc56 test];
-//        LC1 *lc1 = [[LC1 alloc] init];
-//        [lc1 test];
+        LC1 *lc1 = [[LC1 alloc] init];
+        [lc1 test];
 //        LC680 *lc680 = [[LC680 alloc] init];
 //        [lc680 test];
 //        LC252 *lc252 = [[LC252 alloc] init];
@@ -206,8 +208,8 @@ int main(int argc, const char * argv[]) {
 //        [lc670 test];
 //        LC206 *lc206 = [[LC206 alloc] init];
 //        [lc206 test];
-        LC79 *lc79 = [[LC79 alloc] init];
-        [lc79 test];
+//        LC79 *lc79 = [[LC79 alloc] init];
+//        [lc79 test];
 //        LC494 *lc494 = [[LC494 alloc] init];
 //        [lc494 test];
 //        LC207 *lc207 = [[LC207 alloc] init];
@@ -356,7 +358,8 @@ int main(int argc, const char * argv[]) {
 //        [lc26 test];
 //        LC31 *lc31 = [[LC31 alloc] init];
 //        [lc31 test];
-        
+//        LC451 *lc451 = [[LC451 alloc] init];
+//        [lc451 test];        
     }
     return 0;
 }

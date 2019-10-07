@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)printDouble:(double)number;
 + (void)printInteger:(NSInteger)number;
++ (void)printBool:(BOOL)val;
 + (void)printString:(nullable NSString *)string;
 
 + (void)printIntArray:(NSArray<NSNumber *> *)list;

@@ -8,6 +8,13 @@
 
 #import "LC.h"
 
+
+@interface GZRunTime : NSObject
+
+- (void)getName:(NSString *)name;
+
+@end
+
 @interface RuntimeTest : LC
 
 @end

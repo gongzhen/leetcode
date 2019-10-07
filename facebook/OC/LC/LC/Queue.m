@@ -86,7 +86,7 @@
 
 - (id)poll {
     if(_size == 0) {
-        return NULL;
+        return nil;
     }
     return [self removeFirst];
 }

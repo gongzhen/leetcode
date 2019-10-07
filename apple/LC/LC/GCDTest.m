@@ -23,6 +23,7 @@
 /// https://knightsj.github.io/2017/01/13/%E6%B5%85%E6%98%BE%E6%98%93%E6%87%82%E8%AE%B2%E8%A7%A3%E7%9A%84iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%8A%80%E6%9C%AF-GCD/
 /// 
 - (void)testGCDGroup4 {
+    // concurrent queue with async
     dispatch_queue_t queue = dispatch_queue_create("testGCDGroup4", DISPATCH_QUEUE_CONCURRENT);
     
     dispatch_async(queue, ^{
@@ -70,27 +71,42 @@
         }
         NSLog(@"完成了任务6");
     });
-    sleep(15);
+    sleep(5);
     NSLog(@"group is over.");
 }
 
 - (void)testGCDGroup3 {
+    // concurrent queue with sync
     dispatch_queue_t queue = dispatch_queue_create("testGCDGroup3", DISPATCH_QUEUE_CONCURRENT);
-    dispatch_async(queue, ^{
-        NSLog(@"----任务 1-----");
+    dispatch_sync(queue, ^{
+        for (NSInteger index = 0; index < 400000; index ++) {
+        }
+        NSLog(@"----任务 1---- current thread: %@", [NSThread currentThread]); // NEW THREAD
     });
-    dispatch_async(queue, ^{
-        NSLog(@"----任务 2-----");
+    dispatch_sync(queue, ^{
+        for (NSInteger index = 0; index < 4000; index ++) {
+        }
+        NSLog(@"----任务 2----- current thread: %@", [NSThread currentThread]); // MAIN THREAD
+    });
+    dispatch_sync(queue, ^{
+        for (NSInteger index = 0; index < 40; index ++) {
+        }
+        NSLog(@"----任务 3----- current thread: %@", [NSThread currentThread]); // MAIN THREAD
     });
     dispatch_barrier_async(queue, ^{
         NSLog(@"----barrier-----");
+        NSLog(@"--------我是分割线 dispatch_barrier_async--------");
     });
     
-    dispatch_async(queue, ^{
-        NSLog(@"----任务 3-----");
+    dispatch_sync(queue, ^{
+        for (NSInteger index = 0; index < 4000; index ++) {
+        }
+        NSLog(@"----任务 4----- current thread: %@", [NSThread currentThread]);
     });
-    dispatch_async(queue, ^{
-        NSLog(@"----任务 4-----");
+    dispatch_sync(queue, ^{
+        for (NSInteger index = 0; index < 4000; index ++) {
+        }
+        NSLog(@"----任务 5----- current thread: %@", [NSThread currentThread]);
     });
     sleep(10);
     NSLog(@"group is over.");

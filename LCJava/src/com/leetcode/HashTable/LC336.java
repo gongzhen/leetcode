@@ -1,5 +1,7 @@
 package com.leetcode.HashTable;
 
+import com.leetcode.Helper.PrintUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -109,6 +111,7 @@ public class LC336 {
     public static void main(String[] args) {
         Solution2 obj = new Solution2();
         String[] words = new String[]{"abcd", "dcba", "lls", "s", "sssll"};
-        obj.palindromePairs(words);
+        List<List<Integer>> res = obj.palindromePairs(words);
+        PrintUtils.printListOfListInteger(res);
     }
 }

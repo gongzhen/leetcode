@@ -1,5 +1,8 @@
 package com.leetcode.Helper;
 
+import jdk.nashorn.api.tree.Tree;
+
+import javax.swing.text.Utilities;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -7,6 +10,60 @@ public class TreeUtils {
 
     public static void printTree(TreeNode node) {
         dfs(node);
+    }
+
+    public static void printTreePretty(TreeNode node) {
+        if (node == null) {
+            return;
+        }
+        int height = heightOfTree(node);
+        int row = height;
+        int col = row * 2 + 1;
+        int[][] matrix = new int[row][col];
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(node);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i = 0; i < size; i++) {
+                TreeNode n = queue.poll();
+                if (n != null) {
+                    printSpaceForLevel(height);
+                    PrintUtils.printStringWithoutNewLine("" + n.val);
+                } else {
+                    printSpaceForLevel(height);
+                    PrintUtils.printStringWithoutNewLine("#");
+                }
+                if(n != null && n.left != null) {
+                    queue.offer(n.left);
+                } else {
+                    queue.offer(null);
+                }
+                if(n != null && n.right != null) {
+                    queue.offer(n.right);
+                } else {
+                    queue.offer(null);
+                }
+            }
+            PrintUtils.printString("");
+            height--;
+            if (height == -1) {
+                break;
+            }
+        }
+    }
+
+    private static void printSpaceForLevel(int level) {
+        for(int i = 0; i < level * 2 + 2; i++) {
+            PrintUtils.printStringWithoutNewLine(" ");
+        }
+    }
+
+    private static int heightOfTree(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+
+        return Math.max(heightOfTree(node.left), heightOfTree(node.right)) + 1;
     }
 
     public static void printTreeByLevel(TreeNode node) {
@@ -54,6 +111,22 @@ public class TreeUtils {
         node2.right = node5;
         node7.right = node10;
         return node3;
+    }
+
+    public static TreeNode LC156createTree() {
+        //       1
+        //    2     3
+        //  4   5
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        node1.left = node2;
+        node1.right = node3;
+        node2.left = node4;
+        node2.right = node5;
+        return node1;
     }
 
     public static TreeNode LC1022createTree() {
@@ -114,6 +187,31 @@ public class TreeUtils {
         return node2;
     }
 
+    public static TreeNode LC270createBSTTree() {
+/**
+ *
+ * Input: root = [4,2,5,1,3], target = 3.714286
+ *
+ *     4
+ *    / \
+ *   2   5
+ *  / \
+ * 1   3
+ *
+ * Output: 4
+ * */
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node3 = new TreeNode(3);
+        node4.left = node2;
+        node4.right = node5;
+        node2.left = node1;
+        node2.right = node3;
+        return node4;
+    }
+
     public static TreeNode LC230createBSTTree() {
         //        5
         //     3      6
@@ -141,6 +239,22 @@ public class TreeUtils {
         TreeNode node3 = new TreeNode(-3);
         node2.left = null;
         node2.right = node3;
+        return node2;
+    }
+
+    public static TreeNode LC671createTree() {
+        //       2
+        //    2       5
+        //          5   7
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node2Left = new TreeNode(2);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node5Left = new TreeNode(5);
+        TreeNode node7 = new TreeNode(7);
+        node2.left = node2Left;
+        node2.right = node5;
+        node5.left = node5Left;
+        node5.right = node7;
         return node2;
     }
 

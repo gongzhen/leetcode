@@ -14,9 +14,11 @@
     // [self testDispatchSemaphoreTest];
     // [self testDispatchSemaphoreTest_1];
     // [self testDispatchSemaphoreTest_2];
-    // [self testDispatchSemaphoreTest_3];
-    [self testDispatchSemaphoreTest_4];
-    sleep(10);
+    //  [self testDispatchSemaphoreTest_3];
+//    [self testDispatchSemaphoreTest_4];
+//     [self testDispatchSemaphoreTest_5];
+    [self testDispatchSemaphoreTest_6];
+    sleep(15);
 }
 
 // https://yq.aliyun.com/articles/27432?spm=a2c4e.11153940.0.0.57f73f97OUUSbr
@@ -123,10 +125,10 @@
 
 - (void)testDispatchSemaphoreTest_4
 {
+    // https://www.jianshu.com/p/643075d84061
     dispatch_semaphore_t signal;
-    signal = dispatch_semaphore_create(1);
-    __block long x =0;
-    NSLog(@"0_x:%ld",x);
+    signal= dispatch_semaphore_create(1);
+    __block long x =0;   NSLog(@"0_x:%ld",x);
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0), ^{
         sleep(1);
         NSLog(@"waiting");
@@ -136,19 +138,50 @@
         NSLog(@"waking");
         x = dispatch_semaphore_signal(signal);
         NSLog(@"2_x:%ld",x);
-    });
-     dispatch_time_t duration = dispatch_time(DISPATCH_TIME_NOW, 1*1000*1000*1000);
-    // 超时1秒
-    x = dispatch_semaphore_wait(signal, duration);
+        sleep(3);
+        NSLog(@"waking");
+        x = dispatch_semaphore_signal(signal);
+    });//
+    dispatch_time_t duration = dispatch_time(DISPATCH_TIME_NOW, 1*1000*1000*1000); //超时1秒//
+    dispatch_semaphore_wait(signal, duration);
+    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
     NSLog(@"3_x:%ld",x);
-    // x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-    // NSLog(@"3_x:%ld",x);
-    // x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-    // NSLog(@"wait 2");
-    // NSLog(@"4_x:%ld",x);
-    // x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-    // NSLog(@"wait 3");
-    // NSLog(@"5_x:%ld",x);
+    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+    NSLog(@"wait 2");
+    NSLog(@"4_x:%ld",x);
+//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//    NSLog(@"wait 3");
+//    NSLog(@"5_x:%ld",x);
 }
+
+- (void)testDispatchSemaphoreTest_5 {
+    NSLog(@"DEMA");
+    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+    [self testSemaphore5Block:^{
+        NSLog(@"LEMA");
+        dispatch_semaphore_signal(signal);
+    }];
+    dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+    NSLog(@"ZEMA");
+}
+
+- (void)testSemaphore5Block:(void (^)(void))emptyBlock {
+    emptyBlock();
+}
+
+// http://dbworku.com/2015/11/29/semphore-in-gcd/
+- (void)testDispatchSemaphoreTest_6 {
+    dispatch_queue_t defaultQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    NSUInteger MAX_CONCURRENT = 2;
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(MAX_CONCURRENT);
+    for(int i = 0; i < 999; i++) {
+        dispatch_async(defaultQueue, ^{
+            NSLog(@"INTENSIVE TASK %@", [NSThread currentThread]);
+            dispatch_semaphore_signal(semaphore);
+        });
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    }
+}
+
 
 @end

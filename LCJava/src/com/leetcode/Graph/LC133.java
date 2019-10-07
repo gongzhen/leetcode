@@ -19,23 +19,20 @@ public class LC133 {
 
         while(!queue.isEmpty()) {
             int size = queue.size();
-            for(int i = 0; i < size; i++) {
-                Node _node = queue.poll(); // original node
-                // Node _cloneNode = map.get(_node.val);
-                for(Node _neighbor : _node.neighbors) {
-                    if (!map.containsKey(_neighbor.val)) {
-                        queue.offer(_neighbor);
-                        Node _cloneNeighbor = new Node(_neighbor.val, new ArrayList<Node>());
-                        map.put(_neighbor.val, _cloneNeighbor);
-                    }
-                    map.get(_node.val).neighbors.add(map.get(_neighbor.val));
+            Node _node = queue.poll(); // original node
+            // Node _cloneNode = map.get(_node.val);
+            for(Node _neighbor : _node.neighbors) {
+                if (!map.containsKey(_neighbor.val)) {
+                    queue.offer(_neighbor);
+                    Node _cloneNeighbor = new Node(_neighbor.val, new ArrayList<Node>());
+                    map.put(_neighbor.val, _cloneNeighbor);
                 }
+                map.get(_node.val).neighbors.add(map.get(_neighbor.val));
             }
         }
         return map.get(node.val);
     }
 
     public static void main(String[] args) {
-        LC133 obj = new LC133();
     }
 }

@@ -7,13 +7,39 @@
 //
 
 #import "BlockTest.h"
+// https://blog.csdn.net/hherima/article/category/9263836
+
+typedef void(^BlockTestForTestingBlock) (void);
+
+@interface BlockTest()
+{
+    id _observer;
+}
+
+@property(nonatomic, copy) BlockTestForTestingBlock testBlock;
+@end
 
 @implementation BlockTest
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        __weak BlockTest *weakSelf = self;
+        _testBlock = ^(){
+            NSLog(@"weakSelf=>%@", weakSelf);
+        };
+    }
+    return self;
+}
+
 - (void)test {
-    [self test1];
-    [self test2];
-    [self test3];
+//    [self test1];
+//    [self test2];
+//    [self test3];
+    [self test4];
+    sleep(10);
+    NSLog(@"BlockTest done.");
 }
 
 - (void)test1 {
@@ -50,5 +76,29 @@
     DLog(@"x:%d y:%d\n", x, y);
     printXAndY(y); // prints: 579 456
     DLog(@"x:%d y:%d\n", x, y);
+}
+
+// https://blog.csdn.net/hherima/article/details/45313877
+// https://www.jianshu.com/p/737999a30544?utm_campaign=maleskine&utm_content=note&utm_medium=writer_share&utm_source=weibo
+- (void)test4 {
+    _testBlock();
+    __weak BlockTest *weakSelf = self;
+    _observer = [[NSNotificationCenter defaultCenter] addObserverForName:@"TestNotificationBlock" object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        BlockTest *strongSelf = weakSelf;
+        if (strongSelf) {
+            NSLog(@"self:%@", strongSelf);
+        } else {
+            NSLog(@"<self> dealloc before we could run this code.");
+        }
+
+    }];
+}
+
+- (void)dealloc
+{
+    NSLog(@"dealloc called");
+    if (_observer) {
+        [[NSNotificationCenter defaultCenter] removeObserver:_observer];
+    }
 }
 @end

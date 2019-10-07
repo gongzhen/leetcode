@@ -29,10 +29,30 @@ public class LC560 {
         return res;
     }
 
+    public int subarraySum2(int[] nums, int k) {
+        int[] sums = new int[nums.length + 1];
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            sums[i+1] = sum;
+        }
+        int count = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < sums.length; i++) {
+            if (map.containsKey(sums[i])) {
+                count += map.get(sums[i]);
+            }
+
+            int target = sums[i] + k;
+            map.put(target, map.getOrDefault(target, 0) + 1);
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         LC560 obj = new LC560();
-        int res = obj.subarraySum(new int[]{28,54,7,-70,22,65,-6}, 100);
-//        int res = obj.subarraySum(new int[]{1, 1, 1}, 2);
+        int res = obj.subarraySum2(new int[]{28,54,7,-70,22,65,-6}, 61);
+//        int res = obj.subarraySum2(new int[]{1, 1, 1}, 2);
         PrintUtils.printString("res:" + res);
 
     }

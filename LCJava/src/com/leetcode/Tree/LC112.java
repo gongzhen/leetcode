@@ -6,35 +6,17 @@ import com.leetcode.Helper.*;
 public class LC112 {
 
     public boolean hasPathSum(TreeNode root, int sum) {
-
-//        return dfs(root, sum);
-        if(root == null) {
-            return false;
-        } else if (root.left == null && root.right == null && sum == root.val) {
-            return true;
-        }
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+        return dfs(root, sum);
     }
 
-//    public boolean dfs(TreeNode node, int sum) {
-//        if(node == null) {
-//            // if(sum == 0) {
-//            //     return true;
-//            // } else {
-//            //     return false;
-//            // }
-//            return false;
-//        }
-//
-//        if(sum == node.val) {
-//            if(node.left == null && node.right == null) {
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
-//        return dfs(node.left, sum - node.val) || dfs(node.right, sum - node.val);
-//    }
+    public boolean dfs(TreeNode node, int sum) {
+        if (node == null) {
+            return false;
+        } else if (node.left == null && node.right == null && sum == 0) {
+            return true;
+        }
+        return dfs(node.left, sum - node.val) || dfs(node.right, sum - node.val);
+    }
 
 
     public static void main(String[] args) {

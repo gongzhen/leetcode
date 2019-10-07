@@ -10,6 +10,9 @@
 #import "PrintHelper.h"
 
 @interface LC1()
+{
+    NSMutableDictionary<NSNumber *, NSNumber *> *_dict;
+}
 
 - (int *)twoSum:(int *)nums numsSize:(int)numsSize target:(int)target;
 - (nullable NSArray *)twoSum:(NSArray *)nums target:(int)target;
@@ -17,6 +20,15 @@
 @end
 
 @implementation LC1
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _dict = [NSMutableDictionary dictionary];
+    }
+    return self;
+}
 
 - (NSArray *)twoSum:(NSArray *)nums target:(int)target {
     NSArray *sortedArray = [nums sortedArrayUsingSelector:@selector(compare:)];
@@ -56,6 +68,35 @@
     return NULL;
 }
 
+- (void)store:(int)input {
+    if (_dict == nil) {
+        return;
+    }
+    NSNumber *count = [_dict objectForKey:@(input)];
+    if (count == nil) {
+        [_dict setObject:@(1) forKey:@(input)];
+    } else {
+        int countInt = [count intValue];
+        [_dict setObject:@(countInt + 1) forKey:@(input)];
+    }
+}
+
+- (BOOL)twoSumCheckForSum:(int)sum {
+    __block BOOL result = NO;
+    [_dict enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull num, NSNumber * _Nonnull count, BOOL * _Nonnull stop) {
+        int numInt = [num intValue];
+        if ([self->_dict objectForKey:@(sum - numInt)]) {
+            int countInt = [[self->_dict objectForKey:@(sum - numInt)] intValue];
+            if (countInt == 1 && (sum - numInt) * 2 == sum) {
+                result = NO;                
+            } else {
+                result = YES;
+            }
+        }
+    }];
+    return result;
+}
+
 - (void)test {
     int nums[6] = {2, 7, 11, 15, 8, 99};
     int *res = [self twoSum:nums numsSize:6 target:107];
@@ -66,6 +107,26 @@
     NSArray *array = [NSArray arrayWithObjects:@2, @7, @11, @15, nil];
     NSArray *result = [self twoSum:array target:9];
     [PrintHelper printIntArray:result];
+    
+    
+    // test 2
+    [self store:1];
+    [self store:-2];
+    [self store:3];
+    [self store:6];
+    BOOL val = [self twoSumCheckForSum: 4];
+    [PrintHelper printBool:val];
+    val = [self twoSumCheckForSum: -1];
+    [PrintHelper printBool:val];
+    val = [self twoSumCheckForSum: 9];
+    [PrintHelper printBool:val];
+    
+    val = [self twoSumCheckForSum: 10];
+    [PrintHelper printBool:val];
+    val = [self twoSumCheckForSum: 5];
+    [PrintHelper printBool:val];
+    val = [self twoSumCheckForSum: 0];
+    [PrintHelper printBool:val];
 }
 
 @end

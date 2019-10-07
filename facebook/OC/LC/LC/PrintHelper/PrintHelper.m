@@ -28,6 +28,15 @@
     DLog(@"%.2f", number);
 }
 
++ (void)printBool:(BOOL)val
+{
+    if (val == YES) {
+        DLog(@"TRUE");
+    } else {
+        DLog(@"NO");
+    }
+}
+
 + (void)printInteger:(NSInteger)number
 {
     DLog(@"%ld", (long)number);

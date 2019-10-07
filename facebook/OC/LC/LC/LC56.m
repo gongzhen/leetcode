@@ -23,7 +23,13 @@
     }
     NSMutableArray *res = [NSMutableArray array];
     [intervals sortedArrayUsingComparator:^NSComparisonResult(Interval *  _Nonnull obj1, Interval * _Nonnull obj2) {
-        return obj1.start - obj2.start;
+        //return obj1.start - obj2.start;
+        if (obj1.start == obj2.start) {
+            return 0;
+        } else if (obj1.start > obj2.start) {
+            return 1;
+        }
+        return -1;
     }];
     
     Interval *prev = (Interval *)[intervals objectAtIndex:0];

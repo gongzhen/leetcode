@@ -18,6 +18,14 @@ public class PrintUtils {
         printString(Integer.toBinaryString(x));
     }
 
+    public static void printBool(boolean x) {
+        if (x == true) {
+            printString("true");
+        } else {
+            printString("false");
+        }
+    }
+
     public static void printString(String arg) {
         System.out.println(arg);
     }
@@ -65,9 +73,11 @@ public class PrintUtils {
     }
 
     public static void printListInteger(List<Integer> list) {
+        printStringWithoutNewLine("[");
         for(Integer s: list) {
             printStringWithoutNewLine(s + ", ");
         }
+        printString("]");
         printStringWithoutNewLine("\n");
     }
 
@@ -129,6 +139,15 @@ public class PrintUtils {
         for(String key:map.keySet()) {
             Integer value = map.get(key);
             printString("key:" + key + ": [" + value + "]");
+        }
+    }
+
+    public static void printListOfMapEntry(List<Map.Entry<String,Integer>> list) {
+        if (list == null) {
+            return;
+        }
+        for(Map.Entry<String,Integer> entry : list) {
+            printString("key:" + entry.getKey() + ", value:" + entry.getValue());
         }
     }
 

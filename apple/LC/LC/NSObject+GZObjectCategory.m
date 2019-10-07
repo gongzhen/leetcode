@@ -10,8 +10,6 @@
 #import <objc/runtime.h>
 
 // https://draveness.me/ao
-// https://draveness.me/ao
-// https://draveness.me/ao
 @implementation NSObject (GZObjectCategory)
 
 //@dynamic categoryProperty;

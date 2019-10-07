@@ -13,6 +13,7 @@
 #import "BlockTest.h"
 #import "RetainCount.h"
 #import "GCDTest.h"
+#import "RuntimeTest.h"
 #import "DispatchSemaphoreTest.h"
 #import "NSBlockOperationTest.h"
 #import "NSInvocationOperationTest.h"
@@ -43,6 +44,7 @@
 #import "ForwardInvocationTest.h"
 #import "PropertySynthesizeDynamicTest.h"
 #import "TouchesBeganWithSharedThreads.h"
+#import "GZBlockOperationTest.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -57,12 +59,10 @@ int main(int argc, const char * argv[]) {
 //        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
 //        [gcdTest test];
-        
-        DispatchSemaphoreTest *semaphoreTest = [[DispatchSemaphoreTest alloc] init];
-        [semaphoreTest test];
-        
-//        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
-//        [obj test];
+//        DispatchSemaphoreTest *semaphoreTest = [[DispatchSemaphoreTest alloc] init];
+//        [semaphoreTest test];
+        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
+        [obj test];
 //        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
 //        [obj test];
 //        OSSpinLockTest *obj = [[OSSpinLockTest alloc] init];
@@ -126,6 +126,10 @@ int main(int argc, const char * argv[]) {
 //        [forward performSelector:@selector(testMethod:)];
 //        PropertySynthesizeDynamicTest *obj = [[PropertySynthesizeDynamicTest alloc] init];
 //        TouchesBeganWithSharedThreads *obj = [[TouchesBeganWithSharedThreads alloc] init];
+//        [obj test];
+//        RuntimeTest *obj = [[RuntimeTest alloc] init];
+//        [obj test];
+//        GZBlockOperationTest *obj = [[GZBlockOperationTest alloc] init];
 //        [obj test];
     }
     return 0;
