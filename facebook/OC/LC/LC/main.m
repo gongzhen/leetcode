@@ -170,8 +170,8 @@ int main(int argc, const char * argv[]) {
 //        [lc121 test];
 //        LC56 *lc56 = [[LC56 alloc] init];
 //        [lc56 test];
-        LC1 *lc1 = [[LC1 alloc] init];
-        [lc1 test];
+//        LC1 *lc1 = [[LC1 alloc] init];
+//        [lc1 test];
 //        LC680 *lc680 = [[LC680 alloc] init];
 //        [lc680 test];
 //        LC252 *lc252 = [[LC252 alloc] init];
@@ -256,8 +256,8 @@ int main(int argc, const char * argv[]) {
 //        [queue test];
 //        BinarySearchTree *btree = [[BinarySearchTree alloc] init];
 //        [btree test];
-//        LC208 *lc208 = [[LC208 alloc] init];
-//        [lc208 test];
+        LC208 *lc208 = [[LC208 alloc] init];
+        [lc208 test];
 //        LC218 *lc218 = [[LC218 alloc] init];
 //        [lc218 test];
 //        LC721 *lc721 = [[LC721 alloc] init];

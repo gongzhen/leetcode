@@ -115,6 +115,7 @@
 		60EB31EB230DF3C8007CE71B /* LC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31EA230DF3C8007CE71B /* LC11.m */; };
 		60EB31EE230E0603007CE71B /* MathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31ED230E0603007CE71B /* MathUtility.m */; };
 		60EB31F1230E254C007CE71B /* LC26.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31F0230E254C007CE71B /* LC26.m */; };
+		60F1F359234BB3E10061B368 /* TrieNodeWithMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F1F358234BB3E10061B368 /* TrieNodeWithMap.m */; };
 		60F2135D2084E96500D571D2 /* LC10.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F2135C2084E96500D571D2 /* LC10.m */; };
 		60F21360208B118500D571D2 /* LC256.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F2135F208B118500D571D2 /* LC256.m */; };
 		60F21363208B9D4600D571D2 /* LC265.m in Sources */ = {isa = PBXBuildFile; fileRef = 60F21362208B9D4600D571D2 /* LC265.m */; };
@@ -374,6 +375,8 @@
 		60EB31ED230E0603007CE71B /* MathUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MathUtility.m; sourceTree = "<group>"; };
 		60EB31EF230E254C007CE71B /* LC26.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC26.h; sourceTree = "<group>"; };
 		60EB31F0230E254C007CE71B /* LC26.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC26.m; sourceTree = "<group>"; };
+		60F1F357234BB3E10061B368 /* TrieNodeWithMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrieNodeWithMap.h; sourceTree = "<group>"; };
+		60F1F358234BB3E10061B368 /* TrieNodeWithMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrieNodeWithMap.m; sourceTree = "<group>"; };
 		60F2135B2084E96500D571D2 /* LC10.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC10.h; sourceTree = "<group>"; };
 		60F2135C2084E96500D571D2 /* LC10.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC10.m; sourceTree = "<group>"; };
 		60F2135E208B118500D571D2 /* LC256.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC256.h; sourceTree = "<group>"; };
@@ -485,6 +488,8 @@
 				3D594D9520858D6000349438 /* IndexTrieNode.m */,
 				3D14EBC72036187500149E3F /* TrieNode.h */,
 				3D14EBC82036187500149E3F /* TrieNode.m */,
+				60F1F357234BB3E10061B368 /* TrieNodeWithMap.h */,
+				60F1F358234BB3E10061B368 /* TrieNodeWithMap.m */,
 				3D729EB6204F304E00C25D14 /* Trie.h */,
 				3D729EB7204F304E00C25D14 /* Trie.m */,
 				3D594D972085966800349438 /* IndexTrie.h */,
@@ -840,6 +845,7 @@
 				84614C21208D751A00A4958F /* LC801.m in Sources */,
 				3D14EBC320360CE400149E3F /* LC125.m in Sources */,
 				3D14EBC62036180800149E3F /* LC211.m in Sources */,
+				60F1F359234BB3E10061B368 /* TrieNodeWithMap.m in Sources */,
 				3D14EBD620374ECA00149E3F /* Interval.m in Sources */,
 				843A1C35204777700044E6FC /* LC286.m in Sources */,
 				6093DBBF233D452C00D43D4D /* Solution.m in Sources */,

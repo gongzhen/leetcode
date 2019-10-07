@@ -40,7 +40,7 @@
     
     for(int i = 0; i < row; i++) {
         NSInteger curMin = NSIntegerMax;
-        NSInteger curSecondMin = NSIwntegerMax;
+        NSInteger curSecondMin = NSIntegerMax;
         int curColor = 0;
         for(int j = 0; j < k; j++) {
             int curCost = 0;

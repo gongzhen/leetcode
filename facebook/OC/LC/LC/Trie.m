@@ -76,7 +76,9 @@
     TrieNode *node = _root;
     for(int i = 0; i < [prefix length]; i++) {
         char c = [prefix characterAtIndex:i];
-        if([node.children objectAtIndex:(c - 'a')] == [NSNull null]) {
+        NSLog(@"%@", [node.children objectAtIndex:(c - 'a')]); // null is ouput if null object.
+//        if([node.children objectAtIndex:(c - 'a')] == [NSNull null]) {
+        if ([[node.children objectAtIndex:(c - 'a')] isEqualTo:[NSNull null]] == true) {
             return NO;
         }
         node = [node.children objectAtIndex:(c - 'a')];
