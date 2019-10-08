@@ -9,6 +9,7 @@
 #import "LC208.h"
 #import "Trie.h"
 #import "MapTrie.h"
+#import "YelpTrie.h"
 
 @implementation LC208
 /**
@@ -40,8 +41,26 @@
     DLog(@"search:%d",[mapTrie search:@"ab"]);
     DLog(@"prefix:%d",[mapTrie startWith:@"ab"]);
     DLog(@"prefix:%d",[mapTrie startWith:@"db"]);
-    NSArray<NSString *> *res2 = [mapTrie listStartWith:@"ab"];
+    NSArray<NSString *> *res2 = [mapTrie
+                                 listStartWith:@"ab"];
     [res2 enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"listStartWith:%@", obj);
+    }];
+    
+    YelpTrie* yelpTrie = [[YelpTrie alloc] init];
+    [yelpTrie insert:@"Burger King"];
+    [yelpTrie insert:@"kdk dnsd Burgers"];
+    [yelpTrie insert:@"sad Burger's"];
+    [yelpTrie insert:@"fucking Budrger's"];
+    NSArray<NSString *>* res3 = [yelpTrie searchPrefix:@"bur"];
+    
+    [res3 enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        DLog(@"listStartWith:%@", obj);
+    }];
+    
+    NSArray<NSString *>* res4 = [yelpTrie search:@"ur"];
+    
+    [res4 enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         DLog(@"listStartWith:%@", obj);
     }];
 }
