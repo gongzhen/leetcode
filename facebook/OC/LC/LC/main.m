@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LC692.h"
 #import "LC999.h"
 #import "LC998.h"
 #import "LC997.h"
@@ -359,7 +360,9 @@ int main(int argc, const char * argv[]) {
 //        LC31 *lc31 = [[LC31 alloc] init];
 //        [lc31 test];
 //        LC451 *lc451 = [[LC451 alloc] init];
-//        [lc451 test];        
+//        [lc451 test];
+//        LC692 *lc692 = [[LC692 alloc] init];
+//        [lc692 test];
     }
     return 0;
 }

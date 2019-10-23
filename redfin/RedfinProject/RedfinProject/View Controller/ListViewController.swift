@@ -67,6 +67,13 @@ extension ListViewController: UITableViewDataSource {
 
 }
 
+extension ListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+}
+
 extension ListViewController: ListViewUpdateProtocol {
     func listViewUpdate() {
         DispatchQueue.main.async {

@@ -3,7 +3,9 @@ package com.leetcode.Helper;
 import jdk.nashorn.api.tree.Tree;
 
 import javax.swing.text.Utilities;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 public class TreeUtils {
@@ -95,6 +97,19 @@ public class TreeUtils {
         dfs(node.right);
     }
 
+    public static void dfs117 (NextNode node) {
+        if(node == null) {
+            return;
+        }
+        dfs117(node.left);
+        if (node.next != null) {
+            PrintUtils.printStringWithoutNewLine("" + node.val + "->next: " + node.next.val + "\n");
+        } else {
+            PrintUtils.printStringWithoutNewLine("" + node.val + "->next: null\n");
+        }
+        dfs117(node.right);
+    }
+
     public static TreeNode createTree() {
         //       3
         //    2      7
@@ -127,6 +142,32 @@ public class TreeUtils {
         node2.left = node4;
         node2.right = node5;
         return node1;
+    }
+
+    public static Map LC863createTree() {
+        Map<TreeNode, TreeNode> pair = new HashMap<>();
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node5 = new TreeNode(5);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node6 = new TreeNode(6);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node7 = new TreeNode(7);
+        TreeNode node4 = new TreeNode(4);
+        TreeNode node0 = new TreeNode(0);
+        TreeNode node8 = new TreeNode(8);
+        node3.left = node5;
+        node3.right = node1;
+
+        node1.left = node0;
+        node1.right = node8;
+
+        node5.left = node6;
+        node5.right = node2;
+        node2.left = node7;
+        node2.right = node4;
+
+        pair.put(node3, node5);
+        return pair;
     }
 
     public static TreeNode LC1022createTree() {
@@ -185,6 +226,46 @@ public class TreeUtils {
         node3.left = node22;
         node22.left = node1;
         return node2;
+    }
+
+    public static TreeNode LC988createBSTTree() {
+        //       2
+        //    2      1
+        //   N 1    0 N
+        //    0
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node22 = new TreeNode(2);
+        TreeNode node1 = new TreeNode(1);
+        TreeNode node11 = new TreeNode(1);
+        TreeNode node0 = new TreeNode(0);
+        TreeNode node00 = new TreeNode(0);
+
+        node2.left = node22;
+        node2.right = node1;
+        node22.right = node11;
+        node1.left = node0;
+        node11.left = node00;
+        return node2;
+    }
+
+    public static NextNode LC117createTree() {
+        //       1
+        //    2      3
+        //  4   5      7
+        NextNode node1 = new NextNode(1, null, null, null);
+        NextNode node2 = new NextNode(2, null, null, null);
+        NextNode node3 = new NextNode(3, null, null, null);
+
+        NextNode node4 = new NextNode(4, null, null, null);
+        NextNode node5 = new NextNode(5, null, null, null);
+
+        NextNode node7 = new NextNode(7, null, null, null);
+        node1.left = node2;
+        node1.right = node3;
+        node2.left = node4;
+        node2.right = node5;
+        node3.right = node7;
+        return node1;
     }
 
     public static TreeNode LC270createBSTTree() {

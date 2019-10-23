@@ -49,9 +49,11 @@
     
     YelpTrie* yelpTrie = [[YelpTrie alloc] init];
     [yelpTrie insert:@"Burger King"];
-    [yelpTrie insert:@"kdk dnsd Burgers"];
-    [yelpTrie insert:@"sad Burger's"];
-    [yelpTrie insert:@"fucking Budrger's"];
+    [yelpTrie insert:@"McDonald's"];
+    [yelpTrie insert:@"Bob's Burgers"];
+    [yelpTrie insert:@"Five Guys"];
+    [yelpTrie insert:@"Wahlburgers"];
+    [yelpTrie insert:@"Super Duper Burgers"];
     NSArray<NSString *>* res3 = [yelpTrie searchPrefix:@"bur"];
     
     [res3 enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

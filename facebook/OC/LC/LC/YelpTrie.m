@@ -12,7 +12,7 @@
 @interface YelpTrie()
 
 @property (strong, nonatomic) TrieNodeWithMap *root;
-@property (strong, nonatomic) NSMutableDictionary<NSString *, NSString *> *map;
+@property (strong, nonatomic) NSMutableDictionary<NSString *, NSMutableArray<NSString *> *> *map;
 
 @end
 
@@ -33,7 +33,12 @@
     NSArray<NSString *> *wordArray = [word componentsSeparatedByString:@" "];
     for(NSString *value in wordArray) {
         NSString *lowerCaseWord = [value lowercaseString];
-        [self.map setObject:word forKey:lowerCaseWord];
+        NSMutableArray<NSString *> *array = [self.map objectForKey:lowerCaseWord];
+        if (array == nil) {
+            array = [NSMutableArray array];
+        }
+        [array addObject:word];
+        [self.map setObject:array forKey:lowerCaseWord];
         [self _insert:lowerCaseWord];
     }
 }
@@ -87,8 +92,10 @@
         return;
     }
     if (node.isWord == true) {
-        NSString *originalWord = [self.map objectForKey:word];
-        [res addObject:originalWord];
+        NSArray<NSString *> *array = [self.map objectForKey:word];
+        [array enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [res addObject:obj];
+        }];
     }
     
     for (NSString *key in node.children.allKeys) {
@@ -115,8 +122,8 @@
         return;
     }
     if (node.isWord == true && idx == target.length) {
-        NSString *originalWord = [self.map objectForKey:word];
-        [res addObject:originalWord];
+        NSArray<NSString *> *wordList = [self.map objectForKey:word];
+        [res addObjectsFromArray:wordList];
     }
     
     TrieNodeWithMap *ptr = node;

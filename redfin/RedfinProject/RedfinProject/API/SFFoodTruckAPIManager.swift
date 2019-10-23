@@ -65,6 +65,9 @@ class SFFoodTruckAPIManager: NSObject {
         formatter.dateFormat = "ha" // 9
         let hourString = formatter.string(from: Date())
         queryItems.append(URLQueryItem(name: "starttime", value: hourString))
+        
+        //  https://soda.demo.socrata.com/resource/4tka-6guv.json?$where= > 3.0
+        // https://data.sfgov.org/resource/jjew-r69b.json?$where=end24 > 21
         urlComponents.queryItems = queryItems
         
         guard let apiURL = urlComponents.url else {

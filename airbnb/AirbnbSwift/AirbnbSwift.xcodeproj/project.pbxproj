@@ -11,7 +11,9 @@
 		60365AD3233316CF003D9EB5 /* SwiftQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60365AD2233316CF003D9EB5 /* SwiftQueue.swift */; };
 		60365AD523340254003D9EB5 /* QueueWithoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60365AD423340254003D9EB5 /* QueueWithoutList.swift */; };
 		60365AD72334181C003D9EB5 /* CollatzConjecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60365AD62334181C003D9EB5 /* CollatzConjecture.swift */; };
+		60591590235FD1B200252C9D /* ConvertSnakeCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059158F235FD1B200252C9D /* ConvertSnakeCase.swift */; };
 		6093DBB6233A7CB700D43D4D /* LC451.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6093DBB5233A7CB700D43D4D /* LC451.swift */; };
+		60B984CD2353A4D400D38FB8 /* NonAndExcapingClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B984CC2353A4D300D38FB8 /* NonAndExcapingClosure.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,7 +34,9 @@
 		60365AD2233316CF003D9EB5 /* SwiftQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftQueue.swift; sourceTree = "<group>"; };
 		60365AD423340254003D9EB5 /* QueueWithoutList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueWithoutList.swift; sourceTree = "<group>"; };
 		60365AD62334181C003D9EB5 /* CollatzConjecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollatzConjecture.swift; sourceTree = "<group>"; };
+		6059158F235FD1B200252C9D /* ConvertSnakeCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertSnakeCase.swift; sourceTree = "<group>"; };
 		6093DBB5233A7CB700D43D4D /* LC451.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LC451.swift; sourceTree = "<group>"; };
+		60B984CC2353A4D300D38FB8 /* NonAndExcapingClosure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonAndExcapingClosure.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 				60365AD423340254003D9EB5 /* QueueWithoutList.swift */,
 				60365AD62334181C003D9EB5 /* CollatzConjecture.swift */,
 				6093DBB5233A7CB700D43D4D /* LC451.swift */,
+				60B984CC2353A4D300D38FB8 /* NonAndExcapingClosure.swift */,
+				6059158F235FD1B200252C9D /* ConvertSnakeCase.swift */,
 			);
 			path = AirbnbSwift;
 			sourceTree = "<group>";
@@ -133,9 +139,11 @@
 			files = (
 				6093DBB6233A7CB700D43D4D /* LC451.swift in Sources */,
 				60365AD523340254003D9EB5 /* QueueWithoutList.swift in Sources */,
+				60B984CD2353A4D400D38FB8 /* NonAndExcapingClosure.swift in Sources */,
 				60365AD72334181C003D9EB5 /* CollatzConjecture.swift in Sources */,
 				60365ACC233316AA003D9EB5 /* main.swift in Sources */,
 				60365AD3233316CF003D9EB5 /* SwiftQueue.swift in Sources */,
+				60591590235FD1B200252C9D /* ConvertSnakeCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,10 @@
   </component>
   <component name="ProjectId" id="1QwHl14QEHz3lHNbCjzsV7RIOlh" />
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/local/bin/node" />
@@ -45,14 +49,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.LC282">
-    <configuration name="LC127" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode.BFS.LC127" />
+  <component name="RunManager" selected="Application.LC252">
+    <configuration name="LC1011" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode.BinarySearch.LC1011" />
       <module name="LCJava" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.leetcode.BFS.*" />
+          <option name="PATTERN" value="com.leetcode.BinarySearch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -60,22 +64,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LC139" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode.dynamic.LC139" />
-      <module name="LCJava" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.leetcode.Array.MEMORY_DFS.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LC227" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode.String.LC227" />
+    <configuration name="LC1062" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode.String.LC1062" />
       <module name="LCJava" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -88,13 +78,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LC282" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode.DFS.LC282" />
+    <configuration name="LC1065" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode.String.LC1065" />
       <module name="LCJava" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.leetcode.DFS.*" />
+          <option name="PATTERN" value="com.leetcode.String.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,13 +92,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LC312" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode.Array.MEMORY_DFS.LC312" />
+    <configuration name="LC252" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode.Array.LC252" />
       <module name="LCJava" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.leetcode.Array.MEMORY_DFS.*" />
+          <option name="PATTERN" value="com.leetcode.Array.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LC703" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode.Heap.LC703" />
+      <module name="LCJava" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.leetcode.Heap.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,19 +143,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.LC139" />
-      <item itemvalue="Application.LC312" />
-      <item itemvalue="Application.LC127" />
-      <item itemvalue="Application.LC227" />
-      <item itemvalue="Application.LC282" />
+      <item itemvalue="Application.LC1065" />
+      <item itemvalue="Application.LC1062" />
+      <item itemvalue="Application.LC1011" />
+      <item itemvalue="Application.LC703" />
+      <item itemvalue="Application.LC252" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LC282" />
-        <item itemvalue="Application.LC227" />
-        <item itemvalue="Application.LC127" />
-        <item itemvalue="Application.LC312" />
-        <item itemvalue="Application.LC139" />
+        <item itemvalue="Application.LC252" />
+        <item itemvalue="Application.LC703" />
+        <item itemvalue="Application.LC1011" />
+        <item itemvalue="Application.LC1062" />
+        <item itemvalue="Application.LC1065" />
       </list>
     </recent_temporary>
   </component>
@@ -217,6 +221,15 @@
       <workItem from="1569447441315" duration="4246000" />
       <workItem from="1569616481786" duration="26859000" />
       <workItem from="1569996373274" duration="13530000" />
+      <workItem from="1570503221172" duration="37000" />
+      <workItem from="1570504523220" duration="2921000" />
+      <workItem from="1570649770997" duration="19190000" />
+      <workItem from="1570750036351" duration="4051000" />
+      <workItem from="1570859394785" duration="371000" />
+      <workItem from="1571263946432" duration="32792000" />
+      <workItem from="1571707634498" duration="4294000" />
+      <workItem from="1571765719407" duration="279000" />
+      <workItem from="1571864224613" duration="516000" />
     </task>
     <servers />
   </component>
@@ -336,21 +349,6 @@
           <option name="timeStamp" value="171" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/leetcode/DIVIDEANDCONQUER/LC215.java</url>
-          <line>76</line>
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/leetcode/DIVIDEANDCONQUER/LC215.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="184" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/leetcode/DIVIDEANDCONQUER/LC215.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="185" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/leetcode/yelp/YelpBussinessResponseRate.java</url>
           <line>47</line>
           <option name="timeStamp" value="187" />
@@ -404,6 +402,41 @@
           <url>file://$PROJECT_DIR$/src/com/leetcode/DFS/LC282.java</url>
           <line>42</line>
           <option name="timeStamp" value="258" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/DFS/LC109.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="262" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/DFS/LC113DFS.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="263" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/BFS/LC934.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="265" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/BFS/LC863.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/BFS/LC863.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="267" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/String/LC1100.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="275" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/leetcode/BinarySearch/LC1011.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="283" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -16,7 +16,10 @@ typedef void(^BlockTestForTestingBlock) (void);
     id _observer;
 }
 
-@property(nonatomic, copy) BlockTestForTestingBlock testBlock;
+@property (nonatomic, assign) NSInteger x;
+@property (nonatomic, copy) BlockTestForTestingBlock testBlock;
+@property (nonatomic, strong) NSMutableArray <BlockTestForTestingBlock> *completions;
+
 @end
 
 @implementation BlockTest
@@ -26,6 +29,7 @@ typedef void(^BlockTestForTestingBlock) (void);
     self = [super init];
     if (self) {
         __weak BlockTest *weakSelf = self;
+        _completions = [NSMutableArray array];
         _testBlock = ^(){
             NSLog(@"weakSelf=>%@", weakSelf);
         };
@@ -37,9 +41,12 @@ typedef void(^BlockTestForTestingBlock) (void);
 //    [self test1];
 //    [self test2];
 //    [self test3];
-    [self test4];
-    sleep(10);
-    NSLog(@"BlockTest done.");
+//    [self test4];
+    [self test5];
+    BlockTestForTestingBlock block = [self.completions firstObject];
+    block();
+//    sleep(10);
+    NSLog(@"BlockTest done.self.x = %ld", self.x);
 }
 
 - (void)test1 {
@@ -92,6 +99,16 @@ typedef void(^BlockTestForTestingBlock) (void);
         }
 
     }];
+}
+
+- (void)test5 {
+    [self calledByTest5WithEscapingClosure:^{
+        self.x = 100;
+    }];
+}
+
+- (void)calledByTest5WithEscapingClosure:(BlockTestForTestingBlock)completionHandler {
+    [_completions addObject:completionHandler];
 }
 
 - (void)dealloc

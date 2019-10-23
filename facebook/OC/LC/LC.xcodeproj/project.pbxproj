@@ -114,6 +114,8 @@
 		60AF5D38230E45FF002A9685 /* LC31.m in Sources */ = {isa = PBXBuildFile; fileRef = 60AF5D37230E45FF002A9685 /* LC31.m */; };
 		60B984A2234BB8ED00D38FB8 /* MapTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984A1234BB8ED00D38FB8 /* MapTrie.m */; };
 		60B984A5234BE54A00D38FB8 /* YelpTrie.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984A4234BE54A00D38FB8 /* YelpTrie.m */; };
+		60B984A8234C22AC00D38FB8 /* LC692.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984A7234C22AC00D38FB8 /* LC692.m */; };
+		60B984C7234EC6E900D38FB8 /* LC332.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984C6234EC6E900D38FB8 /* LC332.m */; };
 		60EB31EB230DF3C8007CE71B /* LC11.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31EA230DF3C8007CE71B /* LC11.m */; };
 		60EB31EE230E0603007CE71B /* MathUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31ED230E0603007CE71B /* MathUtility.m */; };
 		60EB31F1230E254C007CE71B /* LC26.m in Sources */ = {isa = PBXBuildFile; fileRef = 60EB31F0230E254C007CE71B /* LC26.m */; };
@@ -375,6 +377,10 @@
 		60B984A1234BB8ED00D38FB8 /* MapTrie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapTrie.m; sourceTree = "<group>"; };
 		60B984A3234BE54A00D38FB8 /* YelpTrie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YelpTrie.h; sourceTree = "<group>"; };
 		60B984A4234BE54A00D38FB8 /* YelpTrie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YelpTrie.m; sourceTree = "<group>"; };
+		60B984A6234C22AC00D38FB8 /* LC692.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC692.h; sourceTree = "<group>"; };
+		60B984A7234C22AC00D38FB8 /* LC692.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC692.m; sourceTree = "<group>"; };
+		60B984C5234EC6E900D38FB8 /* LC332.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC332.h; sourceTree = "<group>"; };
+		60B984C6234EC6E900D38FB8 /* LC332.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC332.m; sourceTree = "<group>"; };
 		60EB31E9230DF3C8007CE71B /* LC11.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC11.h; sourceTree = "<group>"; };
 		60EB31EA230DF3C8007CE71B /* LC11.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC11.m; sourceTree = "<group>"; };
 		60EB31EC230E0603007CE71B /* MathUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MathUtility.h; sourceTree = "<group>"; };
@@ -526,6 +532,8 @@
 				843A1C3D204C97ED0044E6FC /* BinarySearchTree.m */,
 				84614C1320890CCC00A4958F /* LC642.h */,
 				84614C1420890CCC00A4958F /* LC642.m */,
+				60B984C5234EC6E900D38FB8 /* LC332.h */,
+				60B984C6234EC6E900D38FB8 /* LC332.m */,
 				60F213642099350E00D571D2 /* LC90.h */,
 				60F213652099350E00D571D2 /* LC90.m */,
 				84614C1C208C06BB00A4958F /* LC84.h */,
@@ -640,6 +648,8 @@
 				3D14EBCE20374BAB00149E3F /* LC56.m */,
 				3D14EBCA2037326500149E3F /* LC121.h */,
 				3D14EBCB2037326500149E3F /* LC121.m */,
+				60B984A6234C22AC00D38FB8 /* LC692.h */,
+				60B984A7234C22AC00D38FB8 /* LC692.m */,
 				3D14EBC42036180800149E3F /* LC211.h */,
 				3D14EBC52036180800149E3F /* LC211.m */,
 				3D14EBC120360CE400149E3F /* LC125.h */,
@@ -875,6 +885,7 @@
 				3D14EC6C203DE30500149E3F /* LC207.m in Sources */,
 				60F21363208B9D4600D571D2 /* LC265.m in Sources */,
 				84614C0F2087D88A00A4958F /* LC85.m in Sources */,
+				60B984A8234C22AC00D38FB8 /* LC692.m in Sources */,
 				3D14EB8E2032248100149E3F /* LC15.m in Sources */,
 				3D14EBF4203948B200149E3F /* UndirectedGraphNode.m in Sources */,
 				84614C0620856D4D00A4958F /* LC745.m in Sources */,
@@ -967,6 +978,7 @@
 				60B984A5234BE54A00D38FB8 /* YelpTrie.m in Sources */,
 				3D14EBE82038C35F00149E3F /* LC161.m in Sources */,
 				3D14EBAE2034E7ED00149E3F /* LC277.m in Sources */,
+				60B984C7234EC6E900D38FB8 /* LC332.m in Sources */,
 				60F21360208B118500D571D2 /* LC256.m in Sources */,
 				3D14EB972032945300149E3F /* LC314.m in Sources */,
 			);

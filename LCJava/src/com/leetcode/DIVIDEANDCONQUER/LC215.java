@@ -4,6 +4,12 @@ import com.leetcode.Helper.PrintUtils;
 
 public class LC215 {
 
+    // https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n)-time
+    public int findKthLargest2(int[] nums, int k) {
+        // solution from leetcode discussion. it is a iterative solution.
+        return 0;
+    }
+
     public int findKthLargest(int[] nums, int k) {
         // selection
         if (nums == null || nums.length == 0) {

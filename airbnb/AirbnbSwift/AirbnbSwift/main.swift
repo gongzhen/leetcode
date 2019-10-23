@@ -69,3 +69,13 @@ print(longest)
 let obj451 = LC451()
 res = obj451.frequencySort("tree")
 print(res)
+
+let obj = ClosureTest()
+obj.test()
+print(obj.x)
+
+completionHandlers.first?()
+print(obj.x)
+
+let camelCase = convertFromSnakeCase("abc_def_lid")
+print(camelCase)

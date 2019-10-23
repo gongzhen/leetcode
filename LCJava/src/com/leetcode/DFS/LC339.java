@@ -1,6 +1,6 @@
 package com.leetcode.DFS;
 
-/**
+/****
  *
  * Given a nested list of integers, return the sum of all integers in the list weighted by their depth.
  *
@@ -31,10 +31,10 @@ import java.util.List;
  *     // @return the nested list that this NestedInteger holds, if it holds a nested list
  *     // Return null if this NestedInteger holds a single integer
  *     public List<NestedInteger> getList();
+ *     // https://www.cnblogs.com/apanda009/p/7948211.html
  * }
  */
 
-// https://www.cnblogs.com/apanda009/p/7948211.html
 public class LC339 {
 
     public int depthSum(List<NestedInteger> nestedList) {
@@ -53,5 +53,9 @@ public class LC339 {
             }
         }
         return sum;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

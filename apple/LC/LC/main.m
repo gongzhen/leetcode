@@ -45,6 +45,13 @@
 #import "PropertySynthesizeDynamicTest.h"
 #import "TouchesBeganWithSharedThreads.h"
 #import "GZBlockOperationTest.h"
+#import "MultithreadSaveMoney.h"
+#import "UnfairLock.h"
+#import "PthreadMutexLocl.h"
+#import "ConditionLock.h"
+#import "DispatchSemaphoreLock.h"
+#import "DispatchbarrierasyncLock.h"
+#import "ConsumerProducer.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -53,16 +60,16 @@ int main(int argc, const char * argv[]) {
 //        [lc42 test];
 //        LC48 *lc48 = [[LC48 alloc] init];
 //        [lc48 test];
-//        BlockTest *blockTest = [[BlockTest alloc] init];
-//        [blockTest test];
+        BlockTest *blockTest = [[BlockTest alloc] init];
+        [blockTest test];
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
 //        [gcdTest test];
 //        DispatchSemaphoreTest *semaphoreTest = [[DispatchSemaphoreTest alloc] init];
 //        [semaphoreTest test];
-        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
-        [obj test];
+//        NSBlockOperationTest *obj = [[NSBlockOperationTest alloc] init];
+//        [obj test];
 //        NSInvocationOperationTest *obj = [[NSInvocationOperationTest alloc] init];
 //        [obj test];
 //        OSSpinLockTest *obj = [[OSSpinLockTest alloc] init];
@@ -131,6 +138,21 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        GZBlockOperationTest *obj = [[GZBlockOperationTest alloc] init];
 //        [obj test];
+//        MultithreadSaveMoney *multiSaveMoney = [[MultithreadSaveMoney alloc] init];
+//        [multiSaveMoney test];
+//        UnfairLock *unfairLock = [[UnfairLock alloc] init];
+//        [unfairLock test];
+//        PthreadMutexLocl *pthead = [[PthreadMutexLocl alloc] init];
+//        [pthead test];
+//        ConditionLock *conditionLock = [[ConditionLock alloc] init];
+//        [conditionLock test];
+//        DispatchSemaphoreLock *semaphoreLock = [[DispatchSemaphoreLock alloc] init];
+//        [semaphoreLock test];
+//        DispatchbarrierasyncLock *barrierLock = [[DispatchbarrierasyncLock alloc] init];
+//        [barrierLock test];
+//        ConsumerProducer *consumerProducer = [[ConsumerProducer alloc] init];
+//        [consumerProducer test];
+//        sleep(20);
     }
     return 0;
 }
