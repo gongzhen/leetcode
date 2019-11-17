@@ -15,6 +15,7 @@ public class LC560 {
         int res = 0;
         for(int i = 0; i < nums.length; i++) {
             sum += nums[i];
+            // current - k has to be first, because input: [1] with k = 0
             if(map.containsKey(sum - k)) {
                 int count = map.get(sum - k);
                 res += count;

@@ -1,5 +1,7 @@
 package com.leetcode.Heap;
 
+import com.leetcode.Helper.PrintUtils;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -47,5 +49,38 @@ public class LC973 {
             i++;
         }
         return res;
+    }
+
+    public int[][] kClosest2(int[][] points, int K) {
+        int k = K;
+        PriorityQueue<Axis> pq = new PriorityQueue<Axis>(k, new Comparator<Axis>(){
+            public int compare(Axis a, Axis b) {
+                return (b.x * b.x + b.y * b.y) - (a.x * a.x + a.y * a.y);
+            }
+        });
+
+        for (int[] list : points) {
+            pq.offer(new Axis(list[0], list[1]));
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+
+        int i = 0;
+        int[][] res = new int[K][2];
+        while(i < K) {
+            Axis p = pq.poll();
+            res[i][0] = p.x;
+            res[i][1] = p.y;
+            i++;
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        LC973 obj = new LC973();
+        // int[][] res = obj.kClosest2(new int[][]{{1, 3}, {-2, 2}}, 1);
+        int[][] res = obj.kClosest2(new int[][]{{3, 3}, {5, -1}, {-2, 4}}, 2);
+        PrintUtils.printMatrixInt(res);
     }
 }

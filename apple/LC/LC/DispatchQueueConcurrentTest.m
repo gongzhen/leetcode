@@ -11,8 +11,8 @@
 @implementation DispatchQueueConcurrentTest
 
 - (void)test {
-    dispatch_queue_t gcd = dispatch_queue_create("This is serial Queue", DISPATCH_QUEUE_SERIAL);
-//    dispatch_queue_t gcd = dispatch_queue_create("This is Concurrent Queue", DISPATCH_QUEUE_CONCURRENT);
+//    dispatch_queue_t gcd = dispatch_queue_create("This is serial Queue", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t gcd = dispatch_queue_create("This is Concurrent Queue", DISPATCH_QUEUE_CONCURRENT);
     dispatch_async(gcd, ^{NSLog(@"b0");});
     dispatch_async(gcd, ^{NSLog(@"b1");});
     dispatch_async(gcd, ^{NSLog(@"b2");});

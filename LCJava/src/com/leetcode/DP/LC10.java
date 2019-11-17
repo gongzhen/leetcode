@@ -1,4 +1,4 @@
-package com.leetcode.dynamic;
+package com.leetcode.DP;
 
 import com.leetcode.Helper.*;
 

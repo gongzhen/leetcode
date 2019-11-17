@@ -14,12 +14,12 @@ public class LC394 {
         int idx = 0;
         while (idx < s.length()) {
             if (Character.isDigit(s.charAt(idx))) {
-                int count = 0;
+                int number = 0;
                 while (Character.isDigit(s.charAt(idx))) {
-                    count = 10 * count + (s.charAt(idx) - '0');
+                    number = 10 * number + (s.charAt(idx) - '0');
                     idx++;
                 }
-                countStack.push(count);
+                countStack.push(number);
             }
             else if (s.charAt(idx) == '[') {
                 resStack.push(res);
@@ -45,7 +45,7 @@ public class LC394 {
     public static void main(String[] args) {
         LC394 obj = new LC394();
         // String res = obj.decodeString("3[a]ddd2[bc]");
-        String res = obj.decodeString("3[a2[c]]");
+        String res = obj.decodeString("3[a2[c]]"); /// accaccacc
         PrintUtils.printString("res:" + res);
     }
 }

@@ -23,8 +23,10 @@ fileprivate func _convertFromSnakeCase(_ stringKey: String) -> String {
  
      // Find the last non-underscore character
      var lastNonUnderscore = stringKey.index(before: stringKey.endIndex)
+     print(stringKey[lastNonUnderscore])
      while lastNonUnderscore > firstNonUnderscore && stringKey[lastNonUnderscore] == "_" {
-         stringKey.formIndex(before: &lastNonUnderscore)
+        stringKey.formIndex(before: &lastNonUnderscore)
+        print(lastNonUnderscore)
      }
  
      let keyRange = firstNonUnderscore...lastNonUnderscore
@@ -54,5 +56,6 @@ fileprivate func _convertFromSnakeCase(_ stringKey: String) -> String {
          // Just trailing
          result = joinedString + String(stringKey[trailingUnderscoreRange])
      }
+    print(result)
      return result
  }

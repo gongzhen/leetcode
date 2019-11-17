@@ -1,4 +1,4 @@
-package com.leetcode.dynamic;
+package com.leetcode.DP;
 
 public class LC312_DP {
 

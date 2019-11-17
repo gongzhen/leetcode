@@ -77,5 +77,44 @@ print(obj.x)
 completionHandlers.first?()
 print(obj.x)
 
-let camelCase = convertFromSnakeCase("abc_def_lid")
+let camelCase = convertFromSnakeCase("abc_def_lid_")
 print(camelCase)
+
+class MyClass {
+    func greeting() {
+        answer += "Hello, World!"
+    }
+    
+    deinit {
+        print("My Class is deinit")
+    }
+}
+
+class Handler {
+    var closure: (() -> Void)?
+    var obj = MyClass()
+
+    func setupClosure() {
+        closure = { [unowned self] in
+            self.obj.greeting()
+        }
+    }
+
+    deinit {
+        answer += " Handler is being deinitialized."
+    }
+}
+
+var answer: String = ""
+func handlerDeinitialization() -> String {
+    var handler: Handler? = Handler()
+    handler!.setupClosure()
+    handler!.closure!()
+    handler = nil
+    return answer
+}
+
+print(handlerDeinitialization())
+
+let dispatchQueueTest = DispatchQueueTest()
+print(dispatchQueueTest)

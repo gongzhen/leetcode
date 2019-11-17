@@ -1,5 +1,8 @@
 package com.leetcode.DFS;
 
+import com.leetcode.HashTable.LC3;
+import com.leetcode.Helper.PrintUtils;
+
 import java.util.*;
 
 public class LC332 {
@@ -18,7 +21,7 @@ public class LC332 {
                 }
             });
         }
-
+        PrintUtils.printMapKeyStringValueList(map);
         List<String> res = new ArrayList<>();
         dfs(map, res, "JFK");
         return res;
@@ -34,6 +37,21 @@ public class LC332 {
     }
 
     public static void main(String[] args) {
+        LC332 obj = new LC332();
+        List<List<String>> tickets = new ArrayList<>();
+        String[][] cityArray = new String[][] {{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}};
+        for(String[] cities : cityArray) {
+            tickets.add(new ArrayList<>(Arrays.asList(cities)));
+        }
+        List<String> res = obj.findItinerary(tickets);
+        PrintUtils.printListString(res);
 
+        cityArray = new String[][]{{"JFK","SFO"},{"JFK","ATL"},{"SFO","ATL"},{"ATL","JFK"},{"ATL","SFO"}};
+        tickets.clear();
+        for(String[] cities : cityArray) {
+            tickets.add(new ArrayList<>(Arrays.asList(cities)));
+        }
+        res = obj.findItinerary(tickets);
+        PrintUtils.printListString(res);
     }
 }

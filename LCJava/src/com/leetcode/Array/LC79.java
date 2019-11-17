@@ -5,7 +5,7 @@ import com.leetcode.Helper.PrintUtils;
 public class LC79 {
 
     public boolean exist(char[][] board, String word) {
-        // BFS
+        // DFS
         int row = board.length;
         int col = board[0].length;
         for (int i = 0; i < row; i++) {

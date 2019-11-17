@@ -60,8 +60,8 @@ int main(int argc, const char * argv[]) {
 //        [lc42 test];
 //        LC48 *lc48 = [[LC48 alloc] init];
 //        [lc48 test];
-        BlockTest *blockTest = [[BlockTest alloc] init];
-        [blockTest test];
+//        BlockTest *blockTest = [[BlockTest alloc] init];
+//        [blockTest test];
 //        RetainCount *retainCount = [[RetainCount alloc] init];
 //        [retainCount test];
 //        GCDTest *gcdTest = [[GCDTest alloc] init];
@@ -102,8 +102,8 @@ int main(int argc, const char * argv[]) {
 //        [obj test];
 //        DispatchAfterTest *obj = [DispatchAfterTest new];
 //        [obj test];
-//        DispatchQueueConcurrentTest *obj = [DispatchQueueConcurrentTest new];
-//        [obj test];
+        DispatchQueueConcurrentTest *obj = [DispatchQueueConcurrentTest new];
+        [obj test];
 //        PerformSelectorTest *obj = [PerformSelectorTest new];
 //        [obj test];
 //        DispatchSyncDeadLockTest *obj = [[DispatchSyncDeadLockTest alloc] init];
@@ -152,7 +152,7 @@ int main(int argc, const char * argv[]) {
 //        [barrierLock test];
 //        ConsumerProducer *consumerProducer = [[ConsumerProducer alloc] init];
 //        [consumerProducer test];
-//        sleep(20);
+        sleep(20);
     }
     return 0;
 }

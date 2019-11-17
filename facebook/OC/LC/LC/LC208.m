@@ -17,7 +17,7 @@
  Note:
  You may assume that all inputs are consist of lowercase letters a-z.
  */
-- (void)test {
+- (void)test {    
     Trie *trie = [[Trie alloc] init];
     [trie insert:@"abc"];
     [trie insert:@"abd"];

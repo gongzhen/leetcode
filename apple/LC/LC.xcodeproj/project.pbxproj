@@ -54,6 +54,7 @@
 		60B984BA234D655200D38FB8 /* DispatchSemaphoreLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984B9234D655200D38FB8 /* DispatchSemaphoreLock.m */; };
 		60B984BD234D68E400D38FB8 /* DispatchbarrierasyncLock.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984BC234D68E400D38FB8 /* DispatchbarrierasyncLock.m */; };
 		60B984C0234D949D00D38FB8 /* ConsumerProducer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60B984BF234D949D00D38FB8 /* ConsumerProducer.m */; };
+		60C4B438236121EC008E5FBA /* JSONEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C4B437236121EC008E5FBA /* JSONEncoder.m */; };
 		60D74C8C20DAF02E003E410C /* MobileFormingQ1Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */; };
 		60D74CCD20DAF56B003E410C /* MobileFormingQ1UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74CCC20DAF56B003E410C /* MobileFormingQ1UnitTest.m */; };
 		60D74CD020DB1BCA003E410C /* MobileFormingQ4Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D74CCF20DB1BCA003E410C /* MobileFormingQ4Test.m */; };
@@ -177,6 +178,8 @@
 		60B984BC234D68E400D38FB8 /* DispatchbarrierasyncLock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DispatchbarrierasyncLock.m; sourceTree = "<group>"; };
 		60B984BE234D949D00D38FB8 /* ConsumerProducer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsumerProducer.h; sourceTree = "<group>"; };
 		60B984BF234D949D00D38FB8 /* ConsumerProducer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsumerProducer.m; sourceTree = "<group>"; };
+		60C4B436236121EC008E5FBA /* JSONEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONEncoder.h; sourceTree = "<group>"; };
+		60C4B437236121EC008E5FBA /* JSONEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONEncoder.m; sourceTree = "<group>"; };
 		60D74C8A20DAF02E003E410C /* MobileFormingQ1Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ1Test.h; sourceTree = "<group>"; };
 		60D74C8B20DAF02E003E410C /* MobileFormingQ1Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileFormingQ1Test.m; sourceTree = "<group>"; };
 		60D74CCB20DAF56B003E410C /* MobileFormingQ1UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileFormingQ1UnitTest.h; sourceTree = "<group>"; };
@@ -233,9 +236,9 @@
 		3DAA8AFB207B01E10089BB60 /* LC */ = {
 			isa = PBXGroup;
 			children = (
+				60C4B4352361212A008E5FBA /* Swift */,
 				60872AC3230D6A2B00BD89F3 /* GCD */,
 				3DAA8AFC207B01E10089BB60 /* main.m */,
-				6085A4A420E535E300B7B29A /* GCD.txt */,
 				3DAA8B04207B022C0089BB60 /* LC.h */,
 				3DAA8B03207B022C0089BB60 /* LC.m */,
 				3DAA8B06207B02400089BB60 /* LC42.h */,
@@ -346,6 +349,7 @@
 		60872AC3230D6A2B00BD89F3 /* GCD */ = {
 			isa = PBXGroup;
 			children = (
+				6085A4A420E535E300B7B29A /* GCD.txt */,
 				60B984A9234D437E00D38FB8 /* MultithreadSaveMoney.h */,
 				60B984AA234D437E00D38FB8 /* MultithreadSaveMoney.m */,
 				60B984AF234D547000D38FB8 /* UnfairLock.h */,
@@ -362,6 +366,15 @@
 				60B984BF234D949D00D38FB8 /* ConsumerProducer.m */,
 			);
 			path = GCD;
+			sourceTree = "<group>";
+		};
+		60C4B4352361212A008E5FBA /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				60C4B436236121EC008E5FBA /* JSONEncoder.h */,
+				60C4B437236121EC008E5FBA /* JSONEncoder.m */,
+			);
+			path = Swift;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +449,7 @@
 				3DAA7B34207FF1630053109A /* GCDTest.m in Sources */,
 				60FEDAAE2105C913001B48A0 /* DispatchQueueAttrMakeWithQosClassTest.m in Sources */,
 				60B984BD234D68E400D38FB8 /* DispatchbarrierasyncLock.m in Sources */,
+				60C4B438236121EC008E5FBA /* JSONEncoder.m in Sources */,
 				60E421BE20A4BA4100C1286F /* RunloopTest.m in Sources */,
 				602B963320C36E71001D20B4 /* DispatchQueueConcurrentTest.m in Sources */,
 				60EB8EE920A19D4C00CECBDB /* NSBlockOperationTest.m in Sources */,

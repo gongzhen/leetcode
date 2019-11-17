@@ -11,7 +11,7 @@
 @interface TouchesBeganWithSharedThreads()
 
 @property(assign)NSInteger tickets;
-@property(strong, nonatomic)dispatch_queue_t queue;
+@property(strong, nonatomic) dispatch_queue_t queue;
 
 @end
 

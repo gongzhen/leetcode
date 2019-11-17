@@ -1,8 +1,10 @@
 package com.leetcode.Helper;
 
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class PrintUtils {
 
@@ -49,6 +51,15 @@ public class PrintUtils {
             i++;
         }
         printStringWithoutNewLine("]\n");
+    }
+
+    public static void printHashSetOfLinkedListInteger(Set<List<Integer>> set) {
+        if (set.isEmpty() == true) {
+            return;
+        }
+        for(List<Integer> list : set) {
+            PrintUtils.printListInteger(list);
+        }
     }
 
     public static void printStringArray(String[] list) {

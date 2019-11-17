@@ -10,15 +10,14 @@ public class LC130 {
             return;
         }
         int col = board[0].length;
-        boolean[][] visited = new boolean[row][col];
         // first col
         for(int i = 0; i < row; i++) {
             if (board[i][0] == 'O') {
                 // turn all 0 to *
-                dfs(board, row, col, i, 0, visited);
+                dfs(board, row, col, i, 0);
             }
             if (board[i][col-1] == 'O') {
-                dfs(board, row, col, i, col - 1, visited);
+                dfs(board, row, col, i, col - 1);
             }
         }
 
@@ -26,10 +25,10 @@ public class LC130 {
         for(int i = 0; i < col; i++) {
             if (board[0][i] == 'O') {
                 // turn all 0 to *
-                dfs(board, row, col, 0, i, visited);
+                dfs(board, row, col, 0, i);
             }
             if (board[row - 1][i] == 'O') {
-                dfs(board, row, col, row - 1, i, visited);
+                dfs(board, row, col, row - 1, i);
             }
         }
 
@@ -47,18 +46,15 @@ public class LC130 {
 
     private int[][] direction = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}; // four direction
 
-    private void dfs(char[][] board, int row, int col, int x, int y, boolean[][]visited) {
-        if (x < 0 || x >= row || y < 0 || y >= col || visited[x][y] == true || board[x][y] == 'X') {
+    private void dfs(char[][] board, int row, int col, int x, int y) {
+        if (x < 0 || x >= row || y < 0 || y >= col || board[x][y] == '*' || board[x][y] == 'X') {
             return;
         }
-        if (board[x][y] == 'O') {
-            board[x][y] = '*';
-        }
-        visited[x][y] = true;
+        board[x][y] = '*';
         for (int[]dir : direction) {
             int xx = x + dir[0];
             int yy = y + dir[1];
-            dfs(board, row, col, xx, yy, visited);
+            dfs(board, row, col, xx, yy);
         }
     }
 

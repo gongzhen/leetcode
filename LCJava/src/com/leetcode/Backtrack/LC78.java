@@ -1,10 +1,9 @@
-package com.leetcode.Array;
+package com.leetcode.Backtrack;
 
 import com.leetcode.Helper.PrintUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class LC78 {
