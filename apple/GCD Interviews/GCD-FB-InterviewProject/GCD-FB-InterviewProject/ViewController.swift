@@ -4,7 +4,8 @@
 //
 //  Created by Zhen Gong on 9/8/19.
 //  Copyright © 2019 Zhen Gong. All rights reserved.
-//
+//  http://danielemargutti.com/2017/10/19/throttle-in-swift/
+//  https://www.swiftbysundell.com/articles/a-deep-dive-into-grand-central-dispatch-in-swift/
 
 import UIKit
 

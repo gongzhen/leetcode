@@ -135,6 +135,47 @@ import Cocoa
 NSDicionary* result = [self findZeroBlock:image row: 5, col: 7];
 */
 
-class UberInterview: NSObject {
+class Car {
+    var name = "Mercedes"
+}
 
+enum Direction {
+    case north, south, east, west
+}
+
+func update(vehicle: Car, direction: Direction) {
+    let newVehicle = vehicle
+    vehicle.name = "BMW"
+    
+    var newDirection = direction
+    newDirection = .west
+    
+    print("\(vehicle.name) \(newVehicle.name)") // BMW, BMW
+    print("\(newDirection) \(direction)") // .west, east
+}
+
+class Author {
+    var book: Book?
+}
+
+class Book {
+    var numberOfPages = 100
+}
+
+class UberInterview {
+    init() {
+        update(vehicle: Car(), direction: Direction.east)
+        
+        
+        let john = Author()
+        john.book = Book()
+
+        var pages: Int = john.book!.numberOfPages
+        
+        print("\(pages)")
+        john.book = nil
+        pages = john.book?.numberOfPages ?? 0
+        
+        print("\(pages)")
+    }
 }

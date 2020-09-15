@@ -116,5 +116,21 @@ func handlerDeinitialization() -> String {
 
 print(handlerDeinitialization())
 
-let dispatchQueueTest = DispatchQueueTest()
-print(dispatchQueueTest)
+//let dispatchQueueTest = DispatchQueueTest()
+//print(dispatchQueueTest)
+
+struct Point {
+    var x = 0.0, y = 0.0
+    
+    mutating func incrementBy(X: Double, Y: Double) {
+        x += X
+        y += Y
+    }
+}
+
+var myPoint = Point(x: 2.0, y: 1.0)
+myPoint.incrementBy(X: 2.0, Y: 3.0)
+print("\(myPoint.x), \(myPoint.y)")
+
+let _ = UberInterview()
+

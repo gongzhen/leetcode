@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6030EC27238C755C0091E26F /* Tinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6030EC26238C755C0091E26F /* Tinder.swift */; };
 		60365ACC233316AA003D9EB5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60365ACB233316AA003D9EB5 /* main.swift */; };
 		60365AD3233316CF003D9EB5 /* SwiftQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60365AD2233316CF003D9EB5 /* SwiftQueue.swift */; };
 		60365AD523340254003D9EB5 /* QueueWithoutList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60365AD423340254003D9EB5 /* QueueWithoutList.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6030EC26238C755C0091E26F /* Tinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tinder.swift; sourceTree = "<group>"; };
 		60365AC8233316AA003D9EB5 /* AirbnbSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AirbnbSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		60365ACB233316AA003D9EB5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		60365AD2233316CF003D9EB5 /* SwiftQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftQueue.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				6059158F235FD1B200252C9D /* ConvertSnakeCase.swift */,
 				60B3EB6D237F498500DC27D7 /* UberInterview.swift */,
 				60B3EB72237FABB600DC27D7 /* DispatchQueueTest.swift */,
+				6030EC26238C755C0091E26F /* Tinder.swift */,
 			);
 			path = AirbnbSwift;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				6093DBB6233A7CB700D43D4D /* LC451.swift in Sources */,
 				60B3EB6E237F498500DC27D7 /* UberInterview.swift in Sources */,
 				60365AD523340254003D9EB5 /* QueueWithoutList.swift in Sources */,
+				6030EC27238C755C0091E26F /* Tinder.swift in Sources */,
 				60B984CD2353A4D400D38FB8 /* NonAndExcapingClosure.swift in Sources */,
 				60365AD72334181C003D9EB5 /* CollatzConjecture.swift in Sources */,
 				60365ACC233316AA003D9EB5 /* main.swift in Sources */,
